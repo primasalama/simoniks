@@ -1,10 +1,5 @@
-
-<div class="col-sm-6">
-    <div class="box box-warning">
         <div class="container">
-            <img src="<?php echo base_url();?>assets/img/peta.jpg">               
+            <img src="<?php echo base_url();?>assets/img/peta.jpg" style="width:1200px;">               
                 
         </div>
-    </div>
-</div>
  </html>
