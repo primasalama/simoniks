@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
+class Dashboard extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,17 +21,11 @@ class Auth extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		date_default_timezone_set("Asia/Jakarta");
-		$this->load->model('M_login');
 	}
 	public function index()
 	{
-		$user = $this->input->post('username');
-		$pass = md5($this->input->post('password'));
-		$result = $this->M_login->getId($user,$pass);
-		if (empty($result)) {
-			echo "Kosong";
-		}else{
-			redirect('dashboard');
-		}
+		$this->load->view('backend/header');
+		$this->load->view('backend/login');
+		$this->load->view('backend/footer');
 	}
 }
