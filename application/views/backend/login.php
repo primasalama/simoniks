@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
-		<<center>
+		<center>
 			<a href="https://maritim.go.id/">
 				<img style="width:240px;" src="<?php echo base_url();?>assets/img/maritim.png" class="img img-responsive">
 			</a>
@@ -9,7 +9,7 @@
 			<div class="panel-heading">Login</div>
 			<div class="panel-body">
 				<div id="FormLogin" class="text-centered">
-					<form action="" method="">
+					<form action="<?php echo base_url();?>Auth" method="post">
 						<div class="form-group">
 							<label>Username : </label>
 							<input type="text" name="username" class="form-control" placeholder="Username" required="true">
