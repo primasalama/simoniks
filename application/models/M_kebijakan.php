@@ -11,6 +11,7 @@ class M_kebijakan extends CI_Model {
 	{
 		$this->db->insert('kebijakan',$data);
 	}
+	
 	public function deleteId($value='')
 	{
 		$this->db->where('no',$value);
