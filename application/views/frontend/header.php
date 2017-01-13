@@ -47,11 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="navbar-brand" style="text-align:center; margin-top: 20px; color: white ">
       DEPUTI BIDANG KOORDINASI SUMBER DAYA DAN JASA <br /><br/>
       KEMENTRIAN KOORDINATOR BIDANG KEMARITIMAN</div>
-      
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    
   </div><!-- /.container-fluid -->
 </nav>
 <style type="text/css">
