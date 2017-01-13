@@ -4,44 +4,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/smanbul.png">
-    <title>Front | Simoniks</title>
-
-    
-    <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url();?>assets/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!---<link href="<?php echo base_url();?>assets/css/jquery.timepicker.min.css" rel="stylesheet">-->
-    <link href="<?php echo base_url();?>assets/css/jquery-ui.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="<?php echo base_url();?>assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="<?php echo base_url();?>assets/css/dashboard.css" rel="stylesheet">
-
-    <script src="<?php echo base_url();?>assets/js/ie-emulation-modes-warning.js"></script>
-
-       <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
-    <script src="<?php echo base_url();?>assets/js/jquery-ui.js"></script>
-    <script src="<?php echo base_url();?>assets/js/jquery.dataTables.min.js"></script>
-    <script>window.jQuery || document.write('<script src="<?php echo base_url();?>assets/js/jquery.min.js"><\/script>')</script>
-    <script src="<?php echo base_url();?>assets/js/bootstrap.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="<?php echo base_url();?>assets/js/holder.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="<?php echo base_url();?>assets/js/ie10-viewport-bug-workaround.js"></script>
-
-  </head>
+    <meta name="description" content="Login Page">
+    <meta name="author" content="Prima Salama">
+    <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/maritim.png">
+  <title>SIMONIK :: <?php echo $this->uri->segment(1);?></title>
+  <!-- Boostrap-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
+  <!-- Buat Datepicker-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/datepicker.css">
+  <!-- datatablenya -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.min.css">
+  <!-- fotn awesome-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
+  <!-- Buat Timepicker-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.timepicker.min.css">
+  <!-- ini jquery ui-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery-ui.css">
+  <!-- Buat View Port Edge-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/ie10-viewport-bug-workaround.css">
+  <!-- JQuery Wajib Jangan Ilang -->
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.1.min.js"></script>
+  <!-- Js buat bootstrap-->
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+  <!-- Js datatables -->
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
+  <!-- Js buat datepicker -->
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>
+</head>
 
   <body>
   <nav class="navbar navbar-default navbar-fixed-top" style="height: 130px; background-color: #6699FF">
