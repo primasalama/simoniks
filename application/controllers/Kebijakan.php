@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kegiatan extends CI_Controller {
+class Kebijakan extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,13 +21,15 @@ class Kegiatan extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		date_default_timezone_set("Asia/Jakarta");
+		$this->load->model('M_kebijakan');
 	}
 	public function index()
 	{
+		$result['data'] = $this->M_kebijakan->getAll();
 		$this->load->view('backend/header');
 		$this->load->view('backend/navbar');
 		$this->load->view('backend/sidenav');
-		$this->load->view('backend/list_kebijakan');
+		$this->load->view('backend/list_kebijakan',$result);
 		$this->load->view('backend/footer');
 	}
 	public function tambah()
@@ -37,5 +39,11 @@ class Kegiatan extends CI_Controller {
 		$this->load->view('backend/sidenav');
 		$this->load->view('backend/add_kebijakan');
 		$this->load->view('backend/footer');
+	}
+	public function add()
+	{
+		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>1);
+		$this->M_kebijakan->insert($data);
+		redirect('keijakan');
 	}
 }

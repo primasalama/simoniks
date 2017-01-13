@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#"></a>
-      <a class="navbar-brand" href="<?php echo base_url();?>admin">Dashboard Perpustakaan Digital</a>
+      <a class="navbar-brand" href="<?php echo base_url();?>admin">Dashboard SIMONIKS</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
