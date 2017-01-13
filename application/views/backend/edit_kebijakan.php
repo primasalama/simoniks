@@ -8,22 +8,22 @@
 				<div class="panel-heading">Form</div>
 				<div class="panel-body">
 					<div id="FormLogin" class="text-centered">
-						<form action="<?php echo base_url().$this->uri->Segment(1);?>/add" method="post">
+						<form action="<?php echo base_url().$this->uri->Segment(1);?>/update/<?php echo $data[0]->no;?>" method="post">
 							<div class="form-group">
 								<label>Narasi : </label>
-								<textarea class="form-control" name="narasi" placeholder="Narasi"></textarea>
+								<textarea class="form-control" name="narasi" placeholder="Narasi"><?php echo $data[0]->narasi;?></textarea>
 							</div>
 							<div class="form-group">
 								<label>Status : </label>
-								<input type="text" name="status" class="form-control" placeholder="Status" required="true">
+								<input type="text" name="status" class="form-control" placeholder="Status" required="true" value="<?php echo $data[0]->status;?>">
 							</div>
 							<div class="form-group">
 								<label>Indikator : </label>
-								<input type="text" name="indikator" class="form-control" placeholder="indikator" required="true">
+								<input type="text" name="indikator" class="form-control" placeholder="indikator" required="true" value="<?php echo $data[0]->indikator;?>">
 							</div>
 							<div class="form-group">
 								<label>PIC : </label>
-								<input type="text" name="pic" class="form-control" placeholder="pic" required="true">
+								<input type="text" name="pic" class="form-control" placeholder="pic" required="true" value="<?php echo $data[0]->pic;?>">
 							</div>
 							<!--
 							<div class="form-group">

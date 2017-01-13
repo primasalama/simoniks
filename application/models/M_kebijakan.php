@@ -11,10 +11,20 @@ class M_kebijakan extends CI_Model {
 	{
 		$this->db->insert('kebijakan',$data);
 	}
-	
+
 	public function deleteId($value='')
 	{
 		$this->db->where('no',$value);
 		$this->db->delete('kebijakan');
+	}
+	public function updateId($data,$value)
+	{
+		$this->db->where('no',$value);
+		$this->db->update('kebijakan',$data);
+	}
+	public function getId($value='')
+	{
+		$this->db->where('no',$value);
+		return $this->db->get('kebijakan')->result();
 	}
 }

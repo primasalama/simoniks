@@ -8,11 +8,11 @@
 <div class="col-sm-9">
 		<div class="container-fluid">
 			<ol class="breadcrumb">
-			  <li class="breadcrumb-item"><a href="<?php echo base_url().$this->uri->segment(1);?>">Kegiatan</a></li>
-			  <li class="breadcrumb-item active">List</li>
+			  <li class="breadcrumb-item"><a href="#"><?php echo $this->uri->Segment(1);?></a></li>
+			  <li class="breadcrumb-item active"><?php echo $this->uri->Segment(2);?></li>
 			</ol>
 			<div class="container">
-				<table id="kebijakan" class="table table-responsive">
+				<table id="kebijakan" class="table table-hover">
 					<thead>
 						<tr>
 							<th>No.</th>
@@ -39,9 +39,16 @@
 							<td><?php echo $key->indikator;?></td>
 							<td><?php echo $key->pic;?></td>
 							<?php 
-							if ($this->uri->segment(2)) {
+							if ($this->uri->segment(2) == 'delete') {
 								?><td>
 									<a class="btn btn-danger" href="<?php echo base_url().$this->uri->Segment(1);?>/delete/<?php echo $key->no;?>"><span class="glyphicon glyphicon-trash"></span></a>
+								</td><?php
+							}
+							?>
+							<?php 
+							if ($this->uri->segment(2) == 'update') {
+								?><td>
+									<a class="btn btn-warning" href="<?php echo base_url().$this->uri->Segment(1);?>/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
 								</td><?php
 							}
 							?>
@@ -55,6 +62,8 @@
 		</div>
 </div>
 <div class="col-sm-1">
-	<a href="<?php echo base_url().$this->uri->Segment(1);?>/tambah" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Tambah</a>
-	<a href="<?php echo base_url().$this->uri->Segment(1);?>/config" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Config</a>
+	<a href="<?php echo base_url().$this->uri->Segment(1);?>/tambah" class="btn btn-primary" style="margin-bottom:20px;"><span class="glyphicon glyphicon-plus"></span> Tambah</a>	
+	<a href="<?php echo base_url().$this->uri->Segment(1);?>/delete" class="btn btn-warning" style="margin-bottom:20px;"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+	<a href="<?php echo base_url().$this->uri->Segment(1);?>/update" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+
 </div>

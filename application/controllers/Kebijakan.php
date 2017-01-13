@@ -55,9 +55,24 @@ class Kebijakan extends CI_Controller {
 		$this->load->view('backend/list_kebijakan',$result);
 		$this->load->view('backend/footer');
 	}
+	public function update($value)
+	{
+		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>1);
+		$this->M_kebijakan->updateId($data,$value);
+		redirect('Kebijakan');
+	}
 	public function delete($value)
 	{
 		$this->M_kebijakan->deleteId($value);
 		redirect('kebijakan');
+	}
+	public function edit($value)
+	{
+		$result['data'] = $this->M_kebijakan->getId($value);
+		$this->load->view('backend/header');
+		$this->load->view('backend/navbar');
+		$this->load->view('backend/sidenav');
+		$this->load->view('backend/edit_kebijakan',$result);
+		$this->load->view('backend/footer');
 	}
 }
