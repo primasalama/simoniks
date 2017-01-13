@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Kegiatan extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -23,6 +23,14 @@ class Dashboard extends CI_Controller {
 		date_default_timezone_set("Asia/Jakarta");
 	}
 	public function index()
+	{
+		$this->load->view('backend/header');
+		$this->load->view('backend/navbar');
+		$this->load->view('backend/sidenav');
+		$this->load->view('backend/list_kebijakan');
+		$this->load->view('backend/footer');
+	}
+	public function tambah()
 	{
 		$this->load->view('backend/header');
 		$this->load->view('backend/navbar');
