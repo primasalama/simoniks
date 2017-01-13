@@ -1,11 +1,3 @@
-<div class="col-sm-2 sidebar">
-	<ul class="nav nav-sidebar">
-        <li class="activer"><a href="<?php echo site_url();?>admin">Dashboard <span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="<?php echo site_url();?>berita">Berita <span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="<?php echo site_url();?>foto"">Foto</a></li>
-        <li class="active"><a href="<?php echo site_url();?>testimonial">Testimonial</a></li>
-    </ul>
-</div>
 <div class="col-sm-9">
 		<div class="container-fluid">
 			<ol class="breadcrumb">

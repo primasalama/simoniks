@@ -8,11 +8,13 @@
     <meta name="description" content="Login Page">
     <meta name="author" content="Prima Salama">
     <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/maritim.png">
-	<title>SIMONIK :: Login</title>
+	<title>SIMONIK :: <?php echo $this->uri->segment(1);?></title>
 	<!-- Boostrap-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
 	<!-- Buat Datepicker-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/datepicker.css">
+	<!-- datatablenya -->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.min.css">
 	<!-- fotn awesome-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
 	<!-- Buat Timepicker-->
@@ -22,7 +24,7 @@
 	<!-- Buat View Port Edge-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/ie10-viewport-bug-workaround.css">
 	<!-- JQuery Wajib Jangan Ilang -->
-	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.1.min.js"></script>
 	<!-- Js buat bootstrap-->
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
 	<!-- Js datatables -->
