@@ -41,8 +41,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      
-      <div class="navbar-brand" style="text-align:center; margin-left: 350px; color: white ">DEPUTI BIDANG KOORDINASI SUMBER DAYA DAN JASA <br /><br/>
+    <div class="navbar-brand" style="text-align:center; margin-left: 300px; margin-top: -15px; color: white ">
+    <img src="<?php echo base_url();?>assets/img/maritim.PNG" width="150" height="150">
+    </div>
+      <div class="navbar-brand" style="text-align:center; margin-top: 20px; color: white ">
+      DEPUTI BIDANG KOORDINASI SUMBER DAYA DAN JASA <br /><br/>
       KEMENTRIAN KOORDINATOR BIDANG KEMARITIMAN</div>
       
     </div>
