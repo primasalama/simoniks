@@ -58,5 +58,7 @@ $route['translate_uri_dashes'] = FALSE;
 //coba http://localhost/project1/home. nice :)
 $route['Kebijakan/delete'] = 'kebijakan/config';
 $route['Kebijakan/update'] = 'kebijakan/config';
+$route['agenda/delete'] = 'agenda/config';
+$route['agenda/update'] = 'agenda/config';
 //$route['home/(:any)'] = 'beranda/arif';
 //$route['home/(:any)/(:num)'] = 'beranda/coba/$1';

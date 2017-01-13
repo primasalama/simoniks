@@ -17,12 +17,13 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.min.css">
 	<!-- fotn awesome-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
-	<!-- Buat Timepicker-->
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.timepicker.min.css">
 	<!-- ini jquery ui-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery-ui.css">
 	<!-- Buat View Port Edge-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/ie10-viewport-bug-workaround.css">
+	<!-- Material Datetimepicker -->
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap-material-datetimepicker.css" />
+
 	<!-- JQuery Wajib Jangan Ilang -->
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.1.min.js"></script>
 	<!-- Js buat bootstrap-->
@@ -30,6 +31,13 @@
 	<!-- Js datatables -->
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
 	<!-- Js buat datepicker -->
+	<script type="text/javascript" src="<?php echo base_url();?>assets/js/material.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>assets/js/moment-with-locales.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap-material-datetimepicker.js"></script>
+
+	<!-- END -->
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>
+	<!-- js buat time picker-->
+	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.timepicker.js"></script>
 </head>
 <body>
