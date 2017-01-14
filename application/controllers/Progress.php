@@ -85,19 +85,21 @@ class Progress extends CI_Controller {
 	public function update($value)
 	{
 		$result = $this->M_progress->getId($value);
-		if (!empty($_FILES['foto1'])) {
+		$doc1 = $_FILES['foto1'];
+		$doc2 = $_FILES['foto2'];
+		if ($doc1['size'] != 0) {
 			$dokumentasi1 = $this->uploadImage($_FILES['foto1'],'foto1');
 		}else{
 			$dokumentasi1 = $result[0]->dokumentasi1;
 		}
-		if (!empty($_FILES['foto2'])) {
+		if ($doc2['size'] != 0) {
 			$dokumentasi2 = $this->uploadImage($_FILES['foto2'],'foto2');
 		}else{
 			$dokumentasi2 = $result[0]->dokumentasi2;
 		}
 		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_progress->updateId($data,$value);
-		redirect('Progress');
+		redirect('progress');
 	}
 	public function delete($value)
 	{

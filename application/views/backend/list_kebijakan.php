@@ -8,8 +8,8 @@
 <div class="col-sm-9">
 		<div class="container-fluid">
 			<ol class="breadcrumb">
-			  <li class="breadcrumb-item"><a href="#"><?php echo $this->uri->Segment(1);?></a></li>
-			  <li class="breadcrumb-item active"><?php echo $this->uri->Segment(2);?></li>
+			  <li class="breadcrumb-item"><a href="#"><?php echo strtoupper($this->uri->Segment(1));?></a></li>
+			  <li class="breadcrumb-item active"><?php echo strtoupper($this->uri->Segment(2));?></li>
 			</ol>
 			<div class="container">
 				<table id="kebijakan" class="table table-hover">

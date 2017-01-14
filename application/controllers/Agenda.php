@@ -46,7 +46,7 @@ class Agenda extends CI_Controller {
 	public function add()
 	{
 		//$tgl = substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2);
-		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'pukul'=>$this->input->post('pukul'),'tempat'=>$this->input->post('tempat'),'unit'=>$this->input->post('unit'),'created_by'=>$this->session->userdata('session')[0]->no,'update_by'=>null);
+		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'pukul'=>$this->input->post('pukul'),'tempat'=>$this->input->post('tempat'),'unit'=>$this->input->post('unit'),'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
 		$this->M_agenda->insert($data);
 		redirect('agenda');
 	}

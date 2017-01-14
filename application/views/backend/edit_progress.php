@@ -1,14 +1,14 @@
 <div class="col-sm-9">
 		<div class="container-fluid">
 			<ol class="breadcrumb">
-			  <li class="breadcrumb-item"><a href="#"><?php echo $this->uri->Segment(1);?></a></li>
-			  <li class="breadcrumb-item active"><?php echo $this->uri->Segment(2);?></li>
+			  <li class="breadcrumb-item"><a href="#"><?php echo strtoupper($this->uri->Segment(1));?></a></li>
+			  <li class="breadcrumb-item active"><?php echo strtoupper($this->uri->Segment(2));?></li>
 			</ol>
 			<div class="panel panel-info">
 				<div class="panel-heading">Form</div>
 				<div class="panel-body">
 					<div id="FormLogin" class="col-sm-7">
-						<form action="<?php echo base_url().$this->uri->Segment(1);?>/update/<?php echo $data[0]->no;?>" method="post">
+						<form action="<?php echo base_url().$this->uri->Segment(1);?>/update/<?php echo $data[0]->no;?>" method="post" enctype="multipart/form-data">
 							<div class="form-group">
 								<label>Nama Kegiatan : </label>
 								<input type="text" name="kegiatan" class="form-control" value="<?php echo $data[0]->kegiatan;?>" placeholder="Nama Kegiatan" required="true">

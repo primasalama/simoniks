@@ -24,10 +24,9 @@ class Beranda extends CI_Controller {
 		$this->load->view('frontend/beranda');
 		$this->load->view('frontend/footer');
 	}
-	public function arif()
+	public function md5($val)
 	{
-		echo "Arif";
-		# code...
+		echo md5($val);
 	}
 	public function coba($value='')
 	{
