@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 13 Jan 2017 pada 18.06
+-- Generation Time: 14 Jan 2017 pada 04.50
 -- Versi Server: 5.6.25
 -- PHP Version: 5.5.27
 
@@ -37,14 +37,7 @@ CREATE TABLE IF NOT EXISTS `agenda` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `agenda`
---
-
-INSERT INTO `agenda` (`no`, `tanggal`, `kegiatan`, `pukul`, `tempat`, `unit`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(4, '2016-12-28', 'jojfo', '23:59:00', 'dsa', 'dsad', '2017-01-13 17:00:05', '0000-00-00 00:00:00', 1, 0);
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -80,16 +73,24 @@ INSERT INTO `kebijakan` (`no`, `narasi`, `status`, `indikator`, `pic`, `created_
 CREATE TABLE IF NOT EXISTS `progress` (
   `no` int(11) NOT NULL,
   `kegiatan` text NOT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tanggal` date NOT NULL,
   `hasil` text NOT NULL,
   `tindak_ljt` text NOT NULL,
   `masalah` text NOT NULL,
-  `dokumentasi` text NOT NULL,
+  `dokumentasi1` text NOT NULL,
+  `dokumentasi2` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `progress`
+--
+
+INSERT INTO `progress` (`no`, `kegiatan`, `tanggal`, `hasil`, `tindak_ljt`, `masalah`, `dokumentasi1`, `dokumentasi2`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(3, 'Diploma Tech Days', '2017-01-30', 'Lancar', 'Lancar', 'Lancar', 'file_1484363274.jpg', 'file_14843632741.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -151,7 +152,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `agenda`
 --
 ALTER TABLE `agenda`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `kebijakan`
 --
@@ -161,7 +162,7 @@ ALTER TABLE `kebijakan`
 -- AUTO_INCREMENT for table `progress`
 --
 ALTER TABLE `progress`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user`
 --
