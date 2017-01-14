@@ -1,4 +1,4 @@
-<?php
+s<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
@@ -15,6 +15,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Boostrap-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/style.css">
+  <!-- Buat Depan ajah kok inimah -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/one-page-wonder.css">
   <!-- Buat Datepicker-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/datepicker.css">
   <!-- datatablenya -->
@@ -37,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>
 </head>
 
-  <body>
+  <body style="background-color: #CBCBFE;">
   <nav class="navbar navbar-default navbar-fixed-top" style="height: 130px; background-color: #6699FF">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->

@@ -18,10 +18,27 @@ class Beranda extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct() {
+		parent::__construct();
+		date_default_timezone_set("Asia/Jakarta");
+		$this->load->model('M_agenda');
+		$this->load->model('M_kebijakan');
+		$this->load->model('M_progress');
+	}
 	public function index()
 	{
+		$result['kebijakan'] = $this->M_kebijakan->getAll();
+		$result['agenda'] = $this->M_agenda->getAll();
+		$result['progress'] = $this->M_progress->getAll();
 		$this->load->view('frontend/header');
-		$this->load->view('frontend/beranda');
+		$this->load->view('frontend/beranda',$result);
+		$this->load->view('frontend/footer');
+	}
+	public function kebijakan($value='')
+	{
+		$result['data'] = $this->M_kebijakan->getAll();
+		$this->load->view('frontend/header');
+		$this->load->view('frontend/list',$result);
 		$this->load->view('frontend/footer');
 	}
 	public function md5($val)
