@@ -11,6 +11,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/maritim.png">
     <title>SIMONIKS :: <?php echo $this->uri->segment(1);?></title>
+
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -46,33 +47,41 @@
     <!-- Full Width Image Header -->
     <header class="header-image">
         <div class="headline">
-            <div class="container" style="margin-top: 30px;">
+            <div class="container">
+                <div class="col-sm-5">
+                <ol class="breadcrumb" style="margin-top: -90px; margin-left: -20px; text-align: left; opacity: 0.8">
+                    <li class="breadcrumb-item"><a href="#">SiMoniKS</a></li>
+                    <li class="breadcrumb-item">Beranda</li>
+                    <li class="breadcrumb-item active">Agenda</li>
+                </ol>
+                </div>
             <center>
+                <h3>Agenda Asisten Deputi</h3>
                 <div class="col-sm-3">
                   <a href="<?php echo base_url();?>Beranda" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
-                            <b>Beranda</b>
+                            <b>Asdep1</b>
                         </div>
                   </a>
                 </div>
                 <div class="col-sm-3">
                   <a href="<?php echo base_url();?>beranda/Kebijakan" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
-                            <b>Kebijakan</b>
+                            <b>Asdep2</b>
                         </div>
                   </a>
                 </div>
                 <div class="col-sm-3">
-                  <a href="<?php echo base_url();?>beranda/Progress" style="text-decoration: none;">
+                  <a href="<?php echo base_url();?>" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
-                            <b>Progress</b>
+                            <b>Asdep3</b>
                         </div>
                   </a>
                 </div>
                 <div class="col-sm-3">
-                  <a href="<?php echo base_url();?>beranda/Agenda" style="text-decoration: none;">
+                  <a href="<?php echo base_url();?>" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
-                            <b>Agenda</b>
+                            <b>Asdep4</b>
                         </div>
                   </a>
                 </div>

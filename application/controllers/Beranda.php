@@ -36,10 +36,29 @@ class Beranda extends CI_Controller {
 	}
 	public function kebijakan($value='')
 	{
-		$result['data'] = $this->M_kebijakan->getAll();
+		$this->load->view('frontend/kebijakan');
+		/*$result['data'] = $this->M_kebijakan->getAll();
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/list',$result);
-		$this->load->view('frontend/footer');
+		$this->load->view('frontend/footer');*/
+	}
+
+	public function progress($value='')
+	{
+		$this->load->view('frontend/progress');
+		/*$result['data'] = $this->M_kebijakan->getAll();
+		$this->load->view('frontend/header');
+		$this->load->view('frontend/list',$result);
+		$this->load->view('frontend/footer');*/
+	}
+
+	public function agenda($value='')
+	{
+		$this->load->view('frontend/agenda');
+		/*$result['data'] = $this->M_kebijakan->getAll();
+		$this->load->view('frontend/header');
+		$this->load->view('frontend/list',$result);
+		$this->load->view('frontend/footer');*/
 	}
 	public function md5($val)
 	{
