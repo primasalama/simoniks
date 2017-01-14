@@ -20,7 +20,9 @@ class Beranda extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('frontend/header');
+		$this->load->view('frontend/beranda');
+		$this->load->view('frontend/footer');
 	}
 	public function arif()
 	{
