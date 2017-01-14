@@ -44,9 +44,9 @@ class Progress extends CI_Controller {
 	{
 		$dokumentasi1 =  $this->uploadImage($_FILES['foto1'],'foto1');
 		$dokumentasi2 =  $this->uploadImage($_FILES['foto2'],'foto2');
-		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'pukul'=>$this->input->post('pukul'),'tempat'=>$this->input->post('tempat'),'unit'=>$this->input->post('unit'),'created_by'=>1);
+		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'created_by'=>1);
 		$this->M_progress->insert($data);
-		redirect('Progress');
+		redirect('progress');
 	}
 	public function uploadImage($image,$name)
 	{
@@ -54,7 +54,7 @@ class Progress extends CI_Controller {
 			$file_name = 'file_'.time();
 			$config['upload_path']   = './assets/images/uploads/'; 
 	        $config['allowed_types'] = 'jpg|png|JPG|PNG|JPEG|jpeg'; 
-	        $config['max_size']      = 10240; 
+	        $config['max_size']      = 20480; 
 	        $config['max_width']     = 5120; 
 	        $config['max_height']    = 3840;  
 	        $config['file_name'] = $file_name;
@@ -81,14 +81,25 @@ class Progress extends CI_Controller {
 	}
 	public function update($value)
 	{
-		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'pukul'=>$this->input->post('pukul'),'tempat'=>$this->input->post('tempat'),'unit'=>$this->input->post('unit'),'created_by'=>1);
+		$result = $this->M_progress->getId($value);
+		if (!empty($_FILES['foto1'])) {
+			$dokumentasi1 = $this->uploadImage($_FILES['foto1'],'foto1');
+		}else{
+			$dokumentasi1 = $result[0]->dokumentasi1;
+		}
+		if (!empty($_FILES['foto2'])) {
+			$dokumentasi2 = $this->uploadImage($_FILES['foto2'],'foto2');
+		}else{
+			$dokumentasi2 = $result[0]->dokumentasi2;
+		}
+		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'created_by'=>1);
 		$this->M_progress->updateId($data,$value);
 		redirect('Progress');
 	}
 	public function delete($value)
 	{
 		$this->M_progress->deleteId($value);
-		redirect('Progress');
+		redirect('progress');
 	}
 	public function edit($value)
 	{

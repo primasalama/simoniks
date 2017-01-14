@@ -41,7 +41,10 @@
 							<td><?php echo $key->hasil;?></td>
 							<td><?php echo $key->tindak_ljt;?></td>
 							<td><?php echo $key->masalah;?></td>
-							<td></td>
+							<td>
+								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
+								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
+							</td>
 							<?php 
 							if ($this->uri->segment(2) == 'delete') {
 								?><td>
