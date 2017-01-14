@@ -16,8 +16,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
       <ul class="nav navbar-nav navbar-right">
-          <li><a data-toggle="modal" href="#admin"><span class="glyphicon glyphicon-user"></span> <?php echo $this->session->userdata('sesi')['nama'];?></a></li>
-          <li><a href="<?php echo base_url();?>login/logout"><span class="glyphicon glyphicon-off"></span> Log Out</a></li>         
+          <li><a data-toggle="modal" href="#admin"><span class="glyphicon glyphicon-user"></span> <?php echo $this->session->userdata('session')[0]->name;?></a></li>
+          <li><a href="<?php echo base_url();?>auth/logout"><span class="glyphicon glyphicon-off"></span> Log Out</a></li>         
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

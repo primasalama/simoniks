@@ -4,10 +4,15 @@
 			<a href="https://maritim.go.id/">
 				<img style="width:240px;" src="<?php echo base_url();?>assets/img/maritim.png" class="img img-responsive">
 			</a>
+			<br/>
+			
 		</center>
 		<div class="panel panel-info">
 			<div class="panel-heading">Login</div>
 			<div class="panel-body">
+				<?php 
+					echo $data;
+				?>
 				<div id="FormLogin" class="text-centered">
 					<form action="<?php echo base_url();?>Auth" method="post">
 						<div class="form-group">

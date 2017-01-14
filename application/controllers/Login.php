@@ -22,10 +22,15 @@ class Login extends CI_Controller {
 		parent::__construct();
 		date_default_timezone_set("Asia/Jakarta");
 	}
-	public function index()
+	public function index($value='')
 	{
+		if ($value == 'failed') {
+			$result['data'] = '<div class="alert alert-danger">Login dibatalkan. Kombinasi <b>Username</b> <b>Password</b> Salah</div>';
+		}else{
+			$result['data'] = null;
+		}
 		$this->load->view('backend/header');
-		$this->load->view('backend/login');
+		$this->load->view('backend/login',$result);
 		$this->load->view('backend/footer');
 	}
 }

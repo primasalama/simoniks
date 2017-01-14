@@ -21,6 +21,9 @@ class Dashboard extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		date_default_timezone_set("Asia/Jakarta");
+		if (empty($this->session->userdata('session'))) {
+			redirect('login');
+		}
 	}
 	public function index()
 	{

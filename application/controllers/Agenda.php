@@ -22,6 +22,9 @@ class Agenda extends CI_Controller {
 		parent::__construct();
 		date_default_timezone_set("Asia/Jakarta");
 		$this->load->model('M_agenda');
+		if (empty($this->session->userdata('session'))) {
+			redirect('login');
+		}
 	}
 	public function index()
 	{
@@ -43,7 +46,7 @@ class Agenda extends CI_Controller {
 	public function add()
 	{
 		//$tgl = substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2);
-		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'pukul'=>$this->input->post('pukul'),'tempat'=>$this->input->post('tempat'),'unit'=>$this->input->post('unit'),'created_by'=>1);
+		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'pukul'=>$this->input->post('pukul'),'tempat'=>$this->input->post('tempat'),'unit'=>$this->input->post('unit'),'created_by'=>$this->session->userdata('session')[0]->no,'update_by'=>null);
 		$this->M_agenda->insert($data);
 		redirect('agenda');
 	}
@@ -58,7 +61,7 @@ class Agenda extends CI_Controller {
 	}
 	public function update($value)
 	{
-		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'pukul'=>$this->input->post('pukul'),'tempat'=>$this->input->post('tempat'),'unit'=>$this->input->post('unit'),'created_by'=>1);
+		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'pukul'=>$this->input->post('pukul'),'tempat'=>$this->input->post('tempat'),'unit'=>$this->input->post('unit'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_agenda->updateId($data,$value);
 		redirect('agenda');
 	}

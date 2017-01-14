@@ -64,5 +64,6 @@ $route['agenda/update'] = 'agenda/config';
 
 $route['progress/delete'] = 'progress/config';
 $route['progress/update'] = 'progress/config';
+$route['login/failed'] = 'login/index/failed';
 //$route['home/(:any)'] = 'beranda/arif';
 //$route['home/(:any)/(:num)'] = 'beranda/coba/$1';

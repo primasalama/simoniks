@@ -29,9 +29,15 @@ class Auth extends CI_Controller {
 		$pass = md5($this->input->post('password'));
 		$result = $this->M_login->getId($user,$pass);
 		if (empty($result)) {
-			echo "Kosong";
+			redirect('login/failed');
 		}else{
+			$this->session->Set_userdata('session',$result);
 			redirect('dashboard');
 		}
+	}
+	public function logout($value='')
+	{
+		$this->session->unset_userdata('session');
+		redirect('login');
 	}
 }

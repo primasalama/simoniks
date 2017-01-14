@@ -22,6 +22,9 @@ class Kebijakan extends CI_Controller {
 		parent::__construct();
 		date_default_timezone_set("Asia/Jakarta");
 		$this->load->model('M_kebijakan');
+		if (empty($this->session->userdata('session'))) {
+			redirect('login');
+		}
 	}
 	public function index()
 	{
@@ -42,7 +45,7 @@ class Kebijakan extends CI_Controller {
 	}
 	public function add()
 	{
-		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>1);
+		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>$this->session->userdata('session')[0]->no,'update_by'=>null);
 		$this->M_kebijakan->insert($data);
 		redirect('Kebijakan');
 	}
@@ -57,7 +60,7 @@ class Kebijakan extends CI_Controller {
 	}
 	public function update($value)
 	{
-		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>1);
+		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_kebijakan->updateId($data,$value);
 		redirect('Kebijakan');
 	}
