@@ -8,26 +8,34 @@
 				<div class="panel-heading">Form</div>
 				<div class="panel-body">
 					<div id="FormLogin" class="col-sm-7">
-						<form action="<?php echo base_url().$this->uri->Segment(1);?>/update/<?php echo $data[0]->no;?>" method="post">
+						<form action="<?php echo base_url().$this->uri->Segment(1);?>/add" method="post" enctype="multipart/form-data">
 							<div class="form-group">
 								<label>Nama Kegiatan : </label>
-								<input type="text" name="kegiatan" class="form-control" value="<?php echo $data[0]->kegiatan;?>" placeholder="Nama Kegiatan" required="true">
+								<input type="text" name="kegiatan" class="form-control" placeholder="Nama Kegiatan" required="true">
 							</div>
 							<div class="form-group">
 								<label>Tanggal Pelaksanaan : </label>
-								<input type="text" id="tanggal" name="tanggal" class="form-control" value="<?php echo substr($data[0]->tanggal, 5,2)."/".substr($data[0]->tanggal, 8,2)."/".substr($data[0]->tanggal, 0,4);?>" placeholder="tanggal" required="true">
+								<input type="text" id="tanggal" name="tanggal" class="form-control" placeholder="tanggal" required="true">
 							</div>
 							<div class="form-group">
-								<label>Waktu Pelaksanaan : </label>
-								<input type="text" id="pukul" name="pukul" class="form-control" value="<?php echo $data[0]->pukul;?>" placeholder="Waktu Pelaksanaan" required="true">
+								<label>Hasil : </label>
+								<input type="text" name="hasil" class="form-control" placeholder="Hasil" required="true">
 							</div>
 							<div class="form-group">
-								<label>Tempat Pelaksanaan : </label>
-								<input type="text" name="tempat" class="form-control" value="<?php echo $data[0]->tempat;?>" placeholder="Tempat Pelaksanaan" required="true">
+								<label>Tindak Lanjut : </label>
+								<input type="text" name="tindak_ljt" class="form-control" placeholder="Tindak Lanjut" required="true">
 							</div>
 							<div class="form-group">
-								<label>Unit Kerja : </label>
-								<input type="text" name="unit" class="form-control" placeholder="Unit Kerja" value="<?php echo $data[0]->unit;?>" required="true">
+								<label>Masalah : </label>
+								<input type="text" name="masalah" class="form-control" placeholder="Masalah" required="true">
+							</div>
+							<div class="form-group col-sm-6">
+								<label>Dokumentasi 1</label>
+								<input type="file" name="foto1" class="form-control" placeholder="Unit Kerja" required="true">	
+							</div>
+							<div class="form-group col-sm-6">
+								<label>Dokumentasi 2</label>
+								<input type="file" name="foto2" class="form-control" placeholder="Unit Kerja" required="true">	
 							</div>
 							
 							<!--
@@ -42,7 +50,7 @@
 							</div>
 						</form>
 					</div>
-					<div class="col-sm-5 alert alert-warning">
+					<div class="col-sm-5 alert alert-success">
 						<p class="heading"><h4><b>Tata Cara Pengisian</b> : </h4></p>
 						<ol>
 							<li>Mengisi Nama Kegiatan sesuai Kegiatan yang bejalan</li>
