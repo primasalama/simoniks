@@ -1,28 +1,16 @@
-{
-margin:0px auto; /*supaya layer otomatis mengisi dan ke tengah*/
+#container {
+  width: 100px;
+  height: 100px;
+  position: fixed;
 }
-body{font-family:calibri, verdana, sans-serif;}
- 
-#wrapper{<br>width:100%;<br>}
- 
-#header{
-height:100px; 
-background:#252525;
-color:#f0f0f0; 
-font-weight:bold; 
-text-decoration:none; 
-font-size:30px; 
-line-height:100px; /*supaya baris judul terlihat rapi, berikan nilai line-height yg sama dengan height #header.*/
-padding:0px 20px; /*padding 20px di kiri dan kanan saja*/
+#navi,
+#infoi {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
- 
-#content{
-background:#eee;
-min-height:500px; /*cuma supaya konten terlihat berisi. Kalau sudah diisi teks, baris ini harus dihapus.*/
-margin:0px 20px;
-}
- 
-#footer{
-background:#000;
-height:40px;
+#infoi {
+  z-index: 10;
 }
