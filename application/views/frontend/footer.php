@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default " style="height: 100px; background-color: #6699FF">
+<nav class="navbar navbar-default navbar-fixed-bottom" style="height: 100px; background-color: #6699FF">
  	<div class="navbar-footer">
         <p class="pull-left" style="margin-left: 40px; margin-top: 10px; font-size: 10pt; color: white">Deputi Bidang Koordinasi Sumber Daya Alam dan Jasa<br />
 		Kementerian Koordinator Bidang Kemaritiman</p>

@@ -69,12 +69,6 @@
                                 <label>PIC : </label>
                                 <input type="text" name="pic" class="form-control" placeholder="pic" required="true">
                             </div>
-                            <!--
-                            <div class="form-group">
-                                <label>Status : </label>
-                                <input type="text" name="status" class="form-control" placeholder="Status" required="true">
-                            </div>
-                            -->
                             <div class="form-group">
                                 <input type="submit" value="Submit" class="btn btn-primary">
                                 <input type="reset" value="Reset" class="btn btn-warning">
