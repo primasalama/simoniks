@@ -3,7 +3,7 @@
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>kebijakan">Kebijakan</a></li>
-		<li class="pull-right"><a href="" class="btn btn-xs btn-primary">Tambah</a></li>
+		<li class="pull-right"><a href="<?php echo base_url();?>kebijakan/add" class="btn btn-xs btn-primary">Tambah</a></li>
 	</ol>
 	<table id="kebijakan" class="table table-bordered">
 					<thead>
