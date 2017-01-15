@@ -56,7 +56,7 @@
                   </a>
                 </div>
                 <div class="col-sm-3">
-                  <a href="<?php echo base_url();?>beranda/Kebijakan" style="text-decoration: none;">
+                  <a href="<?php echo base_url();?>kebijakan" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
                             <b>Kebijakan</b>
                         </div>

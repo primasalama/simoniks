@@ -35,22 +35,52 @@ class Beranda extends CI_Controller {
 		$this->load->view('frontend/beranda',$result);
 		$this->load->view('frontend/footer');
 	}
-	public function kebijakan($value='')
+	public function kebijakan($value='',$mode='')
 	{
-		$this->load->view('frontend/kebijakan');
-		/*$result['data'] = $this->M_kebijakan->getAll();
-		$this->load->view('frontend/header');
-		$this->load->view('frontend/list',$result);
-		$this->load->view('frontend/footer');*/
+		if ($value == '') {
+			$this->load->view('frontend/kebijakan');
+		}else{
+			if ($this->session->userdata('session') and $this->session->userdata('session')[0]->role != 'admin') {
+				if ($this->uri->segment(2) == $this->session->userdata('session')[0]->role) {
+					$result['data'] = $this->M_kebijakan->getByAsdep($value);
+					$this->load->view('frontend/header');
+					$this->load->view('frontend/list',$result);
+					$this->load->view('frontend/footer');
+				}else{
+					$data = array('url' => 'kebijakan','value'=>$value);
+					$this->session->set_userdata('url',$data);
+					redirect('auth/logout');
+				}
+			}else{
+				$data = array('url' => 'kebijakan','value'=>$value);
+				$this->session->set_userdata('url',$data);
+				redirect('Login');
+			}
+		}
 	}
 
 	public function progress($value='')
 	{
-		$this->load->view('frontend/progress');
-		/*$result['data'] = $this->M_kebijakan->getAll();
-		$this->load->view('frontend/header');
-		$this->load->view('frontend/list',$result);
-		$this->load->view('frontend/footer');*/
+		if ($value == '') {
+			$this->load->view('frontend/progress');
+		}else{
+			if ($this->session->userdata('session') and $this->session->userdata('session')[0]->role != 'admin') {
+				if ($this->uri->segment(2) == $this->session->userdata('session')[0]->role) {
+					$result['data'] = $this->M_progress->getByAsdep($value);
+					$this->load->view('frontend/header');
+					$this->load->view('frontend/list_progress',$result);
+					$this->load->view('frontend/footer');
+				}else{
+					$data = array('url' => 'progress','value'=>$value);
+					$this->session->set_userdata('url',$data);
+					redirect('auth/logout');
+				}
+			}else{
+				$data = array('url' => 'progress','value'=>$value);
+				$this->session->set_userdata('url',$data);
+				redirect('Login');
+			}
+		}
 	}
 
 	public function agenda($value='')
@@ -68,28 +98,28 @@ class Beranda extends CI_Controller {
 	public function coba($value='')
 	{
 		//activate worksheet number 1
-$this->excel->setActiveSheetIndex(0);
-//name the worksheet
-$this->excel->getActiveSheet()->setTitle('test worksheet');
-//set cell A1 content with some text
-$this->excel->getActiveSheet()->setCellValue('A1', 'This is just some text value');
-//change the font size
-$this->excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(20);
-//make the font become bold
-$this->excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
-//merge cell A1 until D1
-$this->excel->getActiveSheet()->mergeCells('A1:D1');
-//set aligment to center for that merged cell (A1 to D1)
-$this->excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-$filename='just_some_random_name.xls'; //save our workbook as this file name
-header('Content-Type: application/vnd.ms-excel'); //mime type
-header('Content-Disposition: attachment;filename="'.$filename.'"'); //tell browser what's the file name
-header('Cache-Control: max-age=0'); //no cache
-            
-//save it to Excel5 format (excel 2003 .XLS file), change this to 'Excel2007' (and adjust the filename extension, also the header mime type)
-//if you want to save it as .XLSX Excel 2007 format
-$objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');  
-//force user to download the Excel file without writing it to server's HD
-$objWriter->save('php://output');
+		$this->excel->setActiveSheetIndex(0);
+		//name the worksheet
+		$this->excel->getActiveSheet()->setTitle('test worksheet');
+		//set cell A1 content with some text
+		$this->excel->getActiveSheet()->setCellValue('A1', 'This is just some text value');
+		//change the font size
+		$this->excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(20);
+		//make the font become bold
+		$this->excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
+		//merge cell A1 until D1
+		$this->excel->getActiveSheet()->mergeCells('A1:D1');
+		//set aligment to center for that merged cell (A1 to D1)
+		$this->excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+		$filename='just_some_random_name.xls'; //save our workbook as this file name
+		header('Content-Type: application/vnd.ms-excel'); //mime type
+		header('Content-Disposition: attachment;filename="'.$filename.'"'); //tell browser what's the file name
+		header('Cache-Control: max-age=0'); //no cache
+		            
+		//save it to Excel5 format (excel 2003 .XLS file), change this to 'Excel2007' (and adjust the filename extension, also the header mime type)
+		//if you want to save it as .XLSX Excel 2007 format
+		$objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');  
+		//force user to download the Excel file without writing it to server's HD
+		$objWriter->save('php://output');
 	}
 }

@@ -45,41 +45,40 @@
 </nav>
 
     <!-- Full Width Image Header -->
-    <header class="header-image">
+   <header class="header-image">
         <div class="headline">
             <div class="container">
                 <div class="col-sm-5">
                 <ol class="breadcrumb" style="margin-top: -90px; margin-left: -20px; text-align: left; opacity: 0.8">
-                    <li class="breadcrumb-item"><a href="#">SiMoniKS</a></li>
-                    <li class="breadcrumb-item">Beranda</li>
+                    <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
                     <li class="breadcrumb-item active">Progress</li>
                 </ol>
                 </div>
             <center>
                 <h3>Progress Asisten Deputi</h3>
                 <div class="col-sm-3">
-                  <a href="<?php echo base_url();?>Beranda" style="text-decoration: none;">
+                  <a href="<?php echo base_url();?>progress/asdep1" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
                             <b>Asdep1</b>
                         </div>
                   </a>
                 </div>
                 <div class="col-sm-3">
-                  <a href="<?php echo base_url();?>beranda/Kebijakan" style="text-decoration: none;">
+                  <a href="<?php echo base_url();?>progress/asdep2" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
                             <b>Asdep2</b>
                         </div>
                   </a>
                 </div>
                 <div class="col-sm-3">
-                  <a href="<?php echo base_url();?>" style="text-decoration: none;">
+                  <a href="<?php echo base_url();?>progress/asdep3" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
                             <b>Asdep3</b>
                         </div>
                   </a>
                 </div>
                 <div class="col-sm-3">
-                  <a href="<?php echo base_url();?>" style="text-decoration: none;">
+                  <a href="<?php echo base_url();?>progress/asdep4" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
                             <b>Asdep4</b>
                         </div>

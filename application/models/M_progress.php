@@ -27,4 +27,12 @@ class M_progress extends CI_Model {
 		$this->db->where('no',$value);
 		return $this->db->get('progress')->result();
 	}
+	public function getByAsdep($value='')
+	{
+		$this->db->select('*');
+		$this->db->from('progress');
+		$this->db->join('user', 'user.no = progress.created_by','join');
+		$this->db->where('user.role',$value);
+		return $this->db->get()->result();
+	}
 }

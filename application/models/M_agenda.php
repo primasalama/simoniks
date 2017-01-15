@@ -28,4 +28,12 @@ class M_agenda extends CI_Model {
 		$this->db->where('no',$value);
 		return $this->db->get('agenda')->result();
 	}
+	public function getByAsdep($value='')
+	{
+		$this->db->select('*');
+		$this->db->from('agenda');
+		$this->db->join('user', 'user.no = agenda.created_by','join');
+		$this->db->where('user.role',$value);
+		return $this->db->get()->result();
+	}
 } 	

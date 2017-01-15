@@ -27,4 +27,12 @@ class M_kebijakan extends CI_Model {
 		$this->db->where('no',$value);
 		return $this->db->get('kebijakan')->result();
 	}
+	public function getByAsdep($value='')
+	{
+		$this->db->select('*');
+		$this->db->from('kebijakan');
+		$this->db->join('user', 'user.no = kebijakan.created_by','join');
+		$this->db->where('user.role',$value);
+		return $this->db->get()->result();
+	}
 }

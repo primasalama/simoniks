@@ -1,8 +1,8 @@
 
 <div class="container" style="margin-top:80px;" >
 	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="#">SIMONIK</a></li>
-		<li class="breadcrumb-item">Beranda</li>
+		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
+		<li class="breadcrumb-item"><a href="<?php echo base_url();?>beranda">Beranda</a></li>
 		<li class="breadcrumb-item active">Kebijakan</li>
 	</ol>
 	<table id="kebijakan" class="table table-bordered">
@@ -52,8 +52,8 @@
 					</tbody>
 				</table>
 				<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="#">SIMONIK</a></li>
-		<li class="breadcrumb-item">Beranda</li>
+		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
+		<li class="breadcrumb-item"><a href="<?php echo base_url();?>beranda">Beranda</a></li>
 		<li class="breadcrumb-item active">Agenda</li>
 	</ol>
 	<table id="agenda" class="table table-bordered">
@@ -105,8 +105,8 @@
 					</tbody>
 				</table>
 				<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="#">SIMONIK</a></li>
-		<li class="breadcrumb-item">Beranda</li>
+		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
+		<li class="breadcrumb-item"><a href="<?php echo base_url();?>beranda">Beranda</a></li>
 		<li class="breadcrumb-item active">Progress</li>
 	</ol>
 	<table id="kebijakan" class="table table-bordered">
