@@ -33,7 +33,7 @@ class Beranda extends CI_Controller {
 		$result['progress'] = $this->M_progress->getAll();
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/beranda',$result);
-		$this->load->view('frontend/footer');
+		$this->load->view('frontend/footerf');
 	}
 	public function kebijakan($value='',$mode='')
 	{

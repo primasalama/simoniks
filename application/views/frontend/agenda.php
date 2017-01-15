@@ -50,7 +50,7 @@
             <div class="container">
                 <div class="col-sm-5">
                 <ol class="breadcrumb" style="margin-top: -90px; margin-left: -20px; text-align: left; opacity: 0.8">
-                    <li class="breadcrumb-item"><a href="#">SiMoniKS</a></li>
+                    <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
                     <li class="breadcrumb-item">Beranda</li>
                     <li class="breadcrumb-item active">Agenda</li>
                 </ol>
