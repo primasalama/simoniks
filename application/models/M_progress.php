@@ -4,7 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_progress extends CI_Model {
 	public function getAll()
 	{
-		return $this->db->get('progress')->result();
+		$sql = "SELECT progress.*,user.role,user.name from progress inner join user on user.no = progress.created_by ";
+		return $this->db->query($sql)->result();
 	}
 
 	public function insert($data)

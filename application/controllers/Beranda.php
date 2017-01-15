@@ -110,6 +110,23 @@ class Beranda extends CI_Controller {
 	{
 		echo md5($val);
 	}
+	public function excel($value='')
+	{
+		switch ($value) {
+			case 'kebijakan':
+				# code...
+				break;
+			case 'progress':
+				# code...
+				break;
+			case 'agenda':
+				# code...
+				break;
+			default:
+				# code...
+				break;
+		}
+	}
 	public function coba($value='')
 	{
 		//activate worksheet number 1

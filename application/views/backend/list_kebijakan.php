@@ -20,6 +20,7 @@
 							<th>Status</th>
 							<th>Indikator</th>
 							<th>PIC</th>
+							<th>Author</th>
 							<?php 
 							if ($this->uri->segment(2)) {
 								?><th>Action</th><?php
@@ -38,6 +39,7 @@
 							<td><?php echo $key->status;?></td>
 							<td><?php echo $key->indikator;?></td>
 							<td><?php echo $key->pic;?></td>
+							<td><?php echo $key->name." - ".$key->role;?></td>
 							<?php 
 							if ($this->uri->segment(2) == 'delete') {
 								?><td>

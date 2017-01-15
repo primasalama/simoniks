@@ -1,9 +1,10 @@
 
-<div class="container" style="margin-top:80px;" >
+<div class="container" style="margin-top:120px;" >
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>beranda">Beranda</a></li>
 		<li class="breadcrumb-item active">Kebijakan</li>
+		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excel/kebijakan" class="btn btn-xs btn-warning">Export</a></li>
 	</ol>
 	<table id="kebijakan" class="table table-bordered">
 					<thead>

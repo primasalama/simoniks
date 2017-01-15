@@ -5,7 +5,8 @@ class M_agenda extends CI_Model {
 
 	public function getAll()
 	{
-		return $this->db->get('agenda')->result();
+		$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by ";
+		return $this->db->query($sql)->result();
 	}
 
 	public function insert($data)

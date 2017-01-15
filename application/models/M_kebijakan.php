@@ -4,7 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_kebijakan extends CI_Model {
 	public function getAll()
 	{
-		return $this->db->get('kebijakan')->result();
+		$sql = "SELECT kebijakan.*,user.role,user.name from kebijakan inner join user on user.no = kebijakan.created_by ";
+		return $this->db->query($sql)->result();
 	}
 
 	public function insert($data)
