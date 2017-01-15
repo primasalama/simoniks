@@ -55,7 +55,7 @@
                 </ol>
                 </div>
             <center>
-                <h3 style="padding-bottom:40px;font-size:40px;">Kebijakan Asisten Deputi</h3>
+                <h3 style="padding-bottom:40px;font-size:40px; color: white">Kebijakan Asisten Deputi</h3>
                 <div class="col-sm-3">
                   <a href="<?php echo base_url();?>kebijakan/asdep1" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
@@ -91,7 +91,8 @@
     <nav class="navbar navbar-default navbar-fixed-bottom" style="height: 130px; background-color: #6699FF">
     <div class="navbar-footer">
         <p class="pull-left" style="margin-left: 40px; margin-top: 10px; font-size: 10pt; color: white">Deputi Bidang Koordinasi Sumber Daya Alam dan Jasa<br />
-        Kementerian Koordinator Bidang Kemaritiman<br />
+        Kementerian Koordinator Bidang Kemaritiman</p>
+        <p class="pull-right" style="margin-right: : 40px; margin-top: 10px; font-size: 10pt; color: white">
         Jl. M. H. Thamrin No. 8, Gedung I BPPT Lt.6 ,Jakarta Pusat 10340<br />
         Telpon (021) 22392589, Fax (021) 22392589<br />
         Email : deputi2_sdaj@maritim.go.id <br />
