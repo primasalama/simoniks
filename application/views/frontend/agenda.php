@@ -58,28 +58,28 @@
             <center>
                 <h3 style="padding-bottom:40px;font-size:40px; color: white">Agenda Asisten Deputi</h3>
                 <div class="col-sm-3">
-                  <a href="<?php echo base_url();?>Beranda" style="text-decoration: none;">
+                  <a href="<?php echo base_url();?>agenda/asdep1" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
                             <b>Asdep1</b>
                         </div>
                   </a>
                 </div>
                 <div class="col-sm-3">
-                  <a href="<?php echo base_url();?>beranda/Kebijakan" style="text-decoration: none;">
+                  <a href="<?php echo base_url();?>agenda/asdep2" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
                             <b>Asdep2</b>
                         </div>
                   </a>
                 </div>
                 <div class="col-sm-3">
-                  <a href="<?php echo base_url();?>" style="text-decoration: none;">
+                  <a href="<?php echo base_url();?>agenda/asdep3" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
                             <b>Asdep3</b>
                         </div>
                   </a>
                 </div>
                 <div class="col-sm-3">
-                  <a href="<?php echo base_url();?>" style="text-decoration: none;">
+                  <a href="<?php echo base_url();?>agenda/asdep4" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
                             <b>Asdep4</b>
                         </div>

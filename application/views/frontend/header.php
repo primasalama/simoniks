@@ -13,22 +13,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/maritim.png">
   <title>SIMONIK :: <?php echo $this->uri->segment(1);?></title>
   <!-- Boostrap-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/style.css">
-  <!-- Buat Depan ajah kok inimah -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/one-page-wonder.css">
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
   <!-- Buat Datepicker-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/datepicker.css">
   <!-- datatablenya -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.min.css">
   <!-- fotn awesome-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
-  <!-- Buat Timepicker-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.timepicker.min.css">
   <!-- ini jquery ui-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery-ui.css">
   <!-- Buat View Port Edge-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/ie10-viewport-bug-workaround.css">
+  <!-- Material Datetimepicker -->
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap-material-datetimepicker.css" />
+
   <!-- JQuery Wajib Jangan Ilang -->
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.1.min.js"></script>
   <!-- Js buat bootstrap-->
@@ -36,7 +34,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Js datatables -->
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
   <!-- Js buat datepicker -->
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/material.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/moment-with-locales.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap-material-datetimepicker.js"></script>
+
+  <!-- END -->
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>
+  <!-- js buat time picker-->
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.timepicker.js"></script>
 </head>
 
   <body style="background-color: #CBCBFE;">

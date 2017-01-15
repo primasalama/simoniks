@@ -3,18 +3,17 @@
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>progress">Progress</a></li>
-		<li class="pull-right"><a href="<?php echo base_url();?>Fprogress/tambah" class="btn btn-xs btn-primary">Tambah</a></li>
+		<li class="pull-right"><a href="<?php echo base_url();?>Fagenda/tambah" class="btn btn-xs btn-primary">Tambah</a></li>
 	</ol>
-	<table id="progress" class="table table-hover">
+	<table id="agenda" class="table table-hover">
 					<thead>
 						<tr>
 							<th>No.</th>
 							<th>Kegiatan</th>
 							<th>Tanggal</th>
-							<th>Hasil</th>
-							<th>Tindak Lanjut</th>
-							<th>Masalah</th>
-							<th>Dokumentasi</th>
+							<th>Jam</th>
+							<th>Tempat</th>
+							<th>Unit</th>
 							<?php 
 							if ($this->uri->segment(2)) {
 								?><th>Action</th><?php
@@ -31,13 +30,9 @@
 							<td><?php echo $i;?></td>
 							<td><?php echo $key->kegiatan;?></td>
 							<td><?php echo $key->tanggal;?></td>
-							<td><?php echo $key->hasil;?></td>
-							<td><?php echo $key->tindak_ljt;?></td>
-							<td><?php echo $key->masalah;?></td>
-							<td>
-								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
-								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
-							</td>
+							<td><?php echo $key->pukul;?></td>
+							<td><?php echo $key->tempat;?></td>
+							<td><?php echo $key->unit;?></td>
 							<?php 
 							if ($this->uri->segment(2)) {
 								?>
@@ -60,6 +55,6 @@
 
 <script type="text/javascript">
             $(document).ready(function() {
-              $('#progress').DataTable();
+              $('#agenda').DataTable();
           } );
 </script>

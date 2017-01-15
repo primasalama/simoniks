@@ -85,11 +85,26 @@ class Beranda extends CI_Controller {
 
 	public function agenda($value='')
 	{
-		$this->load->view('frontend/agenda');
-		/*$result['data'] = $this->M_kebijakan->getAll();
-		$this->load->view('frontend/header');
-		$this->load->view('frontend/list',$result);
-		$this->load->view('frontend/footer');*/
+		if ($value == '') {
+			$this->load->view('frontend/agenda');
+		}else{
+			if ($this->session->userdata('session') and $this->session->userdata('session')[0]->role != 'admin') {
+				if ($this->uri->segment(2) == $this->session->userdata('session')[0]->role) {
+					$result['data'] = $this->M_agenda->getByAsdep($value);
+					$this->load->view('frontend/header');
+					$this->load->view('frontend/list_agenda',$result);
+					$this->load->view('frontend/footer');
+				}else{
+					$data = array('url' => 'progress','value'=>$value);
+					$this->session->set_userdata('url',$data);
+					redirect('auth/logout');
+				}
+			}else{
+				$data = array('url' => 'progress','value'=>$value);
+				$this->session->set_userdata('url',$data);
+				redirect('Login');
+			}
+		}
 	}
 	public function md5($val)
 	{

@@ -29,10 +29,7 @@ class M_progress extends CI_Model {
 	}
 	public function getByAsdep($value='')
 	{
-		$this->db->select('*');
-		$this->db->from('progress');
-		$this->db->join('user', 'user.no = progress.created_by','join');
-		$this->db->where('user.role',$value);
-		return $this->db->get()->result();
+		$sql = "SELECT progress.*,user.role from progress inner join user on user.no = progress.created_by where user.role = '".$value."' ";
+		return $this->db->query($sql)->result();
 	}
 }
