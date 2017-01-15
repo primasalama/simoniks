@@ -55,7 +55,7 @@
                 </ol>
                 </div>
             <center>
-                <h3 style="padding-bottom:40px;font-size:40px;">Kebijakan Asisten Deputi</h3>
+                <h3 style="padding-bottom:40px;font-size:40px; color: white">Kebijakan Asisten Deputi</h3>
                 <div class="col-sm-3">
                   <a href="<?php echo base_url();?>kebijakan/asdep1" style="text-decoration: none;">
                         <div style="width: 120px;height: 90px;background-color: white;opacity: 0.6;border-radius: 20px;padding-top:30px;">
