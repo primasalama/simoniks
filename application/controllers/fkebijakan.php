@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kebijakan extends CI_Controller {
+class Fkebijakan extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -37,17 +37,15 @@ class Kebijakan extends CI_Controller {
 	}
 	public function tambah()
 	{
-		$this->load->view('backend/header');
-		$this->load->view('backend/navbar');
-		$this->load->view('backend/sidenav');
-		$this->load->view('backend/add_kebijakan');
-		$this->load->view('backend/footer');
+		$this->load->view('frontend/header');
+		$this->load->view('frontend/add_kebijakan');
+		$this->load->view('frontend/footerf');
 	}
 	public function add()
 	{
 		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
 		$this->M_kebijakan->insert($data);
-		redirect('Kebijakan');
+		redirect('kebijakan/'.$this->session->userdata('session')[0]->role);
 	}
 	public function config()
 	{
@@ -62,20 +60,18 @@ class Kebijakan extends CI_Controller {
 	{
 		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_kebijakan->updateId($data,$value);
-		redirect('Kebijakan');
+		redirect('kebijakan/'.$this->session->userdata('session')[0]->role);
 	}
 	public function delete($value)
 	{
 		$this->M_kebijakan->deleteId($value);
-		redirect('kebijakan');
+		redirect('kebijakan/'.$this->session->userdata('session')[0]->role);
 	}
 	public function edit($value)
 	{
 		$result['data'] = $this->M_kebijakan->getId($value);
-		$this->load->view('backend/header');
-		$this->load->view('backend/navbar');
-		$this->load->view('backend/sidenav');
-		$this->load->view('backend/edit_kebijakan',$result);
-		$this->load->view('backend/footer');
+		$this->load->view('frontend/header');
+		$this->load->view('frontend/edit_kebijakan',$result);
+		$this->load->view('frontend/footerf');
 	}
 }

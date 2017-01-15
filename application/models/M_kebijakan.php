@@ -29,10 +29,7 @@ class M_kebijakan extends CI_Model {
 	}
 	public function getByAsdep($value='')
 	{
-		$this->db->select('*');
-		$this->db->from('kebijakan');
-		$this->db->join('user', 'user.no = kebijakan.created_by','join');
-		$this->db->where('user.role',$value);
-		return $this->db->get()->result();
+		$sql = "SELECT kebijakan.*,user.role from kebijakan inner join user on user.no = kebijakan.created_by where user.role = '".$value."' ";
+		return $this->db->query($sql)->result();
 	}
 }
