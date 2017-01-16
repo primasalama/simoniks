@@ -67,7 +67,7 @@ class Kebijakan extends CI_Controller {
 	public function delete($value)
 	{
 		$this->M_kebijakan->deleteId($value);
-		redirect('kebijakan');
+		redirect('Kebijakan');
 	}
 	public function edit($value)
 	{

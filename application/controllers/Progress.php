@@ -104,7 +104,7 @@ class Progress extends CI_Controller {
 	public function delete($value)
 	{
 		$this->M_progress->deleteId($value);
-		redirect('progress');
+		redirect('Progress');
 	}
 	public function edit($value)
 	{
