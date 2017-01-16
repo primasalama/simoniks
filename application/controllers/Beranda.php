@@ -37,21 +37,26 @@ class Beranda extends CI_Controller {
 	}
 	public function kebijakan($value='',$mode='')
 	{
-		if ($value == '') {
+		/*
+		Prinsipnya ngecek $value kosong apa enggak
+		*/
+		if ($value == '') { //Kalo kosong jalanin load view dibawah ini
 			$this->load->view('frontend/kebijakan');
-		}else{
-			if ($this->session->userdata('session') and $this->session->userdata('session')[0]->role != 'admin') {
-				if ($this->uri->segment(2) == $this->session->userdata('session')[0]->role) {
-					$result['data'] = $this->M_kebijakan->getByAsdep($value);
+		}else{ //kalo gak kosong. artinya ada yg akses beranda/kebijakan/asdep1 atau asdep berapapun de
+			//nanti dia ngerjain dibawah ini.
+			if ($this->session->userdata('session') and $this->session->userdata('session')[0]->role != 'admin') {//Cek dia udah login, dan mastiin kalo dia bukan admin
+				if ($this->uri->segment(2) == $this->session->userdata('session')[0]->role) { //ngecek role yg login sesuai gak sama yg di klik de.
+					//sebenernya sih bandinginya sama si $value. sama aja wkwk. kalo sama nilainya,jalanin 4 baris dibawah
+					$result['data'] = $this->M_kebijakan->getByAsdep($value); //ambil data terus load viewnya
 					$this->load->view('frontend/header');
 					$this->load->view('frontend/list',$result);
 					$this->load->view('frontend/footer');
-				}else{
-					$data = array('url' => 'kebijakan','value'=>$value);
-					$this->session->set_userdata('url',$data);
-					redirect('auth/logout');
+				}else{// kalo gak gak role yg login gak sesuai sama yg diklik.
+					$data = array('url' => 'kebijakan','value'=>$value);// nyimpen ke array, url kemana diakan balik setelah login nanti.
+					$this->session->set_userdata('url',$data); //url tadi yg $data disimpen ke session namanya url
+					redirect('auth/logout'); //ngelogout otomatis biar balik ke halaman login. 
 				}
-			}else{
+			}else{ //Jalanin 3 baris dibawah kalo yg login itu admin
 				$data = array('url' => 'kebijakan','value'=>$value);
 				$this->session->set_userdata('url',$data);
 				redirect('Login');
@@ -112,54 +117,62 @@ class Beranda extends CI_Controller {
 	}
 	public function excel($value='')
 	{
-
+		/* 
+		buat akses excel, link: localhost/simoniks/beranda/excel/$value
+		Kenapa ada switch ? buat ngecek $value isinya itu kebijakan, agenda, atau progress
+		*/
 		switch ($value) {
 			case 'kebijakan':
-				$filename = 'Export_Kebijakan';
-				$data = $this->M_kebijakan->getAllExcel();
-				//activate worksheet number 1
-				$this->excel->setActiveSheetIndex(0);
-				//name the worksheet
-				$this->excel->getActiveSheet()->setTitle($filename);
-				//Loop Heading
-				$heading=array('No','Narasi','Status','Indikator','PIC','Deputi');
-			    $rowNumberH = 1;
+				$filename = 'Export_Kebijakan'; //Definisi Nama file
+				$data = $this->M_kebijakan->getAllExcel(); //Ngambil data dari tabel, disimpen ke $data
+				$this->excel->setActiveSheetIndex(0);//Set SHEET 1 yg ditulis, wajib
+				$this->excel->getActiveSheet()->setTitle($filename); //Nama sheetnya, 1 file excel bisa banyak sheet kan ?
+				$heading=array('No','Narasi','Status','Indikator','PIC','Deputi'); //Nyiapin array buat nama kolom, hitung ada berapa kolom.
+			    $rowNumberH = 1; 
 			    $colH = 'A';
 			    foreach($heading as $h){
-			        $this->excel->getActiveSheet()->setCellValue($colH.$rowNumberH,$h);
+			    	//Buat nulis nama kolom di arrray tadi ke tiap sel.  Perhatiin $colH = A sama $rowNumber = 1. 
+			        $this->excel->getActiveSheet()->setCellValue($colH.$rowNumberH,$h); //ngesetnyagini : setCellValue Buat set nilai si cell,
+			        // $colH.$rowNumberH = A.1  jadinya cell A1. isinya $h. berarti array index pertamanya. berarti No. lanjut ke index 2
+			        // $colH.$rowNumberH = B.1  jadinya cell B1, gitu tterus sampe di array $headingnya abis
 			        $colH++;    
 			    }
-			    //Loop Result
-			    foreach(range('A','E') as $columnID) {
+			    foreach(range('A','E') as $columnID) { //Looping dari kolom A sampe E
 				    $this->excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
+				    //Intinya ngeset panjang kolom dgn setAutoSize(true) ditiap kolom A sampe E.
 				}
-			    $totn=$data->num_rows();
-			    $maxrow=$totn+1;
-			    $row = 2;
+			    $totn=$data->num_rows(); //Cek fungsi GetAllExcel di M_Kebijakan, pas direturn itu gak ada result(), beda sama fungsi getAll
+			    //Fungsinya $totn = jumlah baris yg diambil dari tabel tersebut
+			    $maxrow=$totn+1; 
+			    $row = 2; //$ROW Itu = 2. baris awal nulis si isi tabelnya
 			    $no = 1;
-			    foreach($data->result() as $n){
+			    foreach($data->result() as $n){ //Looping Tiap Baris Data
 			        $this->excel->getActiveSheet()->setCellValue('A'.$row,$no);
+			        //'A'.$row itu setCellValue si A2. cek $row diatas. $no buat numbering tiap barisnya. dari 1 kan ?
 			        $this->excel->getActiveSheet()->setCellValue('B'.$row,$n->narasi);
+			        //'A'.$row itu setCellValue si A2. cek $row diatas. $no buat numbering tiap barisnya.
+			        //$n itu didapet sebagai $data->result() atau hasil tiap barisnya. -> itu nunjuk tiap kolomnya
 			        $this->excel->getActiveSheet()->setCellValue('C'.$row,$n->status);
 		            $this->excel->getActiveSheet()->setCellValue('D'.$row,$n->indikator);
 		            $this->excel->getActiveSheet()->setCellValue('E'.$row,$n->pic);
 		             $this->excel->getActiveSheet()->setCellValue('F'.$row,$n->role);
-		            $row++;
-		            $no++;
+		            $row++; //Next Baris
+		            $no++; //Nambahin Nomor 1 per 1
 			    }
 			    //Freeze pane
-			    $this->excel->getActiveSheet()->freezePane('A3');
+			    $this->excel->getActiveSheet()->freezePane('A3'); //Belom tau wkwkwk
 			    //Cell Style
-			    $styleArray = array(
+			    $styleArray = array( //definisiin style si excel dengan array
 			        'borders' => array(
 			            'allborders' => array(
 			                'style' => PHPExcel_Style_Border::BORDER_THIN
 			            )
 			        )
 			    );
-			    $this->excel->getActiveSheet()->getStyle('A1:F'.$maxrow)->applyFromArray($styleArray);
+			    $this->excel->getActiveSheet()->getStyle('A1:F'.$maxrow)->applyFromArray($styleArray); //ngenalin si style yg tadi dibuat ke shet yg active tersebut
 				break;
 			case 'progress':
+			//Sama kayak diatas tadi,bedanya ini buat progress aja
 				$filename = 'Export_Progress';
 				$data = $this->M_progress->getAllExcel();
 				//activate worksheet number 1
@@ -258,13 +271,11 @@ class Beranda extends CI_Controller {
 			header('Content-Type: application/vnd.ms-excel');
 		    header('Content-Disposition: attachment;filename="'.$filename.'.xls"');
 		    header('Cache-Control: max-age=0');//no cache
-			            
-			//save it to Excel5 format (excel 2003 .XLS file), change this to 'Excel2007' (and adjust the filename extension, also the header mime type)
-			//if you want to save it as .XLSX Excel 2007 format
-			$objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');  
+			// 3 Baris diatas itu wajib.
+			$objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');   //Nnetuin tipe excel yg mana
 			//force user to download the Excel file without writing it to server's HD
-			$objWriter->save('php://output');
-			redirect('Beranda');
+			$objWriter->save('php://output'); //download ke browser
+			redirect('Beranda'); // pindah halaman
 	}
 	public function coba($value='')
 	{
