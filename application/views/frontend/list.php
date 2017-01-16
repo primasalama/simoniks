@@ -1,7 +1,7 @@
 
 <div class="container" style="margin-top:120px;" >
 	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
+		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>kebijakan">Kebijakan</a></li>
 		<li class="pull-right"><a href="<?php echo base_url();?>Fkebijakan/tambah" class="btn btn-xs btn-primary">Tambah</a></li>
 	</ol>

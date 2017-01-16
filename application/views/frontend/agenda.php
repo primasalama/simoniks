@@ -51,7 +51,6 @@
                 <div class="col-sm-5">
                 <ol class="breadcrumb" style="margin-top: -90px; margin-left: -20px; text-align: left; opacity: 0.8">
                     <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
-                    <li class="breadcrumb-item">Beranda</li>
                     <li class="breadcrumb-item active">Agenda</li>
                 </ol>
                 </div>
@@ -93,8 +92,8 @@
     <div class="navbar-footer">
         <p class="pull-left" style="margin-left: 40px; margin-top: 10px; font-size: 10pt; color: white">Deputi Bidang Koordinasi Sumber Daya Alam dan Jasa<br />
         Kementerian Koordinator Bidang Kemaritiman</p>
-        <p class="pull-right" style="margin-right: : 40px; margin-top: 10px; font-size: 10pt; color: white">
-        Jl. M. H. Thamrin No. 8, Gedung I BPPT Lt.6 ,Jakarta Pusat 10340<br />
+        <p class="pull-right" style="margin-right: 40px; margin-top: 10px; font-size: 10pt; color: white">
+        Jl. M. H. Thamrin No. 8, Gedung I BPPT Lt.8 ,Jakarta Pusat 10340<br />
         Telpon (021) 22392589, Fax (021) 22392589<br />
         Email : deputi2_sdaj@maritim.go.id <br />
         Jawa Barat, Indonesia</p>

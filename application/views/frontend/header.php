@@ -9,9 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Login Page">
-    <meta name="author" content="Prima Salama">
     <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/maritim.png">
-  <title>SIMONIK :: <?php echo $this->uri->segment(1);?></title>
+    <title>SiMoniKS :: <?php echo $this->uri->segment(1);?></title>
   <!-- Boostrap-->
  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/style.css">
