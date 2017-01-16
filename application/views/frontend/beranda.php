@@ -58,6 +58,7 @@
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>beranda">Beranda</a></li>
 		<li class="breadcrumb-item active">Progress</li>
+		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excel/progress" class="btn btn-xs btn-warning">Export</a></li>
 	</ol>
 	<table id="progress" class="table table-bordered">
 					<thead>
@@ -117,6 +118,7 @@
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>beranda">Beranda</a></li>
 		<li class="breadcrumb-item active">Agenda</li>
+		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excel/agenda" class="btn btn-xs btn-warning">Export</a></li>
 	</ol>
 	<table id="agenda" class="table table-bordered" >
 					<thead>

@@ -264,6 +264,7 @@ class Beranda extends CI_Controller {
 			$objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');  
 			//force user to download the Excel file without writing it to server's HD
 			$objWriter->save('php://output');
+			redirect('Beranda');
 	}
 	public function coba($value='')
 	{
