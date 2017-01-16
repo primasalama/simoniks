@@ -14,3 +14,17 @@
 #infoi {
   z-index: 10;
 }
+
+tr{
+	background-color: #6699FF;
+	color: white;
+}
+
+th{
+	text-align: center;
+}
+
+td{
+	background-color: #D7E4F7;
+	color: black;
+}

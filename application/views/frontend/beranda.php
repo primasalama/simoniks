@@ -8,7 +8,7 @@
 	</ol>
 	<table id="kebijakan" class="table table-bordered">
 					<thead>
-						<tr>
+						<tr style="">
 							<th>No.</th>
 							<th>Narasi</th>
 							<th>Status</th>
@@ -52,14 +52,14 @@
 					 ?>
 					</tbody>
 				</table>
-				<ol class="breadcrumb">
+	<ol class="breadcrumb" style="margin-top: 30px;">
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>beranda">Beranda</a></li>
 		<li class="breadcrumb-item active">Agenda</li>
 	</ol>
-	<table id="agenda" class="table table-bordered">
+	<table id="agenda" class="table table-bordered" >
 					<thead>
-						<tr>
+						<tr style="background-color: #6699FF; color: white;">
 							<th>No.</th>
 							<th>Kegiatan</th>
 							<th>Tanggal</th>
@@ -105,14 +105,15 @@
 					 ?>
 					</tbody>
 				</table>
-				<ol class="breadcrumb">
+	
+	<ol class="breadcrumb" style="margin-top: 30px;">
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>beranda">Beranda</a></li>
 		<li class="breadcrumb-item active">Progress</li>
 	</ol>
-	<table id="kebijakan" class="table table-bordered">
+	<table id="progress" class="table table-bordered">
 					<thead>
-						<tr>
+						<tr style="background-color: #6699FF; color: white;">
 							<th>No.</th>
 							<th>Kegiatan</th>
 							<th>Tanggal</th>
