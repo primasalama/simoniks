@@ -43,9 +43,16 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+
         <div class="headline" style="background-color: #CBCBFE;height:550px;">
+        <div class="col-sm-5">
+		<ol class="breadcrumb" style="margin-left: 100px; ">
+              <li class="breadcrumb-item"><a href="#"><?php echo strtoupper($this->uri->Segment(1));?></a></li>
+              <li class="breadcrumb-item active"><?php echo strtoupper($this->uri->Segment(2));?></li>
+            </ol>
+            </div>
 	<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
-		
+
 		<div class="panel panel-info">
 			<div class="panel-heading">Login</div>
 			<div class="panel-body">
