@@ -1,5 +1,6 @@
 
 <div class="container" style="margin-top:120px;" >
+
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>beranda">Beranda</a></li>
