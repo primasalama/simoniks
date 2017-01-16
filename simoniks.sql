@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 15 Jan 2017 pada 09.12
+-- Generation Time: 16 Jan 2017 pada 02.08
 -- Versi Server: 5.6.25
 -- PHP Version: 5.5.27
 
@@ -37,14 +37,14 @@ CREATE TABLE IF NOT EXISTS `agenda` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `agenda`
 --
 
 INSERT INTO `agenda` (`no`, `tanggal`, `kegiatan`, `pukul`, `tempat`, `unit`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(6, '2017-01-15', 'Bantuin ade', '15:06:00', 'rumah', 'cinta', '2017-01-14 04:06:41', '2017-01-14 16:38:18', 1, 1);
+(9, '2017-01-13', 'sdiajso', '00:05:00', 'isdjiaso', 'djsaioja', '2017-01-15 17:06:06', '0000-00-00 00:00:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -62,14 +62,14 @@ CREATE TABLE IF NOT EXISTS `kebijakan` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kebijakan`
 --
 
 INSERT INTO `kebijakan` (`no`, `narasi`, `status`, `indikator`, `pic`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(3, 'Berikut adalah username dan password Anda dalam . Mohon disimpan dan dirahasiakan dengan baik. Anda dapat mengubah password tersebut melalui menu Alat pada submenu Ubah Password.', 'sudah', 'sudah', 'sudah', '2017-01-13 14:24:43', '0000-00-00 00:00:00', 1, 0);
+(3, 'arif', 'y', 'y', 'y', '2017-01-15 15:03:58', '2017-01-15 15:03:58', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -90,14 +90,14 @@ CREATE TABLE IF NOT EXISTS `progress` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `progress`
 --
 
 INSERT INTO `progress` (`no`, `kegiatan`, `tanggal`, `hasil`, `tindak_ljt`, `masalah`, `dokumentasi1`, `dokumentasi2`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(3, 'Diploma Tech Days', '2017-01-30', 'Lancar', 'Lancar', 'Lancar', 'file_1484363274.jpg', 'file_14843632741.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
+(3, 'DT Days', '2017-01-01', 'L', 'L', 'L', 'file_1484495051.png', 'file_14843632741.jpg', '0000-00-00 00:00:00', '2017-01-15 15:44:11', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL,
   `role` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user`
@@ -125,7 +125,8 @@ INSERT INTO `user` (`no`, `name`, `password`, `created_at`, `updated_at`, `creat
 (2, 'asdep1', 'e10adc3949ba59abbe56e057f20f883e', '2017-01-15 02:59:43', '0000-00-00 00:00:00', 1, 1, 'asdep1'),
 (3, 'asdep2', 'e10adc3949ba59abbe56e057f20f883e', '2017-01-15 02:59:43', '0000-00-00 00:00:00', 1, 1, 'asdep2'),
 (4, 'asdep3', 'e10adc3949ba59abbe56e057f20f883e', '2017-01-15 03:00:16', '0000-00-00 00:00:00', 1, 1, 'asdep3'),
-(5, 'asdep4', 'e10adc3949ba59abbe56e057f20f883e', '2017-01-15 03:00:16', '0000-00-00 00:00:00', 1, 1, 'asdep4');
+(5, 'asdep4', 'e10adc3949ba59abbe56e057f20f883e', '2017-01-15 03:00:16', '0000-00-00 00:00:00', 1, 1, 'asdep4'),
+(6, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '2017-01-15 22:23:04', '0000-00-00 00:00:00', 0, 0, 'admin');
 
 --
 -- Indexes for dumped tables
@@ -163,22 +164,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `agenda`
 --
 ALTER TABLE `agenda`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `kebijakan`
 --
 ALTER TABLE `kebijakan`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `progress`
 --
 ALTER TABLE `progress`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

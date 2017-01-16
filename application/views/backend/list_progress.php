@@ -22,7 +22,7 @@
 							<th>Tindak Lanjut</th>
 							<th>Masalah</th>
 							<th>Dokumentasi</th>
-							<th>Action</th>
+							<th>Author</th>
 							<?php 
 							if ($this->uri->segment(2)) {
 								?><th>Action</th><?php
