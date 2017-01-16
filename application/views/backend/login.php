@@ -43,8 +43,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-        <div class="headline">
-            <div class="container" style="background-color: #CBCBFE">
+        <div class="headline" style="background-color: #CBCBFE;height:550px;">
 	<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
 		
 		<div class="panel panel-info">
@@ -72,7 +71,6 @@
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 </header>
     
