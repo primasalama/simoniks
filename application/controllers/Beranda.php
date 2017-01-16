@@ -112,20 +112,158 @@ class Beranda extends CI_Controller {
 	}
 	public function excel($value='')
 	{
+
 		switch ($value) {
 			case 'kebijakan':
-				# code...
+				$filename = 'Export_Kebijakan';
+				$data = $this->M_kebijakan->getAllExcel();
+				//activate worksheet number 1
+				$this->excel->setActiveSheetIndex(0);
+				//name the worksheet
+				$this->excel->getActiveSheet()->setTitle($filename);
+				//Loop Heading
+				$heading=array('No','Narasi','Status','Indikator','PIC','Deputi');
+			    $rowNumberH = 1;
+			    $colH = 'A';
+			    foreach($heading as $h){
+			        $this->excel->getActiveSheet()->setCellValue($colH.$rowNumberH,$h);
+			        $colH++;    
+			    }
+			    //Loop Result
+			    foreach(range('A','E') as $columnID) {
+				    $this->excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
+				}
+			    $totn=$data->num_rows();
+			    $maxrow=$totn+1;
+			    $row = 2;
+			    $no = 1;
+			    foreach($data->result() as $n){
+			        $this->excel->getActiveSheet()->setCellValue('A'.$row,$no);
+			        $this->excel->getActiveSheet()->setCellValue('B'.$row,$n->narasi);
+			        $this->excel->getActiveSheet()->setCellValue('C'.$row,$n->status);
+		            $this->excel->getActiveSheet()->setCellValue('D'.$row,$n->indikator);
+		            $this->excel->getActiveSheet()->setCellValue('E'.$row,$n->pic);
+		             $this->excel->getActiveSheet()->setCellValue('F'.$row,$n->role);
+		            $row++;
+		            $no++;
+			    }
+			    //Freeze pane
+			    $this->excel->getActiveSheet()->freezePane('A3');
+			    //Cell Style
+			    $styleArray = array(
+			        'borders' => array(
+			            'allborders' => array(
+			                'style' => PHPExcel_Style_Border::BORDER_THIN
+			            )
+			        )
+			    );
+			    $this->excel->getActiveSheet()->getStyle('A1:F'.$maxrow)->applyFromArray($styleArray);
 				break;
 			case 'progress':
-				# code...
+				$filename = 'Export_Progress';
+				$data = $this->M_progress->getAllExcel();
+				//activate worksheet number 1
+				$this->excel->setActiveSheetIndex(0);
+				//name the worksheet
+				$this->excel->getActiveSheet()->setTitle($filename);
+				//Loop Heading
+				$heading=array('No','Kegiatan','Tanggal','Hasil','Tindak Lanjut','Masalah','Deputi');
+			    $rowNumberH = 1;
+			    $colH = 'A';
+			    foreach($heading as $h){
+			        $this->excel->getActiveSheet()->setCellValue($colH.$rowNumberH,$h);
+			        $colH++;    
+			    }
+			    //Loop Result
+			    foreach(range('A','E') as $columnID) {
+				    $this->excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
+				}
+			    $totn=$data->num_rows();
+			    $maxrow=$totn+1;
+			    $row = 2;
+			    $no = 1;
+			    foreach($data->result() as $n){
+			        $this->excel->getActiveSheet()->setCellValue('A'.$row,$no);
+			        $this->excel->getActiveSheet()->setCellValue('B'.$row,$n->kegiatan);
+			        $this->excel->getActiveSheet()->setCellValue('C'.$row,$n->tanggal);
+		            $this->excel->getActiveSheet()->setCellValue('D'.$row,$n->hasil);
+		            $this->excel->getActiveSheet()->setCellValue('E'.$row,$n->tindak_ljt);
+		            $this->excel->getActiveSheet()->setCellValue('F'.$row,$n->masalah);
+		            $this->excel->getActiveSheet()->setCellValue('G'.$row,$n->role);
+		            $row++;
+		            $no++;
+			    }
+			    //Freeze pane
+			    $this->excel->getActiveSheet()->freezePane('A3');
+			    //Cell Style
+			    $styleArray = array(
+			        'borders' => array(
+			            'allborders' => array(
+			                'style' => PHPExcel_Style_Border::BORDER_THIN
+			            )
+			        )
+			    );
+			    $this->excel->getActiveSheet()->getStyle('A1:G'.$maxrow)->applyFromArray($styleArray);
 				break;
 			case 'agenda':
-				# code...
+				$filename = 'Export_Agenda';
+				$data = $this->M_agenda->getAllExcel();
+				//activate worksheet number 1
+				$this->excel->setActiveSheetIndex(0);
+				//name the worksheet
+				$this->excel->getActiveSheet()->setTitle($filename);
+				//Loop Heading
+				$heading=array('No','Kegiatan','Tanggal','Jam','Tempat','Unit','Deputi');
+			    $rowNumberH = 1;
+			    $colH = 'A';
+			    foreach($heading as $h){
+			        $this->excel->getActiveSheet()->setCellValue($colH.$rowNumberH,$h);
+			        $colH++;    
+			    }
+			    //Loop Result
+			    foreach(range('A','E') as $columnID) {
+				    $this->excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
+				}
+			    $totn=$data->num_rows();
+			    $maxrow=$totn+1;
+			    $row = 2;
+			    $no = 1;
+			    foreach($data->result() as $n){
+			        $this->excel->getActiveSheet()->setCellValue('A'.$row,$no);
+			        $this->excel->getActiveSheet()->setCellValue('B'.$row,$n->kegiatan);
+			        $this->excel->getActiveSheet()->setCellValue('C'.$row,$n->tanggal);
+		            $this->excel->getActiveSheet()->setCellValue('D'.$row,$n->pukul);
+		            $this->excel->getActiveSheet()->setCellValue('E'.$row,$n->tempat);
+		            $this->excel->getActiveSheet()->setCellValue('F'.$row,$n->unit);
+		            $this->excel->getActiveSheet()->setCellValue('G'.$row,$n->role);
+		            $row++;
+		            $no++;
+			    }
+			    //Freeze pane
+			    $this->excel->getActiveSheet()->freezePane('A3');
+			    //Cell Style
+			    $styleArray = array(
+			        'borders' => array(
+			            'allborders' => array(
+			                'style' => PHPExcel_Style_Border::BORDER_THIN
+			            )
+			        )
+			    );
+			    $this->excel->getActiveSheet()->getStyle('A1:G'.$maxrow)->applyFromArray($styleArray);
 				break;
 			default:
 				# code...
 				break;
-		}
+			}
+			header('Content-Type: application/vnd.ms-excel');
+		    header('Content-Disposition: attachment;filename="'.$filename.'.xls"');
+		    header('Cache-Control: max-age=0');//no cache
+			            
+			//save it to Excel5 format (excel 2003 .XLS file), change this to 'Excel2007' (and adjust the filename extension, also the header mime type)
+			//if you want to save it as .XLSX Excel 2007 format
+			$objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');  
+			//force user to download the Excel file without writing it to server's HD
+			$objWriter->save('php://output');
 	}
 	public function coba($value='')
 	{

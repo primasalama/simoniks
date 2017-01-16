@@ -8,7 +8,11 @@ class M_agenda extends CI_Model {
 		$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by ";
 		return $this->db->query($sql)->result();
 	}
-
+	public function getAllExcel()
+	{
+		$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by ";
+		return $this->db->query($sql);
+	}
 	public function insert($data)
 	{
 		$this->db->insert('agenda',$data);
