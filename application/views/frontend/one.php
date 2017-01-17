@@ -39,6 +39,15 @@
       <div class="navbar-brand" style="text-align:center; margin-top: 20px; color: white ">
       DEPUTI BIDANG KOORDINASI SUMBER DAYA DAN JASA <br /><br/>
       KEMENTRIAN KOORDINATOR BIDANG KEMARITIMAN</div>
+      <?php
+        if ($this->session->userdata('session')) {
+            ?>
+            <div  class="navbar-brand">
+                <a href="<?php echo base_url();?>Auth/logout" class="pull-right btn btn-warning">Logout</a>
+              </div>
+            <?php
+        }
+       ?>
     </div>
   </div><!-- /.container-fluid -->
 </nav>
