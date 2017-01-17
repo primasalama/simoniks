@@ -1,8 +1,8 @@
 
 <div class="container" style="margin-top:120px;" >
 	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
-		<li class="breadcrumb-item"><a href="<?php echo base_url();?>progress">Progress</a></li>
+		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
+		<li class="breadcrumb-item"><a href="<?php echo base_url();?>agenda">Agenda</a></li>
 		<li class="pull-right"><a href="<?php echo base_url();?>Fagenda/tambah" class="btn btn-xs btn-primary">Tambah</a></li>
 	</ol>
 	<table id="agenda" class="table table-hover">

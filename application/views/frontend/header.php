@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if ($this->session->userdata('session')) {
             ?>
             <div  class="navbar-brand">
-                <a href="<?php echo base_url();?>Auth/logout" class="pull-right btn btn-warning">Logout</a>
+                <a href="<?php echo base_url();?>Auth/logout" class="btn btn-warning" style="margin-top: 30px; margin-right: -30px;">Logout</a>
               </div>
             <?php
         }
