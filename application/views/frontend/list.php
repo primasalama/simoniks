@@ -28,11 +28,11 @@
 						foreach ($data as $key) {
 						?>
 						<tr>
-							<td><?php echo $i;?></td>
-							<td><?php echo $key->narasi;?></td>
-							<td><?php echo $key->status;?></td>
-							<td><?php echo $key->indikator;?></td>
-							<td><?php echo $key->pic;?></td>
+							<td style="font-size: 11pt;"><?php echo $i;?></td>
+							<td style="font-size: 11pt;"><?php echo $key->narasi;?></td>
+							<td style="font-size: 11pt;"><?php echo $key->status;?></td>
+							<td style="font-size: 11pt;"><?php echo $key->indikator;?></td>
+							<td style="font-size: 11pt;"><?php echo $key->pic;?></td>
 							<?php 
 							if ($this->uri->segment(2)) {
 								?>
