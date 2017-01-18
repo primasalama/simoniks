@@ -24,7 +24,7 @@
 					<li class="breadcrumb-item active">Kebijakan</li>
 					<li class="pull-right" style="margin-right: -20px;"><a href="<?php echo base_url();?>beranda/excel/kebijakan" class="btn btn-xs btn-warning">Export</a></li>
                 </ol>
-        	</div>
+     
 	<table id="kebijakan" class="table table-bordered">
 					<thead>
 						<tr>
@@ -71,7 +71,7 @@
 					 ?>
 					</tbody>
 				</table>
-
+	
 	<ol class="breadcrumb" style="margin-top: 30px;">
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
 		<li class="breadcrumb-item"><a href="<?php echo base_url();?>beranda">Beranda</a></li>
@@ -186,10 +186,11 @@
 					 ?>
 					</tbody>
 				</table>
+				</div>
+			</div>
 </div>
-</body>
-</html>
-
+</div>
+</div>
 <script type="text/javascript">
             $(document).ready(function() {
               $('#kebijakan').DataTable();
