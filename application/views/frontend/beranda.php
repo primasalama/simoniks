@@ -13,7 +13,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container">
 	<div class="panel panel-default">
     	<div class="panel-body">
         <div class="well well-sm">
