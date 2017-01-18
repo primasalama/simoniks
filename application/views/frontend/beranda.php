@@ -1,15 +1,33 @@
-
-<div class="container" style="margin-top:120px;" >
-
-	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
-		<li class="breadcrumb-item"><a href="<?php echo base_url();?>beranda">Beranda</a></li>
-		<li class="breadcrumb-item active">Kebijakan</li>
-		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excel/kebijakan" class="btn btn-xs btn-warning">Export</a></li>
-	</ol>
+<div class="well well-sm">
+    <div class="container">
+        <div class="row">
+        	<div class="col-md-12">
+                <ol class="breadcrumb" style="margin-bottom: 0;">
+                    <li class="active">
+                    <a href="index.php">
+                        <span class="glyphicon glyphicon-home"></span> Beranda
+                    </a>
+                    </li>
+                </ol>
+        	</div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+	<div class="panel panel-default">
+    	<div class="panel-body">
+        <div class="well well-sm">
+    <div class="container">
+                <ol class="breadcrumb" style="margin-left: -20px;">
+                    <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
+					<li class="breadcrumb-item"><a href="<?php echo base_url();?>beranda">Beranda</a></li>
+					<li class="breadcrumb-item active">Kebijakan</li>
+					<li class="pull-right" style="margin-right: -20px;"><a href="<?php echo base_url();?>beranda/excel/kebijakan" class="btn btn-xs btn-warning">Export</a></li>
+                </ol>
+        	</div>
 	<table id="kebijakan" class="table table-bordered">
 					<thead>
-						<tr style="">
+						<tr>
 							<th>No.</th>
 							<th>Narasi</th>
 							<th>Status</th>
@@ -62,7 +80,7 @@
 	</ol>
 	<table id="progress" class="table table-bordered">
 					<thead>
-						<tr style="background-color: #6699FF; color: white;">
+						<tr>
 							<th>No.</th>
 							<th>Kegiatan</th>
 							<th>Tanggal</th>
@@ -122,7 +140,7 @@
 	</ol>
 	<table id="agenda" class="table table-bordered" >
 					<thead>
-						<tr style="background-color: #6699FF; color: white;">
+						<tr>
 							<th>No.</th>
 							<th>Kegiatan</th>
 							<th>Tanggal</th>
@@ -168,8 +186,6 @@
 					 ?>
 					</tbody>
 				</table>
-	
-	
 </div>
 </body>
 </html>

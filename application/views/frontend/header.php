@@ -1,75 +1,83 @@
-s<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-  <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Login Page">
-    <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/maritim.png">
-    <title>SiMoniKS :: <?php echo $this->uri->segment(1);?></title>
-  <!-- Boostrap-->
- <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/style.css">
-  <!-- Buat Datepicker-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/datepicker.css">
-  <!-- datatablenya -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.min.css">
-  <!-- fotn awesome-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
-  <!-- ini jquery ui-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery-ui.css">
-  <!-- Buat View Port Edge-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/ie10-viewport-bug-workaround.css">
-  <!-- Material Datetimepicker -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap-material-datetimepicker.css" />
-
-  <!-- JQuery Wajib Jangan Ilang -->
-  <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.1.min.js"></script>
-  <!-- Js buat bootstrap-->
-  <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
-  <!-- Js datatables -->
-  <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
-  <!-- Js buat datepicker -->
-  <script type="text/javascript" src="<?php echo base_url();?>assets/js/material.min.js"></script>
-  <script type="text/javascript" src="<?php echo base_url();?>assets/js/moment-with-locales.min.js"></script>
-  <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap-material-datetimepicker.js"></script>
-
-  <!-- END -->
-  <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>
-  <!-- js buat time picker-->
-  <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.timepicker.js"></script>
-</head>
-
-  <body style="background-color: #CBCBFE;">
-  <nav class="navbar navbar-default navbar-fixed-top" style="height: 130px; background-color: #6699FF">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <div class="navbar-brand" style="text-align:center; margin-left: 300px; margin-top: -15px; color: white ">
-      <img src="<?php echo base_url();?>assets/img/maritim.PNG" width="150" height="150">
-      </div>
-        <div class="navbar-brand" style="text-align:center; margin-top: 20px; color: white ">
-        DEPUTI BIDANG KOORDINASI SUMBER DAYA DAN JASA <br /><br/>
-        KEMENTRIAN KOORDINATOR BIDANG KEMARITIMAN</div>
-      <?php
-        if ($this->session->userdata('session')) {
-            ?>
-            <div  class="navbar-brand">
-                <a href="<?php echo base_url();?>Auth/logout" class="btn btn-warning" style="margin-top: 30px; margin-right: -30px;">Logout</a>
-              </div>
-            <?php
-        }
-       ?>
-    </div>
-  </div><!-- /.container-fluid -->
-</nav>
-<style type="text/css">
-  #read{
-    pointer-events: none;
-       cursor: default;
-  }
-</style>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/maritim.png">
+        <title>SIMONIKS :: <?php echo $this->uri->segment(1);?></title>
+        
+        <link href="<?php echo base_url();?>assets/css/bootstrap.css" rel="stylesheet" media="screen">
+        <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
+        <link href="<?php echo base_url();?>assets/css/datepicker.css" rel="stylesheet">
+        <link href="<?php echo base_url();?>assets/js/jqueryTable.js" rel="stylesheet">
+        <link href="<?php echo base_url();?>assets/demo_table_jui.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.min.css">
+        <style type="text/css">
+        body,td,th {
+  color: #999999;
+}
+        </style>
+        <script src="<?php echo base_url();?>assets/js/jquery.js"></script>
+        <script src="<?php echo base_url();?>assets/js/bootstrap.js"></script>
+        <script src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>
+        <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
+      <script type="text/javascript">
+            $(document).ready(function() {
+              $('#kebijakan').DataTable();
+          } );
+</script>
+</script>
+        
+    </head>
+    <body>
+    <div align="center" class="jumbotron" style="margin-bottom: 0;"><img src="assets/img/banner.jpg" width="100%">
+                    <div class="col-md-3">
+                    </div>
+      <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0;">
+          <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="index.php" class="btn btn-danger navbar-btn">BERANDA</a>
+                        </li>
+                        <li>
+                            <a href="masuk.php" class="btn btn-danger navbar-btn">ASDEP 1</a>
+                        </li>
+                        <li>
+                            <a href="masuk2.php" class="btn btn-danger navbar-btn">ASDEP 2</a>
+                        </li>
+                        <li>
+                            <a href="masuk3.php" class="btn btn-danger navbar-btn">ASDEP 3</a>
+                        </li>
+                        <li>
+                            <a href="masuk4.php" class="btn btn-danger navbar-btn">ASDEP 4</a>
+                        </li>
+            <li>
+                            <a href="agenda.php" class="btn btn-danger navbar-btn">AGENDA</a>
+                        </li>
+                    </ul>
+                    <div class="navbar-right">
+                      
+                       
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+                </div>
+            </div>
+        </div>

@@ -22,11 +22,11 @@ tr{
 
 th{
 	text-align: center;
+  color: white;
 }
 
 td{
   font-size: 9pt;
-	background-color: #D7E4F7;
-	color: black;
+	color: #999999;
 
 }
