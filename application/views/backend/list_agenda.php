@@ -21,7 +21,7 @@
 							<th>Jam</th>
 							<th>Tempat</th>
 							<th>Unit</th>
-							<th>Action</th>
+							<th>Author</th>
 							<?php 
 							if ($this->uri->segment(2)) {
 								?><th>Action</th><?php

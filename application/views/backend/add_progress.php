@@ -37,13 +37,15 @@
 								<label>Dokumentasi 2</label>
 								<input type="file" name="foto2" class="form-control" placeholder="Unit Kerja" required="true">	
 							</div>
-							
-							<!--
 							<div class="form-group">
-								<label>Status : </label>
-								<input type="text" name="status" class="form-control" placeholder="Status" required="true">
+								<label>Asisten Deputi</label>
+								<select class="form-control" name="deputi">
+									<option value="asdep1">Asisten Deputi 1</option>
+									<option value="asdep2">Asisten Deputi 2</option>
+									<option value="asdep3">Asisten Deputi 3</option>
+									<option value="asdep4">Asisten Deputi 4</option>
+								</select>
 							</div>
-							-->
 							<div class="form-group">
 								<input type="submit" value="Submit" class="btn btn-primary">
 								<input type="reset" value="Reset" class="btn btn-warning">

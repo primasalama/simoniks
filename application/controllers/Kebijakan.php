@@ -45,7 +45,24 @@ class Kebijakan extends CI_Controller {
 	}
 	public function add()
 	{
-		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
+		switch ($this->input->post('deputi')) {
+			case 'asdep1':
+				$created_by = 1;
+				break;
+			case 'asdep2':
+				$created_by = 3;
+				break;
+			case 'asdep3':
+				$created_by = 4;
+				break;
+			case 'asdep4':
+				$created_by = 5;
+				break;
+			default:
+				# code...
+				break;
+		}
+		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>$created_by,'updated_by'=>$this->session->userdata('session')[0]->no);
 		$this->M_kebijakan->insert($data);
 		redirect('Kebijakan');
 	}
