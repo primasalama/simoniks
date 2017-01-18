@@ -28,9 +28,6 @@ class Fprogress extends CI_Controller {
 	}
 	public function index()
 	{
-	}
-	public function tambah()
-	{
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/add_progress');
 		$this->load->view('frontend/footerf');
@@ -41,7 +38,7 @@ class Fprogress extends CI_Controller {
 		$dokumentasi2 =  $this->uploadImage($_FILES['foto2'],'foto2');
 		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
 		$this->M_progress->insert($data);
-		redirect('progress/'.$this->session->userdata('session')[0]->role);
+		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
 	}
 	public function uploadImage($image,$name)
 	{
@@ -91,12 +88,12 @@ class Fprogress extends CI_Controller {
 		}
 		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_progress->updateId($data,$value);
-		redirect('progress/'.$this->session->userdata('session')[0]->role);
+		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
 	}
 	public function delete($value)
 	{
 		$this->M_progress->deleteId($value);
-		redirect('progress/'.$this->session->userdata('session')[0]->role);
+		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
 	}
 	public function edit($value)
 	{

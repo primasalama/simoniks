@@ -28,15 +28,6 @@ class Fkebijakan extends CI_Controller {
 	}
 	public function index()
 	{
-		$result['data'] = $this->M_kebijakan->getAll();
-		$this->load->view('backend/header');
-		$this->load->view('backend/navbar');
-		$this->load->view('backend/sidenav');
-		$this->load->view('backend/list_kebijakan',$result);
-		$this->load->view('backend/footer');
-	}
-	public function tambah()
-	{
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/add_kebijakan');
 		$this->load->view('frontend/footerf');
@@ -45,7 +36,7 @@ class Fkebijakan extends CI_Controller {
 	{
 		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
 		$this->M_kebijakan->insert($data);
-		redirect('kebijakan/'.$this->session->userdata('session')[0]->role);
+		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
 	}
 	public function config()
 	{

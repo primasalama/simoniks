@@ -33,8 +33,9 @@ class Auth extends CI_Controller {
 		}else{
 			$this->session->Set_userdata('session',$result);
 			if ($this->session->userdata('session')[0]->role != 'admin') {
-				//print_r($this->session->userdata('url'));die();
-				redirect($this->session->userdata('url')['url']."/".$this->session->userdata('url')['value']);
+				//print_r($this->session->userdata('session'));die();
+				//echo 'Beranda/'.$this->session->userdata('url')['url']."/".$this->session->userdata('url')['value'];die();	
+				redirect('Beranda/'.$this->session->userdata('url')['url']."/".$this->session->userdata('url')['value']);
 			}else{
 				redirect('dashboard');
 			}

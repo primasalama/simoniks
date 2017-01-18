@@ -1,14 +1,52 @@
+<style type="text/css">
+body{
+    color:black;
+}
+::-webkit-input-placeholder {
+   color: grey;
+}
 
-<div class="container" style="margin-top:120px;" >
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
-        <li class="breadcrumb-item"><a href="<?php echo base_url();?>progress">Progress</a></li>
-    </ol>
-    <div class="panel panel-info">
-                <div class="panel-heading">Form</div>
-                <div class="panel-body">
-                    <div id="FormLogin" class="col-sm-7">
-                        <form action="<?php echo base_url();?>fprogress/update/<?php echo $data[0]->no;?>" method="post" enctype="multipart/form-data">
+:-moz-placeholder { /* Firefox 18- */
+   color: grey;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: grey;  
+}
+
+:-ms-input-placeholder {  
+   color: grey;  
+}
+</style>
+<div class="well well-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb" style="margin-bottom: 0;">
+                    <li class="active">
+                    <a href="index.php">
+                        <span class="glyphicon glyphicon-home"></span> Beranda
+                    </a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="well well-sm">
+                <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
+                    <li class="breadcrumb-item"><a href="<?php echo base_url();?>Beranda/view/<?php echo $this->session->userdata('session')[0]->role;?>">Progress</a></li>
+                </ol>
+                <div class="panel panel-info">
+                    <div class="panel-heading">Form</div>
+                        <div class="panel-body">
+                            <div id="FormLogin" class="col-sm-7">
+                                <form action="<?php echo base_url();?>fprogress/update/<?php echo $data[0]->no;?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>Nama Kegiatan : </label>
                                 <input type="text" name="kegiatan" class="form-control" value="<?php echo $data[0]->kegiatan;?>" placeholder="Nama Kegiatan" required="true">
@@ -49,25 +87,36 @@
                                 <input type="reset" value="Reset" class="btn btn-warning">
                             </div>
                         </form>
-                    </div>
-                    <div class="col-sm-5 alert alert-success">
-                        <p class="heading"><h4><b>Tata Cara Pengisian</b> : </h4></p>
-                        <ol>
-                            <li>Mengisi Nama Kegiatan sesuai Kegiatan yang bejalan</li>
-                            <li>Mengisi Waktu pelaksanaan dengan Benar</li>
-                        </ol>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="alert alert-success">
+                                    <p class="heading"><h4><b>Tata Cara Pengisian</b> : </h4></p>
+                                    <ol>
+                                        <li>Mengisi Nama Kegiatan sesuai Kegiatan yang bejalan</li>
+                                        <li>Mengisi Waktu pelaksanaan dengan Benar</li>
+                                    </ol>
+                                </div>
+                                <div class="panel panel-warning">
+                                    <div class="panel-heading">Dokumentasi</div>
+                                    <div class="panel-body">
+                                        <img style="width:140px;" class="img img-responsive" src="<?php echo base_url();?>assets/images/uploads/<?php echo $data[0]->dokumentasi1;?>"></img>
+                                        <img style="width:140px;" class="img img-responsive" src="<?php echo base_url();?>assets/images/uploads/<?php echo $data[0]->dokumentasi2;?>"></img>
+                                    </div>
+                                </div>                               
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>    
+            </div>
+        </div>
+    </div>
 </div>
-</body>
-</html>
-<script>
-      $(function() {
+<script type="text/javascript">
+    $(function() {
         $( '#tanggal' ).datepicker();
         $('#pukul').bootstrapMaterialDatePicker({
             date: false,
             format : 'HH:mm'
         });
       });
-  </script>
+</script>

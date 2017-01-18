@@ -24,7 +24,6 @@
 					<li class="breadcrumb-item active">Kebijakan</li>
 					<li class="pull-right" style="margin-right: -20px;"><a href="<?php echo base_url();?>beranda/excel/kebijakan" class="btn btn-xs btn-warning">Export</a></li>
                 </ol>
-     
 	<table id="kebijakan" class="table table-bordered">
 					<thead>
 						<tr>

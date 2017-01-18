@@ -34,7 +34,7 @@
         
     </head>
     <body>
-    <div align="center" class="jumbotron" style="margin-bottom: 0;"><img src="assets/img/banner.jpg" width="100%">
+    <div align="center" class="jumbotron" style="margin-bottom: 0;"><img src="<?php echo base_url();?>assets/img/banner.jpg" width="100%">
                     <div class="col-md-3">
                     </div>
       <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0;">
@@ -50,19 +50,19 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="index.php" class="btn btn-danger navbar-btn">BERANDA</a>
+                            <a href="<?php echo base_url();?>" class="btn btn-danger navbar-btn">BERANDA</a>
                         </li>
                         <li>
-                            <a href="masuk.php" class="btn btn-danger navbar-btn">ASDEP 1</a>
+                            <a href="<?php echo base_url();?>Beranda/view/asdep1" class="btn btn-danger navbar-btn">ASDEP 1</a>
                         </li>
                         <li>
-                            <a href="masuk2.php" class="btn btn-danger navbar-btn">ASDEP 2</a>
+                            <a href="<?php echo base_url();?>Beranda/view/asdep2" class="btn btn-danger navbar-btn">ASDEP 2</a>
                         </li>
                         <li>
-                            <a href="masuk3.php" class="btn btn-danger navbar-btn">ASDEP 3</a>
+                            <a href="<?php echo base_url();?>Beranda/view/asdep3" class="btn btn-danger navbar-btn">ASDEP 3</a>
                         </li>
                         <li>
-                            <a href="masuk4.php" class="btn btn-danger navbar-btn">ASDEP 4</a>
+                            <a href="<?php echo base_url();?>Beranda/view/asdep4" class="btn btn-danger navbar-btn">ASDEP 4</a>
                         </li>
             <li>
                             <a href="agenda.php" class="btn btn-danger navbar-btn">AGENDA</a>

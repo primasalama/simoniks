@@ -35,81 +35,39 @@ class Beranda extends CI_Controller {
 		$this->load->view('frontend/beranda',$result);
 		$this->load->view('frontend/footerf');
 	}
-	public function kebijakan($value='',$mode='')
+	public function checkLogin()
 	{
-		/*
-		Prinsipnya ngecek $value kosong apa enggak
-		*/
-		if ($value == '') { //Kalo kosong jalanin load view dibawah ini
-			$this->load->view('frontend/kebijakan');
-		}else{ //kalo gak kosong. artinya ada yg akses beranda/kebijakan/asdep1 atau asdep berapapun de
-			//nanti dia ngerjain dibawah ini.
-			if ($this->session->userdata('session') and $this->session->userdata('session')[0]->role != 'admin') {//Cek dia udah login, dan mastiin kalo dia bukan admin
-				if ($this->uri->segment(2) == $this->session->userdata('session')[0]->role) { //ngecek role yg login sesuai gak sama yg di klik de.
-					//sebenernya sih bandinginya sama si $value. sama aja wkwk. kalo sama nilainya,jalanin 4 baris dibawah
-					$result['data'] = $this->M_kebijakan->getByAsdep($value); //ambil data terus load viewnya
+		if (!$this->session->userdata('session') or $this->session->userdata('session')[0]->role == 'admin') {
+			redirect('Login');
+		}else{
+			return false;
+		}
+	}
+	public function view($value='')
+	{
+		if ($value != '') { //Kalo kosong jalanin load view dibawah ini
+			if ($this->session->userdata('session') and $this->session->userdata('session')[0]->role != 'admin') {
+				if ($this->session->userdata('session')[0]->role == $value) {
+					$result['kebijakan'] = $this->M_kebijakan->getByAsdep($value);
+					$result['progress'] = $this->M_progress->getByAsdep($value);
 					$this->load->view('frontend/header');
 					$this->load->view('frontend/list',$result);
-					$this->load->view('frontend/footer');
-				}else{// kalo gak gak role yg login gak sesuai sama yg diklik.
-					$data = array('url' => 'kebijakan','value'=>$value);// nyimpen ke array, url kemana diakan balik setelah login nanti.
-					$this->session->set_userdata('url',$data); //url tadi yg $data disimpen ke session namanya url
-					redirect('auth/logout'); //ngelogout otomatis biar balik ke halaman login. 
-				}
-			}else{ //Jalanin 3 baris dibawah kalo yg login itu admin
-				$data = array('url' => 'kebijakan','value'=>$value);
-				$this->session->set_userdata('url',$data);
-				redirect('Login');
-			}
-		}
-	}
-
-	public function progress($value='')
-	{
-		if ($value == '') {
-			$this->load->view('frontend/progress');
-		}else{
-			if ($this->session->userdata('session') and $this->session->userdata('session')[0]->role != 'admin') {
-				if ($this->uri->segment(2) == $this->session->userdata('session')[0]->role) {
-					$result['data'] = $this->M_progress->getByAsdep($value);
-					$this->load->view('frontend/header');
-					$this->load->view('frontend/list_progress',$result);
-					$this->load->view('frontend/footer');
+					$this->load->view('frontend/footerf');
 				}else{
-					$data = array('url' => 'progress','value'=>$value);
+					$data = array('url' => 'view','value'=>$value);// nyimpen ke array, url kemana diakan balik setelah login nanti.
 					$this->session->set_userdata('url',$data);
-					redirect('auth/logout');
+					redirect('Auth/logout');
 				}
 			}else{
-				$data = array('url' => 'progress','value'=>$value);
-				$this->session->set_userdata('url',$data);
-				redirect('Login');
+				redirect('Dashboard');
 			}
+		}else{
+			redirect('Beranda');
 		}
 	}
-
-	public function agenda($value='')
+	public function update($value='')
 	{
-		if ($value == '') {
-			$this->load->view('frontend/agenda');
-		}else{
-			if ($this->session->userdata('session') and $this->session->userdata('session')[0]->role != 'admin') {
-				if ($this->uri->segment(2) == $this->session->userdata('session')[0]->role) {
-					$result['data'] = $this->M_agenda->getByAsdep($value);
-					$this->load->view('frontend/header');
-					$this->load->view('frontend/list_agenda',$result);
-					$this->load->view('frontend/footer');
-				}else{
-					$data = array('url' => 'progress','value'=>$value);
-					$this->session->set_userdata('url',$data);
-					redirect('auth/logout');
-				}
-			}else{
-				$data = array('url' => 'progress','value'=>$value);
-				$this->session->set_userdata('url',$data);
-				redirect('Login');
-			}
-		}
+		# code...
 	}
 	public function md5($val)
 	{
