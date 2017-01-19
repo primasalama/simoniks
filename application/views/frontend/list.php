@@ -124,16 +124,23 @@
 </div>
 </div>
 </div>
-
+<style>
+.datepicker{z-index:1151 !important;}
+</style>
 <script type="text/javascript">
             $(document).ready(function() {
               $('#kebijakan').DataTable();
               $('#agenda').DataTable();
               $('#progress').DataTable();
               $('#myModal').on('shown.bs.modal', function () {
-				  //$('#myInput').focus()
+				  
 				})
           } );
+            $(function() {
+			    $("body").delegate("#tanggal", function(){
+			        $(this).datepicker();
+			    });
+});
 </script>
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -143,10 +150,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title" style="color:black;">Tambah Progress</h4>
       </div>
       <div class="modal-body">
-        <form action="<?php echo base_url().$this->uri->Segment(1);?>/add" method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url();?>fprogress/add" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>Nama Kegiatan : </label>
                                 <input type="text" name="kegiatan" class="form-control" placeholder="Nama Kegiatan" required="true">
@@ -175,21 +182,13 @@
                                 <label>Dokumentasi 2</label>
                                 <input type="file" name="foto2" class="form-control" placeholder="Unit Kerja" required="true">  
                             </div>
-                            
-                            <!--
-                            <div class="form-group">
-                                <label>Status : </label>
-                                <input type="text" name="status" class="form-control" placeholder="Status" required="true">
-                            </div>
-                            -->
-                            <div class="form-group">
+      </div>
+      <div class="modal-footer">
+        <div class="form-group">
                                 <input type="submit" value="Submit" class="btn btn-primary">
                                 <input type="reset" value="Reset" class="btn btn-warning">
                             </div>
                         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
 
