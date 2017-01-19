@@ -35,6 +35,15 @@ class Beranda extends CI_Controller {
 		$this->load->view('frontend/beranda',$result);
 		$this->load->view('frontend/footerf');
 	}
+
+	public function agenda()
+	{
+		$result['data'] = $this->M_agenda->getAll();
+		$this->load->view('frontend/header');
+		$this->load->view('frontend/list_agenda',$result);
+		$this->load->view('frontend/footerf');
+	}
+
 	public function checkLogin()
 	{
 		if (!$this->session->userdata('session') or $this->session->userdata('session')[0]->role == 'admin') {
