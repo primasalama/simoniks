@@ -17,7 +17,7 @@
         <link href="<?php echo base_url();?>assets/demo_table_jui.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.min.css">
         <style type="text/css">
-        body,th {
+        th {
   color: white
 }
         </style>
