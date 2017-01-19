@@ -47,7 +47,8 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-                <div class="collapse navbar-collapse">
+                    <div class="col-md-12">
+                <div class="collapse navbar-collapse" >
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="<?php echo base_url();?>" class="btn btn-danger navbar-btn">BERANDA</a>
@@ -64,16 +65,14 @@
                         <li>
                             <a href="<?php echo base_url();?>Beranda/view/asdep4" class="btn btn-danger navbar-btn">ASDEP 4</a>
                         </li>
-            <li>
+                        <li>
                             <a href="agenda.php" class="btn btn-danger navbar-btn">AGENDA</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url();?>" class="btn btn-danger navbar-btn">LOGOUT</a>
+                        </li>
                     </ul>
-                    <div class="navbar-right">
-                      
-                       
-                        
-                       
-                    </div>
+                </div>
                 </div>
             </div>
         </nav>
