@@ -29,8 +29,8 @@ class Login extends CI_Controller {
 		}else{
 			$result['data'] = null;
 		}
-		//$this->load->view('frontend/header');
+		$this->load->view('frontend/header');
 		$this->load->view('backend/login',$result);
-		//$this->load->view('frontend/footerf');
+		$this->load->view('frontend/footerf');
 	}
 }
