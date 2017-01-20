@@ -38,7 +38,7 @@
   }
   ?>
   <li class="pull-right"><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">Tambah</button></li>
-  <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excel/agenda" class="btn btn-xs btn-warning">Export</a></li>
+  <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excel/agenda/<?php echo $this->session->userdata('session')[0]->role;?>" class="btn btn-xs btn-warning">Export</a></li>
 </ol>
 
 
@@ -120,7 +120,7 @@
         <h4 class="modal-title" style="color:black;">Tambah Progress</h4>
       </div>
       <div class="modal-body">
-        <form action="<?php echo base_url().$this->uri->Segment(1);?>/beranda/agenda/add" method="post">
+        <form action="<?php echo base_url();?>fagenda/add" method="post">
 							<div class="form-group">
 								<label>Nama Kegiatan : </label>
 								<input type="text" name="kegiatan" class="form-control" placeholder="" required="true">

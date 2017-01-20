@@ -113,7 +113,7 @@ class Beranda extends CI_Controller {
 	{
 		echo md5($val);
 	}
-	public function excel($value='')
+	public function excel($value='',$deputi=null)
 	{
 		/* 
 		buat akses excel, link: localhost/simoniks/beranda/excel/$value
@@ -122,7 +122,7 @@ class Beranda extends CI_Controller {
 		switch ($value) {
 			case 'kebijakan':
 				$filename = 'Export_Kebijakan'; //Definisi Nama file
-				$data = $this->M_kebijakan->getAllExcel(); //Ngambil data dari tabel, disimpen ke $data
+				$data = $this->M_kebijakan->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
 				$this->excel->setActiveSheetIndex(0);//Set SHEET 1 yg ditulis, wajib
 				$this->excel->getActiveSheet()->setTitle($filename); //Nama sheetnya, 1 file excel bisa banyak sheet kan ?
 				$heading=array('No','Narasi','Status','Indikator','PIC','Deputi'); //Nyiapin array buat nama kolom, hitung ada berapa kolom.
@@ -172,7 +172,7 @@ class Beranda extends CI_Controller {
 			case 'progress':
 			//Sama kayak diatas tadi,bedanya ini buat progress aja
 				$filename = 'Export_Progress';
-				$data = $this->M_progress->getAllExcel();
+				$data = $this->M_progress->getAllExcel($deputi);
 				//activate worksheet number 1
 				$this->excel->setActiveSheetIndex(0);
 				//name the worksheet
@@ -218,7 +218,7 @@ class Beranda extends CI_Controller {
 				break;
 			case 'agenda':
 				$filename = 'Export_Agenda';
-				$data = $this->M_agenda->getAllExcel();
+				$data = $this->M_agenda->getAllExcel($deputi);
 				//activate worksheet number 1
 				$this->excel->setActiveSheetIndex(0);
 				//name the worksheet

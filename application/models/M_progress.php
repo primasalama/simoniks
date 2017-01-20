@@ -7,9 +7,13 @@ class M_progress extends CI_Model {
 		$sql = "SELECT progress.*,user.role,user.name from progress inner join user on user.no = progress.created_by ";
 		return $this->db->query($sql)->result();
 	}
-	public function getAllExcel()
+	public function getAllExcel($value)
 	{
-		$sql = "SELECT progress.*,user.role,user.name from progress inner join user on user.no = progress.created_by ";
+		if ($value == null) {
+			$sql = "SELECT progress.*,user.role,user.name from progress inner join user on user.no = progress.created_by ";	# code...
+		}else{
+			$sql = "SELECT progress.*,user.role,user.name from progress inner join user on user.no = progress.created_by where user.role = '".$value."' ";
+		}
 		return $this->db->query($sql);
 	}
 	public function insert($data)
