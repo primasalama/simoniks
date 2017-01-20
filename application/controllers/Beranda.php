@@ -36,13 +36,13 @@ class Beranda extends CI_Controller {
 		$this->load->view('frontend/footerf');
 	}
 
-	public function agenda()
+	/*public function agenda()
 	{
 		$result['data'] = $this->M_agenda->getAll();
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/list_agenda',$result);
 		$this->load->view('frontend/footerf');
-	}
+	}*/
 
 	public function checkLogin()
 	{
@@ -76,6 +76,35 @@ class Beranda extends CI_Controller {
 			redirect('Beranda');
 		}
 	}
+
+	public function agenda($value='')
+	{
+		
+		if ($value != '') {
+			if ($this->session->userdata('session') and $this->session->userdata('session')[0]->role != 'admin') {
+				if ($this->session->userdata('session')[0]->role == $value){
+					$result['data'] = $this->M_agenda->getByAsdep($value);
+					$this->load->view('frontend/header');
+					$this->load->view('frontend/list_agenda',$result);
+					$this->load->view('frontend/footerf');
+				}else{
+					$data = array('url' => 'agenda','value'=>$value);// nyimpen ke array, url kemana diakan balik setelah login nanti.
+					$this->session->set_userdata('url',$data);
+					redirect('Auth/logout');
+				}
+			}else{
+				$data = array('url' => 'agenda','value'=>$value);// nyimpen ke array, url kemana diakan balik setelah login nanti.
+				$this->session->set_userdata('url',$data);
+				redirect('Auth/logout');
+			}
+		}else{
+			$result['data'] = $this->M_agenda->getAll();
+		$this->load->view('frontend/header');
+		$this->load->view('frontend/list_agenda',$result);
+		$this->load->view('frontend/footerf');
+		}
+	}
+
 	public function update($value='')
 	{
 		# code...

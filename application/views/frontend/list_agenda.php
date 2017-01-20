@@ -16,10 +16,10 @@
 <div class="container">
 	<div class="collapse navbar-collapse">
         <ul class="nav navbar-nav" style="text-align:center">
-            <a href="input1.php" class="btn btn-default navbar-btn" style="background-color:#0067b5; color: #CCCCCC;">Agenda Asdep1</a>
-            <a href="input2.php" class="btn btn-default navbar-btn" style="background-color:#0067b5; color: #CCCCCC;">Agenda Asdep2</a>
-            <a href="input3.php" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Asdep3</a>
-            <a href="input4.php" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Asdep4</a>
+            <a href="<?php echo base_url();?>agenda/asdep1" class="btn btn-default navbar-btn" style="background-color:#0067b5; color: #CCCCCC;">Agenda Asdep1</a>
+            <a href="<?php echo base_url();?>agenda/asdep2" class="btn btn-default navbar-btn" style="background-color:#0067b5; color: #CCCCCC;">Agenda Asdep2</a>
+            <a href="<?php echo base_url();?>agenda/asdep3" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Asdep3</a>
+            <a href="<?php echo base_url();?>agenda/asdep4" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Asdep4</a>
         </ul>
 	</div>
 	<div class="panel panel-default">
@@ -29,11 +29,17 @@
 
 	
 	<ol class="breadcrumb" style="margin-top: 30px;">
-		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
-		<li class="breadcrumb-item active">Progress</li>
-		<li class="pull-right"><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">Tambah</button></li>
-		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excel/progress" class="btn btn-xs btn-warning">Export</a></li>
-	</ol>
+  <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKs</a></li>
+  <?php 
+  if ($this->uri->segment(2)) {
+    ?>
+     <li class="breadcrumb-item"><a href="<?php echo base_url();?>"><?php echo $this->uri->segment(2);?></a></li>
+    <?php
+  }
+  ?>
+  <li class="pull-right"><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">Tambah</button></li>
+  <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excel/agenda" class="btn btn-xs btn-warning"></a></li>
+</ol>
 
 
 	<table id="agenda" class="table table-hover">

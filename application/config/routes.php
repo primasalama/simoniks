@@ -66,8 +66,10 @@ $route['progress/delete'] = 'progress/config';
 $route['progress/update'] = 'progress/config';
 $route['login/failed'] = 'login/index/failed';
 
+$route['agenda/(:any)'] ='beranda/agenda/$1';
+$route['agenda'] = 'Beranda/agenda';
 
-$route['kebijakan'] = 'beranda/kebijakan/';
+/*$route['kebijakan'] = 'beranda/kebijakan/';
 $route['kebijakan/(:any)'] = 'beranda/kebijakan/$1';
 $route['kebijakan/(:any)/(:any)'] = 'beranda/kebijakan/$1/$2';
 
@@ -77,6 +79,7 @@ $route['progress/(:any)/(:any)'] = 'beranda/progress/$1/$2';
 
 $route['agenda'] = 'beranda/agenda/';
 $route['agenda/(:any)'] = 'beranda/agenda/$1';
-$route['agenda/(:any)/(:any)'] = 'beranda/agenda/$1/$2';
+$route['agenda/(:any)/(:any)'] = 'beranda/agenda/$1/$2';*/
+
 //$route['home/(:any)'] = 'beranda/arif';
 //$route['home/(:any)/(:num)'] = 'beranda/coba/$1';
