@@ -74,7 +74,7 @@
 							if ($this->uri->segment(2)) {
 								?>
 								<td>
-									<a class="btn btn-danger" href="<?php echo base_url()."f".$this->uri->segment(1);?>/delete/<?php echo $key->no;?>"><span class="glyphicon glyphicon-trash"></span></a>
+									<a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fagenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span</a>
 									<a class="btn btn-warning" href="<?php echo base_url()."f".$this->uri->segment(1);?>/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
 								</td>
 								<?php
@@ -153,3 +153,30 @@
 
   </div>
 </div>
+<!-- Delete -->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Konfirmasi Hapus Agenda</h4>
+                            </div>
+                        
+                            <div class="modal-body">
+                                <p>Anda ingin menghapus?</p>
+                                Agenda Kegiatan :  <strong><span class="debug-url"></span></strong>
+                            </div>
+                            
+                            <div class="modal-footer">
+                                <a class="btn btn-danger btn-ok">Hapus</a>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Gagal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $('#confirm-delete').on('show.bs.modal', function(e) {
+                        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+                        $('.debug-url').html($(e.relatedTarget).data('book'));
+                    });
+                </script>
