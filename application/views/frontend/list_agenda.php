@@ -38,7 +38,7 @@
   }
   ?>
   <li class="pull-right"><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">Tambah</button></li>
-  <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excel/agenda" class="btn btn-xs btn-warning"></a></li>
+  <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excel/agenda" class="btn btn-xs btn-warning">Export</a></li>
 </ol>
 
 
@@ -110,3 +110,46 @@
 });
 </script>
 <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="color:black;">Tambah Progress</h4>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url().$this->uri->Segment(1);?>/beranda/agenda/add" method="post">
+							<div class="form-group">
+								<label>Nama Kegiatan : </label>
+								<input type="text" name="kegiatan" class="form-control" placeholder="" required="true">
+							</div>
+							<div class="form-group">
+								<label>Tanggal Pelaksanaan : </label>
+								<input type="text" id="tanggal" name="tanggal" class="form-control" placeholder="" required="true">
+							</div>
+							<div class="form-group">
+								<label>Waktu Pelaksanaan : </label>
+								<input type="text" id="pukul" name="pukul" class="form-control" placeholder="" required="true">
+							</div>
+							<div class="form-group">
+								<label>Tempat Pelaksanaan : </label>
+								<input type="text" name="tempat" class="form-control" placeholder="" required="true">
+							</div>
+							<div class="form-group">
+								<label>Unit Kerja : </label>
+								<input type="text" name="unit" class="form-control" placeholder="" required="true">
+							</div>
+      </div>
+      <div class="modal-footer">
+        <div class="form-group">
+                                <input type="submit" value="Submit" class="btn btn-primary">
+                                <input type="reset" value="Reset" class="btn btn-warning">
+                            </div>
+                        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
