@@ -107,8 +107,9 @@
 							<?php 
 							if ($this->uri->segment(3) == $this->session->userdata('session')[0]->role) {
 								?><td>
-									<a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fprogress/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span</a>
+									<a href="#" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fprogress/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
 									<a class="btn btn-warning" href="<?php echo base_url();?>fprogress/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
+									<a href="#" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fprogress/delete/<?php echo $key->no;?>" data-kegiatan="<?php echo $key->kegiatan;?>" data-masalah="<?php echo $key->masalah;?>" data-hasil="<?php echo $key->hasil;?>" data-tindaklajut="<?php echo $key->tindak_ljt;?>" data-toggle="modal" data-target="#modal-update"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
 								</td><?php
 							}
 							?>
@@ -135,11 +136,6 @@
 				  
 				})
           } );
-            $(function() {
-			    $("body").delegate("#tanggal", function(){
-			        $(this).datepicker();
-			    });
-});
 </script>
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -219,5 +215,64 @@
                     $('#confirm-delete').on('show.bs.modal', function(e) {
                         $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
                         $('.debug-url').html($(e.relatedTarget).data('book'));
+                    });
+                </script>
+
+ <!-- Delete -->
+<div class="modal fade" id="modal-update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Update Progress</h4>
+                            </div>
+                        
+                            <div class="modal-body">
+                                <form action="<?php echo base_url();?>fprogress/add" method="post" enctype="multipart/form-data">
+	                            <div class="form-group">
+	                                <label>Nama Kegiatan : </label>
+	                                <input type="text" name="kegiatan" id="kegiatan" class="form-control" placeholder="Nama Kegiatan" required="true">
+	                            </div>
+	                            <div class="form-group">
+	                                <label>Tanggal Pelaksanaan : </label>
+	                                <input type="text" id="tanggal" name="tanggal" class="form-control" placeholder="tanggal" required="true">
+	                            </div>
+	                            <div class="form-group">
+	                                <label>Hasil : </label>
+	                                <input type="text" name="hasil" id="hasil" class="form-control" placeholder="Hasil" required="true">
+	                            </div>
+	                            <div class="form-group">
+	                                <label>Tindak Lanjut : </label>
+	                                <input type="text" name="tindak_ljt" id="tindak_ljt" class="form-control" placeholder="Tindak Lanjut" required="true">
+	                            </div>
+	                            <div class="form-group">
+	                                <label>Masalah : </label>
+	                                <input type="text" name="masalah" id="masalah" class="form-control" placeholder="Masalah" required="true">
+	                            </div>
+	                            <div class="form-group col-sm-6">
+	                                <label>Dokumentasi 1</label>
+	                                <input type="file" name="foto1" class="form-control" placeholder="Unit Kerja" required="true">  
+	                            </div>
+	                            <div class="form-group col-sm-6">
+	                                <label>Dokumentasi 2</label>
+	                                <input type="file" name="foto2" class="form-control" placeholder="Unit Kerja" required="true">  
+	                            </div>
+	                            </form>
+                            </div>
+                            
+                            <div class="modal-footer">
+                                <a class="btn btn-danger btn-ok">Hapus</a>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Gagal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $('#modal-update').on('show.bs.modal', function(e) {
+                        $(this).find('#kegiatan').val($(e.relatedTarget).data('kegiatan'));
+                        $(this).find('#hasil').val($(e.relatedTarget).data('hasil'));
+                        $(this).find('#tindak_ljt').val($(e.relatedTarget).data('tindaklanjut'));
+                        $(this).find('#masalah').val($(e.relatedTarget).data('masalah'));
+                        //$('').html($(e.relatedTarget).data('book'));
                     });
                 </script>
