@@ -31,14 +31,27 @@
 	<ol class="breadcrumb" style="margin-top: 30px;">
   <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKs</a></li>
   <?php 
+  if ($this->uri->segment(1)) {
+    ?>
+     <li class="breadcrumb-item"><a href="<?php echo base_url();?>"><?php echo $this->uri->segment(1);?></a></li>
+    <?php
+  }
   if ($this->uri->segment(2)) {
     ?>
-     <li class="breadcrumb-item"><a href="<?php echo base_url();?>"><?php echo $this->uri->segment(2);?></a></li>
+    <li class="pull-right"><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">Tambah</button></li>
+    <?php
+  }
+  if ($this->session->userdata('session')) {
+    ?>
+     <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excel/agenda/<?php echo $this->session->userdata('session')[0]->role;?> " class="btn btn-xs btn-warning">Export</a></li><?php
+  }else{
+    ?>
+     <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excel/agenda/" class="btn btn-xs btn-warning">Export</a></li>
     <?php
   }
   ?>
-  <li class="pull-right"><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">Tambah</button></li>
-  <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excel/agenda/<?php echo $this->session->userdata('session')[0]->role;?>" class="btn btn-xs btn-warning">Export</a></li>
+  
+ 
 </ol>
 
 
