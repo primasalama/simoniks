@@ -115,15 +115,15 @@ class Beranda extends CI_Controller {
 		switch ($value) {
 			case 'kebijakan':
 				$result['data'] = $this->M_kebijakan->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
-				$this->load->view('e_kebijakan',$result);
+				$this->load->view('frontend/e_kebijakan',$result);
 				break;
 			case 'agenda':
 				$result['data'] = $this->M_agenda->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
-				$this->load->view('e_agenda',$result);
+				$this->load->view('frontend/e_agenda',$result);
 				break;
 			case 'progress':
 				$result['data'] = $this->M_progress->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
-				$this->load->view('e_progress',$result);
+				$this->load->view('frontend/e_progress',$result);
 				break;
 			default:
 				echo "a";

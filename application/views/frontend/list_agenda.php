@@ -44,7 +44,7 @@
   }
   if ($this->session->userdata('session')) {
     ?>
-     <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excel/agenda/<?php echo $this->session->userdata('session')[0]->role;?> " class="btn btn-xs btn-warning">Export</a></li><?php
+     <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excels/agenda/<?php echo $this->session->userdata('session')[0]->role;?> " class="btn btn-xs btn-warning">Export</a></li><?php
   }else{
     ?>
      <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excel/agenda/" class="btn btn-xs btn-warning">Export</a></li>

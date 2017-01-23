@@ -26,7 +26,7 @@
                 <ol class="breadcrumb" style="margin-left: -20px;">
 					<li class="breadcrumb-item active">Kebijakan</li>
 					<li class="breadcrumb-item active"><?php echo $this->session->userdata('session')[0]->role;?></li>
-					<li class="pull-right" style="margin-right: -20px;"><a href="<?php echo base_url();?>beranda/excel/kebijakan/<?php echo $this->session->userdata('session')[0]->role;?>" class="btn btn-xs btn-warning">Export</a></li>
+					<li class="pull-right" style="margin-right: -20px;"><a href="<?php echo base_url();?>beranda/excels/kebijakan/<?php echo $this->session->userdata('session')[0]->role;?>" class="btn btn-xs btn-warning">Export</a></li>
                 </ol>
 	<table id="kebijakan" class="table table-bordered">
 					<thead>
@@ -72,7 +72,7 @@
 		<li class="breadcrumb-item active">Progress</li>
 		<li class="breadcrumb-item active"><?php echo $this->session->userdata('session')[0]->role;?></li>
 		<li class="pull-right"><a href="<?php echo base_url();?>fprogress" class="btn btn-info btn-xs">Tambah</a></li>
-		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excel/progress/<?php echo $this->session->userdata('session')[0]->role;?>" class="btn btn-xs btn-warning">Export</a></li>
+		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excels/progress/<?php echo $this->session->userdata('session')[0]->role;?>" class="btn btn-xs btn-warning">Export</a></li>
 	</ol>
 	<table id="progress" class="table table-bordered">
 					<thead>

@@ -12,10 +12,34 @@
 ?>
 <table width="100%" border="1" cellpadding="5" cellspacing="0">
 <tr>
-	<td colspan="5" align="center"><h2><strong>KEBIJAKAN STRATEGIS</strong></h2></td>
+	<td colspan="5" align="center"><h2><strong>LAPORAN KEBIJAKAN STRATEGIS</strong></h2></td>
 </tr>
 <tr>
-    <td colspan="5" align="center"><h2><strong>ASISTEN DEPUTI SUMBER DAYA HAYATI</strong></h2></td>
+<?php 
+	if ($filename != null) {
+		switch ($filename) {
+			case 'asdep1':
+				$title ="ASISTEN DEPUTI SUMBER DAYA HAYATI";
+				echo '<td colspan="5" align="center"><h2><strong>'.$title.'</strong></h2></td>';
+				break;
+			case 'asdep2':
+				$title ="ASISTEN DEPUTI SUMBER DAYA MINERAL, ENERGI, DAN NON KONVESIONAL";
+				echo '<td colspan="5" align="center"><h2><strong>'.$title.'</strong></h2></td>';
+				break;
+			case 'asdep3':
+				$title ="ASISTEN DEPUTI JASA KEMARITIMAN";
+				echo '<td colspan="5" align="center"><h2><strong>'.$title.'</strong></h2></td>';
+				break;
+			case 'asdep4':
+				$title ="ASISTEN DEPUTI LINGKUNGAN DAN KEBENCANAAN MARITIM";
+				echo '<td colspan="5" align="center"><h2><strong>'.$title.'</strong></h2></td>';
+				break;
+			default:
+				echo "a";
+				break;
+		}
+	}
+?>
 </tr>
 <tr>
 	<td colspan="5" align="center"><h2><strong>TAHUN 2016</strong></h2></td>
@@ -28,11 +52,13 @@
 	<td align="center">Status Saat Ini</td>
 	<td align="center">Indikator Keberhasilan</td>
 	<td align="center">PIC</td>
-	
+	<?php if ($filename == null) {
+		echo '<td align="center">Pembuat</td>';
+	}?>
 </tr>
 <?PHP
 $i=1;
-foreach($data as $key)
+foreach($data->result() as $key)
 {
 ?>
 <tr>
@@ -41,6 +67,9 @@ foreach($data as $key)
 	<td ><?php echo $key->status;?></td>
 	<td><?php echo $key->indikator;?></td>
 	<td><?php echo $key->pic;?></td>
+	<?php if ($filename == null) {
+		echo '<td>'.$key->role.'</td>';
+	}?>
 </tr>
 <?php
 $i++;
