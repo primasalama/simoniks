@@ -39,8 +39,8 @@ body{
             <div class="well well-sm">
                 <div class="container">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
                     <li class="breadcrumb-item"><a href="<?php echo base_url();?>Beranda/view/<?php echo $this->session->userdata('session')[0]->role;?>">Progress</a></li>
+                    <li class="breadcrumb-item active">Tambah Progress</li>
                 </ol>
                 <div class="panel panel-info">
                     <div class="panel-heading">Form</div>
@@ -93,6 +93,7 @@ body{
                                 <ol>
                                     <li>Mengisi Nama Kegiatan sesuai Kegiatan yang bejalan</li>
                                     <li>Mengisi Waktu pelaksanaan dengan Benar</li>
+                                    <li>Mengisi Dokumentasi dengan image sebanyak 2 (dua) dokumentasi</li>
                                 </ol>
                             </div>
                         </div>
