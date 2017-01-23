@@ -105,9 +105,30 @@ class Beranda extends CI_Controller {
 		}
 	}
 
-	public function update($value='')
+	public function excels($value='',$deputi=null)
 	{
-		# code...
+		if ($deputi != null) {
+			$result['filename'] = $deputi;
+		}else{
+			$result['filename'] = null;
+		}
+		switch ($value) {
+			case 'kebijakan':
+				$result['data'] = $this->M_kebijakan->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
+				$this->load->view('e_kebijakan',$result);
+				break;
+			case 'agenda':
+				$result['data'] = $this->M_agenda->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
+				$this->load->view('e_agenda',$result);
+				break;
+			case 'progress':
+				$result['data'] = $this->M_progress->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
+				$this->load->view('e_progress',$result);
+				break;
+			default:
+				echo "a";
+				break;
+		}
 	}
 	public function md5($val)
 	{
@@ -115,7 +136,7 @@ class Beranda extends CI_Controller {
 	}
 	public function excel($value='',$deputi=null)
 	{
-		echo "asd";die();
+		//echo "asd";die();
 		/* 
 		buat akses excel, link: localhost/simoniks/beranda/excel/$value
 		Kenapa ada switch ? buat ngecek $value isinya itu kebijakan, agenda, atau progress
@@ -125,9 +146,10 @@ class Beranda extends CI_Controller {
 				$filename = 'Export_Kebijakan'; //Definisi Nama file
 				$data = $this->M_kebijakan->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
 				$this->excel->setActiveSheetIndex(0);//Set SHEET 1 yg ditulis, wajib
+				$this->excel->getActiveSheet()->setCellValue('A1','asdsa');
 				$this->excel->getActiveSheet()->setTitle($filename); //Nama sheetnya, 1 file excel bisa banyak sheet kan ?
 				$heading=array('No','Narasi','Status','Indikator','PIC','Deputi'); //Nyiapin array buat nama kolom, hitung ada berapa kolom.
-			    $rowNumberH = 1; 
+			    $rowNumberH = 2; 
 			    $colH = 'A';
 			    foreach($heading as $h){
 			    	//Buat nulis nama kolom di arrray tadi ke tiap sel.  Perhatiin $colH = A sama $rowNumber = 1. 
@@ -143,7 +165,7 @@ class Beranda extends CI_Controller {
 			    $totn=$data->num_rows(); //Cek fungsi GetAllExcel di M_Kebijakan, pas direturn itu gak ada result(), beda sama fungsi getAll
 			    //Fungsinya $totn = jumlah baris yg diambil dari tabel tersebut
 			    $maxrow=$totn+1; 
-			    $row = 2; //$ROW Itu = 2. baris awal nulis si isi tabelnya
+			    $row = 3; //$ROW Itu = 2. baris awal nulis si isi tabelnya
 			    $no = 1;
 			    foreach($data->result() as $n){ //Looping Tiap Baris Data
 			        $this->excel->getActiveSheet()->setCellValue('A'.$row,$no);
@@ -159,7 +181,7 @@ class Beranda extends CI_Controller {
 		            $no++; //Nambahin Nomor 1 per 1
 			    }
 			    //Freeze pane
-			    $this->excel->getActiveSheet()->freezePane('A3'); //Belom tau wkwkwk
+			    //$this->excel->getActiveSheet()->freezePane('A4'); //Belom tau wkwkwk
 			    //Cell Style
 			    $styleArray = array( //definisiin style si excel dengan array
 			        'borders' => array(
@@ -168,7 +190,8 @@ class Beranda extends CI_Controller {
 			            )
 			        )
 			    );
-			    $this->excel->getActiveSheet()->getStyle('A1:F'.$maxrow)->applyFromArray($styleArray); //ngenalin si style yg tadi dibuat ke shet yg active tersebut
+
+			    $this->excel->getActiveSheet()->getStyle('A2:F'.$maxrow)->applyFromArray($styleArray); //ngenalin si style yg tadi dibuat ke shet yg active tersebut
 				break;
 			case 'progress':
 			//Sama kayak diatas tadi,bedanya ini buat progress aja
