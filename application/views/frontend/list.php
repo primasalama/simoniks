@@ -55,7 +55,7 @@
 							<td><?php echo $key->indikator;?></td>
 							<td><?php echo $key->pic;?></td>
 							<?php 
-							if ($this->uri->segment(3) == $this->session->userdata('session')[0]->role) {
+							if ($this->uri->segment(3) == $this->session->userdata('session')[0]->role or $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>
 									<a class="btn btn-danger" href="<?php echo base_url().$this->uri->Segment(1);?>/delete/<?php echo $key->no;?>"><span class="glyphicon glyphicon-trash"></span></a>
 									<a class="btn btn-warning" href="<?php echo base_url().$this->uri->Segment(1);?>/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
@@ -108,7 +108,7 @@
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
 							</td>
 							<?php 
-							if ($this->uri->segment(3) == $this->session->userdata('session')[0]->role) {
+							if ($this->uri->segment(3) == $this->session->userdata('session')[0]->role or $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>
 									<a href="#" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fprogress/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
 									<a class="btn btn-warning" href="<?php echo base_url();?>fprogress/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>

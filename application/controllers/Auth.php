@@ -40,7 +40,7 @@ class Auth extends CI_Controller {
         }
         
       }else{
-        redirect('dashboard');
+        redirect('Beranda');
       }
     }
   }

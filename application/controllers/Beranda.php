@@ -55,14 +55,15 @@ class Beranda extends CI_Controller {
 	public function view($value='')
 	{
 		if ($value != '') {
-			if ($this->session->userdata('session') and $this->session->userdata('session')[0]->role != 'admin') {
-				if ($this->session->userdata('session')[0]->role == $value){
+			if ($this->session->userdata('session')) {
+				if ($this->session->userdata('session')[0]->role == $value OR $this->session->userdata('session')[0]->role == 'admin'){
 					$result['kebijakan'] = $this->M_kebijakan->getByAsdep($value);
 					$result['progress'] = $this->M_progress->getByAsdep($value);
 					$this->load->view('frontend/header');
 					$this->load->view('frontend/list',$result);
 					$this->load->view('frontend/footerf');
 				}else{
+					//echo "string";die();
 					$data = array('url' => 'view','value'=>$value);// nyimpen ke array, url kemana diakan balik setelah login nanti.
 					$this->session->set_userdata('url',$data);
 					redirect('Auth/logout');
