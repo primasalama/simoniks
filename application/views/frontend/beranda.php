@@ -69,7 +69,7 @@
 					</tbody>
 				</table>
 	
-	<ol class="breadcrumb" style="margin-top:-100px;">
+	<ol class="breadcrumb" style="margin-top:-20px;">
         <li class="breadcrumb-item active">Progress</li>
 		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excel/progress" class="btn btn-xs btn-warning">Export</a></li>
 	</ol>

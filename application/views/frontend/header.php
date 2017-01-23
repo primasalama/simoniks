@@ -17,7 +17,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.min.css">
         <style type="text/css">
         th {
-  color: black
+  color: white
 }
         </style>
         <script src="<?php echo base_url();?>assets/js/jquery.js"></script>
