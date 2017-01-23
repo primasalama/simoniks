@@ -35,7 +35,7 @@
     ?>
     <li class="breadcrumb-item"><a href="<?php echo base_url().$this->uri->segment(1);?>"><?php echo $this->uri->segment(1);?></a></li>
     <li class="breadcrumb-item active"><?php echo $this->uri->segment(2);?></li>
-    <li class="pull-right"><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">Tambah</button></li>
+    <li class="pull-right"><a href="<?php echo base_url();?>fagenda" class="btn btn-info btn-xs">Tambah</a></li>
     <?php
   }else{
     ?>

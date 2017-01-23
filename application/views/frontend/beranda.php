@@ -19,7 +19,6 @@
         <div class="well well-sm">
     <div class="container">
                 <ol class="breadcrumb" style="margin-left: -20px;">
-					<li class="breadcrumb-item active"><span class="glyphicon glyphicon-home"></span> Beranda</li>
                     <li class="breadcrumb-item active">Kebijakan</li>
 					<li class="pull-right" style="margin-right: -20px;"><a href="<?php echo base_url();?>beranda/excel/kebijakan" class="btn btn-xs btn-warning">Export</a></li>
                 </ol>
@@ -70,8 +69,7 @@
 					</tbody>
 				</table>
 	
-	<ol class="breadcrumb" style="margin-top: 30px;">
-		<li class="breadcrumb-item active"><span class="glyphicon glyphicon-home"></span> Beranda</li>
+	<ol class="breadcrumb" style="margin-top:-100px;">
         <li class="breadcrumb-item active">Progress</li>
 		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excel/progress" class="btn btn-xs btn-warning">Export</a></li>
 	</ol>
@@ -130,7 +128,6 @@
 				</table>
 
 	<ol class="breadcrumb" style="margin-top: 30px;">
-		<li class="breadcrumb-item active"><span class="glyphicon glyphicon-home"></span> Beranda</li>
 		<li class="breadcrumb-item active">Agenda</li>
 		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excel/agenda" class="btn btn-xs btn-warning">Export</a></li>
 	</ol>

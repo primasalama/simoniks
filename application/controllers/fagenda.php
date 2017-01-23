@@ -28,14 +28,11 @@ class Fagenda extends CI_Controller {
 	}
 	public function index()
 	{
-		
-	}
-	public function tambah()
-	{
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/add_agenda');
-		$this->load->view('frontend/footerf');;
+		$this->load->view('frontend/footerf');
 	}
+
 	public function add()
 	{
 		//$tgl = substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2);

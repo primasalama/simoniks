@@ -24,7 +24,6 @@
         <div class="well well-sm">
     <div class="container">
                 <ol class="breadcrumb" style="margin-left: -20px;">
-                    <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
 					<li class="breadcrumb-item active">Kebijakan</li>
 					<li class="breadcrumb-item active"><?php echo $this->session->userdata('session')[0]->role;?></li>
 					<li class="pull-right" style="margin-right: -20px;"><a href="<?php echo base_url();?>beranda/excel/kebijakan/<?php echo $this->session->userdata('session')[0]->role;?>" class="btn btn-xs btn-warning">Export</a></li>
@@ -69,11 +68,10 @@
 					</tbody>
 				</table>
 	
-	<ol class="breadcrumb" style="margin-top: 30px;">
-		<li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
+	<ol class="breadcrumb" style="margin-top: -30px;">
 		<li class="breadcrumb-item active">Progress</li>
 		<li class="breadcrumb-item active"><?php echo $this->session->userdata('session')[0]->role;?></li>
-		<li class="pull-right"><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">Tambah</button></li>
+		<li class="pull-right"><a href="<?php echo base_url();?>fprogress" class="btn btn-info btn-xs">Tambah</a></li>
 		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excel/progress/<?php echo $this->session->userdata('session')[0]->role;?>" class="btn btn-xs btn-warning">Export</a></li>
 	</ol>
 	<table id="progress" class="table table-bordered">
