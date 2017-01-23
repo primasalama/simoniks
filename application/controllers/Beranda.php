@@ -115,6 +115,7 @@ class Beranda extends CI_Controller {
 	}
 	public function excel($value='',$deputi=null)
 	{
+		echo "asd";die();
 		/* 
 		buat akses excel, link: localhost/simoniks/beranda/excel/$value
 		Kenapa ada switch ? buat ngecek $value isinya itu kebijakan, agenda, atau progress
