@@ -42,12 +42,12 @@
     <li class="breadcrumb-item active"><?php echo $this->uri->segment(1);?></li>
     <?php
   }
-  if ($this->session->userdata('session')) {
+  if ($this->uri->segment(2) != null) {
     ?>
      <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excels/agenda/<?php echo $this->session->userdata('session')[0]->role;?> " class="btn btn-xs btn-warning">Export</a></li><?php
   }else{
     ?>
-     <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excel/agenda/" class="btn btn-xs btn-warning">Export</a></li>
+     <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excels/agenda/" class="btn btn-xs btn-warning">Export</a></li>
     <?php
   }
   ?>
