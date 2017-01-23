@@ -1,3 +1,8 @@
+<style>
+    .datepicker {
+      z-index: 1600 !important; /* has to be larger than 1050 */
+    }
+</style>
 <div class="well well-sm">
     <div class="container">
         <div class="row">
@@ -109,7 +114,7 @@
 								?><td>
 									<a href="#" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fprogress/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
 									<a class="btn btn-warning" href="<?php echo base_url();?>fprogress/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
-									<a href="#" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fprogress/delete/<?php echo $key->no;?>" data-kegiatan="<?php echo $key->kegiatan;?>" data-masalah="<?php echo $key->masalah;?>" data-hasil="<?php echo $key->hasil;?>" data-tindaklajut="<?php echo $key->tindak_ljt;?>" data-toggle="modal" data-target="#modal-update"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
+									<a href="#" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fprogress/delete/<?php echo $key->no;?>" data-kegiatan="<?php echo $key->kegiatan;?>" data-masalah="<?php echo $key->masalah;?>" data-hasil="<?php echo $key->hasil;?>" data-tindaklajut="<?php echo $key->tindak_ljt;?>" data-tanggal="<?php echo $key->tanggal;?>" data-toggle="modal" data-target="#modal-update"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
 								</td><?php
 							}
 							?>
@@ -124,17 +129,19 @@
 </div>
 </div>
 </div>
-<style>
-.datepicker{z-index:1151 !important;}
-</style>
+<script>
+        $(function () {
+            $('#tanggal').datepicker({
+            });
+            $('#tanggal1').datepicker({
+            });
+        });
+    </script>
 <script type="text/javascript">
             $(document).ready(function() {
               $('#kebijakan').DataTable();
               $('#agenda').DataTable();
               $('#progress').DataTable();
-              $('#myModal').on('shown.bs.modal', function () {
-				  
-				})
           } );
 </script>
 <!-- Modal -->
@@ -235,7 +242,7 @@
 	                            </div>
 	                            <div class="form-group">
 	                                <label>Tanggal Pelaksanaan : </label>
-	                                <input type="text" id="tanggal" name="tanggal" class="form-control" placeholder="tanggal" required="true">
+	                                <input type="text" id="tanggal1" name="tanggal" class="form-control" placeholder="tanggal" required="true">
 	                            </div>
 	                            <div class="form-group">
 	                                <label>Hasil : </label>
@@ -269,10 +276,13 @@
                 </div>
                 <script>
                     $('#modal-update').on('show.bs.modal', function(e) {
+                    	var tgl = $(e.relatedTarget).data('tanggal');
+                    	console.log('data :',tanggal);
                         $(this).find('#kegiatan').val($(e.relatedTarget).data('kegiatan'));
                         $(this).find('#hasil').val($(e.relatedTarget).data('hasil'));
                         $(this).find('#tindak_ljt').val($(e.relatedTarget).data('tindaklanjut'));
                         $(this).find('#masalah').val($(e.relatedTarget).data('masalah'));
+                        $(this).find('#tanggal1').val($(e.relatedTarget).data('tanggal'));
                         //$('').html($(e.relatedTarget).data('book'));
                     });
                 </script>
