@@ -18,6 +18,13 @@ body{
    color: grey;  
 }
 </style>
+<?php 
+    if ($this->session->userdata('session')[0]->role == 'admin') {
+        $action = base_url()."Kebijakan/add";
+    }else{
+        $action = base_url().$this->uri->Segment(1)."/add";
+    }
+?>
 <div class="well well-sm">
     <div class="container">
         <div class="row">
@@ -46,7 +53,7 @@ body{
                             <div class="panel-heading">Form</div>
                             <div class="panel-body">
                                 <div id="FormLogin" class="col-sm-7">
-                                    <form action="<?php echo base_url().$this->uri->Segment(1);?>/add" method="post">
+                                    <form action="<?php echo $action;?>" method="post">
                                         <div class="form-group">
                                             <label>Narasi : </label>
                                             <textarea class="form-control" name="narasi" placeholder="Narasi"></textarea>
@@ -62,6 +69,15 @@ body{
                                         <div class="form-group">
                                             <label>PIC : </label>
                                             <input type="text" name="pic" class="form-control" placeholder="pic" required="true">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Asisten Deputi</label>
+                                            <select class="form-control" name="deputi">
+                                                <option value="asdep1">Asisten Deputi 1</option>
+                                                <option value="asdep2">Asisten Deputi 2</option>
+                                                <option value="asdep3">Asisten Deputi 3</option>
+                                                <option value="asdep4">Asisten Deputi 4</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <input type="submit" value="Submit" class="btn btn-primary">

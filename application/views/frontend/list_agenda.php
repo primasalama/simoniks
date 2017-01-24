@@ -35,7 +35,6 @@
     ?>
     <li class="breadcrumb-item"><a href="<?php echo base_url().$this->uri->segment(1);?>"><?php echo $this->uri->segment(1);?></a></li>
     <li class="breadcrumb-item active"><?php echo $this->uri->segment(2);?></li>
-    <li class="pull-right"><a href="<?php echo base_url();?>fagenda" class="btn btn-info btn-xs">Tambah</a></li>
     <?php
   }else{
     ?>
@@ -49,6 +48,9 @@
     ?>
      <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excels/agenda/" class="btn btn-xs btn-warning">Export</a></li>
     <?php
+  }
+  if ($this->session->userdata('session')[0]->role == 'admin' or $this->session->userdata('session')) {
+    echo '<li class="pull-right"><a href="'.base_url().'fagenda/" class="btn btn-xs btn-info">Tambah</a></li>';
   }
   ?>
   
@@ -66,7 +68,7 @@
 							<th>Tempat</th>
 							<th>Unit</th>
 							<?php 
-							if ($this->uri->segment(2)) {
+							if ($this->uri->segment(2) or $this->session->userdata('session')[0]->role == 'admin') {
 								?><th>Action</th><?php
 							}
 							?>
@@ -85,10 +87,20 @@
 							<td><?php echo $key->tempat;?></td>
 							<td><?php echo $key->unit;?></td>
 							<?php 
-							if ($this->uri->segment(2)) {
+							if ($this->uri->segment(2) or $this->session->userdata('session')[0]->role == 'admin') {
 								?>
 								<td>
-									<a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fagenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span</a>
+									<?php 
+                  if ($this->session->userdata('session')[0]->role == 'admin') {
+                    ?>
+                    <a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>Agenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
+                    <?php
+                  }else{
+                    ?>
+                    <a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fagenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
+                    <?php
+                  }
+                  ?>
 									<a class="btn btn-warning" href="<?php echo base_url()."f".$this->uri->segment(1);?>/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
 								</td>
 								<?php

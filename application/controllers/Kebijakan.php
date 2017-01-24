@@ -48,15 +48,19 @@ class Kebijakan extends CI_Controller {
 		switch ($this->input->post('deputi')) {
 			case 'asdep1':
 				$created_by = 1;
+				$url_back ='asdep1';
 				break;
 			case 'asdep2':
 				$created_by = 3;
+				$url_back ='asdep2';
 				break;
 			case 'asdep3':
 				$created_by = 4;
+				$url_back ='asdep3';
 				break;
 			case 'asdep4':
 				$created_by = 5;
+				$url_back ='asdep4';
 				break;
 			default:
 				# code...
@@ -64,7 +68,7 @@ class Kebijakan extends CI_Controller {
 		}
 		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>$created_by,'updated_by'=>$this->session->userdata('session')[0]->no);
 		$this->M_kebijakan->insert($data);
-		redirect('Kebijakan');
+		redirect('Beranda/view/'.$url_back);
 	}
 	public function config()
 	{

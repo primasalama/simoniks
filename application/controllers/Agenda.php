@@ -48,15 +48,19 @@ class Agenda extends CI_Controller {
 		switch ($this->input->post('deputi')) {
 			case 'asdep1':
 				$created_by = 1;
+				$url_back ='asdep1';
 				break;
 			case 'asdep2':
 				$created_by = 3;
+				$url_back ='asdep2';
 				break;
 			case 'asdep3':
 				$created_by = 4;
+				$url_back ='asdep3';
 				break;
 			case 'asdep4':
 				$created_by = 5;
+				$url_back ='asdep4';
 				break;
 			default:
 				# code...
@@ -64,8 +68,9 @@ class Agenda extends CI_Controller {
 		}
 		//$tgl = substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2);
 		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'pukul'=>$this->input->post('pukul'),'tempat'=>$this->input->post('tempat'),'unit'=>$this->input->post('unit'),'created_by'=>$created_by,'updated_by'=>$this->session->userdata('session')[0]->no);
+		//print_r($data);die();
 		$this->M_agenda->insert($data);
-		redirect('agenda');
+		redirect('agenda/'.$url_back);
 	}
 	public function config()
 	{
@@ -78,6 +83,7 @@ class Agenda extends CI_Controller {
 	}
 	public function update($value)
 	{
+
 		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'pukul'=>$this->input->post('pukul'),'tempat'=>$this->input->post('tempat'),'unit'=>$this->input->post('unit'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_agenda->updateId($data,$value);
 		redirect('agenda');
@@ -85,7 +91,7 @@ class Agenda extends CI_Controller {
 	public function delete($value)
 	{
 		$this->M_agenda->deleteId($value);
-		redirect('Agenda');
+		redirect('agenda');
 	}
 	public function edit($value)
 	{
