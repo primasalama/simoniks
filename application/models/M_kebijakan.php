@@ -33,8 +33,8 @@ class M_kebijakan extends CI_Model {
 	}
 	public function getId($value='')
 	{
-		$this->db->where('no',$value);
-		return $this->db->get('kebijakan')->result();
+		$sql = "SELECT kebijakan.*,user.role,user.name from kebijakan inner join user on user.no = kebijakan.created_by where kebijakan.no = '".$value."' ";
+		return $this->db->query($sql)->result();
 	}
 	public function getByAsdep($value='')
 	{

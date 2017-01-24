@@ -83,12 +83,17 @@ class Kebijakan extends CI_Controller {
 	{
 		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_kebijakan->updateId($data,$value);
-		redirect('Kebijakan');
+		$data = $this->M_kebijakan->getId($value);
+		redirect('Beranda/view/'.$data[0]->role);
 	}
 	public function delete($value)
 	{
+		//echo $value;die();
+		$data = $this->M_kebijakan->getId($value);
+		//echo 'Beranda/view/'.$data[0]->role;die();
 		$this->M_kebijakan->deleteId($value);
-		redirect('Kebijakan');
+		//print_r($data[0]->role);die();
+		redirect('Beranda/view/'.$data[0]->role);
 	}
 	public function edit($value)
 	{

@@ -86,12 +86,15 @@ class Agenda extends CI_Controller {
 
 		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'pukul'=>$this->input->post('pukul'),'tempat'=>$this->input->post('tempat'),'unit'=>$this->input->post('unit'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_agenda->updateId($data,$value);
-		redirect('agenda');
+		$data = $this->M_agenda->getId($value);
+		///print_r($data);die();
+		redirect('agenda/'.$data[0]->role);
 	}
 	public function delete($value)
 	{
+		$data = $this->M_agenda->getId($value);
 		$this->M_agenda->deleteId($value);
-		redirect('agenda');
+		redirect('agenda/'.$data[0]->role);
 	}
 	public function edit($value)
 	{

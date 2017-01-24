@@ -48,15 +48,19 @@ class Progress extends CI_Controller {
 		switch ($this->input->post('deputi')) {
 			case 'asdep1':
 				$created_by = 1;
+				$url_back ='asdep1';
 				break;
 			case 'asdep2':
 				$created_by = 3;
+				$url_back ='asdep2';
 				break;
 			case 'asdep3':
 				$created_by = 4;
+				$url_back ='asdep3';
 				break;
 			case 'asdep4':
 				$created_by = 5;
+				$url_back ='asdep4';
 				break;
 			default:
 				# code...
@@ -66,7 +70,7 @@ class Progress extends CI_Controller {
 		$dokumentasi2 =  $this->uploadImage($_FILES['foto2'],'foto2');
 		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'created_by'=>$created_by,'updated_by'=>$this->session->userdata('session')[0]->no);
 		$this->M_progress->insert($data);
-		redirect('Progress');
+		redirect('Beranda/view/'.$url_back);
 	}
 	public function uploadImage($image,$name)
 	{
@@ -116,12 +120,14 @@ class Progress extends CI_Controller {
 		}
 		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_progress->updateId($data,$value);
-		redirect('Progress');
+		$data = $this->M_progress->getId($value);
+		redirect('Beranda/view/'.$data[0]->role);
 	}
 	public function delete($value)
 	{
 		$this->M_progress->deleteId($value);
-		redirect('Progress');
+		$data = $this->M_kebijakan->getId($value);
+		redirect('Beranda/view/'.$data[0]->role);
 	}
 	public function edit($value)
 	{

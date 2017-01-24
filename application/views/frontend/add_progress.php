@@ -18,6 +18,13 @@ body{
    color: grey;  
 }
 </style>
+<?php 
+    if ($this->session->userdata('session')[0]->role == 'admin') {
+        $action = base_url()."Progress/add";
+    }else{
+        $action = base_url().$this->uri->Segment(1)."/add";
+    }
+?>
 <div class="well well-sm">
     <div class="container">
         <div class="row">
@@ -46,7 +53,7 @@ body{
                     <div class="panel-heading">Form</div>
                         <div class="panel-body">
                             <div id="FormLogin" class="col-sm-7">
-                                <form action="<?php echo base_url().$this->uri->Segment(1);?>/add" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo $action;?>" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label>Nama Kegiatan : </label>
                                         <input type="text" name="kegiatan" class="form-control" placeholder="Nama Kegiatan" required="true">
@@ -67,6 +74,15 @@ body{
                                         <label>Masalah : </label>
                                         <input type="text" name="masalah" class="form-control" placeholder="Masalah" required="true">
                                     </div>
+                                    <div class="form-group">
+                                            <label>Asisten Deputi</label>
+                                            <select class="form-control" name="deputi">
+                                                <option value="asdep1">Asisten Deputi 1</option>
+                                                <option value="asdep2">Asisten Deputi 2</option>
+                                                <option value="asdep3">Asisten Deputi 3</option>
+                                                <option value="asdep4">Asisten Deputi 4</option>
+                                            </select>
+                                        </div>
                                     <div class="form-group col-sm-6">
                                         <label>Dokumentasi 1</label>
                                         <input type="file" name="foto1" class="form-control" placeholder="Unit Kerja" required="true">  

@@ -49,8 +49,10 @@
      <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excels/agenda/" class="btn btn-xs btn-warning">Export</a></li>
     <?php
   }
-  if ($this->session->userdata('session')[0]->role == 'admin' or $this->session->userdata('session')) {
-    echo '<li class="pull-right"><a href="'.base_url().'fagenda/" class="btn btn-xs btn-info">Tambah</a></li>';
+  if ($this->session->userdata('session')) {
+    if ($this->session->userdata('session')[0]->role == 'admin') {
+      echo '<li class="pull-right"><a href="'.base_url().'fagenda/" class="btn btn-xs btn-info">Tambah</a></li>';
+    }
   }
   ?>
   
@@ -68,7 +70,7 @@
 							<th>Tempat</th>
 							<th>Unit</th>
 							<?php 
-							if ($this->uri->segment(2) or $this->session->userdata('session')[0]->role == 'admin') {
+							if ($this->session->userdata('session') and $this->uri->segment(2)) {
 								?><th>Action</th><?php
 							}
 							?>
@@ -87,7 +89,7 @@
 							<td><?php echo $key->tempat;?></td>
 							<td><?php echo $key->unit;?></td>
 							<?php 
-							if ($this->uri->segment(2) or $this->session->userdata('session')[0]->role == 'admin') {
+							if ($this->session->userdata('session') and $this->uri->segment(2)) {
 								?>
 								<td>
 									<?php 

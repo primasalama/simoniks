@@ -34,8 +34,8 @@ class M_agenda extends CI_Model {
 	}
 	public function getId($value='')
 	{
-		$this->db->where('no',$value);
-		return $this->db->get('agenda')->result();
+		$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by where agenda.no = '".$value."' ";
+		return $this->db->query($sql)->result();
 	}
 	public function getByAsdep($value='')
 	{

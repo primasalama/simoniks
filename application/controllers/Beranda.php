@@ -35,14 +35,7 @@ class Beranda extends CI_Controller {
 		$this->load->view('frontend/beranda',$result);
 		$this->load->view('frontend/footerf');
 	}
-	public function checkLogin()
-	{
-		if (!$this->session->userdata('session') or $this->session->userdata('session')[0]->role == 'admin') {
-			redirect('Login');
-		}else{
-			return false;
-		}
-	}
+	
 	public function view($value='')
 	{
 		if ($value != '') {

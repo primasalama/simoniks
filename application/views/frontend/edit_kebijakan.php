@@ -1,14 +1,21 @@
-
-<div class="container" style="margin-top:120px;" >
+<?php 
+    if ($this->session->userdata('session')[0]->role == 'admin') {
+        $action = base_url()."Kebijakan/update/".$data[0]->no;
+    }else{
+        $action = base_url()."fkebijakan/update/".$data[0]->no;
+    }
+?>
+<div class="container" >
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SiMoniKS</a></li>
         <li class="breadcrumb-item"><a href="<?php echo base_url();?>kebijakan">Kebijakan</a></li>
+        <li class="active">Update</li>
     </ol>
     <div class="panel panel-info">
                 <div class="panel-heading">Form</div>
                 <div class="panel-body">
                     <div id="FormLogin" class="col-sm-7">
-                        <form action="<?php echo base_url();?>fkebijakan/update/<?php echo $data[0]->no;?>" method="post">
+                        <form action="<?php echo $action;?>" method="post">
                             <div class="form-group">
                                 <label>Narasi : </label>
                                 <textarea class="form-control" name="narasi" placeholder="Narasi"><?php echo $data[0]->narasi;?></textarea>

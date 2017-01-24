@@ -18,6 +18,13 @@ body{
    color: grey;  
 }
 </style>
+<?php 
+    if ($this->session->userdata('session')[0]->role == 'admin') {
+        $action = base_url()."Progress/update/".$data[0]->no;
+    }else{
+        $action = base_url()."fprogress/update/".$data[0]->no;
+    }
+?>
 <div class="well well-sm">
     <div class="container">
         <div class="row">
@@ -46,7 +53,7 @@ body{
                     <div class="panel-heading">Form</div>
                         <div class="panel-body">
                             <div id="FormLogin" class="col-sm-7">
-                                <form action="<?php echo base_url();?>fprogress/update/<?php echo $data[0]->no;?>" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo $action;?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>Nama Kegiatan : </label>
                                 <input type="text" name="kegiatan" class="form-control" value="<?php echo $data[0]->kegiatan;?>" placeholder="Nama Kegiatan" required="true">

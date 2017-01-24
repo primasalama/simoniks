@@ -73,7 +73,7 @@
                             <a href="<?php echo base_url();?>agenda" class="btn btn-danger navbar-btn">AGENDA</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url();?>" class="btn btn-danger navbar-btn">LOGOUT</a>
+                            <a href="<?php echo base_url();?>Auth/logout" class="btn btn-danger navbar-btn">LOGOUT</a>
                         </li>
                     </ul>
                 </div>
