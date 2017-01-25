@@ -69,9 +69,15 @@
                         <li>
                             <a href="<?php echo base_url();?>agenda" class="btn btn-danger navbar-btn">AGENDA</a>
                         </li>
-                        <li>
-                            <a href="<?php echo base_url();?>Auth/logout" class="btn btn-danger navbar-btn">LOGOUT</a>
-                        </li>
+                        <?php 
+                        if ($this->session->userdata('session')) {
+                        ?>
+                            <li>
+                                <a href="<?php echo base_url();?>Auth/logout" class="btn btn-danger navbar-btn">LOGOUT</a>
+                            </li>
+                        <?php
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
