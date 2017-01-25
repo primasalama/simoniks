@@ -20,7 +20,21 @@
     <div class="container">
                 <ol class="breadcrumb" style="margin-left: -20px;">
                     <li class="breadcrumb-item active">Kebijakan</li>
-					<li class="pull-right" style="margin-right: -20px;"><a href="<?php echo base_url();?>beranda/excels/kebijakan" class="btn btn-xs btn-warning">Export</a></li>
+					<li class="pull-right">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-xs btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Export <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep1">Asdep1</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep2">Asdep2</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep3">Asdep3</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep4">Asdep4</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan">Semua</a></li>
+                          </ul>
+                        </div>
+                    </li>
                 </ol>
 	<table id="kebijakan" class="table table-bordered">
 					<thead>
@@ -71,7 +85,21 @@
 	<br/>
 	<ol class="breadcrumb" style="margin-top:-20px;">
         <li class="breadcrumb-item active">Progress</li>
-		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excels/progress" class="btn btn-xs btn-warning">Export</a></li>
+		<li class="pull-right">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-xs btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Export <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url();?>beranda/excels/progress/asdep1">Asdep1</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/progress/asdep2">Asdep2</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/progress/asdep3">Asdep3</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/progress/asdep4">Asdep4</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/progress">Semua</a></li>
+                          </ul>
+                        </div>
+                    </li>
 	</ol>
 	<table id="progress" class="table table-bordered">
 					<thead>
@@ -129,7 +157,21 @@
 
 	<ol class="breadcrumb" style="margin-top: 30px;">
 		<li class="breadcrumb-item active">Agenda</li>
-		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excels/agenda" class="btn btn-xs btn-warning">Export</a></li>
+		<li class="pull-right">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-xs btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Export <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep1">Asdep1</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep2">Asdep2</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep3">Asdep3</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep4">Asdep4</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda">Semua</a></li>
+                          </ul>
+                        </div>
+                    </li>
 	</ol>
 	<table id="agenda" class="table table-bordered" >
 					<thead>
