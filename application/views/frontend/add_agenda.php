@@ -5,10 +5,25 @@
 		$action = base_url().$this->uri->Segment(1)."/add";
 	}
 ?>
+<div class="well well-sm">
+    <div class="container">
+        <div class="row">
+        	<div class="col-md-12">
+                <ol class="breadcrumb" style="margin-bottom: 0;">
+                    <li class="active">
+                    <a href="index.php">
+                        <span class="glyphicon glyphicon-home"></span> Beranda
+                    </a>
+                    </li>
+                </ol>
+        	</div>
+        </div>
+    </div>
+</div>
 <div class="container" >
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
-        <li class="breadcrumb-item"><a href="<?php echo base_url();?>progress">Progress</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo base_url();?>agenda">Agenda</a></li>
+        <li class="breadcrumb-item active">Tambah Agenda</li>
     </ol>
     <div class="panel panel-info">
                 <div class="panel-heading">Form</div>
