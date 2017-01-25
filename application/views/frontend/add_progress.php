@@ -75,6 +75,21 @@ body{
                                         <input type="text" name="masalah" class="form-control" placeholder="Masalah" required="true">
                                     </div>
                                     <div class="form-group">
+                                            <label>Narasi Kebijakan </label>
+                                            <select class="form-control" name="narasiKebijakan">
+                                                <?php 
+                                                foreach ($data as $key) {
+                                                    ?>
+                                                    <option value="<?php echo $key->no?>"><?php echo $key->narasi?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    <?php 
+                                    if ($this->session->userdata('session')[0]->role == 'admin') {
+                                        ?>
+                                         <div class="form-group">
                                             <label>Asisten Deputi</label>
                                             <select class="form-control" name="deputi">
                                                 <option value="asdep1">Asisten Deputi 1</option>
@@ -83,6 +98,9 @@ body{
                                                 <option value="asdep4">Asisten Deputi 4</option>
                                             </select>
                                         </div>
+                                        <?php 
+                                    }
+                                    ?>
                                     <div class="form-group col-sm-6">
                                         <label>Dokumentasi 1</label>
                                         <input type="file" name="foto1" class="form-control" placeholder="Unit Kerja" required="true">  

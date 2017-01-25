@@ -74,6 +74,22 @@ body{
                                 <label>Masalah : </label>
                                 <input type="text" name="masalah" class="form-control" value="<?php echo $data[0]->masalah;?>" placeholder="Masalah" required="true">
                             </div>
+                            <div class="form-group">
+                                            <label>Narasi Kebijakan </label>
+                                            <select class="form-control" name="narasiKebijakan">
+                                                <?php 
+                                                foreach ($data1 as $key) {
+                                                    ?>
+                                                    <option value="<?php echo $key->no?>" <?php 
+                                                    if ($key->no == $data[0]->narasiKebijakan) {
+                                                        echo "selected";
+                                                    }
+                                                    ?>><?php echo $key->narasi?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
                             <div class="form-group col-sm-6">
                                 <label>Dokumentasi 1</label>
                                 <input type="file" name="foto1" class="form-control" placeholder="Unit Kerja" > 

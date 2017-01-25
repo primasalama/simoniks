@@ -22,21 +22,23 @@ class Fprogress extends CI_Controller {
 		parent::__construct();
 		date_default_timezone_set("Asia/Jakarta");
 		$this->load->model('M_progress');
+		$this->load->model('M_kebijakan');
 		if (empty($this->session->userdata('session'))) {
 			redirect('login');
 		}
 	}
 	public function index()
 	{
+		$result['data'] = $this->M_kebijakan->getAll();
 		$this->load->view('frontend/header');
-		$this->load->view('frontend/add_progress');
+		$this->load->view('frontend/add_progress',$result);
 		$this->load->view('frontend/footerf');
 	}
 	public function add()
 	{
 		$dokumentasi1 =  $this->uploadImage($_FILES['foto1'],'foto1');
 		$dokumentasi2 =  $this->uploadImage($_FILES['foto2'],'foto2');
-		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
+		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no,'narasiKebijakan'=>$this->input->post('narasiKebijakan'));
 		$this->M_progress->insert($data);
 		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
 	}
@@ -86,7 +88,7 @@ class Fprogress extends CI_Controller {
 		}else{
 			$dokumentasi2 = $result[0]->dokumentasi2;
 		}
-		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
+		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"),'narasiKebijakan'=>$this->input->post('narasiKebijakan'));
 		$this->M_progress->updateId($data,$value);
 		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
 	}
@@ -97,6 +99,7 @@ class Fprogress extends CI_Controller {
 	}
 	public function edit($value)
 	{
+		$result['data1'] = $this->M_kebijakan->getAll();
 		$result['data'] = $this->M_progress->getId($value);
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/edit_progress',$result);

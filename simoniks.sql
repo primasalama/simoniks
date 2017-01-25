@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 16 Jan 2017 pada 02.08
+-- Generation Time: 25 Jan 2017 pada 06.09
 -- Versi Server: 5.6.25
 -- PHP Version: 5.5.27
 
@@ -62,14 +62,15 @@ CREATE TABLE IF NOT EXISTS `kebijakan` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kebijakan`
 --
 
 INSERT INTO `kebijakan` (`no`, `narasi`, `status`, `indikator`, `pic`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(3, 'arif', 'y', 'y', 'y', '2017-01-15 15:03:58', '2017-01-15 15:03:58', 1, 1);
+(4, 'asodjoashdiashdiashdoa', 'hiosfohohi ih', 'hfo', 'hofhao', '2017-01-25 02:52:04', '0000-00-00 00:00:00', 1, 6),
+(5, 'hdsiahdi aisdhia idhaiu ahfia diagdagiagdia gia ai', 'hai', 'ifhai', 'hfih', '2017-01-25 02:52:20', '0000-00-00 00:00:00', 1, 6);
 
 -- --------------------------------------------------------
 
@@ -84,20 +85,23 @@ CREATE TABLE IF NOT EXISTS `progress` (
   `hasil` text NOT NULL,
   `tindak_ljt` text NOT NULL,
   `masalah` text NOT NULL,
+  `narasiKebijakan` int(11) NOT NULL,
   `dokumentasi1` text NOT NULL,
   `dokumentasi2` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `progress`
 --
 
-INSERT INTO `progress` (`no`, `kegiatan`, `tanggal`, `hasil`, `tindak_ljt`, `masalah`, `dokumentasi1`, `dokumentasi2`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(3, 'DT Days', '2017-01-01', 'L', 'L', 'L', 'file_1484495051.png', 'file_14843632741.jpg', '0000-00-00 00:00:00', '2017-01-15 15:44:11', 1, 1);
+INSERT INTO `progress` (`no`, `kegiatan`, `tanggal`, `hasil`, `tindak_ljt`, `masalah`, `narasiKebijakan`, `dokumentasi1`, `dokumentasi2`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(3, 'DT Days', '2017-01-01', 'L', 'L', 'L', 5, 'file_1484495051.png', 'file_14843632741.jpg', '0000-00-00 00:00:00', '2017-01-15 15:44:11', 1, 1),
+(5, 'Tes 1', '2001-10-10', 'dsa', 'sad', 'dsa', 4, 'file_1485080794.png', 'file_1485080795.png', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(6, 'Hari 1', '2017-01-25', 'Hari 1', 'Hari 1', 'Hari 1', 5, 'file_1485320411.png', 'file_14853204111.png', '0000-00-00 00:00:00', '2017-01-25 05:08:47', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -169,12 +173,12 @@ ALTER TABLE `agenda`
 -- AUTO_INCREMENT for table `kebijakan`
 --
 ALTER TABLE `kebijakan`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `progress`
 --
 ALTER TABLE `progress`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user`
 --

@@ -102,6 +102,7 @@
 							<th>Hasil</th>
 							<th>Tindak Lanjut</th>
 							<th>Masalah</th>
+                            <th>Narasi Kebijakan</th>
 							<th>Dokumentasi</th>
 							<?php 
 							if ($this->uri->segment(3)) {
@@ -118,10 +119,11 @@
 						<tr>
 							<td><?php echo $i;?></td>
 							<td><?php echo $key->kegiatan;?></td>
-							<td><?php echo $key->tanggal;?></td>
+							<td><?php echo date("d-M-Y",strtotime($key->tanggal));?></td>
 							<td><?php echo $key->hasil;?></td>
 							<td><?php echo $key->tindak_ljt;?></td>
 							<td><?php echo $key->masalah;?></td>
+                            <td><?php echo $key->narasi;?></td>
 							<td>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
