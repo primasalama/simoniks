@@ -1,3 +1,4 @@
+<link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 <div class="well well-sm">
     <div class="container">
         <div class="row">
@@ -31,7 +32,7 @@
                             <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep3">Asdep3</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep4">Asdep4</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan">Semua</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan">Semua Kebijakan</a></li>
                           </ul>
                         </div>
                     </li>
@@ -96,7 +97,7 @@
                             <li><a href="<?php echo base_url();?>beranda/excels/progress/asdep3">Asdep3</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/progress/asdep4">Asdep4</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="<?php echo base_url();?>beranda/excels/progress">Semua</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/progress">Semua Progress</a></li>
                           </ul>
                         </div>
                     </li>
@@ -168,7 +169,7 @@
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep3">Asdep3</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep4">Asdep4</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="<?php echo base_url();?>beranda/excels/agenda">Semua</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda">Semua Agenda</a></li>
                           </ul>
                         </div>
                     </li>

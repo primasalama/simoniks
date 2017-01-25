@@ -71,8 +71,8 @@ foreach($data->result() as $key)
 	<td><?php echo $key->hasil;?></td>
 	<td><?php echo $key->tindak_ljt;?></td>
 	<td><?php echo $key->masalah;?></td>
-	<td><img src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></td>
-	<td><img src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></td>
+	<td><img src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>" style="width:50px; height:25px"></td>
+	<td><img src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>" style="width:50px; height:25px"></td>
 	<?php if ($filename == null) {
 		echo '<td>'.$key->role.'</td>';
 	}?>

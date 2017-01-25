@@ -11,15 +11,12 @@
         <title>SIMONIKS :: <?php echo $this->uri->segment(1);?></title>
         
         <link href="<?php echo base_url();?>assets/css/bootstrap.css" rel="stylesheet" media="screen">
-        <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
         <link href="<?php echo base_url();?>assets/css/datepicker.css" rel="stylesheet">
         <link href="<?php echo base_url();?>assets/demo_table_jui.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.min.css">
         <!-- Material Datetimepicker -->
         <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap-material-datetimepicker.css" />
         <style type="text/css">
-        th {
-  color: white
 }
         </style>
         <script src="<?php echo base_url();?>assets/js/jquery.js"></script>

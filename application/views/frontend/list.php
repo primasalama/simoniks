@@ -1,3 +1,4 @@
+<link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 <style>
     .datepicker {
       z-index: 1600 !important; /* has to be larger than 1050 */

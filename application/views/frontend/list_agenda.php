@@ -1,3 +1,4 @@
+<link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 <div class="well well-sm">
     <div class="container">
         <div class="row">
