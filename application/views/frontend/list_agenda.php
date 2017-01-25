@@ -49,8 +49,8 @@
      <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excels/agenda/" class="btn btn-xs btn-warning">Export</a></li>
     <?php
   }
-  if ($this->session->userdata('session')) {
-    if ($this->session->userdata('session')[0]->role == 'admin') {
+  if ($this->uri->segment(2) != null) {
+    if ($this->session->userdata('session')[0]->role == 'admin' or $this->session->userdata('session')[0]->role != 'admin') {
       echo '<li class="pull-right"><a href="'.base_url().'fagenda/" class="btn btn-xs btn-info">Tambah</a></li>';
     }
   }
