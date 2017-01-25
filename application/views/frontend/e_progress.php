@@ -12,7 +12,7 @@
 ?>
 <table width="100%" border="1" cellpadding="5" cellspacing="0">
 <tr>
-	<td colspan="7" align="center"><h2><strong>LAPORAN PROGRES KEBIJAKAN STRATEGIS</strong></h2></td>
+	<td colspan="9" align="center"><h2><strong>LAPORAN PROGRES KEBIJAKAN STRATEGIS</strong></h2></td>
 </tr>
 <tr>
 <?php 
@@ -20,19 +20,19 @@
 		switch ($filename) {
 			case 'asdep1':
 				$title ="ASISTEN DEPUTI SUMBER DAYA HAYATI";
-				echo '<td colspan="7" align="center"><h2><strong>'.$title.'</strong></h2></td>';
+				echo '<td colspan="9" align="center"><h2><strong>'.$title.'</strong></h2></td>';
 				break;
 			case 'asdep2':
 				$title ="ASISTEN DEPUTI SUMBER DAYA MINERAL, ENERGI, DAN NON KONVESIONAL";
-				echo '<td colspan="7" align="center"><h2><strong>'.$title.'</strong></h2></td>';
+				echo '<td colspan="9" align="center"><h2><strong>'.$title.'</strong></h2></td>';
 				break;
 			case 'asdep3':
 				$title ="ASISTEN DEPUTI JASA KEMARITIMAN";
-				echo '<td colspan="7" align="center"><h2><strong>'.$title.'</strong></h2></td>';
+				echo '<td colspan="9" align="center"><h2><strong>'.$title.'</strong></h2></td>';
 				break;
 			case 'asdep4':
 				$title ="ASISTEN DEPUTI LINGKUNGAN DAN KEBENCANAAN MARITIM";
-				echo '<td colspan="7" align="center"><h2><strong>'.$title.'</strong></h2></td>';
+				echo '<td colspan="9" align="center"><h2><strong>'.$title.'</strong></h2></td>';
 				break;
 			default:
 				echo "a";
@@ -42,7 +42,7 @@
 ?>
 </tr>
 <tr>
-	<td colspan="7" align="center"><h2><strong>TAHUN 2016</strong></h2></td>
+	<td colspan="9" align="center"><h2><strong>TAHUN 2016</strong></h2></td>
 </tr>
 <tr height="20">
 </tr>
@@ -53,6 +53,8 @@
 	<td align="center">Hasil</td>
 	<td align="center">Tindak Lanjut</td>
 	<td align="center">Masalah</td>
+	<td align="center">Dokumentasi1</td>
+	<td align="center">Dokumentasi2</td>
 	<?php if ($filename == null) {
 		echo '<td align="center">Pembuat</td>';
 	}?>
@@ -69,6 +71,8 @@ foreach($data->result() as $key)
 	<td><?php echo $key->hasil;?></td>
 	<td><?php echo $key->tindak_ljt;?></td>
 	<td><?php echo $key->masalah;?></td>
+	<td><img src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></td>
+	<td><img src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></td>
 	<?php if ($filename == null) {
 		echo '<td>'.$key->role.'</td>';
 	}?>
