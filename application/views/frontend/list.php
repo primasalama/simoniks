@@ -46,7 +46,7 @@
 							<th>Indikator</th>
 							<th>PIC</th>
 							<?php 
-							if ($this->uri->segment(3)) {
+							if ($this->uri->segment(2) == 'view' and $this->session->userdata('session')[0]->role == 'admin' ) {
 								?><th>Action</th><?php
 							}
 							?>
@@ -64,7 +64,7 @@
 							<td><?php echo $key->indikator;?></td>
 							<td><?php echo $key->pic;?></td>
 							<?php 
-							if ($this->uri->segment(2) == 'view' or $this->session->userdata('session')[0]->role == 'admin') {
+							if ($this->uri->segment(2) == 'view' and $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>
 									<?php 
                                       if ($this->session->userdata('session')[0]->role == 'admin') {
