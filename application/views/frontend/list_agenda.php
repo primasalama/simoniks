@@ -113,7 +113,7 @@
 						<tr>
 							<td><?php echo $i;?></td>
 							<td><?php echo $key->kegiatan;?></td>
-							<td><?php echo $key->tanggal;?></td>
+              <td><?php echo date("d-M-Y",strtotime($key->tanggal));?></td>
 							<td><?php echo $key->pukul;?></td>
 							<td><?php echo $key->tempat;?></td>
 							<td><?php echo $key->unit;?></td>

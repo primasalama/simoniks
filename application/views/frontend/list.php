@@ -102,8 +102,8 @@
 							<th>Hasil</th>
 							<th>Tindak Lanjut</th>
 							<th>Masalah</th>
-                            <th>Narasi Kebijakan</th>
 							<th>Dokumentasi</th>
+                            <th>Narasi Kebijakan</th>
 							<?php 
 							if ($this->uri->segment(3)) {
 								?><th>Action</th><?php
@@ -123,11 +123,12 @@
 							<td><?php echo $key->hasil;?></td>
 							<td><?php echo $key->tindak_ljt;?></td>
 							<td><?php echo $key->masalah;?></td>
-                            <td><?php echo $key->narasi;?></td>
+                            
 							<td>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
 							</td>
+                            <td><?php echo $key->narasi;?></td>
 							<?php 
 							if ($this->uri->segment(3) == $this->session->userdata('session')[0]->role or $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>

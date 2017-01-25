@@ -112,6 +112,7 @@
 							<th>Tindak Lanjut</th>
 							<th>Masalah</th>
 							<th>Dokumentasi</th>
+							<th>Narasi Kebijakan</th>
 							<?php 
 							if ($this->uri->segment(2)) {
 								?><th>Action</th><?php
@@ -127,7 +128,7 @@
 						<tr>
 							<td><?php echo $i;?></td>
 							<td><?php echo $key->kegiatan;?></td>
-							<td><?php echo $key->tanggal;?></td>
+							<td><?php echo date("d-M-Y",strtotime($key->tanggal));?></td>
 							<td><?php echo $key->hasil;?></td>
 							<td><?php echo $key->tindak_ljt;?></td>
 							<td><?php echo $key->masalah;?></td>
@@ -135,6 +136,7 @@
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
 							</td>
+							<td><?php echo $key->narasi;?></td>
 							<?php 
 							if ($this->uri->segment(2) == 'delete') {
 								?><td>
@@ -198,7 +200,7 @@
 						<tr>
 							<td><?php echo $i;?></td>
 							<td><?php echo $key->kegiatan;?></td>
-							<td><?php echo $key->tanggal;?></td>
+							<td><?php echo date("d-M-Y",strtotime($key->tanggal));?></td>
 							<td><?php echo $key->pukul;?></td>
 							<td><?php echo $key->tempat;?></td>
 							<td><?php echo $key->unit;?></td>
