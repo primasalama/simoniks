@@ -43,10 +43,38 @@
   }
   if ($this->uri->segment(2) != null) {
     ?>
-     <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excels/agenda/<?php echo $this->session->userdata('session')[0]->role;?> " class="btn btn-xs btn-warning">Export</a></li><?php
+    <li class="pull-right">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-xs btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Export <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep1">Asdep1</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep2">Asdep2</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep3">Asdep3</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep4">Asdep4</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda">Semua</a></li>
+                          </ul>
+                        </div>
+                    </li><?php
   }else{
     ?>
-     <li class="pull-right"><a href="<?php echo base_url();?>Beranda/excels/agenda/" class="btn btn-xs btn-warning">Export</a></li>
+     <li class="pull-right">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-xs btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Export <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep1">Asdep1</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep2">Asdep2</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep3">Asdep3</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep4">Asdep4</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda">Semua</a></li>
+                          </ul>
+                        </div>
+                    </li>
     <?php
   }
   if ($this->uri->segment(2) != null) {
