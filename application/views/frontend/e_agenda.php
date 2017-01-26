@@ -1,5 +1,10 @@
 <?php
 	$nama_file = "Agenda_".$filename."_".date("Ymd").".xls";
+	if ($filename == null) {
+		$span = 7;
+	}else{
+		$span = 6;
+	}
 	header("Pragma: public");
 	header("Expires: 0");
 	header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
@@ -12,7 +17,7 @@
 ?>
 <table width="100%" border="1" cellpadding="5" cellspacing="0">
 <tr>
-	<td colspan="7" align="center"><h2><strong>LAPORAN PROGRES KEBIJAKAN STRATEGIS</strong></h2></td>
+	<td colspan="<?php echo $span;?>" align="center"><h2><strong>LAPORAN PROGRES KEBIJAKAN STRATEGIS</strong></h2></td>
 </tr>
 <tr>
 <?php 
@@ -20,19 +25,19 @@
 		switch ($filename) {
 			case 'asdep1':
 				$title ="ASISTEN DEPUTI SUMBER DAYA HAYATI";
-				echo '<td colspan="7" align="center"><h2><strong>'.$title.'</strong></h2></td>';
+				echo '<td colspan="'.$span.'" align="center"><h2><strong>'.$title.'</strong></h2></td>';
 				break;
 			case 'asdep2':
 				$title ="ASISTEN DEPUTI SUMBER DAYA MINERAL, ENERGI, DAN NON KONVESIONAL";
-				echo '<td colspan="7" align="center"><h2><strong>'.$title.'</strong></h2></td>';
+				echo '<td colspan="'.$span.'" align="center"><h2><strong>'.$title.'</strong></h2></td>';
 				break;
 			case 'asdep3':
 				$title ="ASISTEN DEPUTI JASA KEMARITIMAN";
-				echo '<td colspan="7" align="center"><h2><strong>'.$title.'</strong></h2></td>';
+				echo '<td colspan="'.$span.'" align="center"><h2><strong>'.$title.'</strong></h2></td>';
 				break;
 			case 'asdep4':
 				$title ="ASISTEN DEPUTI LINGKUNGAN DAN KEBENCANAAN MARITIM";
-				echo '<td colspan="7" align="center"><h2><strong>'.$title.'</strong></h2></td>';
+				echo '<td colspan="'.$span.'" align="center"><h2><strong>'.$title.'</strong></h2></td>';
 				break;
 			default:
 				echo "a";
@@ -42,7 +47,7 @@
 ?>
 </tr>
 <tr>
-	<td colspan="7" align="center"><h2><strong>TAHUN 2016</strong></h2></td>
+	<td colspan="<?php echo $span;?>" align="center"><h2><strong>TAHUN <?php echo date("Y");?></strong></h2></td>
 </tr>
 <tr height="20">
 </tr>
