@@ -47,7 +47,7 @@ class Kebijakan extends CI_Controller {
 	{
 		switch ($this->input->post('deputi')) {
 			case 'asdep1':
-				$created_by = 1;
+				$created_by = 2;
 				$url_back ='asdep1';
 				break;
 			case 'asdep2':
