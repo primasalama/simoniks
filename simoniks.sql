@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29 Jan 2017 pada 07.32
--- Versi Server: 5.6.25
+-- Generation Time: Jan 29, 2017 at 02:12 PM
+-- Server version: 5.6.25
 -- PHP Version: 5.5.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,33 +23,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `agenda`
+-- Table structure for table `agenda`
 --
 
 CREATE TABLE IF NOT EXISTS `agenda` (
   `no` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
-  `kegiatan` text NOT NULL,
-  `pukul` time DEFAULT NULL,
-  `tempat` text NOT NULL,
-  `unit` text NOT NULL,
+  `tanggal` text NOT NULL,
+  `narasiKebijakan` int(11) NOT NULL,
+  `uraian` text,
+  `hasil` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `agenda`
+-- Dumping data for table `agenda`
 --
 
-INSERT INTO `agenda` (`no`, `tanggal`, `kegiatan`, `pukul`, `tempat`, `unit`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(9, '2017-01-13', 'sdiajso', '00:05:00', 'isdjiaso', 'djsaioja', '2017-01-15 17:06:06', '0000-00-00 00:00:00', 1, 1);
+INSERT INTO `agenda` (`no`, `tanggal`, `narasiKebijakan`, `uraian`, `hasil`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(9, '2017-01-13', 0, '00:05:00', 'isdjiaso', '2017-01-15 17:06:06', '0000-00-00 00:00:00', 1, 1),
+(10, 'Minggu III Maret', 7, 'rapat koordinasi', 'tidak ada', '2017-01-29 12:01:58', '0000-00-00 00:00:00', 2, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kebijakan`
+-- Table structure for table `kebijakan`
 --
 
 CREATE TABLE IF NOT EXISTS `kebijakan` (
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `kebijakan` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kebijakan`
+-- Dumping data for table `kebijakan`
 --
 
 INSERT INTO `kebijakan` (`no`, `narasi`, `status`, `indikator`, `pic`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
@@ -77,7 +77,7 @@ INSERT INTO `kebijakan` (`no`, `narasi`, `status`, `indikator`, `pic`, `created_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `progress`
+-- Table structure for table `progress`
 --
 
 CREATE TABLE IF NOT EXISTS `progress` (
@@ -94,19 +94,20 @@ CREATE TABLE IF NOT EXISTS `progress` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `progress`
+-- Dumping data for table `progress`
 --
 
 INSERT INTO `progress` (`no`, `uraian`, `tanggal`, `hasil`, `tindak_ljt`, `masalah`, `narasiKebijakan`, `dokumentasi1`, `dokumentasi2`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(2, '1uraian', 'waktu1', '1output', '1tindak ', '1masalah', 7, 'file_1485671482.jpg', 'file_14856710401.jpg', '0000-00-00 00:00:00', '2017-01-29 06:31:22', 2, 2);
+(2, '1uraian', 'waktu1', '1output', '1tindak ', '1masalah', 7, 'file_1485671482.jpg', 'file_14856710401.jpg', '0000-00-00 00:00:00', '2017-01-29 06:31:22', 2, 2),
+(3, 'rapat', 'minggu III Januari', 'deputi', '-', '-', 7, 'file_1485673184.jpg', 'file_14856731841.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -121,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`no`, `name`, `password`, `created_at`, `updated_at`, `created_by`, `updated_by`, `role`) VALUES
@@ -167,7 +168,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `agenda`
 --
 ALTER TABLE `agenda`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `kebijakan`
 --
@@ -177,7 +178,7 @@ ALTER TABLE `kebijakan`
 -- AUTO_INCREMENT for table `progress`
 --
 ALTER TABLE `progress`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user`
 --

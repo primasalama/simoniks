@@ -93,11 +93,10 @@
 					<thead>
 						<tr>
 							<th>No.</th>
-							<th>Kegiatan</th>
-							<th>Tanggal</th>
-							<th>Jam</th>
-							<th>Tempat</th>
-							<th>Unit</th>
+							<th>Narasi</th>
+							<th>Waktu/Tanggal</th>
+							<th>Uraian</th>
+							<th>Output</th>
 							<?php 
 							if ($this->session->userdata('session') and $this->uri->segment(2)) {
 								?><th>Action</th><?php
@@ -112,11 +111,10 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo $key->kegiatan;?></td>
-              <td><?php echo date("d-M-Y",strtotime($key->tanggal));?></td>
-							<td><?php echo $key->pukul;?></td>
-							<td><?php echo $key->tempat;?></td>
-							<td><?php echo $key->unit;?></td>
+							<td><?php echo $key->narasi;?></td>
+              <td><?php echo $key->tanggal;?></td>
+							<td><?php echo $key->uraian;?></td>
+							<td><?php echo $key->hasil;?></td>
 							<?php 
 							if ($this->session->userdata('session') and $this->uri->segment(2)) {
 								?>
@@ -124,11 +122,11 @@
 									<?php 
                   if ($this->session->userdata('session')[0]->role == 'admin') {
                     ?>
-                    <a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>Agenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
+                    <a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>Agenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->narasi;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
                     <?php
                   }else{
                     ?>
-                    <a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fagenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
+                    <a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fagenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->narasi;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
                     <?php
                   }
                   ?>
@@ -166,50 +164,7 @@
 			    });
 });
 </script>
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="color:black;">Tambah Progress</h4>
-      </div>
-      <div class="modal-body">
-        <form action="<?php echo base_url();?>fagenda/add" method="post">
-							<div class="form-group">
-								<label>Nama Kegiatan : </label>
-								<input type="text" name="kegiatan" class="form-control" placeholder="" required="true">
-							</div>
-							<div class="form-group">
-								<label>Tanggal Pelaksanaan : </label>
-								<input type="text" id="tanggal" name="tanggal" class="form-control" placeholder="" required="true">
-							</div>
-							<div class="form-group">
-								<label>Waktu Pelaksanaan : </label>
-								<input type="text" id="pukul" name="pukul" class="form-control" placeholder="" required="true">
-							</div>
-							<div class="form-group">
-								<label>Tempat Pelaksanaan : </label>
-								<input type="text" name="tempat" class="form-control" placeholder="" required="true">
-							</div>
-							<div class="form-group">
-								<label>Unit Kerja : </label>
-								<input type="text" name="unit" class="form-control" placeholder="" required="true">
-							</div>
-      </div>
-      <div class="modal-footer">
-        <div class="form-group">
-                                <input type="submit" value="Submit" class="btn btn-primary">
-                                <input type="reset" value="Reset" class="btn btn-warning">
-                            </div>
-                        </form>
-      </div>
-    </div>
-
-  </div>
-</div>
 <!-- Delete -->
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">

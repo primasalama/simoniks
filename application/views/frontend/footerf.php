@@ -4,7 +4,7 @@
                 	<div class="col-md-8">
                         <address>
                             <strong>Deputi Bidang Koordinasi Sumber Daya Alam dan Jasa </strong><br />
-                        <strong>Kementerian Koordinator Bidang Kemaritiman</strong><br /> Jl. M. H. Thamrin No. 8, Gedung I BPPT Lt.6 ,Jakarta Pusat 10340<br />Telpon (021) 22392589, Fax (021) 22392589<br />Email : deputi2_sdaj@maritim.go.id
+                        <strong>Kementerian Koordinator Bidang Kemaritiman</strong><br /> Jl. M. H. Thamrin No. 8, Gedung I BPPT Lt.8 ,Jakarta Pusat 10340<br />Telpon (021) 22392589, Fax (021) 22392589<br />Email : deputi2_sdaj@maritim.go.id
                         <br />
                             Jawa Barat, Indonesia<br />
                         </address>

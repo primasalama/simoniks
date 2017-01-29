@@ -97,8 +97,8 @@
 					<thead>
 						<tr>
 							<th>No.</th>
-							<th>Narasi Kebijakan</th>
-							<th>Waktu</th>
+							<th>Narasi</th>
+							<th>Waktu/Tanggal</th>
 							<th>Uraian</th>
 							<th>Tindak Lanjut</th>
 							<th>Masalah</th>

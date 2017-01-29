@@ -22,21 +22,23 @@ class Fagenda extends CI_Controller {
 		parent::__construct();
 		date_default_timezone_set("Asia/Jakarta");
 		$this->load->model('M_agenda');
+		$this->load->model('M_kebijakan');
 		if (empty($this->session->userdata('session'))) {
 			redirect('login');
 		}
 	}
 	public function index()
 	{
+		$result['data'] = $this->M_kebijakan->getAll();
 		$this->load->view('frontend/header');
-		$this->load->view('frontend/add_agenda');
+		$this->load->view('frontend/add_agenda',$result);
 		$this->load->view('frontend/footerf');
 	}
 
 	public function add()
 	{
 		//$tgl = substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2);
-		$data = array('kegiatan' => $this->input->post('kegiatan'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'pukul'=>$this->input->post('pukul'),'tempat'=>$this->input->post('tempat'),'unit'=>$this->input->post('unit'),'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
+		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal'=>$this->input->post('tanggal'),'hasil'=>$this->input->post('hasil'),'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
 		$this->M_agenda->insert($data);
 		redirect('agenda/'.$this->session->userdata('session')[0]->role);
 	}

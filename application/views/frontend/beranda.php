@@ -106,15 +106,15 @@
 					<thead>
 						<tr>
 							<th>No.</th>
-							<th>Kegiatan</th>
-							<th>Tanggal</th>
-							<th>Hasil</th>
+							<th>Narasi</th>
+							<th>Waktu/Tanggal</th>
+							<th>Uraian</th>
 							<th>Tindak Lanjut</th>
 							<th>Masalah</th>
 							<th>Dokumentasi</th>
-							<th>Narasi Kebijakan</th>
+                            <th>Output</th>
 							<?php 
-							if ($this->uri->segment(2)) {
+							if ($this->uri->segment(3)) {
 								?><th>Action</th><?php
 							}
 							?>
@@ -127,16 +127,17 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo $key->kegiatan;?></td>
-							<td><?php echo date("d-M-Y",strtotime($key->tanggal));?></td>
-							<td><?php echo $key->hasil;?></td>
+							<td><?php echo $key->narasi;?></td>
+							<td><?php echo $key->tanggal;?></td>
+							<td><?php echo $key->uraian;?></td>
 							<td><?php echo $key->tindak_ljt;?></td>
 							<td><?php echo $key->masalah;?></td>
+                            
 							<td>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
 							</td>
-							<td><?php echo $key->narasi;?></td>
+                            <td><?php echo $key->hasil;?></td>
 							<?php 
 							if ($this->uri->segment(2) == 'delete') {
 								?><td>
@@ -180,13 +181,12 @@
 					<thead>
 						<tr>
 							<th>No.</th>
-							<th>Kegiatan</th>
-							<th>Tanggal</th>
-							<th>Jam</th>
-							<th>Tempat</th>
-							<th>Unit</th>
+							<th>Narasi</th>
+							<th>Waktu/Tanggal</th>
+							<th>Uraian</th>
+							<th>Output</th>
 							<?php 
-							if ($this->uri->segment(2)) {
+							if ($this->session->userdata('session') and $this->uri->segment(2)) {
 								?><th>Action</th><?php
 							}
 							?>
@@ -199,11 +199,10 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo $key->kegiatan;?></td>
-							<td><?php echo date("d-M-Y",strtotime($key->tanggal));?></td>
-							<td><?php echo $key->pukul;?></td>
-							<td><?php echo $key->tempat;?></td>
-							<td><?php echo $key->unit;?></td>
+							<td><?php echo $key->narasi;?></td>
+              <td><?php echo $key->tanggal;?></td>
+							<td><?php echo $key->uraian;?></td>
+							<td><?php echo $key->hasil;?></td>
 							<?php 
 							if ($this->uri->segment(2) == 'delete') {
 								?><td>

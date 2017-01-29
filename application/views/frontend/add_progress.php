@@ -55,7 +55,7 @@ body{
                             <div id="FormLogin" class="col-sm-7">
                                 <form action="<?php echo $action;?>" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label>Narasi Kebijakan </label>
+                                        <label>Narasi</label>
                                         <select class="form-control" name="narasiKebijakan">
                                                 <?php 
                                                 foreach ($data as $key) {
@@ -67,7 +67,7 @@ body{
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Waktu Pelaksanaan : </label>
+                                        <label>Waktu/Tanggal : </label>
                                         <textarea class="form-control" name="tanggal" required="true"></textarea>
                                     </div>
                                     <div class="form-group">
@@ -125,8 +125,8 @@ body{
                             <div class="col-sm-5 alert alert-success">
                                 <p class="heading"><h4><b>Tata Cara Pengisian</b> : </h4></p>
                                 <ol>
-                                    <li>Mengisi Nama Kegiatan sesuai Kegiatan yang bejalan</li>
-                                    <li>Mengisi Waktu pelaksanaan dengan Benar</li>
+                                    <li>Memilih narasi kebijakan</li>
+                                    <li>Mengisi Waktu/ Tanggal dengan Benar</li>
                                     <li>Mengisi Dokumentasi dengan image sebanyak 2 (dua) dokumentasi</li>
                                 </ol>
                             </div>
