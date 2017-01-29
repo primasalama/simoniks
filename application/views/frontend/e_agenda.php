@@ -1,9 +1,9 @@
 <?php
 	$nama_file = "Agenda_".$filename."_".date("Ymd").".xls";
 	if ($filename == null) {
-		$span = 7;
-	}else{
 		$span = 6;
+	}else{
+		$span = 5;
 	}
 	header("Pragma: public");
 	header("Expires: 0");
@@ -53,11 +53,10 @@
 </tr>
 <tr>
 	<td align="center">NO</td>
-	<td align="center">Kegiatan</td>
-	<td align="center">Tanggal</td>
-	<td align="center">Jam</td>
-	<td align="center">Tempat</td>
-	<td align="center">Unit</td>
+	<td align="center">Narasi</td>
+	<td align="center">Waktu/Tanggal</td>
+	<td align="center">Uraian</td>
+	<td align="center">Output</td>
 	<?php if ($filename == null) {
 		echo '<td align="center">Pembuat</td>';
 	}?>
@@ -69,11 +68,10 @@ foreach($data->result() as $key)
 ?>
 <tr>
 	<td ><?php echo $i;?></td>
-	<td ><?php echo $key->kegiatan;?></td>
+	<td ><?php echo $key->narasi;?></td>
 	<td ><?php echo $key->tanggal;?></td>
-	<td><?php echo $key->pukul;?></td>
-	<td><?php echo $key->tempat;?></td>
-	<td><?php echo $key->unit;?></td>
+	<td><?php echo $key->uraian;?></td>
+	<td><?php echo $key->hasil;?></td>
 	<?php if ($filename == null) {
 		echo '<td>'.$key->role.'</td>';
 	}?>

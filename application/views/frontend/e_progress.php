@@ -53,12 +53,12 @@
 </tr>
 <tr>
 	<td align="center">NO</td>
-	<td align="center">Kegiatan</td>
-	<td align="center">Tanggal</td>
-	<td align="center">Hasil</td>
+	<td align="center">Narasi</td>
+	<td align="center">Waktu/Tanggal</td>
+	<td align="center">Uraian</td>
 	<td align="center">Tindak Lanjut</td>
 	<td align="center">Masalah</td>
-	<td align="center">Narasi Kebijakan</td>
+	<td align="center">Output</td>
 	<?php if ($filename == null) {
 		echo '<td align="center">Pembuat</td>';
 	}?>
@@ -70,12 +70,12 @@ foreach($data->result() as $key)
 ?>
 <tr>
 	<td ><?php echo $i;?></td>
-	<td ><?php echo $key->kegiatan;?></td>
+	<td ><?php echo $key->narasi;?></td>
 	<td ><?php echo $key->tanggal;?></td>
-	<td><?php echo $key->hasil;?></td>
+	<td><?php echo $key->uraian;?></td>
 	<td><?php echo $key->tindak_ljt;?></td>
 	<td><?php echo $key->masalah;?></td>
-	<td><?php echo $key->narasi;?></td>
+	<td><?php echo $key->hasil;?></td>
 	<?php if ($filename == null) {
 		echo '<td>'.$key->role.'</td>';
 	}?>
