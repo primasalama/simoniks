@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 25 Jan 2017 pada 06.09
+-- Generation Time: 29 Jan 2017 pada 07.32
 -- Versi Server: 5.6.25
 -- PHP Version: 5.5.27
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `kebijakan` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kebijakan`
@@ -70,7 +70,9 @@ CREATE TABLE IF NOT EXISTS `kebijakan` (
 
 INSERT INTO `kebijakan` (`no`, `narasi`, `status`, `indikator`, `pic`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
 (4, 'asodjoashdiashdiashdoa', 'hiosfohohi ih', 'hfo', 'hofhao', '2017-01-25 02:52:04', '0000-00-00 00:00:00', 1, 6),
-(5, 'hdsiahdi aisdhia idhaiu ahfia diagdagiagdia gia ai', 'hai', 'ifhai', 'hfih', '2017-01-25 02:52:20', '0000-00-00 00:00:00', 1, 6);
+(5, 'hdsiahdi aisdhia idhaiu ahfia diagdagiagdia gia ai', 'hai', 'ifhai', 'hfih', '2017-01-25 02:52:20', '0000-00-00 00:00:00', 1, 6),
+(6, 'djioas', 'jdaoj', 'djoj', 'jdo', '2017-01-26 07:42:50', '0000-00-00 00:00:00', 1, 6),
+(7, 'coba1', 'coba1', 'coba1', 'coba1', '2017-01-26 07:51:54', '0000-00-00 00:00:00', 2, 6);
 
 -- --------------------------------------------------------
 
@@ -80,8 +82,8 @@ INSERT INTO `kebijakan` (`no`, `narasi`, `status`, `indikator`, `pic`, `created_
 
 CREATE TABLE IF NOT EXISTS `progress` (
   `no` int(11) NOT NULL,
-  `kegiatan` text NOT NULL,
-  `tanggal` date NOT NULL,
+  `uraian` text NOT NULL,
+  `tanggal` text NOT NULL,
   `hasil` text NOT NULL,
   `tindak_ljt` text NOT NULL,
   `masalah` text NOT NULL,
@@ -92,16 +94,14 @@ CREATE TABLE IF NOT EXISTS `progress` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `progress`
 --
 
-INSERT INTO `progress` (`no`, `kegiatan`, `tanggal`, `hasil`, `tindak_ljt`, `masalah`, `narasiKebijakan`, `dokumentasi1`, `dokumentasi2`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(3, 'DT Days', '2017-01-01', 'L', 'L', 'L', 5, 'file_1484495051.png', 'file_14843632741.jpg', '0000-00-00 00:00:00', '2017-01-15 15:44:11', 1, 1),
-(5, 'Tes 1', '2001-10-10', 'dsa', 'sad', 'dsa', 4, 'file_1485080794.png', 'file_1485080795.png', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 1),
-(6, 'Hari 1', '2017-01-25', 'Hari 1', 'Hari 1', 'Hari 1', 5, 'file_1485320411.png', 'file_14853204111.png', '0000-00-00 00:00:00', '2017-01-25 05:08:47', 1, 1);
+INSERT INTO `progress` (`no`, `uraian`, `tanggal`, `hasil`, `tindak_ljt`, `masalah`, `narasiKebijakan`, `dokumentasi1`, `dokumentasi2`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(2, '1uraian', 'waktu1', '1output', '1tindak ', '1masalah', 7, 'file_1485671482.jpg', 'file_14856710401.jpg', '0000-00-00 00:00:00', '2017-01-29 06:31:22', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -125,7 +125,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`no`, `name`, `password`, `created_at`, `updated_at`, `created_by`, `updated_by`, `role`) VALUES
-(1, 'primasalama', 'e10adc3949ba59abbe56e057f20f883e', '2017-01-15 03:30:58', '0000-00-00 00:00:00', 0, 0, 'asdep1'),
 (2, 'asdep1', 'e10adc3949ba59abbe56e057f20f883e', '2017-01-15 02:59:43', '0000-00-00 00:00:00', 1, 1, 'asdep1'),
 (3, 'asdep2', 'e10adc3949ba59abbe56e057f20f883e', '2017-01-15 02:59:43', '0000-00-00 00:00:00', 1, 1, 'asdep2'),
 (4, 'asdep3', 'e10adc3949ba59abbe56e057f20f883e', '2017-01-15 03:00:16', '0000-00-00 00:00:00', 1, 1, 'asdep3'),
@@ -173,12 +172,12 @@ ALTER TABLE `agenda`
 -- AUTO_INCREMENT for table `kebijakan`
 --
 ALTER TABLE `kebijakan`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `progress`
 --
 ALTER TABLE `progress`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user`
 --

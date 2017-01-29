@@ -54,27 +54,7 @@ body{
                         <div class="panel-body">
                             <div id="FormLogin" class="col-sm-7">
                                 <form action="<?php echo $action;?>" method="post" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label>Nama Kegiatan : </label>
-                                <input type="text" name="kegiatan" class="form-control" value="<?php echo $data[0]->kegiatan;?>" placeholder="Nama Kegiatan" required="true">
-                            </div>
-                            <div class="form-group">
-                                <label>Tanggal Pelaksanaan : </label>
-                                <input type="text" id="tanggal" name="tanggal" class="form-control" value="<?php echo substr($data[0]->tanggal, 5,2)."/".substr($data[0]->tanggal, 8,2)."/".substr($data[0]->tanggal, 0,4);?>" placeholder="tanggal" required="true">
-                            </div>
-                            <div class="form-group">
-                                <label>Hasil : </label>
-                                <input type="text" name="hasil" class="form-control" value="<?php echo $data[0]->hasil;?>" placeholder="Hasil" required="true">
-                            </div>
-                            <div class="form-group">
-                                <label>Tindak Lanjut : </label>
-                                <input type="text" name="tindak_ljt" class="form-control" value="<?php echo $data[0]->tindak_ljt;?>" placeholder="Tindak Lanjut" required="true">
-                            </div>
-                            <div class="form-group">
-                                <label>Masalah : </label>
-                                <input type="text" name="masalah" class="form-control" value="<?php echo $data[0]->masalah;?>" placeholder="Masalah" required="true">
-                            </div>
-                            <div class="form-group">
+                                 <div class="form-group">
                                             <label>Narasi Kebijakan </label>
                                             <select class="form-control" name="narasiKebijakan">
                                                 <?php 
@@ -90,6 +70,26 @@ body{
                                                 ?>
                                             </select>
                                         </div>
+                            <div class="form-group">
+                                        <label>Waktu Pelaksanaan : </label>
+                                        <textarea class="form-control" name="tanggal" required="true"><?php echo $data[0]->tanggal;?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Uraian : </label>
+                                        <textarea class="form-control" name="uraian" required="true"><?php echo $data[0]->uraian;?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tindak Lanjut : </label>
+                                        <textarea class="form-control" name="tindak_ljt" required="true"><?php echo $data[0]->tindak_ljt;?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Masalah : </label>
+                                        <textarea class="form-control" name="masalah" required="true"><?php echo $data[0]->masalah;?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Output : </label>
+                                        <textarea class="form-control" name="hasil" required="true"><?php echo $data[0]->hasil;?></textarea>
+                                    </div>
                             <div class="form-group col-sm-6">
                                 <label>Dokumentasi 1</label>
                                 <input type="file" name="foto1" class="form-control" placeholder="Unit Kerja" > 

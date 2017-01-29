@@ -97,13 +97,13 @@
 					<thead>
 						<tr>
 							<th>No.</th>
-							<th>Kegiatan</th>
-							<th>Tanggal</th>
-							<th>Hasil</th>
+							<th>Narasi Kebijakan</th>
+							<th>Waktu</th>
+							<th>Uraian</th>
 							<th>Tindak Lanjut</th>
 							<th>Masalah</th>
 							<th>Dokumentasi</th>
-                            <th>Narasi Kebijakan</th>
+                            <th>Output</th>
 							<?php 
 							if ($this->uri->segment(3)) {
 								?><th>Action</th><?php
@@ -118,9 +118,9 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo $key->kegiatan;?></td>
-							<td><?php echo date("d-M-Y",strtotime($key->tanggal));?></td>
-							<td><?php echo $key->hasil;?></td>
+							<td><?php echo $key->narasi;?></td>
+							<td><?php echo $key->tanggal;?></td>
+							<td><?php echo $key->uraian;?></td>
 							<td><?php echo $key->tindak_ljt;?></td>
 							<td><?php echo $key->masalah;?></td>
                             
@@ -128,11 +128,11 @@
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
 							</td>
-                            <td><?php echo $key->narasi;?></td>
+                            <td><?php echo $key->hasil;?></td>
 							<?php 
 							if ($this->uri->segment(3) == $this->session->userdata('session')[0]->role or $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>
-									<a href="#" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fprogress/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
+									<a href="#" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fprogress/delete/<?php echo $key->no;?>" data-book="<?php echo $key->uraian;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
 									<a class="btn btn-warning" href="<?php echo base_url();?>fprogress/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
 									
 								</td><?php
