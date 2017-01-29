@@ -55,28 +55,8 @@ body{
                             <div id="FormLogin" class="col-sm-7">
                                 <form action="<?php echo $action;?>" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label>Nama Kegiatan : </label>
-                                        <input type="text" name="kegiatan" class="form-control" placeholder="Nama Kegiatan" required="true">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Tanggal Pelaksanaan : </label>
-                                        <input type="text" id="tanggal" name="tanggal" class="form-control" placeholder="tanggal" required="true">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Hasil : </label>
-                                        <input type="text" name="hasil" class="form-control" placeholder="Hasil" required="true">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Tindak Lanjut : </label>
-                                        <input type="text" name="tindak_ljt" class="form-control" placeholder="Tindak Lanjut" required="true">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Masalah : </label>
-                                        <input type="text" name="masalah" class="form-control" placeholder="Masalah" required="true">
-                                    </div>
-                                    <div class="form-group">
-                                            <label>Narasi Kebijakan </label>
-                                            <select class="form-control" name="narasiKebijakan">
+                                        <label>Narasi Kebijakan </label>
+                                        <select class="form-control" name="narasiKebijakan">
                                                 <?php 
                                                 foreach ($data as $key) {
                                                     ?>
@@ -84,8 +64,28 @@ body{
                                                     <?php
                                                 }
                                                 ?>
-                                            </select>
-                                        </div>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Waktu Pelaksanaan : </label>
+                                        <textarea class="form-control" name="tanggal" required="true"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Uraian : </label>
+                                        <textarea class="form-control" name="uraian" required="true"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tindak Lanjut : </label>
+                                        <textarea class="form-control" name="tindak_ljt" required="true"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Masalah : </label>
+                                        <textarea class="form-control" name="masalah" required="true"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Output : </label>
+                                        <textarea class="form-control" name="hasil" required="true"></textarea>
+                                    </div>
                                     <?php 
                                     if ($this->session->userdata('session')[0]->role == 'admin') {
                                         ?>
