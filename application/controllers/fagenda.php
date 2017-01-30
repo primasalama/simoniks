@@ -65,6 +65,7 @@ class Fagenda extends CI_Controller {
 	public function edit($value)
 	{
 		$result['data'] = $this->M_agenda->getId($value);
+		$result['data1'] = $this->M_kebijakan->getAll();
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/edit_agenda',$result);
 		$this->load->view('frontend/footerf');

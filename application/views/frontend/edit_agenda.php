@@ -5,10 +5,24 @@
 		$action = base_url()."fagenda/update/".$data[0]->no;
 	}
 ?>
+<div class="well well-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb" style="margin-bottom: 0;">
+                    <li class="active">
+                    <a href="<?php echo base_url();?>">
+                        <span class="glyphicon glyphicon-home"></span> Beranda
+                    </a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container" >
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="<?php echo base_url();?>">SIMONIK</a></li>
-        <li class="breadcrumb-item"><a href="<?php echo base_url();?>progress">Progress</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo base_url();?>fagenda">Agenda</a></li>
     </ol>
     <div class="panel panel-info">
                 <div class="panel-heading">Form</div>
@@ -16,25 +30,34 @@
                     <div id="FormLogin" class="col-sm-7">
                         <form action="<?php echo  $action;?>" method="post">
 							<div class="form-group">
-								<label>Nama Kegiatan : </label>
-								<input type="text" name="kegiatan" class="form-control" value="<?php echo $data[0]->kegiatan;?>" placeholder="Nama Kegiatan" required="true">
+								<label>Narasi Kebijakan </label>
+                                            <select class="form-control" name="narasiKebijakan">
+                                                <?php 
+                                                foreach ($data1 as $key) {
+                                                    ?>
+                                                    <option value="<?php echo $key->no?>" <?php 
+                                                    if ($key->no == $data[0]->narasiKebijakan) {
+                                                        echo "selected";
+                                                    }
+                                                    ?>><?php echo $key->narasi?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
 							</div>
 							<div class="form-group">
-								<label>Tanggal Pelaksanaan : </label>
-								<input type="text" id="tanggal" name="tanggal" class="form-control" value="<?php echo substr($data[0]->tanggal, 5,2)."/".substr($data[0]->tanggal, 8,2)."/".substr($data[0]->tanggal, 0,4);?>" placeholder="tanggal" required="true">
+								<label>Waktu/Tanggal : </label>
+								<textarea class="form-control" name="tanggal" required="true"><?php echo $data[0]->tanggal;?></textarea>
 							</div>
 							<div class="form-group">
-								<label>Waktu Pelaksanaan : </label>
-								<input type="text" id="pukul" name="pukul" class="form-control" value="<?php echo $data[0]->pukul;?>" placeholder="Waktu Pelaksanaan" required="true">
+								<label>Uraian : </label>
+                                <textarea class="form-control" name="uraian" required="true"><?php echo $data[0]->uraian;?></textarea>
 							</div>
 							<div class="form-group">
-								<label>Tempat Pelaksanaan : </label>
-								<input type="text" name="tempat" class="form-control" value="<?php echo $data[0]->tempat;?>" placeholder="Tempat Pelaksanaan" required="true">
+								<label>Output : </label>
+                                <textarea class="form-control" name="hasil" required="true"><?php echo $data[0]->hasil;?></textarea>
 							</div>
-							<div class="form-group">
-								<label>Unit Kerja : </label>
-								<input type="text" name="unit" class="form-control" placeholder="Unit Kerja" value="<?php echo $data[0]->unit;?>" required="true">
-							</div>
+							
 							
 							<!--
 							<div class="form-group">
