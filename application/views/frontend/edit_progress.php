@@ -31,7 +31,7 @@ body{
             <div class="col-md-12">
                 <ol class="breadcrumb" style="margin-bottom: 0;">
                     <li class="active">
-                    <a href="index.php">
+                    <a href="<?php echo base_url();?>">
                         <span class="glyphicon glyphicon-home"></span> Beranda
                     </a>
                     </li>
