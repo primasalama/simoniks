@@ -98,13 +98,9 @@ class Fprogress extends CI_Controller {
 		$this->M_progress->deleteId($value);
 		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
 	}
-	public function edit($value)
+	public function edit($value,$asdep)
 	{
-		if($this->session->userdata('session')[0]->role == 'admin'){
-			$result['data1'] = $this->M_kebijakan->getAll();
-		}else{
-			$result['data1'] = $this->M_kebijakan->getByAsdep($this->session->userdata('session')[0]->role);
-		}
+		$result['data1'] = $this->M_kebijakan->getByAsdep($asdep);
 		$result['data'] = $this->M_progress->getId($value);
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/edit_progress',$result);

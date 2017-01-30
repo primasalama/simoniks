@@ -133,7 +133,7 @@
 							if ($this->uri->segment(3) == $this->session->userdata('session')[0]->role or $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>
 									<a href="#" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fprogress/delete/<?php echo $key->no;?>" data-book="<?php echo $key->uraian;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
-									<a class="btn btn-warning" href="<?php echo base_url();?>fprogress/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
+									<a class="btn btn-warning" href="<?php echo base_url();?>fprogress/edit/<?php echo $key->no."/".$this->uri->segment(3);?>"><span class="glyphicon glyphicon-edit"></span></a>
 									
 								</td><?php
 							}

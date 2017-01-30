@@ -80,7 +80,7 @@
   }
   if ($this->uri->segment(2) != null) {
     if ($this->session->userdata('session')[0]->role == 'admin' or $this->session->userdata('session')[0]->role != 'admin') {
-      echo '<li class="pull-right"><a href="'.base_url().'fagenda/" class="btn btn-xs btn-info">Tambah</a></li>';
+      echo '<li class="pull-right"><a href="'.base_url().'fagenda/index/'.$this->uri->segment(2).'" class="btn btn-xs btn-info">Tambah</a></li>';
     }
   }
   ?>
@@ -130,7 +130,7 @@
                     <?php
                   }
                   ?>
-									<a class="btn btn-warning" href="<?php echo base_url()."f".$this->uri->segment(1);?>/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
+									<a class="btn btn-warning" href="<?php echo base_url()."f".$this->uri->segment(1);?>/edit/<?php echo $key->no."/".$this->uri->segment(2);?>"><span class="glyphicon glyphicon-edit"></span></a>
 								</td>
 								<?php
 							}
