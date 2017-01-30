@@ -76,15 +76,15 @@ body{
                                     </div>
                                     <div class="form-group">
                                         <label>Tindak Lanjut : </label>
-                                        <textarea class="form-control" name="tindak_ljt" required="true"></textarea>
+                                        <textarea class="form-control" name="tindak_ljt" ></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Masalah : </label>
-                                        <textarea class="form-control" name="masalah" required="true"></textarea>
+                                        <textarea class="form-control" name="masalah" ></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Output : </label>
-                                        <textarea class="form-control" name="hasil" required="true"></textarea>
+                                        <textarea class="form-control" name="hasil" ></textarea>
                                     </div>
                                     <?php 
                                     if ($this->session->userdata('session')[0]->role == 'admin') {

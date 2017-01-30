@@ -48,15 +48,15 @@
 							</div>
 							<div class="form-group">
 								<label>Waktu/Tanggal : </label>
-								<textarea class="form-control" name="tanggal" required="true"><?php echo $data[0]->tanggal;?></textarea>
+								<textarea class="form-control" name="tanggal" ><?php echo $data[0]->tanggal;?></textarea>
 							</div>
 							<div class="form-group">
 								<label>Uraian : </label>
-                                <textarea class="form-control" name="uraian" required="true"><?php echo $data[0]->uraian;?></textarea>
+                                <textarea class="form-control" name="uraian" ><?php echo $data[0]->uraian;?></textarea>
 							</div>
 							<div class="form-group">
 								<label>Output : </label>
-                                <textarea class="form-control" name="hasil" required="true"><?php echo $data[0]->hasil;?></textarea>
+                                <textarea class="form-control" name="hasil" ><?php echo $data[0]->hasil;?></textarea>
 							</div>
 							
 							

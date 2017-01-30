@@ -44,15 +44,15 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Waktu/Tanggal : </label>
-                                        <textarea class="form-control" name="tanggal" required="true"></textarea>
+                                        <textarea class="form-control" name="tanggal" ></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Uraian : </label>
-                                        <textarea class="form-control" name="uraian" required="true"></textarea>
+                                        <textarea class="form-control" name="uraian" ></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Output : </label>
-                                        <textarea class="form-control" name="hasil" required="true"></textarea>
+                                        <textarea class="form-control" name="hasil" ></textarea>
                                     </div>
                                     <?php 
                                     if ($this->session->userdata('session')[0]->role == 'admin') {

@@ -29,7 +29,11 @@ class Fagenda extends CI_Controller {
 	}
 	public function index()
 	{
-		$result['data'] = $this->M_kebijakan->getByAsdep();
+		if($this->session->userdata('session')[0]->role == 'admin'){
+			$result['data'] = $this->M_kebijakan->getAll();
+		}else{
+			$result['data'] = $this->M_kebijakan->getByAsdep($this->session->userdata('session')[0]->role);
+		}
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/add_agenda',$result);
 		$this->load->view('frontend/footerf');
@@ -64,8 +68,12 @@ class Fagenda extends CI_Controller {
 	}
 	public function edit($value)
 	{
+		if($this->session->userdata('session')[0]->role == 'admin'){
+			$result['data1'] = $this->M_kebijakan->getAll();
+		}else{
+			$result['data1'] = $this->M_kebijakan->getByAsdep($this->session->userdata('session')[0]->role);
+		}
 		$result['data'] = $this->M_agenda->getId($value);
-		$result['data1'] = $this->M_kebijakan->getAll();
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/edit_agenda',$result);
 		$this->load->view('frontend/footerf');

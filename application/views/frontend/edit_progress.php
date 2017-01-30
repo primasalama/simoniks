@@ -80,23 +80,23 @@ body{
                                     </div>
                                     <div class="form-group">
                                         <label>Tindak Lanjut : </label>
-                                        <textarea class="form-control" name="tindak_ljt" required="true"><?php echo $data[0]->tindak_ljt;?></textarea>
+                                        <textarea class="form-control" name="tindak_ljt" ><?php echo $data[0]->tindak_ljt;?></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Masalah : </label>
-                                        <textarea class="form-control" name="masalah" required="true"><?php echo $data[0]->masalah;?></textarea>
+                                        <textarea class="form-control" name="masalah" ><?php echo $data[0]->masalah;?></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Output : </label>
-                                        <textarea class="form-control" name="hasil" required="true"><?php echo $data[0]->hasil;?></textarea>
+                                        <textarea class="form-control" name="hasil" ><?php echo $data[0]->hasil;?></textarea>
                                     </div>
                             <div class="form-group col-sm-6">
                                 <label>Dokumentasi 1</label>
-                                <input type="file" name="foto1" class="form-control" placeholder="Unit Kerja" > 
+                                <input type="file" name="foto1" class="form-control"  > 
                             </div>
                             <div class="form-group col-sm-6">
                                 <label>Dokumentasi 2</label>
-                                <input type="file" name="foto2" class="form-control" placeholder="Unit Kerja">  
+                                <input type="file" name="foto2" class="form-control" >  
                             </div>
                             
                             <!--
