@@ -23,6 +23,7 @@
 <div class="container" >
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="<?php echo base_url();?>fagenda">Agenda</a></li>
+        <li class="breadcrumb-item active">Ubah Agenda</a></li>
     </ol>
     <div class="panel panel-info">
                 <div class="panel-heading">Form</div>
