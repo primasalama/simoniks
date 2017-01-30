@@ -29,7 +29,12 @@ class Fprogress extends CI_Controller {
 	}
 	public function index()
 	{
-		$result['data'] = $this->M_kebijakan->getAll();
+		if($this->session->userdata('session')[0]->role == 'admin'){
+			$result['data'] = $this->M_kebijakan->getAll();
+		}else{
+			$result['data'] = $this->M_kebijakan->getByAsdep($this->session->userdata('session')[0]->role);
+		}
+		
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/add_progress',$result);
 		$this->load->view('frontend/footerf');

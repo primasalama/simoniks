@@ -29,7 +29,7 @@ class Fagenda extends CI_Controller {
 	}
 	public function index()
 	{
-		$result['data'] = $this->M_kebijakan->getAll();
+		$result['data'] = $this->M_kebijakan->getByAsdep();
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/add_agenda',$result);
 		$this->load->view('frontend/footerf');
