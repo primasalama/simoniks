@@ -69,7 +69,7 @@ class Agenda extends CI_Controller {
 				break;
 		}
 		//$tgl = substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2);
-		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>nl2br($this->input->post('uraian')),'tanggal'=>$this->input->post('tanggal'),'hasil'=>nl2br($this->input->post('hasil')),'created_by'=>$created_by,'updated_by'=>$this->session->userdata('session')[0]->no);
+		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal'=>$this->input->post('tanggal'),'hasil'=>$this->input->post('hasil'),'created_by'=>$created_by,'updated_by'=>$this->session->userdata('session')[0]->no);
 		//print_r($data);die();
 		$this->M_agenda->insert($data);
 		redirect('agenda/'.$url_back);
@@ -86,7 +86,7 @@ class Agenda extends CI_Controller {
 	public function update($value)
 	{
 
-		$data = array('narasiKebijakan' => $this->input->post('narasiKebijakan'),'uraian'=>nl2br($this->input->post('uraian')),'tanggal'=>$this->input->post('tanggal'),'hasil'=>nl2br($this->input->post('hasil')),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
+		$data = array('narasiKebijakan' => $this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal'=>$this->input->post('tanggal'),'hasil'=>$this->input->post('hasil'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_agenda->updateId($data,$value);
 		$data = $this->M_agenda->getId($value);
 		///print_r($data);die();
