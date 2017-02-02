@@ -60,15 +60,14 @@ body{
                                         </div>
                                         <div class="form-group">
                                             <label>Status : </label>
-                                            <input type="text" name="status" class="form-control" placeholder="Status" >
-                                        </div>
+                                            <textarea class="form-control" name="status" rows="5" placeholder="Status"></textarea>                                        </div>
                                         <div class="form-group">
                                             <label>Indikator : </label>
-                                            <input type="text" name="indikator" class="form-control" placeholder="indikator" >
+                                            <textarea class="form-control" name="indikator" rows="5" placeholder="Indikator"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>PIC : </label>
-                                            <input type="text" name="pic" class="form-control" placeholder="pic" >
+                                            <textarea class="form-control" name="pic" rows="3" placeholder="PIC"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Asisten Deputi</label>

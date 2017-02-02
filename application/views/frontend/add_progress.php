@@ -68,23 +68,23 @@ body{
                                     </div>
                                     <div class="form-group">
                                         <label>Waktu/Tanggal : </label>
-                                        <textarea class="form-control" name="tanggal" required="true"></textarea>
+                                        <textarea class="form-control" name="tanggal" required="true" placeholder="Waktu/Tanggal"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Uraian : </label>
-                                        <textarea class="form-control" name="uraian" required="true" rows="5"></textarea>
+                                        <textarea class="form-control" name="uraian" required="true" rows="5" placeholder="Uraian"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Tindak Lanjut : </label>
-                                        <textarea class="form-control" name="tindak_ljt" rows="5"></textarea>
+                                        <textarea class="form-control" name="tindak_ljt" rows="5" placeholder="Tindak Lanjut"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Masalah : </label>
-                                        <textarea class="form-control" name="masalah" rows="7"></textarea>
+                                        <textarea class="form-control" name="masalah" rows="7" placeholder="Masalah"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Output : </label>
-                                        <textarea class="form-control" name="hasil" rows="5"></textarea>
+                                        <textarea class="form-control" name="hasil" rows="5" placeholder="Output"></textarea>
                                     </div>
                                     <?php 
                                     if ($this->session->userdata('session')[0]->role == 'admin') {

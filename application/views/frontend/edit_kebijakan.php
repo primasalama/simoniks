@@ -22,15 +22,15 @@
                             </div>
                             <div class="form-group">
                                 <label>Status : </label>
-                                <input type="text" name="status" class="form-control" placeholder="Status" value="<?php echo $data[0]->status;?>">
+                                <textarea class="form-control" name="status" required="true" rows="5"><?php echo $data[0]->status;?></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Indikator : </label>
-                                <input type="text" name="indikator" class="form-control" placeholder="indikator"  value="<?php echo $data[0]->indikator;?>">
+                                <textarea class="form-control" name="indikator" required="true" rows="5"><?php echo $data[0]->indikator;?></textarea>
                             </div>
                             <div class="form-group">
                                 <label>PIC : </label>
-                                <input type="text" name="pic" class="form-control" placeholder="pic" value="<?php echo $data[0]->pic;?>">
+                                <textarea class="form-control" name="pic" required="true" rows="5"><?php echo $data[0]->pic;?></textarea>
                             </div>
                             <!--
                             <div class="form-group">
