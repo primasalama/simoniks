@@ -48,11 +48,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Uraian : </label>
-                                        <textarea class="form-control" name="uraian" ></textarea>
+                                        <textarea class="form-control" name="uraian" rows="5"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Output : </label>
-                                        <textarea class="form-control" name="hasil" ></textarea>
+                                        <textarea class="form-control" name="hasil" rows="5"></textarea>
                                     </div>
                                     <?php 
                                     if ($this->session->userdata('session')[0]->role == 'admin') {

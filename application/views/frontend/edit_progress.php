@@ -76,19 +76,19 @@ body{
                                     </div>
                                     <div class="form-group">
                                         <label>Uraian : </label>
-                                        <textarea class="form-control" name="uraian" required="true"><?php echo $data[0]->uraian;?></textarea>
+                                        <textarea class="form-control" name="uraian" required="true" rows="5"><?php echo $data[0]->uraian;?></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Tindak Lanjut : </label>
-                                        <textarea class="form-control" name="tindak_ljt" ><?php echo $data[0]->tindak_ljt;?></textarea>
+                                        <textarea class="form-control" name="tindak_ljt" rows="7"><?php echo $data[0]->tindak_ljt;?></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Masalah : </label>
-                                        <textarea class="form-control" name="masalah" ><?php echo $data[0]->masalah;?></textarea>
+                                        <textarea class="form-control" name="masalah" rows="7"><?php echo $data[0]->masalah;?></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Output : </label>
-                                        <textarea class="form-control" name="hasil" ><?php echo $data[0]->hasil;?></textarea>
+                                        <textarea class="form-control" name="hasil" rows="7"><?php echo $data[0]->hasil;?></textarea>
                                     </div>
                             <div class="form-group col-sm-6">
                                 <label>Dokumentasi 1</label>
@@ -115,8 +115,8 @@ body{
                                 <div class="alert alert-success">
                                     <p class="heading"><h4><b>Tata Cara Pengisian</b> : </h4></p>
                                     <ol>
-                                        <li>Mengisi Nama Kegiatan sesuai Kegiatan yang bejalan</li>
-                                        <li>Mengisi Waktu pelaksanaan dengan Benar</li>
+                                        <li>Memilih narasi kebijakan</li>
+                                    <li>Mengisi Waktu/ Tanggal dengan Benar</li>
                                     </ol>
                                 </div>
                                 <div class="panel panel-warning">

@@ -52,13 +52,13 @@
 <tr height="20">
 </tr>
 <tr>
-	<td align="center">NO</td>
-	<td align="center">Narasi</td>
-	<td align="center">Waktu/Tanggal</td>
-	<td align="center">Uraian</td>
-	<td align="center">Output</td>
+	<td align="center" style="vertical-align:top;">NO</td>
+	<td align="center" style="vertical-align:top;">Narasi</td>
+	<td align="center" style="vertical-align:top;">Waktu/Tanggal</td>
+	<td align="center" style="vertical-align:top;">Uraian</td>
+	<td align="center" style="vertical-align:top;">Output</td>
 	<?php if ($filename == null) {
-		echo '<td align="center">Pembuat</td>';
+		echo '<td align="center" style="vertical-align:top;">Pembuat</td>';
 	}?>
 </tr>
 <?PHP
@@ -67,13 +67,13 @@ foreach($data->result() as $key)
 {
 ?>
 <tr>
-	<td ><?php echo $i;?></td>
-	<td ><?php echo $key->narasi;?></td>
-	<td ><?php echo $key->tanggal;?></td>
-	<td><?php echo $key->uraian;?></td>
-	<td><?php echo $key->hasil;?></td>
+	<td style="vertical-align:top;"><?php echo $i;?></td>
+	<td style="vertical-align:top;"><?php echo $key->narasi;?></td>
+	<td style="vertical-align:top;"><?php echo $key->tanggal;?></td>
+	<td style="vertical-align:top;"><?php echo $key->uraian;?></td>
+	<td style="vertical-align:top;"><?php echo $key->hasil;?></td>
 	<?php if ($filename == null) {
-		echo '<td>'.$key->role.'</td>';
+		echo '<td style="vertical-align:top;">'.$key->role.'</td>';
 	}?>
 </tr>
 <?php

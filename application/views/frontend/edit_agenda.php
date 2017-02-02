@@ -52,11 +52,11 @@
 							</div>
 							<div class="form-group">
 								<label>Uraian : </label>
-                                <textarea class="form-control" name="uraian" ><?php echo $data[0]->uraian;?></textarea>
+                                <textarea class="form-control" name="uraian" rows="5"><?php echo $data[0]->uraian;?></textarea>
 							</div>
 							<div class="form-group">
 								<label>Output : </label>
-                                <textarea class="form-control" name="hasil" ><?php echo $data[0]->hasil;?></textarea>
+                                <textarea class="form-control" name="hasil" rows="5"><?php echo $data[0]->hasil;?></textarea>
 							</div>
 							
 							

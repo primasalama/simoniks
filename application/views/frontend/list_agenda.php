@@ -89,7 +89,7 @@
 </ol>
 
 
-	<table id="agenda" class="table table-hover">
+	<table id="agenda" class="table table-bordered">
 					<thead>
 						<tr>
 							<th>No.</th>

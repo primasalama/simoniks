@@ -52,13 +52,13 @@
 <tr height="20">
 </tr>
 <tr>
-	<td align="center">NO</td>
-	<td align="center">Narasi</td>
-	<td align="center">Status Saat Ini</td>
-	<td align="center">Indikator Keberhasilan</td>
-	<td align="center">PIC</td>
+	<td align="center" style="vertical-align:top;">NO</td>
+	<td align="center" style="vertical-align:top;">Narasi</td>
+	<td align="center" style="vertical-align:top;">Status Saat Ini</td>
+	<td align="center" style="vertical-align:top;">Indikator Keberhasilan</td>
+	<td align="center" style="vertical-align:top;">PIC</td>
 	<?php if ($filename == null) {
-		echo '<td align="center">Pembuat</td>';
+		echo '<td align="center"style="vertical-align:top;">Pembuat</td>';
 	}?>
 </tr>
 <?PHP
@@ -67,13 +67,13 @@ foreach($data->result() as $key)
 {
 ?>
 <tr>
-	<td ><?php echo $i;?></td>
-	<td ><?php echo $key->narasi;?></td>
-	<td ><?php echo $key->status;?></td>
-	<td><?php echo $key->indikator;?></td>
-	<td><?php echo $key->pic;?></td>
+	<td style="vertical-align:top;"><?php echo $i;?></td>
+	<td style="vertical-align:top;"><?php echo $key->narasi;?></td>
+	<td style="vertical-align:top;"><?php echo $key->status;?></td>
+	<td style="vertical-align:top;"><?php echo $key->indikator;?></td>
+	<td style="vertical-align:top;"><?php echo $key->pic;?></td>
 	<?php if ($filename == null) {
-		echo '<td>'.$key->role.'</td>';
+		echo '<td style="vertical-align:top;">'.$key->role.'</td>';
 	}?>
 </tr>
 <?php

@@ -72,19 +72,19 @@ body{
                                     </div>
                                     <div class="form-group">
                                         <label>Uraian : </label>
-                                        <textarea class="form-control" name="uraian" required="true"></textarea>
+                                        <textarea class="form-control" name="uraian" required="true" rows="5"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Tindak Lanjut : </label>
-                                        <textarea class="form-control" name="tindak_ljt" ></textarea>
+                                        <textarea class="form-control" name="tindak_ljt" rows="5"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Masalah : </label>
-                                        <textarea class="form-control" name="masalah" ></textarea>
+                                        <textarea class="form-control" name="masalah" rows="7"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Output : </label>
-                                        <textarea class="form-control" name="hasil" ></textarea>
+                                        <textarea class="form-control" name="hasil" rows="5"></textarea>
                                     </div>
                                     <?php 
                                     if ($this->session->userdata('session')[0]->role == 'admin') {
