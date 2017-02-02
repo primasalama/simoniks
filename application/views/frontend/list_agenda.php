@@ -113,8 +113,8 @@
 							<td><?php echo $i;?></td>
 							<td><?php echo $key->narasi;?></td>
               <td><?php echo $key->tanggal;?></td>
-							<td><?php echo $key->uraian;?></td>
-							<td><?php echo $key->hasil;?></td>
+							<td><?php echo nl2br($key->uraian);?></td>
+							<td><?php echo nl2br($key->hasil);?></td>
 							<?php 
 							if ($this->session->userdata('session') and $this->uri->segment(2)) {
 								?>

@@ -82,7 +82,7 @@ class Kebijakan extends CI_Controller {
 	}
 	public function update($value)
 	{
-		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
+		$data = array('narasi' => nl2br($this->input->post('narasi')),'status'=>nl2br($this->input->post('status')),'indikator'=>nl2br($this->input->post('indikator')),'pic'=>nl2br($this->input->post('pic')),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_kebijakan->updateId($data,$value);
 		$data = $this->M_kebijakan->getId($value);
 		redirect('Beranda/view/'.$data[0]->role);
