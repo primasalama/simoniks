@@ -34,7 +34,7 @@ class Fkebijakan extends CI_Controller {
 	}
 	public function add()
 	{
-		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
+		$data = array('narasi' => nl2br($this->input->post('narasi')),'status'=>nl2br($this->input->post('status')),'indikator'=>nl2br($this->input->post('indikator')),'pic'=>nl2br($this->input->post('pic')),'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
 		$this->M_kebijakan->insert($data);
 		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
 	}

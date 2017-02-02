@@ -59,10 +59,10 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo $key->narasi;?></td>
-							<td><?php echo $key->status;?></td>
-							<td><?php echo $key->indikator;?></td>
-							<td><?php echo $key->pic;?></td>
+							<td><?php echo nl2br($key->narasi);?></td>
+							<td><?php echo nl2br($key->status);?></td>
+							<td><?php echo nl2br($key->indikator);?></td>
+							<td><?php echo nl2br($key->pic);?></td>
 							<?php 
 							if ($this->uri->segment(2) == 'view' and $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>

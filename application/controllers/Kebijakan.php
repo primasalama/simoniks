@@ -45,6 +45,7 @@ class Kebijakan extends CI_Controller {
 	}
 	public function add()
 	{
+		//print_r(nl2br($this->input->post('narasi')));die();
 		switch ($this->input->post('deputi')) {
 			case 'asdep1':
 				$created_by = 2;
@@ -66,7 +67,7 @@ class Kebijakan extends CI_Controller {
 				# code...
 				break;
 		}
-		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>$created_by,'updated_by'=>$this->session->userdata('session')[0]->no);
+		$data = array('narasi' => nl2br($this->input->post('narasi')),'status'=>nl2br($this->input->post('status')),'indikator'=>nl2br($this->input->post('indikator')),'pic'=>nl2br($this->input->post('pic')),'created_by'=>$created_by,'updated_by'=>$this->session->userdata('session')[0]->no);
 		$this->M_kebijakan->insert($data);
 		redirect('Beranda/view/'.$url_back);
 	}
