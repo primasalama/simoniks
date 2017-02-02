@@ -59,10 +59,10 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo $key->narasi;?></td>
-							<td><?php echo $key->status;?></td>
-							<td><?php echo $key->indikator;?></td>
-							<td><?php echo $key->pic;?></td>
+							<td><?php echo nl2br($key->narasi);?></td>
+							<td><?php echo nl2br($key->status);?></td>
+							<td><?php echo nl2br($key->indikator);?></td>
+							<td><?php echo nl2br($key->pic);?></td>
 							<?php 
 							if ($this->uri->segment(2) == 'delete') {
 								?><td>
@@ -127,17 +127,17 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo $key->narasi;?></td>
-							<td><?php echo $key->tanggal;?></td>
-							<td><?php echo $key->uraian;?></td>
-							<td><?php echo $key->tindak_ljt;?></td>
-							<td><?php echo $key->masalah;?></td>
+							<td><?php echo nl2br($key->narasi);?></td>
+							<td><?php echo nl2br($key->tanggal);?></td>
+							<td><?php echo nl2br($key->uraian);?></td>
+							<td><?php echo nl2br($key->tindak_ljt);?></td>
+							<td><?php echo nl2br($key->masalah);?></td>
                             
 							<td>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
 							</td>
-                            <td><?php echo $key->hasil;?></td>
+                            <td><?php echo nl2br($key->hasil);?></td>
 							<?php 
 							if ($this->uri->segment(2) == 'delete') {
 								?><td>
@@ -199,10 +199,10 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo $key->narasi;?></td>
-              <td><?php echo $key->tanggal;?></td>
-							<td><?php echo $key->uraian;?></td>
-							<td><?php echo $key->hasil;?></td>
+							<td><?php echo nl2br($key->narasi);?></td>
+              				<td><?php echo nl2br($key->tanggal);?></td>
+							<td><?php echo nl2br($key->uraian);?></td>
+							<td><?php echo nl2br($key->hasil);?></td>
 							<?php 
 							if ($this->uri->segment(2) == 'delete') {
 								?><td>

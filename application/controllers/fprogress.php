@@ -38,7 +38,10 @@ class Fprogress extends CI_Controller {
 	{
 		$dokumentasi1 =  $this->uploadImage($_FILES['foto1'],'foto1');
 		$dokumentasi2 =  $this->uploadImage($_FILES['foto2'],'foto2');
-		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal'=>$this->input->post('tanggal'),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
+		$data = array('narasiKebijakan'=>nl2br($this->input->post('narasiKebijakan')),'uraian'=>nl2br($this->input->post('uraian')),
+			'tanggal'=>nl2br($this->input->post('tanggal')),'hasil'=>nl2br($this->input->post('hasil')),'tindak_ljt'=>nl2br($this->input->post('tindak_ljt')),
+			'masalah'=>nl2br($this->input->post('masalah')),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,
+			'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
 		//print_r($data);die();
 		$this->M_progress->insert($data);
 		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
@@ -89,7 +92,11 @@ class Fprogress extends CI_Controller {
 		}else{
 			$dokumentasi2 = $result[0]->dokumentasi2;
 		}
-		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal'=>$this->input->post('tanggal'),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
+		$data = array('narasiKebijakan'=>nl2br($this->input->post('narasiKebijakan')),'uraian'=>nl2br($this->input->post('uraian')),
+			'tanggal'=>nl2br($this->input->post('tanggal')),'hasil'=>nl2br($this->input->post('hasil')),
+			'tindak_ljt'=>nl2br($this->input->post('tindak_ljt')),'masalah'=>nl2br($this->input->post('masalah')),
+			'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'updated_by'=>$this->session->userdata('session')[0]->no,
+			'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_progress->updateId($data,$value);
 		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
 	}

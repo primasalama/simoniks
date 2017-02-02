@@ -118,11 +118,11 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo $key->narasi;?></td>
-							<td><?php echo $key->tanggal;?></td>
-							<td><?php echo $key->uraian;?></td>
-							<td><?php echo $key->tindak_ljt;?></td>
-							<td><?php echo $key->masalah;?></td>
+							<td><?php echo nl2br($key->narasi);?></td>
+							<td><?php echo nl2br($key->tanggal);?></td>
+							<td><?php echo nl2br($key->uraian);?></td>
+							<td><?php echo nl2br($key->tindak_ljt);?></td>
+							<td><?php echo nl2br($key->masalah);?></td>
                             
 							<td>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
