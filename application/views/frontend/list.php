@@ -128,7 +128,7 @@
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
 							</td>
-                            <td><?php echo $key->hasil;?></td>
+                            <td width="15%"><?php echo $key->hasil;?></td>
 							<?php 
 							if ($this->uri->segment(3) == $this->session->userdata('session')[0]->role or $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>

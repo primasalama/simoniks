@@ -126,7 +126,7 @@
 						foreach ($progress as $key) {
 						?>
 						<tr>
-							<td><?php echo $i;?></td>
+							<td  width="0%"><?php echo $i;?></td>
 							<td><?php echo nl2br($key->narasi);?></td>
 							<td><?php echo nl2br($key->tanggal);?></td>
 							<td><?php echo nl2br($key->uraian);?></td>
@@ -137,7 +137,7 @@
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
 							</td>
-                            <td><?php echo nl2br($key->hasil);?></td>
+                            <td width="15%"><?php echo nl2br($key->hasil);?></td>
 							<?php 
 							if ($this->uri->segment(2) == 'delete') {
 								?><td>
