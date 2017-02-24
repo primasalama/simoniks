@@ -1,7 +1,7 @@
 <?php
 	$nama_file = "Agenda_".$filename."_".date("Ymd").".xls";
 	if ($filename == null) {
-		$span = 6;
+		$span = 5;
 	}else{
 		$span = 5;
 	}
@@ -17,7 +17,7 @@
 ?>
 <table width="100%" border="1" cellpadding="5" cellspacing="0">
 <tr>
-	<td colspan="<?php echo $span;?>" align="center"><h2><strong>LAPORAN PROGRES KEBIJAKAN STRATEGIS</strong></h2></td>
+	<td colspan="<?php echo $span;?>" align="center"><h2><strong>AGENDA RENCANA KEGIATAN KEBIJAKAN STRATEGIS TAHUN 2017</strong></h2></td>
 </tr>
 <tr>
 <?php 
@@ -57,11 +57,13 @@
 	<td align="center" style="vertical-align:top;">Waktu/Tanggal</td>
 	<td align="center" style="vertical-align:top;">Uraian</td>
 	<td align="center" style="vertical-align:top;">Output</td>
-	<?php if ($filename == null) {
-		echo '<td align="center" style="vertical-align:top;">Pembuat</td>';
-	}?>
+	
+</tr>
+<tr>
+	<th colspan="<?php echo $span;?>"><center><strong>Asdep 1</strong></center></th>
 </tr>
 <?PHP
+$data = $this->M_progress->getAllExcel('asdep1');
 $i=1;
 foreach($data->result() as $key)
 {
@@ -72,9 +74,70 @@ foreach($data->result() as $key)
 	<td style="vertical-align:top;"><?php echo $key->tanggal;?></td>
 	<td style="vertical-align:top;"><?php echo $key->uraian;?></td>
 	<td style="vertical-align:top;"><?php echo $key->hasil;?></td>
-	<?php if ($filename == null) {
-		echo '<td style="vertical-align:top;">'.$key->role.'</td>';
-	}?>
+	
+</tr>
+<?php
+$i++;
+}
+?>	
+<tr>
+	<th colspan="<?php echo $span;?>"><center><strong>Asdep 2</strong></center></th>
+</tr>
+<?PHP
+$data = $this->M_progress->getAllExcel('asdep2');
+$i=1;
+foreach($data->result() as $key)
+{
+?>
+<tr>
+	<td style="vertical-align:top;"><?php echo $i;?></td>
+	<td style="vertical-align:top;"><?php echo $key->narasi;?></td>
+	<td style="vertical-align:top;"><?php echo $key->tanggal;?></td>
+	<td style="vertical-align:top;"><?php echo $key->uraian;?></td>
+	<td style="vertical-align:top;"><?php echo $key->hasil;?></td>
+	
+</tr>
+<?php
+$i++;
+}
+?>	
+<tr>
+	<th colspan="<?php echo $span;?>"><center><strong>Asdep 3</strong></center></th>
+</tr>
+<?PHP
+$data = $this->M_progress->getAllExcel('asdep3');
+$i=1;
+foreach($data->result() as $key)
+{
+?>
+<tr>
+	<td style="vertical-align:top;"><?php echo $i;?></td>
+	<td style="vertical-align:top;"><?php echo $key->narasi;?></td>
+	<td style="vertical-align:top;"><?php echo $key->tanggal;?></td>
+	<td style="vertical-align:top;"><?php echo $key->uraian;?></td>
+	<td style="vertical-align:top;"><?php echo $key->hasil;?></td>
+	
+</tr>
+<?php
+$i++;
+}
+?>	
+<tr>
+	<th colspan="<?php echo $span;?>"><center><strong>Asdep 4</strong></center></th>
+</tr>
+<?PHP
+$data = $this->M_progress->getAllExcel('asdep4');
+$i=1;
+foreach($data->result() as $key)
+{
+?>
+<tr>
+	<td style="vertical-align:top;"><?php echo $i;?></td>
+	<td style="vertical-align:top;"><?php echo $key->narasi;?></td>
+	<td style="vertical-align:top;"><?php echo $key->tanggal;?></td>
+	<td style="vertical-align:top;"><?php echo $key->uraian;?></td>
+	<td style="vertical-align:top;"><?php echo $key->hasil;?></td>
+	
 </tr>
 <?php
 $i++;
