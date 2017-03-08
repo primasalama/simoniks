@@ -84,6 +84,9 @@
 					</tbody>
 				</table>
 	<br/>
+	<?php 
+	if ($this->session->userdata('session')) {
+	?>
 	<ol class="breadcrumb" style="margin-top:-20px;">
         <li class="breadcrumb-item active">Progress</li>
 		<li class="pull-right">
@@ -102,6 +105,7 @@
                         </div>
                     </li>
 	</ol>
+	
 	<table id="progress" class="table table-bordered">
 					<thead>
 						<tr>
@@ -223,6 +227,9 @@
 					 ?>
 					</tbody>
 				</table>
+				<?php
+				}
+				?>
 				</div>
 			</div>
 </div>
