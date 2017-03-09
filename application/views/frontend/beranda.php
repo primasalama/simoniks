@@ -1,3 +1,11 @@
+<style type="text/css">
+	.morecontent span {
+    display: none;
+}
+.morelink {
+    display: block;
+}
+</style>
 <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 <div class="well well-sm">
     <div class="container">
@@ -59,7 +67,7 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo nl2br($key->narasi);?></td>
+							<td><span class="more"><?php echo nl2br($key->narasi);?></span></td>
 							<td><?php echo nl2br($key->status);?></td>
 							<td><?php echo nl2br($key->indikator);?></td>
 							<td><?php echo nl2br($key->pic);?></td>
@@ -240,5 +248,42 @@
               $('#kebijakan').DataTable();
               $('#agenda').DataTable();
               $('#progress').DataTable();
+              // Configure/customize these variables.
+		    var showChar = 10;  // How many characters are shown by default
+		    var ellipsestext = "...";
+		    var moretext = "Show more >";
+		    var lesstext = "Show less";
+		    
+
+		    $('.more').each(function() {
+		        var content = $(this).html();
+		 
+		        if(content.length > showChar) {
+		 
+		            var c = content.substr(0, showChar);
+		            var h = content.substr(showChar, content.length - showChar);
+		 
+		            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+		 
+		            $(this).html(html);
+		        }
+		 
+		    });
+		 
+		    $(".morelink").click(function(){
+		        if($(this).hasClass("less")) {
+		        	console.log("1");
+		            $(this).removeClass("less");
+		            $(this).html(moretext);
+		        } else {
+		        	console.log("0");
+		            $(this).addClass("less");
+		            $(this).html(lesstext);
+		        }
+		        $(this).parent().prev().toggle();
+		        $(this).prev().toggle();
+		        return false;
+		    });
+
           } );
 </script>

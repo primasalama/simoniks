@@ -21,6 +21,7 @@
             <a href="<?php echo base_url();?>agenda/asdep2" class="btn btn-default navbar-btn" style="background-color:#0067b5; color: #CCCCCC;">Agenda Asdep2</a>
             <a href="<?php echo base_url();?>agenda/asdep3" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Asdep3</a>
             <a href="<?php echo base_url();?>agenda/asdep4" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Asdep4</a>
+             <a href="<?php echo base_url();?>agenda/asdep4" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">SESDEP</a>
         </ul>
 	</div>
 	<div class="panel panel-default">
@@ -95,6 +96,8 @@
 							<th>No.</th>
 							<th>Narasi</th>
 							<th>Waktu/Tanggal</th>
+              <th>Tanggal Pengajuan</th>
+              <th>Anggaran</th>
 							<th>Uraian</th>
 							<th>Output</th>
 							<?php 
@@ -113,6 +116,8 @@
 							<td><?php echo $i;?></td>
 							<td><?php echo $key->narasi;?></td>
               <td><?php echo $key->tanggal;?></td>
+              <td></td>
+              <td></td>
 							<td><?php echo nl2br($key->uraian);?></td>
 							<td><?php echo nl2br($key->hasil);?></td>
 							<?php 
