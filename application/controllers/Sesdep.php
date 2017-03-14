@@ -32,5 +32,19 @@ class Sesdep extends CI_Controller {
 	{
 		//Load view
 	}
+	public function edit($value='')
+	{
+		$result['data'] = $this->M_agenda->getId($value);
+		$this->load->view('frontend/header');
+		$this->load->view('frontend/edit_sesdep',$result);
+		$this->load->view('frontend/footerf');
+	}
+	public function update($value='')
+	{
+		$data = array('tglPencairan'=>substr($this->input->post('tglPencairan'), 6,4)."-".substr($this->input->post('tglPencairan'), 0,2)."-".substr($this->input->post('tglPencairan'), 3,2),'tglSpd'=>substr($this->input->post('tglSpd'), 6,4)."-".substr($this->input->post('tglSpd'), 0,2)."-".substr($this->input->post('tglSpd'), 3,2),'tglPengajuanSpd'=>substr($this->input->post('tglPengajuanSpd'), 6,4)."-".substr($this->input->post('tglPengajuanSpd'), 0,2)."-".substr($this->input->post('tglPengajuanSpd'), 3,2));
+		//print_r($data);die();
+		$this->M_agenda->updateId($data,$value);
+		redirect('agenda');
+	}
 
 }

@@ -25,7 +25,7 @@ class Agenda extends CI_Controller {
 		$this->load->model('M_kebijakan');
 		$this->load->model('M_agenda');
 		if (empty($this->session->userdata('session'))) {
-			redirect('login');
+			//redirect('login');
 		}
 	}
 	public function index()
@@ -107,4 +107,5 @@ class Agenda extends CI_Controller {
 		$this->load->view('backend/edit_agenda',$result);
 		$this->load->view('backend/footer');
 	}
+
 }

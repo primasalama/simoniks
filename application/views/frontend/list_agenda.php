@@ -95,13 +95,20 @@
 						<tr>
 							<th>No.</th>
 							<th>Narasi</th>
-							<th>Waktu/Tanggal</th>
               <th>Tanggal Pengajuan</th>
-              <th>Anggaran</th>
-							<th>Uraian</th>
-							<th>Output</th>
+							<th>Rencana Tanggal Pelaksanaan Kegiatan</th>
+              <th>Anggaran (Rp)</th>
+              <?php 
+              if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
+                ?>
+                <th>Tanggal Pengajuan SPD</th>
+              <th>Tanggal SPD</th>
+              <th>Tanggal Pencairan</th>
+                <?php
+              }
+              ?>
 							<?php 
-							if ($this->session->userdata('session') and $this->uri->segment(2)) {
+							if ($this->session->userdata('session') or $this->uri->segment(2)) {
 								?><th>Action</th><?php
 							}
 							?>
@@ -115,13 +122,21 @@
 						<tr>
 							<td><?php echo $i;?></td>
 							<td><?php echo $key->narasi;?></td>
+              <td><?php echo $key->tglPengajuan;?></td>
               <td><?php echo $key->tanggal;?></td>
-              <td></td>
-              <td></td>
-							<td><?php echo nl2br($key->uraian);?></td>
-							<td><?php echo nl2br($key->hasil);?></td>
-							<?php 
-							if ($this->session->userdata('session') and $this->uri->segment(2)) {
+              <td><?php echo $key->anggaran;?></td>
+              <?php 
+                if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
+                  ?>
+                  <td><?php echo date("d-m-Y",strtotime($key->tglPengajuanSpd));?></td>
+              <td><?php echo date("d-m-Y",strtotime($key->tglSpd));?></td>
+              <td><?php echo date("d-m-Y",strtotime($key->tglPencairan));?></td>
+                  <?php
+                }
+              ?>
+              
+              <?php 
+							if ($this->session->userdata('session') or $this->uri->segment(2)) {
 								?>
 								<td>
 									<?php 
@@ -134,8 +149,17 @@
                     <a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fagenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->narasi;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
                     <?php
                   }
+                  if ($this->session->userdata('session')[0]->role == 'sesdep') {
+                    ?>
+                    <a class="btn btn-warning" href="<?php echo base_url()?>Sesdep/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
+                    <?php
+                  }else{
+                    ?>
+                    <a class="btn btn-warning" href="<?php echo base_url()."f".$this->uri->segment(1);?>/edit/<?php echo $key->no."/".$this->uri->segment(2);?>"><span class="glyphicon glyphicon-edit"></span></a>
+                    <?php
+                  }
                   ?>
-									<a class="btn btn-warning" href="<?php echo base_url()."f".$this->uri->segment(1);?>/edit/<?php echo $key->no."/".$this->uri->segment(2);?>"><span class="glyphicon glyphicon-edit"></span></a>
+									
 								</td>
 								<?php
 							}

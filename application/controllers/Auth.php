@@ -32,15 +32,23 @@ class Auth extends CI_Controller {
       redirect('login/failed');
     }else{
       $this->session->Set_userdata('session',$result);
-      if ($this->session->userdata('session')[0]->role != 'admin') {
+      //print_r($result);die();
+      if ($this->session->userdata('session')[0]->role == 'admin') {
+        redirect('Beranda');
+        
+      }elseif ($this->session->userdata('session')[0]->role == 'sesdep') {
+        redirect('agenda');
+      }
+      else{
+        
         if ($this->session->userdata('url')['url'] == 'agenda') {
+          //print_r($this->session->userdata('url'));die();
           redirect($this->session->userdata('url')['url']."/".$this->session->userdata('url')['value']);
         }else{
+          //echo "1";die();
           redirect('Beranda/'.$this->session->userdata('url')['url']."/".$this->session->userdata('url')['value']);
         }
         
-      }else{
-        redirect('Beranda');
       }
     }
   }
