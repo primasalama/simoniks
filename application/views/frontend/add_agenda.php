@@ -47,6 +47,14 @@
                                         <textarea class="form-control" name="tanggal" placeholder="Waktu/Tanggal"></textarea>
                                     </div>
                                     <div class="form-group">
+                                        <label>Tanggal Pelaksanaan Kegiatan : </label>
+                                        <input type="text" class="form-control" id="tglPengajuan" name="tglPengajuan" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Anggaran (Rp) : </label>
+                                        <input type="text" class="form-control" name="anggaran" />
+                                    </div>
+                                    <div class="form-group">
                                         <label>Uraian : </label>
                                         <textarea class="form-control" name="uraian" rows="5" placeholder="Uraian"></textarea>
                                     </div>
@@ -54,6 +62,8 @@
                                         <label>Output : </label>
                                         <textarea class="form-control" name="hasil" rows="5" placeholder="Output"></textarea>
                                     </div>
+                                    
+
                                     <?php 
                                     if ($this->session->userdata('session')[0]->role == 'admin') {
                                         ?>
@@ -98,6 +108,7 @@
 <script>
       $(function() {
         $( '#tanggal' ).datepicker();
+        $( '#tglPengajuan' ).datepicker();
         $('#pukul').bootstrapMaterialDatePicker({
         	date: false,
         	format : 'HH:mm'

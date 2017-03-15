@@ -50,6 +50,14 @@
 								<label>Waktu/Tanggal : </label>
 								<textarea class="form-control" name="tanggal" ><?php echo $data[0]->tanggal;?></textarea>
 							</div>
+                            <div class="form-group">
+                                <label>Tanggal Pelaksanaan Kegiatan : </label>
+                                <input type="text" class="form-control" id="tglPengajuan" name="tglPengajuan" value="<?php echo $data[0]->tglPengajuan;?>" />
+                            </div>
+                            <div class="form-group">
+                                <label>Anggaran : </label>
+                                <input type="text" class="form-control" name="tglPengajuan" value="<?php echo $data[0]->anggaran;?>" />
+                            </div>
 							<div class="form-group">
 								<label>Uraian : </label>
                                 <textarea class="form-control" name="uraian" rows="5"><?php echo $data[0]->uraian;?></textarea>
@@ -58,6 +66,7 @@
 								<label>Output : </label>
                                 <textarea class="form-control" name="hasil" rows="5"><?php echo $data[0]->hasil;?></textarea>
 							</div>
+                            
 							
 							
 							<!--
@@ -87,6 +96,7 @@
 <script>
       $(function() {
         $( '#tanggal' ).datepicker();
+        $( '#tglPengajuan' ).datepicker();
         $('#pukul').bootstrapMaterialDatePicker({
         	date: false,
         	format : 'HH:mm'

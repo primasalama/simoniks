@@ -249,10 +249,10 @@
               $('#agenda').DataTable();
               $('#progress').DataTable();
               // Configure/customize these variables.
-		    var showChar = 10;  // How many characters are shown by default
+		    var showChar = 1000;  // How many characters are shown by default
 		    var ellipsestext = "...";
-		    var moretext = "Show more >";
-		    var lesstext = "Show less";
+		    var moretext = "Read More >";
+		    var lesstext = "Read Less";
 		    
 
 		    $('.more').each(function() {

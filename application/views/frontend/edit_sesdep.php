@@ -31,7 +31,7 @@
                                 <input type="text" class="form-control" value="<?php echo $data[0]->narasi;?>" disabled/>
                             </div>
                             <div class="form-group">
-                                <label>Wakru Agenda : </label>
+                                <label>Waktu Agenda : </label>
                                 <input type="text" class="form-control" value="<?php echo $data[0]->tanggal;?>" disabled/>
                             </div>
                             <div class="form-group">
