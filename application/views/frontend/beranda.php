@@ -68,9 +68,9 @@
 						<tr>
 							<td><?php echo $i;?></td>
 							<td><span class="more"><?php echo nl2br($key->narasi);?></span></td>
-							<td><?php echo nl2br($key->status);?></td>
-							<td><?php echo nl2br($key->indikator);?></td>
-							<td><?php echo nl2br($key->pic);?></td>
+							<td><span class="more"><?php echo nl2br($key->status);?></span></td>
+							<td><span class="more"><?php echo nl2br($key->indikator);?></span></td>
+							<td><span class="more"><?php echo nl2br($key->pic);?></span></td>
 							<?php 
 							if ($this->uri->segment(2) == 'delete') {
 								?><td>
@@ -142,7 +142,7 @@
 							<td><?php echo nl2br($key->narasi);?></td>
 							<td><?php echo nl2br($key->tanggal);?></td>
 							<td><?php echo nl2br($key->uraian);?></td>
-							<td><?php echo nl2br($key->tindak_ljt);?></td>
+							<td width="20%"><?php echo nl2br($key->tindak_ljt);?></td>
 							<td><?php echo nl2br($key->masalah);?></td>
                             
 							<td>
@@ -249,7 +249,7 @@
               $('#agenda').DataTable();
               $('#progress').DataTable();
               // Configure/customize these variables.
-		    var showChar = 1000;  // How many characters are shown by default
+		    var showChar = 10;  // How many characters are shown by default
 		    var ellipsestext = "...";
 		    var moretext = "Read More >";
 		    var lesstext = "Read Less";
