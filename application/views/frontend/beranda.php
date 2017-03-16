@@ -1,4 +1,4 @@
-<style type="text/css">
+	<style type="text/css">
 	.morecontent span {
     display: none;
 }
@@ -56,40 +56,20 @@
 							<?php 
 							if ($this->uri->segment(2)) {
 								?><th>Action</th><?php
+								switch (variable) {
+									case 'value':
+										# code...
+										break;
+									
+									default:
+										# code...
+										break;
+								}
 							}
 							?>
 						</tr>
 					</thead>
-					<tbody>
-					<?php
-						$i=1;
-						foreach ($kebijakan as $key) {
-						?>
-						<tr>
-							<td><?php echo $i;?></td>
-							<td><span class="more"><?php echo nl2br($key->narasi);?></span></td>
-							<td><span class="more"><?php echo nl2br($key->status);?></span></td>
-							<td><span class="more"><?php echo nl2br($key->indikator);?></span></td>
-							<td><span class="more"><?php echo nl2br($key->pic);?></span></td>
-							<?php 
-							if ($this->uri->segment(2) == 'delete') {
-								?><td>
-									<a class="btn btn-danger" href="<?php echo base_url().$this->uri->Segment(1);?>/delete/<?php echo $key->no;?>"><span class="glyphicon glyphicon-trash"></span></a>
-								</td><?php
-							}
-							?>
-							<?php 
-							if ($this->uri->segment(2) == 'update') {
-								?><td>
-									<a class="btn btn-warning" href="<?php echo base_url().$this->uri->Segment(1);?>/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
-								</td><?php
-							}
-							?>
-						</tr>
-						<?php
-						$i++;}
-					 ?>
-					</tbody>
+					<tbody></tbody>
 				</table>
 	<br/>
 	<?php 
@@ -139,10 +119,10 @@
 						?>
 						<tr>
 							<td  width="0%"><?php echo $i;?></td>
-							<td><?php echo nl2br($key->narasi);?></td>
+							<td><span class="more"><?php echo nl2br($key->narasi);?></span></td>
 							<td><?php echo nl2br($key->tanggal);?></td>
 							<td><?php echo nl2br($key->uraian);?></td>
-							<td width="20%"><?php echo nl2br($key->tindak_ljt);?></td>
+							<td><?php echo nl2br($key->tindak_ljt);?></td>
 							<td><?php echo nl2br($key->masalah);?></td>
                             
 							<td>
@@ -245,19 +225,19 @@
 </div>
 <script type="text/javascript">
             $(document).ready(function() {
-              $('#kebijakan').DataTable();
+              //$('#kebijakan').DataTable();
               $('#agenda').DataTable();
               $('#progress').DataTable();
               // Configure/customize these variables.
 		    var showChar = 10;  // How many characters are shown by default
 		    var ellipsestext = "...";
-		    var moretext = "Read More >";
-		    var lesstext = "Read Less";
+		    var moretext = "Show more >";
+		    var lesstext = "Show less";
 		    
 
 		    $('.more').each(function() {
 		        var content = $(this).html();
-		 
+		 		
 		        if(content.length > showChar) {
 		 
 		            var c = content.substr(0, showChar);
@@ -266,6 +246,7 @@
 		            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
 		 
 		            $(this).html(html);
+		            console.log('content : ',html);
 		        }
 		 
 		    });
@@ -286,4 +267,28 @@
 		    });
 
           } );
+</script>
+<script type="text/javascript">
+	//datatables
+    table = $('#kebijakan').DataTable({ 
+ 
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+ 
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+            "url": "<?php echo site_url('Beranda/ajax_list/kebijakan')?>",
+            "type": "POST"
+        },
+ 
+        //Set column definition initialisation properties.
+        "columnDefs": [
+        { 
+            "targets": [ 0 ], //first column / numbering column
+            "orderable": false, //set not orderable
+        },
+        ],
+ 
+    });
 </script>
