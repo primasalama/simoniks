@@ -97,6 +97,7 @@
 							<th>Narasi</th>
               <th>Tanggal Pengajuan</th>
 							<th>Rencana Tanggal Pelaksanaan Kegiatan</th>
+              <th>Kegiatan</th>
               <th>Anggaran (Rp)</th>
               <?php 
               if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
@@ -124,6 +125,7 @@
 							<td><?php echo $key->narasi;?></td>
               <td><?php echo $key->tglPengajuan;?></td>
               <td><?php echo $key->tanggal;?></td>
+              <td><?php echo $key->uraian;?></td>
               <td><?php echo $key->anggaran;?></td>
               <?php 
                 if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
