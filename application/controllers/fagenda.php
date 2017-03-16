@@ -70,4 +70,29 @@ class Fagenda extends CI_Controller {
 		$this->load->view('frontend/edit_agenda',$result);
 		$this->load->view('frontend/footerf');
 	}
+	public function ajax_list($value='')
+	{
+		$list = $this->M_kebijakan->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $key) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $key->narasi;
+            $row[] = $key->status;
+            $row[] = $key->indikator;
+            $row[] = $key->pc;
+ 
+            $data[] = $row;
+        }
+        $output = array(
+                        "draw" => $_POST['draw'],
+                        "recordsTotal" => $this->customers->count_all(),
+                        "recordsFiltered" => $this->customers->count_filtered(),
+                        "data" => $data,
+                );
+        //output to json format
+        echo json_encode($output);
+	}
 }

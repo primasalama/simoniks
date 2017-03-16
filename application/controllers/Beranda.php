@@ -89,7 +89,34 @@ class Beranda extends CI_Controller {
 		$this->load->view('frontend/footerf');
 		}
 	}
-
+	public function ajax_list($value='')
+	{
+		if ($value == 'kebijakan') {
+			$list = $this->M_kebijakan->get_datatables();
+        
+		}
+		$data = array();
+        $no = $_POST['start'];
+        foreach ($list as $key) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = '<span class="more">'.nl2br($key->narasi).'</span>';
+            $row[] = $key->status;
+            $row[] = $key->indikator;
+            $row[] = $key->pic;
+ 
+            $data[] = $row;
+        }
+        $output = array(
+                        "draw" => $_POST['draw'],
+                        "recordsTotal" => $this->M_kebijakan->count_all(),
+                        "recordsFiltered" => $this->M_kebijakan->count_filtered(),
+                        "data" => $data,
+                );
+        //output to json format
+        echo json_encode($output);
+	}
 	public function excels($value='',$deputi=null)
 	{
 		if ($deputi != null) {

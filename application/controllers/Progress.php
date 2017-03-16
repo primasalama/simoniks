@@ -79,6 +79,7 @@ class Progress extends CI_Controller {
 	}
 	public function uploadImage($image,$name)
 	{
+		print_r($image);die();
 		if ($image) {
 			$file_name = 'file_'.time();
 			$config['upload_path']   = './assets/images/uploads/'; 
