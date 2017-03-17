@@ -9,4 +9,5 @@ class M_login extends CI_Model {
 		$this->db->where('password',$pass);
 		return $this->db->get('user')->result();
 	}
+	
 }

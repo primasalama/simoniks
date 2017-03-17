@@ -164,9 +164,10 @@
                     ?>
                     <a class="btn btn-warning" href="<?php echo base_url()?>Sesdep/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
                     <?php
-                  }else{
+                  }
+                  else{
                     ?>
-                    <a class="btn btn-warning" href="<?php echo base_url()."f".$this->uri->segment(1);?>/edit/<?php echo $key->no."/".$this->uri->segment(2);?>"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a class="btn btn-warning" href="<?php echo base_url()."f".$this->uri->segment(1);?>/edit/<?php echo $key->no."/".$this->session->userdata('session')[0]->role;?>"><span class="glyphicon glyphicon-edit"></span></a>
                     <?php
                   }
                   ?>

@@ -37,8 +37,10 @@ class Fagenda extends CI_Controller {
 
 	public function add()
 	{
+		//echo "string".$this->input->post('tglPengajuan');die();
 		//$tgl = substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2);
-		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal'=>$this->input->post('tanggal'),'hasil'=>$this->input->post('hasil'),'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
+		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'tglPengajuan'=>substr($this->input->post('tglPengajuan'), 6,4)."-".substr($this->input->post('tglPengajuan'), 0,2)."-".substr($this->input->post('tglPengajuan'), 3,2),'anggaran'=>$this->input->post('anggaran'),'hasil'=>$this->input->post('hasil'),'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
+		//print_r($data);die();
 		$this->M_agenda->insert($data);
 		redirect('agenda/'.$this->session->userdata('session')[0]->role);
 	}
@@ -53,7 +55,7 @@ class Fagenda extends CI_Controller {
 	}
 	public function update($value)
 	{
-		$data = array('narasiKebijakan' => $this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal'=>$this->input->post('tanggal'),'hasil'=>$this->input->post('hasil'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
+		$data = array('narasiKebijakan' => $this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'tglPengajuan'=>substr($this->input->post('tglPengajuan'), 6,4)."-".substr($this->input->post('tglPengajuan'), 0,2)."-".substr($this->input->post('tglPengajuan'), 3,2),'anggaran'=>$this->input->post('anggaran'),'hasil'=>$this->input->post('hasil'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		$this->M_agenda->updateId($data,$value);
 		redirect('agenda/'.$this->session->userdata('session')[0]->role);
 	}
@@ -64,8 +66,13 @@ class Fagenda extends CI_Controller {
 	}
 	public function edit($value,$asdep)
 	{
-		$result['data1'] = $this->M_kebijakan->getByAsdep($asdep);
 		$result['data'] = $this->M_agenda->getId($value);
+		if ($asdep == 'admin') {
+			$result['data1'] = $this->M_kebijakan->getByAsdep($result['data'][0]->role);
+			//$data = $this->M_login->getRole();
+		}else{
+			$result['data1'] = $this->M_kebijakan->getByAsdep($asdep);
+		}
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/edit_agenda',$result);
 		$this->load->view('frontend/footerf');

@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Waktu/Tanggal : </label>
-                                        <textarea class="form-control" name="tanggal" placeholder="Waktu/Tanggal"></textarea>
+                                        <input type="text" name="tanggal" id="tanggal" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label>Tanggal Pelaksanaan Kegiatan : </label>
@@ -52,7 +52,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Anggaran (Rp) : </label>
-                                        <input type="text" class="form-control" name="anggaran" />
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon3">Rp. </span>
+                                            <input type="number" class="form-control" name="anggaran" />
+                                        </div>
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label>Uraian : </label>
