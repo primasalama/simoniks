@@ -1,4 +1,5 @@
 <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
+
 <div class="well well-sm">
     <div class="container">
         <div class="row">
@@ -84,6 +85,7 @@
       echo '<li class="pull-right"><a href="'.base_url().'fagenda/index/'.$this->uri->segment(2).'" class="btn btn-xs btn-info">Tambah</a></li>';
     }
   }
+
   ?>
   
  
@@ -100,16 +102,20 @@
               <th>Kegiatan</th>
               <th>Anggaran (Rp)</th>
               <?php 
-              if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
+              if ($this->session->userdata('session'))
+              {
+                if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
                 ?>
                 <th>Tanggal Pengajuan SPD</th>
-              <th>Tanggal SPD</th>
-              <th>Tanggal Pencairan</th>
-                <?php
+                <th>Tanggal SPD</th>
+                <th>Tanggal Pencairan</th>
+                  <?php
+                }
+                ?>
+                <?php 
+                
               }
-              ?>
-							<?php 
-							if ($this->session->userdata('session') or $this->uri->segment(2)) {
+              if ($this->session->userdata('session') or $this->uri->segment(2)) {
 								?><th>Action</th><?php
 							}
 							?>
@@ -128,13 +134,16 @@
               <td><?php echo $key->uraian;?></td>
               <td><?php echo $key->anggaran;?></td>
               <?php 
+              if ($this->session->userdata('session')) {
                 if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
-                  ?>
-                  <td><?php echo date("d-m-Y",strtotime($key->tglPengajuanSpd));?></td>
-              <td><?php echo date("d-m-Y",strtotime($key->tglSpd));?></td>
-              <td><?php echo date("d-m-Y",strtotime($key->tglPencairan));?></td>
-                  <?php
-                }
+                      ?>
+                      <td><?php echo date("d-m-Y",strtotime($key->tglPengajuanSpd));?></td>
+                  <td><?php echo date("d-m-Y",strtotime($key->tglSpd));?></td>
+                  <td><?php echo date("d-m-Y",strtotime($key->tglPencairan));?></td>
+                      <?php
+                    }
+              }
+                
               ?>
               
               <?php 
