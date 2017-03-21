@@ -99,6 +99,15 @@
 							<?php 
 							if ($this->uri->segment(3)) {
 								?><th>Action</th><?php
+								switch (variable) {
+									case 'value':
+										# code...
+										break;
+									
+									default:
+										# code...
+										break;
+								}
 							}
 							?>
 						</tr>
@@ -171,6 +180,15 @@
 							<?php 
 							if ($this->session->userdata('session') and $this->uri->segment(2)) {
 								?><th>Action</th><?php
+								switch (variable) {
+									case 'value':
+										# code...
+										break;
+									
+									default:
+										# code...
+										break;
+								}
 							}
 							?>
 						</tr>
@@ -270,6 +288,56 @@
         // Load data for the table's content from an Ajax source
         "ajax": {
             "url": "<?php echo site_url('Beranda/ajax_list/kebijakan')?>",
+            "type": "POST"
+        },
+ 
+        //Set column definition initialisation properties.
+        "columnDefs": [
+        { 
+            "targets": [ 0 ], //first column / numbering column
+            "orderable": false, //set not orderable
+        },
+        ],
+ 
+    });
+</script>
+
+<script type="text/javascript">
+	//datatables
+    table = $('#progress').DataTable({ 
+ 
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+ 
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+            "url": "<?php echo site_url('Beranda/ajax_list/progress')?>",
+            "type": "POST"
+        },
+ 
+        //Set column definition initialisation properties.
+        "columnDefs": [
+        { 
+            "targets": [ 0 ], //first column / numbering column
+            "orderable": false, //set not orderable
+        },
+        ],
+ 
+    });
+</script>
+
+<script type="text/javascript">
+	//datatables
+    table = $('#agenda').DataTable({ 
+ 
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+ 
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+            "url": "<?php echo site_url('Beranda/ajax_list/agenda')?>",
             "type": "POST"
         },
  
