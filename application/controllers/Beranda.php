@@ -105,6 +105,9 @@ class Beranda extends CI_Controller {
             $row[] = $key->status;
             $row[] = $key->indikator;
             $row[] = $key->pic;
+            if (!empty($this->session->userdata('session'))) {
+            	$row[] = '<a class="btn btn-danger" href="'.base_url().$this->uri->Segment(1).'/delete/'.$key->no.'"><span class="glyphicon glyphicon-trash"></span></a>';
+            }
  
             $data[] = $row;
         }

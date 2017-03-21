@@ -54,17 +54,8 @@
 							<th width="20%">Indikator</th>
 							<th width="20%">PIC</th>
 							<?php 
-							if ($this->uri->segment(2)) {
-								?><th>Action</th><?php
-								switch (variable) {
-									case 'value':
-										# code...
-										break;
-									
-									default:
-										# code...
-										break;
-								}
+							if (!empty($this->session->userdata('session'))) {
+								echo '<td>Action</td>';
 							}
 							?>
 						</tr>
