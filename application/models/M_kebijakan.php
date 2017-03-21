@@ -9,7 +9,7 @@ class M_kebijakan extends CI_Model {
  
 	public function getAll()
 	{
-		$sql = "SELECT kebijakan.*,user.role,user.name from kebijakan inner join user on user.no = kebijakan.created_by ";
+		$sql = "SELECT kebijakan.*,user.role,user.name from kebijakan inner join user on user.no = kebijakan.created_by ORDER BY role asc ";
 		return $this->db->query($sql)->result();
 	}
 	public function getAllExcel($value)
