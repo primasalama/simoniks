@@ -93,24 +93,26 @@ class Beranda extends CI_Controller {
 	{
 		if ($value == 'kebijakan') {
 			$list = $this->M_kebijakan->get_datatables();
-        
+        	$data = array();
+       		$no = $_POST['start'];
+	        foreach ($list as $key) {
+	            $no++;
+	            $row = array();
+	            $row[] = $no;
+	            $row[] = '<script type="text/javascript" src="'.base_url().'assets/app.js"></script><span class="more">'.nl2br($key->narasi).'</span>';
+	            $row[] = nl2br($key->status);
+	            $row[] = nl2br($key->indikator);
+	            $row[] = nl2br($key->pic);
+	            //$row[] = '<script type="text/javascript" src="'.base_url().'assets/app.js"></script>';
+	           /*
+	            if (!empty($this->session->userdata('session'))) {
+	            	$row[] = '<a class="btn btn-danger" href="'.base_url().'fkebijakan/delete/'.$key->no.'"><span class="glyphicon glyphicon-trash"></span></a> <a class="btn btn-warning" href="'.base_url().'fkebijakan/edit/'.$key->no.'"><span class="glyphicon glyphicon-pencil"></span></a>';
+	            }
+	 			*/
+	            $data[] = $row;
+	        }
 		}
-		$data = array();
-        $no = $_POST['start'];
-        foreach ($list as $key) {
-            $no++;
-            $row = array();
-            $row[] = $no;
-            $row[] = '<span class="more">'.nl2br($key->narasi).'</span>';
-            $row[] = $key->status;
-            $row[] = $key->indikator;
-            $row[] = $key->pic;
-            if (!empty($this->session->userdata('session'))) {
-            	$row[] = '<a class="btn btn-danger" href="'.base_url().$this->uri->Segment(1).'/delete/'.$key->no.'"><span class="glyphicon glyphicon-trash"></span></a>';
-            }
- 
-            $data[] = $row;
-        }
+		
         $output = array(
                         "draw" => $_POST['draw'],
                         "recordsTotal" => $this->M_kebijakan->count_all(),

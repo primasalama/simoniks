@@ -6,6 +6,13 @@
     display: block;
 }
 </style>
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/readmore.min.js"></script>
+<script type="text/javascript">
+	$('.more').readmore({
+	  speed: 75,
+	  lessLink: '<a href="#">Read less</a>'
+	});
+</script>
 <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 <div class="well well-sm">
     <div class="container">
@@ -54,9 +61,9 @@
 							<th width="20%">Indikator</th>
 							<th width="20%">PIC</th>
 							<?php 
-							if (!empty($this->session->userdata('session'))) {
+							/*if (!empty($this->session->userdata('session'))) {
 								echo '<td>Action</td>';
-							}
+							}*/
 							?>
 						</tr>
 					</thead>
@@ -122,7 +129,7 @@
 							<td ><?php echo nl2br($key->narasi);?></td>
 							<td><?php echo nl2br($key->tanggal);?></td>
 							<td><?php echo nl2br($key->uraian);?></td>
-							<td><?php echo nl2br($key->tindak_ljt);?></td>
+							<td><span class="more"><?php echo nl2br($key->tindak_ljt);?></span></td>
 							<td><?php echo nl2br($key->masalah);?></td>
                             
 							<td>
@@ -302,52 +309,3 @@
     });
 </script>
 
-<script type="text/javascript">
-	//datatables
-    table = $('#progress').DataTable({ 
- 
-        "processing": true, //Feature control the processing indicator.
-        "serverSide": true, //Feature control DataTables' server-side processing mode.
-        "order": [], //Initial no order.
- 
-        // Load data for the table's content from an Ajax source
-        "ajax": {
-            "url": "<?php echo site_url('Beranda/ajax_list/progress')?>",
-            "type": "POST"
-        },
- 
-        //Set column definition initialisation properties.
-        "columnDefs": [
-        { 
-            "targets": [ 0 ], //first column / numbering column
-            "orderable": false, //set not orderable
-        },
-        ],
- 
-    });
-</script>
-
-<script type="text/javascript">
-	//datatables
-    table = $('#agenda').DataTable({ 
- 
-        "processing": true, //Feature control the processing indicator.
-        "serverSide": true, //Feature control DataTables' server-side processing mode.
-        "order": [], //Initial no order.
- 
-        // Load data for the table's content from an Ajax source
-        "ajax": {
-            "url": "<?php echo site_url('Beranda/ajax_list/agenda')?>",
-            "type": "POST"
-        },
- 
-        //Set column definition initialisation properties.
-        "columnDefs": [
-        { 
-            "targets": [ 0 ], //first column / numbering column
-            "orderable": false, //set not orderable
-        },
-        ],
- 
-    });
-</script>
