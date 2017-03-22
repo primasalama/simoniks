@@ -27,7 +27,9 @@ class Beranda extends CI_Controller {
 		$this->load->library('excel');
 	}
 	public function index()
-	{
+	{	
+		/*$string = "arif widiyatmko primasalama";
+		echo substr($string, 0,7)."-".substr($string, 7);die(); */
 		$result['kebijakan'] = $this->M_kebijakan->getAll();
 		$result['agenda'] = $this->M_agenda->getAll();
 		$result['progress'] = $this->M_progress->getAll();
@@ -98,8 +100,8 @@ class Beranda extends CI_Controller {
 	        foreach ($list as $key) {
 	            $no++;
 	            $row = array();
-	            $row[] = $no;
-	            $row[] = '<script type="text/javascript" src="'.base_url().'assets/app.js"></script><span class="more">'.nl2br($key->narasi).'</span>';
+	            $row[] = $key->name;
+	            $row[] = '<span class="more">'.nl2br($key->narasi).'</span>';
 	            $row[] = nl2br($key->status);
 	            $row[] = nl2br($key->indikator);
 	            $row[] = nl2br($key->pic);

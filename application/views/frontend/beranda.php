@@ -6,13 +6,14 @@
     display: block;
 }
 </style>
-<script type="text/javascript" src="<?php echo base_url();?>assets/js/readmore.min.js"></script>
+<!--
+////////// Buat read more, enabled bagian ini.
+<script type="text/javascript" src="<?php //echo base_url();?>assets/js/readmore.min.js"></script>
 <script type="text/javascript">
-	$('.more').readmore({
-	  speed: 75,
-	  lessLink: '<a href="#">Read less</a>'
-	});
-</script>
+	jQuery(document).ready(function ($) {
+  $('article').readmore();
+});
+</script>-->
 <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 <div class="well well-sm">
     <div class="container">
@@ -60,14 +61,23 @@
 							<th width="20%">Status</th>
 							<th width="20%">Indikator</th>
 							<th width="20%">PIC</th>
-							<?php 
-							/*if (!empty($this->session->userdata('session'))) {
-								echo '<td>Action</td>';
-							}*/
-							?>
 						</tr>
 					</thead>
-					<tbody></tbody>
+					<tbody>
+						<?php 
+						$i = 1;
+						foreach ($kebijakan as $key) {
+							?>
+							<tr>
+								<td><?php echo $i;?></td>
+								<td><?php echo substr(nl2br($key->narasi), 0,14);?><span id="demo_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->narasi), 14) ?></span><a data-toggle="collapse" data-target="#demo_<?php echo $i;?>"> Readmore..</a></td>
+								<td><Article><?php echo nl2br($key->status);?></article></td>
+								<td><?php echo nl2br($key->indikator);?></td>
+								<td><?php echo nl2br($key->pic);?></td>
+							</tr>
+							<?php $i++;
+						} ?>
+					</tbody>
 				</table>
 	<br/>
 	<?php 
@@ -241,71 +251,15 @@
 </div>
 <script type="text/javascript">
             $(document).ready(function() {
-              //$('#kebijakan').DataTable();
+              $('#kebijakan').DataTable();
               $('#agenda').DataTable();
               $('#progress').DataTable();
               // Configure/customize these variables.
-		    var showChar = 10;  // How many characters are shown by default
-		    var ellipsestext = "...";
-		    var moretext = "Show more >";
-		    var lesstext = "Show less";
-		    
-
-		    $('.more').each(function() {
-		        var content = $(this).html();
-		 		
-		        if(content.length > showChar) {
-		 
-		            var c = content.substr(0, showChar);
-		            var h = content.substr(showChar, content.length - showChar);
-		 
-		            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
-		 
-		            $(this).html(html);
-		            console.log('content : ',html);
-		        }
-		 
-		    });
-		 
-		    $(".morelink").click(function(){
-		        if($(this).hasClass("less")) {
-		        	console.log("1");
-		            $(this).removeClass("less");
-		            $(this).html(moretext);
-		        } else {
-		        	console.log("0");
-		            $(this).addClass("less");
-		            $(this).html(lesstext);
-		        }
-		        $(this).parent().prev().toggle();
-		        $(this).prev().toggle();
-		        return false;
-		    });
 
           } );
 </script>
 <script type="text/javascript">
 	//datatables
-    table = $('#kebijakan').DataTable({ 
- 
-        "processing": true, //Feature control the processing indicator.
-        "serverSide": true, //Feature control DataTables' server-side processing mode.
-        "order": [], //Initial no order.
- 
-        // Load data for the table's content from an Ajax source
-        "ajax": {
-            "url": "<?php echo site_url('Beranda/ajax_list/kebijakan')?>",
-            "type": "POST"
-        },
- 
-        //Set column definition initialisation properties.
-        "columnDefs": [
-        { 
-            "targets": [ 0 ], //first column / numbering column
-            "orderable": false, //set not orderable
-        },
-        ],
- 
-    });
+    //table = $('#kebijakan').DataTable();
 </script>
 
