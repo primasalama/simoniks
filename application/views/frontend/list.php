@@ -40,14 +40,14 @@
 	<table id="kebijakan" class="table table-bordered">
 					<thead>
 						<tr>
-							<th>No.</th>
-							<th>Narasi</th>
-							<th>Status</th>
-							<th>Indikator</th>
-							<th>PIC</th>
+							<th width="2%">No.</th>
+							<th width="27%">Narasi</th>
+							<th width="20%">Status</th>
+							<th width="20%">Indikator</th>
+							<th width="20%">PIC</th>
 							<?php 
 							if ($this->uri->segment(2) == 'view' and $this->session->userdata('session')[0]->role == 'admin' ) {
-								?><th>Action</th><?php
+								?><th width="15%">Action</th><?php
 							}
 							?>
 						</tr>
@@ -97,16 +97,16 @@
 					<thead>
 						<tr>
 							<th>No.</th>
-							<th>Narasi</th>
+							<th width="15%">Narasi</th>
 							<th>Waktu/Tanggal</th>
-							<th>Uraian</th>
-							<th>Tindak Lanjut</th>
-							<th>Masalah</th>
+							<th width="20%">Uraian</th>
+							<th width="20%">Tindak Lanjut</th>
+							<th width="20%">Masalah</th>
 							<th>Dokumentasi</th>
-                            <th>Output</th>
+                            <th width="10%">Output</th>
 							<?php 
 							if ($this->uri->segment(3)) {
-								?><th>Action</th><?php
+								?><th width="5%">Action</th><?php
 							}
 							?>
 						</tr>
@@ -128,7 +128,7 @@
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
 							</td>
-                            <td width="15%"><?php echo $key->hasil;?></td>
+                            <td><?php echo $key->hasil;?></td>
 							<?php 
 							if ($this->uri->segment(3) == $this->session->userdata('session')[0]->role or $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>
