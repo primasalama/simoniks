@@ -70,8 +70,8 @@
 							?>
 							<tr>
 								<td><?php echo $i;?></td>
-								<td><?php echo substr(nl2br($key->narasi), 0,14);?><span id="demo_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->narasi), 14) ?></span><a data-toggle="collapse" data-target="#demo_<?php echo $i;?>"> Readmore..</a></td>
-								<td><Article><?php echo nl2br($key->status);?></article></td>
+								<td><?php echo nl2br($key->narasi);?></td>
+								<td><?php echo strlen($key->status)."-".substr(nl2br($key->status), 0,500);?><span id="status_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->status), 500) ?></span><a data-toggle="collapse" data-target="#status_<?php echo $i;?>"> Readmore..</a></td>
 								<td><?php echo nl2br($key->indikator);?></td>
 								<td><?php echo nl2br($key->pic);?></td>
 							</tr>

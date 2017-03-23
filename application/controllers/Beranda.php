@@ -86,6 +86,7 @@ class Beranda extends CI_Controller {
 			}
 		}else{
 			$result['data'] = $this->M_agenda->getAll();
+		//print_r($result['data']);die();
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/list_agenda',$result);
 		$this->load->view('frontend/footerf');
