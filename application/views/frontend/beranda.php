@@ -71,7 +71,13 @@
 							<tr>
 								<td><?php echo $i;?></td>
 								<td><?php echo nl2br($key->narasi);?></td>
-								<td><?php echo strlen($key->status)."-".substr(nl2br($key->status), 0,500);?><span id="status_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->status), 500) ?></span><a data-toggle="collapse" data-target="#status_<?php echo $i;?>"> Readmore..</a></td>
+								<?php 
+								if (strlen($key->status) > 300) {
+									?><td><?php echo substr(nl2br($key->status), 0,300);?><span id="status_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->status), 300) ?></span><a data-toggle="collapse" data-target="#status_<?php echo $i;?>"> Readmore..</a></td><?php
+								}else{
+									?> <td><?php echo nl2br($key->status);?></td><?php 
+								}
+								?>
 								<td><?php echo nl2br($key->indikator);?></td>
 								<td><?php echo nl2br($key->pic);?></td>
 							</tr>
@@ -90,7 +96,7 @@
                           <button type="button" class="btn btn-xs btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Export <span class="caret"></span>
                           </button>
-                          <ul class="dropdown-menu">
+                          <ul class="dropdown-menu">	
                             <li><a href="<?php echo base_url();?>beranda/excels/progress/asdep1">Asdep1</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/progress/asdep2">Asdep2</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/progress/asdep3">Asdep3</a></li>
