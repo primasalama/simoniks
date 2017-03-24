@@ -99,15 +99,15 @@
 							<th>Narasi</th>
               <th>Tanggal Pengajuan</th>
 							<th>Rencana Tanggal Pelaksanaan Kegiatan</th>
-              <th>Kegiatan</th>
-              <th>Anggaran (Rp)</th>
+              <th width="20%">Kegiatan</th>
+              <th width="15%">Anggaran (Rp)</th>
               <?php 
               if ($this->session->userdata('session'))
               {
                 if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
                 ?>
-                <th>Tanggal Pengajuan SPD</th>
-                <th>Tanggal SPD</th>
+                <th>Tanggal Pengajuan SP2D</th>
+                <th>Tanggal SP2D</th>
                 <th>Tanggal Pencairan</th>
                   <?php
                 }
@@ -129,10 +129,10 @@
 						<tr>
 							<td><?php echo $i;?></td>
 							<td><?php echo $key->narasi;?></td>
-              <td><?php echo $key->tglPengajuan;?></td>
+              <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
               <td><?php echo $key->tanggal;?></td>
               <td><?php echo $key->uraian;?></td>
-              <td><?php echo $key->anggaran;?></td>
+              <td><?php echo "Rp " .number_format($key->anggaran);?></td>
               <?php 
               if ($this->session->userdata('session')) {
                 if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {

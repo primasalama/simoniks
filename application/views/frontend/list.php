@@ -130,17 +130,40 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo nl2br($key->narasi);?></td>
-							<td><?php echo nl2br($key->tanggal);?></td>
-							<td><?php echo nl2br($key->uraian);?></td>
-							<td><?php echo nl2br($key->tindak_ljt);?></td>
-							<td><?php echo nl2br($key->masalah);?></td>
-                            
-							<td>
-								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
-								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
-							</td>
-                            <td><?php echo $key->hasil;?></td>
+                            <td ><?php echo nl2br($key->narasi);?></td>
+                            <td><?php echo nl2br($key->tanggal);?></td>
+                            <?php 
+                                if (strlen($key->uraian) > 200) {
+                                    ?><td><?php echo substr(nl2br($key->uraian), 0,200);?><span id="uraian_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->uraian), 200) ?></span><a data-toggle="collapse" data-target="#uraian_<?php echo $i;?>"> Readmore..</a></td><?php
+                                }else{
+                                    ?> <td><?php echo nl2br($key->uraian);?></td><?php 
+                                }
+                            ?>
+                            <?php 
+                                if (strlen($key->tindak_ljt) > 300) {
+                                    ?><td><?php echo substr(nl2br($key->tindak_ljt), 0,300);?><span id="tindak_ljt_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->tindak_ljt), 300) ?></span><a data-toggle="collapse" data-target="#tindak_ljt_<?php echo $i;?>"> Readmore..</a></td><?php
+                                }else{
+                                    ?> <td><?php echo nl2br($key->tindak_ljt);?></td><?php 
+                                }
+                            ?>
+                            <?php 
+                                if (strlen($key->masalah) > 300) {
+                                    ?><td><?php echo substr(nl2br($key->masalah), 0,300);?><span id="masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->masalah), 300) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
+                                }else{
+                                    ?> <td><?php echo nl2br($key->masalah);?></td><?php 
+                                }
+                            ?>
+                            <td>
+                                <img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
+                                <img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
+                            </td>
+                            <?php 
+                                if (strlen($key->hasil) > 150) {
+                                    ?><td><?php echo substr(nl2br($key->hasil), 0,150);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 150) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
+                                }else{
+                                    ?> <td><?php echo nl2br($key->hasil);?></td><?php 
+                                }
+                            ?>
 							<?php 
 							if ($this->uri->segment(3) == $this->session->userdata('session')[0]->role or $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>

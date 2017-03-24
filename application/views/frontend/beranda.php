@@ -1,4 +1,4 @@
-	<style type="text/css">
+<style type="text/css">
 	.morecontent span {
     display: none;
 }
@@ -144,28 +144,37 @@
 							<td><?php echo $i;?></td>
 							<td ><?php echo nl2br($key->narasi);?></td>
 							<td><?php echo nl2br($key->tanggal);?></td>
-							<td><?php echo nl2br($key->uraian);?></td>
-							<td><span class="more"><?php echo nl2br($key->tindak_ljt);?></span></td>
-							<td><?php echo nl2br($key->masalah);?></td>
-                            
+							<?php 
+								if (strlen($key->uraian) > 200) {
+									?><td><?php echo substr(nl2br($key->uraian), 0,200);?><span id="uraian_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->uraian), 200) ?></span><a data-toggle="collapse" data-target="#uraian_<?php echo $i;?>"> Readmore..</a></td><?php
+								}else{
+									?> <td><?php echo nl2br($key->uraian);?></td><?php 
+								}
+							?>
+							<?php 
+								if (strlen($key->tindak_ljt) > 300) {
+									?><td><?php echo substr(nl2br($key->tindak_ljt), 0,300);?><span id="tindak_ljt_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->tindak_ljt), 300) ?></span><a data-toggle="collapse" data-target="#tindak_ljt_<?php echo $i;?>"> Readmore..</a></td><?php
+								}else{
+									?> <td><?php echo nl2br($key->tindak_ljt);?></td><?php 
+								}
+							?>
+							<?php 
+								if (strlen($key->masalah) > 300) {
+									?><td><?php echo substr(nl2br($key->masalah), 0,300);?><span id="masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->masalah), 300) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
+								}else{
+									?> <td><?php echo nl2br($key->masalah);?></td><?php 
+								}
+							?>
 							<td>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
 							</td>
-                            <td><?php echo nl2br($key->hasil);?></td>
-							<?php 
-							if ($this->uri->segment(2) == 'delete') {
-								?><td>
-									<a class="btn btn-danger" href="<?php echo base_url().$this->uri->Segment(1);?>/delete/<?php echo $key->no;?>"><span class="glyphicon glyphicon-trash"></span></a>
-								</td><?php
-							}
-							?>
-							<?php 
-							if ($this->uri->segment(2) == 'update') {
-								?><td>
-									<a class="btn btn-warning" href="<?php echo base_url().$this->uri->Segment(1);?>/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
-								</td><?php
-							}
+                            <?php 
+								if (strlen($key->hasil) > 200) {
+									?><td><?php echo substr(nl2br($key->hasil), 0,200);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 200) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
+								}else{
+									?> <td><?php echo nl2br($key->hasil);?></td><?php 
+								}
 							?>
 						</tr>
 						<?php
@@ -193,54 +202,43 @@
                     </li>
 	</ol>
 	<table id="agenda" class="table table-bordered" >
-					<thead>
-						<tr>
-							<th>No.</th>
-							<th>Narasi</th>
-							<th>Waktu/Tanggal</th>
-							<th>Uraian</th>
-							<th>Output</th>
-							<?php 
-							if ($this->session->userdata('session') and $this->uri->segment(2)) {
-								?><th>Action</th><?php
-								switch (variable) {
-									case 'value':
-										# code...
-										break;
-									
-									default:
-										# code...
-										break;
-								}
-							}
-							?>
-						</tr>
-					</thead>
-					<tbody>
-					<?php
-						$i=1;
-						foreach ($agenda as $key) {
-						?>
-						<tr>
-							<td><?php echo $i;?></td>
-							<td><?php echo nl2br($key->narasi);?></td>
-              				<td><?php echo nl2br($key->tanggal);?></td>
-							<td><?php echo nl2br($key->uraian);?></td>
-							<td><?php echo nl2br($key->hasil);?></td>
-							<?php 
-							if ($this->uri->segment(2) == 'delete') {
-								?><td>
-									<a class="btn btn-danger" href="<?php echo base_url().$this->uri->Segment(1);?>/delete/<?php echo $key->no;?>"><span class="glyphicon glyphicon-trash"></span></a>
-								</td><?php
-							}
-							?>
-							<?php 
-							if ($this->uri->segment(2) == 'update') {
-								?><td>
-									<a class="btn btn-warning" href="<?php echo base_url().$this->uri->Segment(1);?>/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
-								</td><?php
-							}
-							?>
+		<thead valign="middle" ">
+			<tr>
+				<th>No.</th>
+				<th>Narasi</th>
+              	<th>Tanggal Pengajuan</th>
+				<th>Rencana Tanggal Pelaksanaan Kegiatan</th>
+              	<th width="20%">Kegiatan</th>
+              	<th width="13%">Anggaran (Rp)</th>
+                <th>Tanggal Pengajuan SP2D</th>
+                <th>Tanggal SP2D</th>
+                <th>Tanggal Pencairan</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
+				$i=1;
+				foreach ($agenda as $key) {
+				?>
+				<tr>
+					<td><?php echo $i;?></td>
+					<td><?php echo $key->narasi;?></td>
+			        <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
+              		<td><?php echo $key->tanggal;?></td>
+			        <td><?php echo $key->uraian;?></td>
+			        <td><?php echo "Rp " .number_format($key->anggaran);?></td>
+              <?php 
+              if ($this->session->userdata('session')) {
+                if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
+                      ?>
+                      <td><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
+                      <td><?php if($key->tglSpd != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
+                      <td><?php if($key->tglPencairan != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td>
+                      <?php
+                    }
+              }
+                
+              ?>	
 						</tr>
 						<?php
 						$i++;}
@@ -268,4 +266,29 @@
 	//datatables
     //table = $('#kebijakan').DataTable();
 </script>
-
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Konfirmasi Hapus Agenda</h4>
+                            </div>
+                        
+                            <div class="modal-body">
+                                <p>Anda ingin menghapus?</p>
+                                Agenda Kegiatan :  <strong><span class="debug-url"></span></strong>
+                            </div>
+                            
+                            <div class="modal-footer">
+                                <a class="btn btn-danger btn-ok">Hapus</a>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Gagal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $('#confirm-delete').on('show.bs.modal', function(e) {
+                        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+                        $('.debug-url').html($(e.relatedTarget).data('book'));
+                    });
+                </script>
