@@ -59,10 +59,22 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo nl2br($key->narasi);?></td>
-							<td><?php echo nl2br($key->status);?></td>
-							<td><?php echo nl2br($key->indikator);?></td>
-							<td><?php echo nl2br($key->pic);?></td>
+                                <td><?php echo nl2br($key->narasi);?></td>
+                                <?php 
+                                if (strlen($key->status) > 300) {
+                                    ?><td><?php echo substr(nl2br($key->status), 0,300);?><span id="status_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->status), 300) ?></span><a data-toggle="collapse" data-target="#status_<?php echo $i;?>"> Readmore..</a></td><?php
+                                }else{
+                                    ?> <td><?php echo nl2br($key->status);?></td><?php 
+                                }
+                                ?>
+                                <?php 
+                                if (strlen($key->indikator) > 300) {
+                                    ?><td><?php echo substr(nl2br($key->indikator), 0,300);?><span id="Indikator_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->indikator), 300) ?></span><a data-toggle="collapse" data-target="#Indikator_<?php echo $i;?>"> Readmore..</a></td><?php
+                                }else{
+                                    ?> <td><?php echo nl2br($key->indikator);?></td><?php 
+                                }
+                                ?>
+                                <td><?php echo nl2br($key->pic);?></td>
 							<?php 
 							if ($this->uri->segment(2) == 'view' and $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>
