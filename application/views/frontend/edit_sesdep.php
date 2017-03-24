@@ -35,7 +35,7 @@
                                 <input type="text" class="form-control" value="<?php echo $data[0]->tanggal;?>" disabled/>
                             </div>
                             <div class="form-group">
-								<label>Tanggal Pengajuan SPD : </label>
+								<label>Tanggal Pengajuan SP2D : </label>
                             <?php 
                             if ($data[0]->tglPengajuanSpd != '0000-00-00') {
                                 ?>
@@ -49,7 +49,7 @@
                             ?>
 							</div>
 							<div class="form-group">
-								<label>Tanggal SPD : </label>
+								<label>Tanggal SP2D : </label>
                             <?php
                             if ($data[0]->tglSpd != '0000-00-00') {
                                 ?>
