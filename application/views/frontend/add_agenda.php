@@ -44,27 +44,27 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Tanggal Pengajuan : </label>
-                                        <input type="text" name="tanggal" id="tanggal" class="form-control" placeholder="Tanggal Pengajuan">
+                                        <input type="text" name="tanggal" id="tanggal" class="form-control" placeholder="Tanggal Pengajuan" required="true">
                                     </div>
                                     <div class="form-group">
                                         <label>Rencana Tanggal Pelaksanaan Kegiatan : </label>
-                                        <input type="text" class="form-control" id="tglPengajuan" name="tglPengajuan" placeholder="Rencana Tanggal Pelaksanaan Kegiatan"/>
+                                        <input type="text" class="form-control" id="tglPengajuan" name="tglPengajuan" placeholder="Rencana Tanggal Pelaksanaan Kegiatan" required="true"/>
                                     </div>
                                     <div class="form-group">
                                         <label>Anggaran (Rp) : </label>
                                         <div class="input-group">
                                             <span class="input-group-addon" id="basic-addon3">Rp. </span>
-                                            <input type="number" class="form-control" name="anggaran" />
+                                            <input type="number" class="form-control" name="anggaran" required="true"/>
                                         </div>
                                         
                                     </div>
                                     <div class="form-group">
                                         <label>Uraian : </label>
-                                        <textarea class="form-control" name="uraian" rows="5" placeholder="Uraian"></textarea>
+                                        <textarea class="form-control" name="uraian" rows="5" placeholder="Uraian" required="true"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Output : </label>
-                                        <textarea class="form-control" name="hasil" rows="5" placeholder="Output"></textarea>
+                                        <textarea class="form-control" name="hasil" rows="5" placeholder="Output" required="true"></textarea>
                                     </div>
                                     
 
