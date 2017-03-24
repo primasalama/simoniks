@@ -36,15 +36,15 @@
                             </div>
                             <div class="form-group">
 								<label>Tanggal Pengajuan SPD : </label>
-								<input type="text" class="form-control" id="tglPengajuanSpd" name="tglPengajuanSpd" />
+								<input type="text" class="form-control" id="tglPengajuanSpd" name="tglPengajuanSpd" required="true" />
 							</div>
 							<div class="form-group">
 								<label>Tanggal SPD : </label>
-                                <input type="text" class="form-control" id="tglSpd" name="tglSpd" />
+                                <input type="text" class="form-control" id="tglSpd" name="tglSpd" required="true"/>
 							</div>
 							<div class="form-group">
 								<label>Tanggal Pencairan : </label>
-                                <input type="text" class="form-control" id="tglPencairan" name="tglPencairan" />
+                                <input type="text" class="form-control" id="tglPencairan" name="tglPencairan" required="true" />
 							</div>
 							<div class="form-group">
 								<input type="submit" value="Submit" class="btn btn-primary">
