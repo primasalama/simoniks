@@ -36,15 +36,45 @@
                             </div>
                             <div class="form-group">
 								<label>Tanggal Pengajuan SPD : </label>
-								<input type="text" class="form-control" id="tglPengajuanSpd" name="tglPengajuanSpd" required="true" />
+                            <?php 
+                            if ($data[0]->tglPengajuanSpd != '0000-00-00') {
+                                ?>
+                                <input type="text" class="form-control" id="tglPengajuanSpd"  value="<?php echo substr($data[0]->tglPengajuanSpd, 5,2)."-".substr($data[0]->tglPengajuanSpd, 8,2)."-".substr($data[0]->tglPengajuanSpd, 0,4)?>"  name="tglPengajuanSpd" required="true" />
+                                <?php
+                            }else{
+                                ?>
+                                <input type="text" class="form-control" id="tglPengajuanSpd" name="tglPengajuanSpd" required="true" />
+                                <?php 
+                            }
+                            ?>
 							</div>
 							<div class="form-group">
 								<label>Tanggal SPD : </label>
+                            <?php
+                            if ($data[0]->tglSpd != '0000-00-00') {
+                                ?>
+                                <input type="text" class="form-control" id="tglSpd" name="tglSpd"  value="<?php echo substr($data[0]->tglSpd, 5,2)."-".substr($data[0]->tglSpd, 8,2)."-".substr($data[0]->tglSpd, 0,4)?>" required="true"/>
+                                <?php 
+                            }else{
+                                ?>
                                 <input type="text" class="form-control" id="tglSpd" name="tglSpd" required="true"/>
+                                <?php
+                            }
+                            ?>
 							</div>
 							<div class="form-group">
 								<label>Tanggal Pencairan : </label>
+                            <?php 
+                            if ($data[0]->tglPencairan != '0000-00-00') {
+                                ?>
+                                <input type="text" class="form-control" id="tglPencairan"  value="<?php echo substr($data[0]->tglPencairan, 5,2)."-".substr($data[0]->tglPencairan, 8,2)."-".substr($data[0]->tglPencairan, 0,4)?>" name="tglPencairan" required="true" />
+                                <?php
+                            }else{
+                                ?>
                                 <input type="text" class="form-control" id="tglPencairan" name="tglPencairan" required="true" />
+                                <?php
+                            }
+                            ?>
 							</div>
 							<div class="form-group">
 								<input type="submit" value="Submit" class="btn btn-primary">
