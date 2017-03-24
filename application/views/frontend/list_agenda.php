@@ -102,19 +102,19 @@
               <th width="20%">Kegiatan</th>
               <th width="15%">Anggaran (Rp)</th>
               <?php 
-              if ($this->session->userdata('session'))
-              {
-                if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
-                ?>
+              //if ($this->session->userdata('session'))
+              //{
+                //if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
+                //?>
                 <th>Tanggal Pengajuan SP2D</th>
                 <th>Tanggal SP2D</th>
                 <th>Tanggal Pencairan</th>
                   <?php
-                }
+                //}
                 ?>
                 <?php 
                 
-              }
+              //}
               if ($this->session->userdata('session') or $this->uri->segment(2)) {
 								?><th>Action</th><?php
 							}
@@ -134,15 +134,15 @@
               <td><?php echo $key->uraian;?></td>
               <td><?php echo "Rp " .number_format($key->anggaran);?></td>
               <?php 
-              if ($this->session->userdata('session')) {
-                if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
+              //if ($this->session->userdata('session')) {
+                //if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
                       ?>
                       <td><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
                       <td><?php if($key->tglSpd != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
                       <td><?php if($key->tglPencairan != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td>
                       <?php
-                    }
-              }
+                    //}
+              //}
                 
               ?>
               

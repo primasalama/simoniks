@@ -47,11 +47,11 @@
                                             </select>
 							</div>
 							<div class="form-group">
-								<label>Waktu/Tanggal : </label>
+								<label>Tanggal Pengajuan : </label>
                                 <input type="text" name="tanggal" id="tanggal" class="form-control" value="<?php echo substr($data[0]->tanggal, 8,2)."/".substr($data[0]->tanggal, 5,2)."/".substr($data[0]->tanggal, 0,4);?>">
 							</div>
                             <div class="form-group">
-                                <label>Tanggal Pelaksanaan Kegiatan : </label>
+                                <label>Rencana Tanggal Pelaksanaan Kegiatan : </label>
                                 <input type="text" class="form-control" id="tglPengajuan" name="tglPengajuan" value="<?php echo substr($data[0]->tglPengajuan, 8,2)."/".substr($data[0]->tglPengajuan, 5,2)."/".substr($data[0]->tglPengajuan, 0,4);?>" />
                             </div>
                             <div class="form-group">

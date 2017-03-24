@@ -43,12 +43,12 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Waktu/Tanggal : </label>
-                                        <input type="text" name="tanggal" id="tanggal" class="form-control">
+                                        <label>Tanggal Pengajuan : </label>
+                                        <input type="text" name="tanggal" id="tanggal" class="form-control" placeholder="Tanggal Pengajuan">
                                     </div>
                                     <div class="form-group">
-                                        <label>Tanggal Pelaksanaan Kegiatan : </label>
-                                        <input type="text" class="form-control" id="tglPengajuan" name="tglPengajuan" />
+                                        <label>Rencana Tanggal Pelaksanaan Kegiatan : </label>
+                                        <input type="text" class="form-control" id="tglPengajuan" name="tglPengajuan" placeholder="Rencana Tanggal Pelaksanaan Kegiatan"/>
                                     </div>
                                     <div class="form-group">
                                         <label>Anggaran (Rp) : </label>
