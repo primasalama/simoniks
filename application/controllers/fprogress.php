@@ -52,7 +52,7 @@ class Fprogress extends CI_Controller {
 			$file_name = 'file_'.time();
 			$config['upload_path']   = './assets/images/uploads/'; 
 	        $config['allowed_types'] = 'jpg|png|JPG|PNG|JPEG|jpeg'; 
-	        $config['max_size']      = 20480; 
+	        $config['max_size']      = 0;//no limit 
 	        $config['max_width']     = 5120; 
 	        $config['max_height']    = 3840;  
 	        $config['file_name'] = $file_name;

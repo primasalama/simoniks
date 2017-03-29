@@ -30,6 +30,8 @@ class Beranda extends CI_Controller {
 	{	
 		/*$string = "arif widiyatmko primasalama";
 		echo substr($string, 0,7)."-".substr($string, 7);die(); */
+		$data = $this->M_progress->getProgressKebijakan(22);
+		print_r($data);die();
 		$result['kebijakan'] = $this->M_kebijakan->getAll();
 		$result['agenda'] = $this->M_agenda->getAll();
 		$result['progress'] = $this->M_progress->getAll();

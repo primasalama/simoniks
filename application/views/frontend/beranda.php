@@ -67,6 +67,8 @@
 						<?php 
 						$i = 1;
 						foreach ($kebijakan as $key) {
+							$data = $this->M_progress->getProgressKebijakan($key->no);
+							
 							?>
 							<tr>
 								<td><?php echo $i;?></td>

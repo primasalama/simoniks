@@ -20,6 +20,11 @@ class M_progress extends CI_Model {
 	{
 		$this->db->insert('progress',$data);
 	}
+	public function getProgressKebijakan($value='')
+	{
+		$this->db->where('narasiKebijakan', $value, FALSE);
+		return $this->db->get('progress');
+	}
 
 	public function deleteId($value='')
 	{

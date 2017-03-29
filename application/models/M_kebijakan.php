@@ -12,6 +12,11 @@ class M_kebijakan extends CI_Model {
 		$sql = "SELECT kebijakan.*,user.role,user.name from kebijakan inner join user on user.no = kebijakan.created_by ORDER BY role asc ";
 		return $this->db->query($sql)->result();
 	}
+	public function getAllDetail($value='')
+	{
+		$this->db->join('progress', 'progress.narasiKebijakan = kebijakan.no', 'inner');
+		return $this->db->get('kebijakan')->result();
+	}
 	public function getAllExcel($value)
 	{
 		if ($value == null) {
