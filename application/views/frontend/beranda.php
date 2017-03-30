@@ -49,7 +49,7 @@
                         </div>
                     </li>
                 </ol>
-	<table id="kebijakan" class="table table-bordered">
+	<table id="" class="table table-bordered">
 					<thead>
 			<tr>
 				<th width="2%">No.</th>

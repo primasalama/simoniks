@@ -40,7 +40,8 @@ class Beranda extends CI_Controller {
 	}
 	public function tes($value='')
 	{
-		$this->load->view('frontend/tes.php');
+		$result['kebijakan'] = $this->M_kebijakan->getAll();
+		$this->load->view('frontend/tes.php',$result);
 	}
 	public function view($value='')
 	{
@@ -143,7 +144,12 @@ class Beranda extends CI_Controller {
 				break;
 			case 'agenda':
 				$result['data'] = $this->M_agenda->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
-				$this->load->view('frontend/e_agenda',$result);
+				if ($deputi != null) {
+					$this->load->view('frontend/agendaAsdep',$result);
+				}else{
+					$this->load->view('frontend/e_agenda',$result);
+				}
+				//$this->load->view('frontend/e_agenda',$result);
 				break;
 			case 'progress':
 				$result['data'] = $this->M_progress->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
@@ -157,171 +163,6 @@ class Beranda extends CI_Controller {
 	public function md5($val)
 	{
 		echo md5($val);
-	}
-	public function excel($value='',$deputi=null)
-	{
-		//echo "asd";die();
-		/* 
-		buat akses excel, link: localhost/simoniks/beranda/excel/$value
-		Kenapa ada switch ? buat ngecek $value isinya itu kebijakan, agenda, atau progress
-		*/
-		switch ($value) {
-			case 'kebijakan':
-				$filename = 'Export_Kebijakan'; //Definisi Nama file
-				$data = $this->M_kebijakan->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
-				$this->excel->setActiveSheetIndex(0);//Set SHEET 1 yg ditulis, wajib
-				$this->excel->getActiveSheet()->setCellValue('A1','asdsa');
-				$this->excel->getActiveSheet()->setTitle($filename); //Nama sheetnya, 1 file excel bisa banyak sheet kan ?
-				$heading=array('No','Narasi','Status','Indikator','PIC','Deputi'); //Nyiapin array buat nama kolom, hitung ada berapa kolom.
-			    $rowNumberH = 2; 
-			    $colH = 'A';
-			    foreach($heading as $h){
-			    	//Buat nulis nama kolom di arrray tadi ke tiap sel.  Perhatiin $colH = A sama $rowNumber = 1. 
-			        $this->excel->getActiveSheet()->setCellValue($colH.$rowNumberH,$h); //ngesetnyagini : setCellValue Buat set nilai si cell,
-			        // $colH.$rowNumberH = A.1  jadinya cell A1. isinya $h. berarti array index pertamanya. berarti No. lanjut ke index 2
-			        // $colH.$rowNumberH = B.1  jadinya cell B1, gitu tterus sampe di array $headingnya abis
-			        $colH++;    
-			    }
-			    foreach(range('A','E') as $columnID) { //Looping dari kolom A sampe E
-				    $this->excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
-				    //Intinya ngeset panjang kolom dgn setAutoSize(true) ditiap kolom A sampe E.
-				}
-			    $totn=$data->num_rows(); //Cek fungsi GetAllExcel di M_Kebijakan, pas direturn itu gak ada result(), beda sama fungsi getAll
-			    //Fungsinya $totn = jumlah baris yg diambil dari tabel tersebut
-			    $maxrow=$totn+1; 
-			    $row = 3; //$ROW Itu = 2. baris awal nulis si isi tabelnya
-			    $no = 1;
-			    foreach($data->result() as $n){ //Looping Tiap Baris Data
-			        $this->excel->getActiveSheet()->setCellValue('A'.$row,$no);
-			        //'A'.$row itu setCellValue si A2. cek $row diatas. $no buat numbering tiap barisnya. dari 1 kan ?
-			        $this->excel->getActiveSheet()->setCellValue('B'.$row,$n->narasi);
-			        //'A'.$row itu setCellValue si A2. cek $row diatas. $no buat numbering tiap barisnya.
-			        //$n itu didapet sebagai $data->result() atau hasil tiap barisnya. -> itu nunjuk tiap kolomnya
-			        $this->excel->getActiveSheet()->setCellValue('C'.$row,$n->status);
-		            $this->excel->getActiveSheet()->setCellValue('D'.$row,$n->indikator);
-		            $this->excel->getActiveSheet()->setCellValue('E'.$row,$n->pic);
-		             $this->excel->getActiveSheet()->setCellValue('F'.$row,$n->role);
-		            $row++; //Next Baris
-		            $no++; //Nambahin Nomor 1 per 1
-			    }
-			    //Freeze pane
-			    //$this->excel->getActiveSheet()->freezePane('A4'); //Belom tau wkwkwk
-			    //Cell Style
-			    $styleArray = array( //definisiin style si excel dengan array
-			        'borders' => array(
-			            'allborders' => array(
-			                'style' => PHPExcel_Style_Border::BORDER_THIN
-			            )
-			        )
-			    );
-
-			    $this->excel->getActiveSheet()->getStyle('A2:F'.$maxrow)->applyFromArray($styleArray); //ngenalin si style yg tadi dibuat ke shet yg active tersebut
-				break;
-			case 'progress':
-			//Sama kayak diatas tadi,bedanya ini buat progress aja
-				$filename = 'Export_Progress';
-				$data = $this->M_progress->getAllExcel($deputi);
-				//activate worksheet number 1
-				$this->excel->setActiveSheetIndex(0);
-				//name the worksheet
-				$this->excel->getActiveSheet()->setTitle($filename);
-				//Loop Heading
-				$heading=array('No','Kegiatan','Tanggal','Hasil','Tindak Lanjut','Masalah','Deputi');
-			    $rowNumberH = 1;
-			    $colH = 'A';
-			    foreach($heading as $h){
-			        $this->excel->getActiveSheet()->setCellValue($colH.$rowNumberH,$h);
-			        $colH++;    
-			    }
-			    //Loop Result
-			    foreach(range('A','E') as $columnID) {
-				    $this->excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
-				}
-			    $totn=$data->num_rows();
-			    $maxrow=$totn+1;
-			    $row = 2;
-			    $no = 1;
-			    foreach($data->result() as $n){
-			        $this->excel->getActiveSheet()->setCellValue('A'.$row,$no);
-			        $this->excel->getActiveSheet()->setCellValue('B'.$row,$n->kegiatan);
-			        $this->excel->getActiveSheet()->setCellValue('C'.$row,$n->tanggal);
-		            $this->excel->getActiveSheet()->setCellValue('D'.$row,$n->hasil);
-		            $this->excel->getActiveSheet()->setCellValue('E'.$row,$n->tindak_ljt);
-		            $this->excel->getActiveSheet()->setCellValue('F'.$row,$n->masalah);
-		            $this->excel->getActiveSheet()->setCellValue('G'.$row,$n->role);
-		            $row++;
-		            $no++;
-			    }
-			    //Freeze pane
-			    $this->excel->getActiveSheet()->freezePane('A3');
-			    //Cell Style
-			    $styleArray = array(
-			        'borders' => array(
-			            'allborders' => array(
-			                'style' => PHPExcel_Style_Border::BORDER_THIN
-			            )
-			        )
-			    );
-			    $this->excel->getActiveSheet()->getStyle('A1:G'.$maxrow)->applyFromArray($styleArray);
-				break;
-			case 'agenda':
-				$filename = 'Export_Agenda';
-				$data = $this->M_agenda->getAllExcel($deputi);
-				//activate worksheet number 1
-				$this->excel->setActiveSheetIndex(0);
-				//name the worksheet
-				$this->excel->getActiveSheet()->setTitle($filename);
-				//Loop Heading
-				$heading=array('No','Kegiatan','Tanggal','Jam','Tempat','Unit','Deputi');
-			    $rowNumberH = 1;
-			    $colH = 'A';
-			    foreach($heading as $h){
-			        $this->excel->getActiveSheet()->setCellValue($colH.$rowNumberH,$h);
-			        $colH++;    
-			    }
-			    //Loop Result
-			    foreach(range('A','E') as $columnID) {
-				    $this->excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
-				}
-			    $totn=$data->num_rows();
-			    $maxrow=$totn+1;
-			    $row = 2;
-			    $no = 1;
-			    foreach($data->result() as $n){
-			        $this->excel->getActiveSheet()->setCellValue('A'.$row,$no);
-			        $this->excel->getActiveSheet()->setCellValue('B'.$row,$n->kegiatan);
-			        $this->excel->getActiveSheet()->setCellValue('C'.$row,$n->tanggal);
-		            $this->excel->getActiveSheet()->setCellValue('D'.$row,$n->pukul);
-		            $this->excel->getActiveSheet()->setCellValue('E'.$row,$n->tempat);
-		            $this->excel->getActiveSheet()->setCellValue('F'.$row,$n->unit);
-		            $this->excel->getActiveSheet()->setCellValue('G'.$row,$n->role);
-		            $row++;
-		            $no++;
-			    }
-			    //Freeze pane
-			    $this->excel->getActiveSheet()->freezePane('A3');
-			    //Cell Style
-			    $styleArray = array(
-			        'borders' => array(
-			            'allborders' => array(
-			                'style' => PHPExcel_Style_Border::BORDER_THIN
-			            )
-			        )
-			    );
-			    $this->excel->getActiveSheet()->getStyle('A1:G'.$maxrow)->applyFromArray($styleArray);
-				break;
-			default:
-				# code...
-				break;
-			}
-			header('Content-Type: application/vnd.ms-excel');
-		    header('Content-Disposition: attachment;filename="'.$filename.'.xls"');
-		    header('Cache-Control: max-age=0');//no cache
-			// 3 Baris diatas itu wajib.
-			$objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');   //Nnetuin tipe excel yg mana
-			//force user to download the Excel file without writing it to server's HD
-			$objWriter->save('php://output'); //download ke browser
-			redirect('Beranda'); // pindah halaman
 	}
 	public function coba($value='')
 	{
