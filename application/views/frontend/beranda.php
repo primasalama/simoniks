@@ -5,15 +5,11 @@
 .morelink {
     display: block;
 }
+.active{
+	color: blue;
+	font-weight: bold;
+}
 </style>
-<!--
-////////// Buat read more, enabled bagian ini.
-<script type="text/javascript" src="<?php //echo base_url();?>assets/js/readmore.min.js"></script>
-<script type="text/javascript">
-	jQuery(document).ready(function ($) {
-  $('article').readmore();
-});
-</script>-->
 <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 <div class="well well-sm">
     <div class="container">
@@ -55,37 +51,38 @@
                 </ol>
 	<table id="kebijakan" class="table table-bordered">
 					<thead>
-						<tr>
-							<th width="2%">No.</th>
-							<th width="30%">Narasi</th>
-							<th width="20%">Status</th>
-							<th width="20%">Indikator</th>
-							<th width="20%">PIC</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php 
-						$i = 1;
-						foreach ($kebijakan as $key) {
-							$data = $this->M_progress->getProgressKebijakan($key->no);
-							
-							?>
-							<tr>
-								<td><?php echo $i;?></td>
-								<td><?php echo nl2br($key->narasi);?></td>
-								<?php 
-								if (strlen($key->status) > 300) {
-									?><td><?php echo substr(nl2br($key->status), 0,300);?><span id="status_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->status), 300) ?></span><a data-toggle="collapse" data-target="#status_<?php echo $i;?>"> Readmore..</a></td><?php
-								}else{
-									?> <td><?php echo nl2br($key->status);?></td><?php 
-								}
-								?>
-								<td><?php echo nl2br($key->indikator);?></td>
-								<td><?php echo nl2br($key->pic);?></td>
-							</tr>
-							<?php $i++;
-						} ?>
-					</tbody>
+			<tr>
+				<th width="2%">No.</th>
+				<th width="30%">Narasi</th>
+				<th width="20%">Kegiatan</th>
+				<th width="20%">Hasil</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php 
+		$i = 1;
+		foreach ($kebijakan as $key) {
+		$data = $this->M_progress->getProgressKebijakan($key->no);
+		if (count($data->result()) > 0) {
+		?>
+			<tr>
+				<td rowspan="<?php echo count($data->result());?>"><?php echo $i;?></td>
+				<td rowspan="<?php echo count($data->result());?>"><?php echo nl2br($key->narasi);?></td>
+				<td><?php echo nl2br($data->result()[0]->uraian);?></td>
+				<td><?php echo nl2br($data->result()[0]->hasil);?></td>
+			</tr>
+			<?php 
+			for($x=1;$x<$data->num_rows();$x++){
+			?>
+			<tr>
+				<td><?php echo nl2br($data->result()[$x]->uraian);?></td>
+				<td><?php echo nl2br($data->result()[$x]->hasil);?></td>
+			</tr>
+		<?php
+				}	$i++;
+			}
+		} ?>
+		</tbody>
 				</table>
 	<br/>
 	<?php 
@@ -109,8 +106,7 @@
                         </div>
                     </li>
 	</ol>
-	
-	<table id="progress" class="table table-bordered">
+		<table id="progress" class="table table-bordered">
 					<thead>
 						<tr>
 							<th>No.</th>
@@ -168,8 +164,11 @@
 								}
 							?>
 							<td>
-								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img>
+								<a href="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>" data-lightbox="<?php echo $key->dokumentasi1?>" data-title="<?php echo $key->dokumentasi2;?>">
+								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img></a>
+								<a href="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>" data-lightbox="<?php echo $key->dokumentasi1?>" data-title="<?php echo $key->dokumentasi1;?>">
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
+								</a>
 							</td>
                             <?php 
 								if (strlen($key->hasil) > 200) {
@@ -184,7 +183,6 @@
 					 ?>
 					</tbody>
 				</table>
-
 	<ol class="breadcrumb" style="margin-top: 30px;">
 		<li class="breadcrumb-item active">Agenda</li>
 		<li class="pull-right">

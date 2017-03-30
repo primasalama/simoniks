@@ -28,18 +28,20 @@ class Beranda extends CI_Controller {
 	}
 	public function index()
 	{	
-		/*$string = "arif widiyatmko primasalama";
-		echo substr($string, 0,7)."-".substr($string, 7);die(); */
-		$data = $this->M_progress->getProgressKebijakan(22);
-		print_r($data);die();
 		$result['kebijakan'] = $this->M_kebijakan->getAll();
+		
 		$result['agenda'] = $this->M_agenda->getAll();
 		$result['progress'] = $this->M_progress->getAll();
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/beranda',$result);
 		$this->load->view('frontend/footerf');
+		
+		//$this->load->view('frontend/tes', $result);
 	}
-	
+	public function tes($value='')
+	{
+		$this->load->view('frontend/tes.php');
+	}
 	public function view($value='')
 	{
 		if ($value != '') {
