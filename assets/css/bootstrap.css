@@ -4615,6 +4615,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   list-style: none;
   background-color: #f5f5f5;
   border-radius: 4px;
+  color: #6495ED;
 }
 
 .breadcrumb > li {
@@ -4623,12 +4624,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .breadcrumb > li + li:before {
   padding: 0 5px;
-  color: #cccccc;
+  color: #6495ED;
   content: "/\00a0";
 }
 
 .breadcrumb > .active {
-	color: #999999;
+	color: #6495ED;
 	font-size: 14px;
 	text-align: center;
 }

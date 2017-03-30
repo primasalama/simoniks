@@ -53,8 +53,8 @@
 					<thead>
 			<tr>
 				<th width="2%">No.</th>
-				<th width="30%">Narasi</th>
-				<th width="20%">Kegiatan</th>
+				<th width="20%">Narasi</th>
+				<th width="30%">Kegiatan</th>
 				<th width="20%">Hasil</th>
 			</tr>
 		</thead>

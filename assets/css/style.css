@@ -21,11 +21,13 @@ tr{
 }
 
 th{
+  background-color: #6495ED;
 	text-align: center;
-  color: white;
+  
 }
 
 td{
+  background-color: white;
   font-size: 10pt;
 	color: black;
 
