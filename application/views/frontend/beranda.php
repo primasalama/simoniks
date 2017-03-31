@@ -49,7 +49,7 @@
                         </div>
                     </li>
                 </ol>
-	<table id="" class="table table-bordered">
+	<table id="Kebijakan" class="table table-bordered">
 					<thead>
 			<tr>
 				<th width="2%">No.</th>
@@ -75,8 +75,11 @@
 			for($x=1;$x<$data->num_rows();$x++){
 			?>
 			<tr>
+
 				<td><?php echo nl2br($data->result()[$x]->uraian);?></td>
 				<td><?php echo nl2br($data->result()[$x]->hasil);?></td>
+				<td style="display: none;"></td>
+				<td style="display: none;"></td>
 			</tr>
 		<?php
 				}	$i++;
