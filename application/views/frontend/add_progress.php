@@ -103,11 +103,11 @@ body{
                                     ?>
                                     <div class="form-group col-sm-6">
                                         <label>Dokumentasi 1</label>
-                                        <input type="file" name="foto1" class="form-control" placeholder="Unit Kerja" required="true">  
+                                        <input type="file" name="foto1" class="form-control" placeholder="Unit Kerja">  
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label>Dokumentasi 2</label>
-                                        <input type="file" name="foto2" class="form-control" placeholder="Unit Kerja" required="true">  
+                                        <input type="file" name="foto2" class="form-control" placeholder="Unit Kerja">  
                                     </div>
                                     
                                     <!--

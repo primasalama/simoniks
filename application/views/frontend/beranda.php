@@ -49,7 +49,7 @@
                         </div>
                     </li>
                 </ol>
-	<table id="Kebijakan" class="table table-bordered">
+	<table id="kebijakan" class="table table-bordered">
 					<thead>
 			<tr>
 				<th width="2%">No.</th>
@@ -75,11 +75,11 @@
 			for($x=1;$x<$data->num_rows();$x++){
 			?>
 			<tr>
-
+				<td style="visibility: hidden;"></td>
+				<td style="visibility: hidden;"></td>
 				<td><?php echo nl2br($data->result()[$x]->uraian);?></td>
 				<td><?php echo nl2br($data->result()[$x]->hasil);?></td>
-				<td style="display: none;"></td>
-				<td style="display: none;"></td>
+				
 			</tr>
 		<?php
 				}	$i++;
@@ -167,11 +167,18 @@
 								}
 							?>
 							<td>
-								<a href="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>" data-lightbox="<?php echo $key->dokumentasi1?>" data-title="<?php echo $key->dokumentasi2;?>">
-								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img></a>
-								<a href="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>" data-lightbox="<?php echo $key->dokumentasi1?>" data-title="<?php echo $key->dokumentasi1;?>">
+								<?php if ($key->dokumentasi1 != "") {
+									?><a href="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>" data-lightbox="<?php echo $key->dokumentasi1?>" data-title="<?php echo $key->dokumentasi2;?>">
+								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>"></img></a><?php
+								}
+								if ($key->dokumentasi2 != "") {
+									?>
+									<a href="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>" data-lightbox="<?php echo $key->dokumentasi1?>" data-title="<?php echo $key->dokumentasi1;?>">
 								<img style="width:90px;" src="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi2;?>"></img>
 								</a>
+									<?php
+								}
+								?>
 							</td>
                             <?php 
 								if (strlen($key->hasil) > 200) {

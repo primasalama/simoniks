@@ -94,7 +94,8 @@ class Progress extends CI_Controller {
             	$img = $this->upload->data();
             	return $img['file_name'];
             }else{
-            	echo $this->upload->display_errors('<p>', '</p>');
+            	return "";
+            	//echo $this->upload->display_errors('<p>', '</p>');
             }
             //redirect('Foto');
          }
