@@ -14,29 +14,43 @@
           } );
 </script>
 <?php 
-	$i=1;
-	foreach ($kebijakan as $key) {
-		$data = $this->M_progress->getProgressKebijakan($key->no);
-		if (count($data->result()) > 0) {
-			//print_r($data->num_rows());echo "<br/>";
-			$z=0;
-			
-			foreach ($data->result() as $x) {
-				//echo $z;
-				$baris[$z][0] = $i;
-				$baris[$z][1] = $key->narasi;
-				$baris[$z][2] = $x->uraian;
-				$baris[$z][3] = $x->tanggal;
-				$baris[$z][4] = $x->tindak_ljt;
-				$z++;
-			}
-		$i++;
-		}
+	//print_r($kprogress->num_rows());die();
+	$z=0;
+	$data = $kprogress->result();
+	for ($i=0; $i < $kprogress->num_rows() ; $i++) { 
+		# code...
+		$baris[$i][1] = () ? a : b ;
 	}
-	print_r($baris);
 	?>
 <script type="text/javascript">
-	var data = <?php echo json_encode($baris);?>;
+	$(document).ready( function () {
+  
+	var data = <?php echo json_encode($kprogress);?>;
+  var table = $('#example').DataTable({
+    columns: [
+        {
+            name: 'first',
+            title: 'ID',
+        },
+        {
+            name: 'second',
+            title: 'Name',
+        },
+        {
+            title: 'Subject',
+        }, 
+        {
+            title: 'Marks',
+        },
+    ],
+    data: data,
+    rowsGroup: [
+      'first:name',
+      'second:name'
+    ],
+    pageLength: '20',
+    });
+} );
   console.log(data);
 </script>
 	<table id="" border="1">
@@ -49,29 +63,7 @@
 			</tr>
 		</thead>
 		<tbody>
-		<?php 
-		$i = 1;
-		foreach ($kebijakan as $key) {
-		$data = $this->M_progress->getProgressKebijakan($key->no);
-		if (count($data->result()) > 0) {
-		?>
-			<tr>
-				<td rowspan="<?php echo count($data->result());?>"><?php echo $i;?></td>
-				<td rowspan="<?php echo count($data->result());?>"><?php echo nl2br($key->narasi);?></td>
-				<td><?php echo nl2br($data->result()[0]->uraian);?></td>
-				<td><?php echo nl2br($data->result()[0]->hasil);?></td>
-			</tr>
-			<?php 
-			for($x=1;$x<$data->num_rows();$x++){
-			?>
-			<tr>
-				<td><?php echo nl2br($data->result()[$x]->uraian);?></td>
-				<td><?php echo nl2br($data->result()[$x]->hasil);?></td>
-			</tr>
-		<?php
-				}	$i++;
-			}
-		} ?>
+		
 		</tbody>
 	</table>
 </body>

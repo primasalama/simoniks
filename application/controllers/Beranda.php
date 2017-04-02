@@ -40,7 +40,7 @@ class Beranda extends CI_Controller {
 	}
 	public function tes($value='')
 	{
-		$result['kebijakan'] = $this->M_kebijakan->getAll();
+		$result['kprogress'] = $this->M_progress->getProgressKebijakan();
 		$this->load->view('frontend/tes.php',$result);
 	}
 	public function view($value='')
