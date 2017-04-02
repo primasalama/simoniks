@@ -38,7 +38,7 @@ div.container {
 	$data = $kprogress->result();
 	for ($i=0; $i < $kprogress->num_rows() ; $i++) { 
 		# code...
-		if ($i > $kprogress->num_rows()) {
+		if ($i+1 != $kprogress->num_rows()) {
 			if ($data[$i]->narasiKebijakan != $data[$i+1]->narasiKebijakan) {
 				# code...
 				$baris[$i][0] = $z ;$z++;
