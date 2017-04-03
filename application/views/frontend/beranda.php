@@ -31,7 +31,7 @@
     	<div class="panel-body">
         <div class="well well-sm">
     <div class="container">
-                <ol class="breadcrumb" style="margin-left: -20px;">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item active">Kebijakan</li>
 					<li class="pull-right">
                         <div class="btn-group">
@@ -49,48 +49,118 @@
                         </div>
                     </li>
                 </ol>
-	<table id="kebijakan" class="table table-bordered">
-					<thead>
-			<tr>
-				<th width="2%">No.</th>
-				<th width="20%">Narasi</th>
-				<th width="30%">Kegiatan</th>
-				<th width="20%">Hasil</th>
-			</tr>
-		</thead>
-		<tbody>
-		<?php 
-		$i = 1;
-		foreach ($kebijakan as $key) {
-		$data = $this->M_progress->getProgressKebijakan($key->no);
-		if (count($data->result()) > 0) {
-		?>
-			<tr>
-				<td rowspan="<?php echo count($data->result());?>"><?php echo $i;?></td>
-				<td rowspan="<?php echo count($data->result());?>"><?php echo nl2br($key->narasi);?></td>
-				<td><?php echo nl2br($data->result()[0]->uraian);?></td>
-				<td><?php echo nl2br($data->result()[0]->hasil);?></td>
-			</tr>
-			<?php 
-			for($x=1;$x<$data->num_rows();$x++){
-			?>
-			<tr>
-				<td style="visibility: hidden;"></td>
-				<td style="visibility: hidden;"></td>
-				<td><?php echo nl2br($data->result()[$x]->uraian);?></td>
-				<td><?php echo nl2br($data->result()[$x]->hasil);?></td>
-				
-			</tr>
-		<?php
-				}	$i++;
+                <?php 
+	//print_r($kprogress->num_rows());die();
+	$z=1;
+	$data = $kprogress->result();
+	for ($i=0; $i < $kprogress->num_rows() ; $i++) { 
+		# code...
+		if ($i+1 != $kprogress->num_rows()) {
+			if ($data[$i]->narasiKebijakan != $data[$i+1]->narasiKebijakan) {
+				# code...
+				$baris[$i][0] = $z ;$z++;
+			}else{
+				$baris[$i][0] = $z ;
 			}
-		} ?>
-		</tbody>
+		}else{
+			$baris[$i][0] = $z ;
+		}
+		$baris[$i][1] = nl2br($data[$i]->narasi);
+		$baris[$i][2] = nl2br($data[$i]->uraian);
+		$baris[$i][3] = nl2br($data[$i]->tindak_ljt);
+		$baris[$i][4] = nl2br($data[$i]->masalah);
+	}
+	?>
+<script type="text/javascript">
+	$(document).ready( function () {
+  
+	var data = <?php echo json_encode($baris);?>;
+	console.log(data);
+	 var table = $('#example').DataTable({
+    columns: [
+        {
+            name: 'first',
+            title: 'No',
+        },
+        {
+            name: 'second',
+            title: 'Narasi',
+        },
+        {
+            title: 'Uraian',
+        }, 
+        {
+            title: 'Tindak Lanjut',
+        },
+        {
+            title: 'Masalah',
+        },
+
+    ],
+    data: data,
+    rowsGroup: [
+      'first:name',
+      'second:name',
+    ],
+    pageLength: '10',
+    });
+});
+</script>
+	<table id="example" class="table table-bordered">
+			
 				</table>
 	<br/>
+	<
 	<?php 
 	if ($this->session->userdata('session')) {
 	?>
+	ol class="breadcrumb">
+                    <li class="breadcrumb-item active">Kebijakan</li>
+					<li class="pull-right">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-xs btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Export <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep1">Asdep1</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep2">Asdep2</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep3">Asdep3</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep4">Asdep4</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan">Semua Kebijakan</a></li>
+                          </ul>
+                        </div>
+                    </li>
+                </ol>
+     <table class="table table-bordered" id="kebijakan">
+     	<thead>
+     		<tr>
+     			<th>No</th>
+     			<th>Narasi</th>
+     			<th>Status</th>
+     			<th>Indikator</th>
+     			<th>PIC</th>
+     		</tr>
+     	</thead>
+     	<tbody>
+
+     		<?php 
+     			$n=1;
+     			foreach ($kebijakan as $key) {
+     				?>
+     				<tr>
+     					<td><?php echo $n;?></td>
+     					<td><?php echo nl2br($key->narasi);?></td>
+     					<td><?php echo nl2br($key->status);?></td>
+     					<td><?php echo nl2br($key->indikator);?></td>
+     					<td><?php echo nl2br($key->pic);?></td>
+     				</tr>
+     				<?php
+     			}
+
+     		?>
+     	</tbody>
+     </table>
 	<ol class="breadcrumb" style="margin-top:-20px;">
         <li class="breadcrumb-item active">Progress</li>
 		<li class="pull-right">
