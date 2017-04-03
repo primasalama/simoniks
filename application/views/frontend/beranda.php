@@ -99,8 +99,7 @@
     ],
     data: data,
     rowsGroup: [
-      'first:name',
-      'second:name',
+      0,1,
     ],
     pageLength: '10',
     });
@@ -114,7 +113,8 @@
 	<?php 
 	if ($this->session->userdata('session')) {
 	?>
-	ol class="breadcrumb">
+	<br/>
+	<ol class="breadcrumb">
                     <li class="breadcrumb-item active">Kebijakan</li>
 					<li class="pull-right">
                         <div class="btn-group">
@@ -151,16 +151,24 @@
      				<tr>
      					<td><?php echo $n;?></td>
      					<td><?php echo nl2br($key->narasi);?></td>
-     					<td><?php echo nl2br($key->status);?></td>
+     					<?php 
+								if (strlen($key->status) > 200) {
+									?><td><?php echo substr(nl2br($key->status), 0,200);?><span id="k_status_<?php echo $n;?>" class="collapse"><?php echo substr(nl2br($key->status), 200) ?></span><a data-toggle="collapse" data-target="#k_status_<?php echo $n;?>"> Readmore..</a></td><?php
+								}else{
+									?> <td><?php echo nl2br($key->status);?></td><?php 
+								}
+							?>
      					<td><?php echo nl2br($key->indikator);?></td>
      					<td><?php echo nl2br($key->pic);?></td>
      				</tr>
      				<?php
+     				$n++;
      			}
 
      		?>
      	</tbody>
      </table>
+     <br/>
 	<ol class="breadcrumb" style="margin-top:-20px;">
         <li class="breadcrumb-item active">Progress</li>
 		<li class="pull-right">
