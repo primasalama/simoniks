@@ -25,6 +25,10 @@ class Beranda extends CI_Controller {
 		$this->load->model('M_kebijakan');
 		$this->load->model('M_progress');
 		$this->load->library('excel');
+		 if($this->config->item('maintenance_mode') == TRUE) {
+        $this->load->view('maintenance');
+        die();
+    }
 	}
 	public function index()
 	{	
