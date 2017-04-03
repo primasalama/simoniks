@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
 class Fprogress extends CI_Controller {
 
 	/**
@@ -34,6 +35,7 @@ class Fprogress extends CI_Controller {
 		$this->load->view('frontend/add_progress',$result);
 		$this->load->view('frontend/footerf');
 	}
+
 	public function add()
 	{
 		$dokumentasi1 =  $this->uploadImage($_FILES['foto1'],'foto1');
