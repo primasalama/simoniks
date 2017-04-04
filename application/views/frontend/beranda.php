@@ -77,27 +77,6 @@
 	var data = <?php echo json_encode($baris);?>;
 	console.log(data);
 	 var table = $('#example').DataTable({
-    columns: [
-        {
-            name: 'first',
-            title: 'No',
-        },
-        {
-            name: 'second',
-            title: 'Narasi',
-        },
-        {
-            title: 'Uraian',
-        }, 
-        {
-            title: 'Tindak Lanjut',
-        },
-        {
-            title: 'Masalah',
-        },
-
-    ],
-    data: data,
     rowsGroup: [
       0,1,
     ],
@@ -106,7 +85,50 @@
 });
 </script>
 	<table id="example" class="table table-bordered">
-			
+			   <thead>
+              <tr>
+                <th>No.</th>
+                <th>Narasi</th>
+                <th>Uraian</th>
+                <th>Tindak Lanjut</th>
+                <th>Masalah</th>
+              </tr>   
+         </thead>
+         <tbody>
+           <?php
+           $i=1; 
+              foreach ($baris as $key) {
+                ?>
+                <tr>
+                  <td><?php echo $key[0];?></td>
+                  <td><?php echo $key[1];?></td>
+                  <?php 
+                    if (strlen($key[2]) > 200) {
+                      ?><td><?php echo substr(nl2br($key[2]), 0,200);?><span id="k_uraian_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[2]), 200) ?></span><a data-toggle="collapse" data-target="#k_uraian_<?php echo $i;?>"> Readmore..</a></td><?php
+                    }else{
+                      ?> <td><?php echo nl2br($key[2]);?></td><?php 
+                    }
+                  ?>
+                  <?php 
+                    if (strlen($key[3]) > 200) {
+                      ?><td><?php echo substr(nl2br($key[3]), 0,200);?><span id="k_tdklanjut_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[3]), 200) ?></span><a data-toggle="collapse" data-target="#k_tdklanjut_<?php echo $i;?>"> Readmore..</a></td><?php
+                    }else{
+                      ?> <td><?php echo nl2br($key[3]);?></td><?php 
+                    }
+                  ?>
+                  <?php 
+                    if (strlen($key[4]) > 200) {
+                      ?><td><?php echo substr(nl2br($key[4]), 0,200);?><span id="k_masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[4]), 200) ?></span><a data-toggle="collapse" data-target="#k_masalah_<?php echo $i;?>"> Readmore..</a></td><?php
+                    }else{
+                      ?> <td><?php echo nl2br($key[4]);?></td><?php 
+                    }
+                  ?>
+                </tr>
+                <?php 
+                $i++;
+              }
+           ?>
+         </tbody>
 				</table>
 	<br/>
 	<
