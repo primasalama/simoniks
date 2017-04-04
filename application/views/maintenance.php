@@ -12,7 +12,9 @@
 <article>
     <h1>We&rsquo;ll be back soon!</h1>
     <div>
-        <p>Sorry for the inconvenience but we&rsquo;re performing some maintenance at the moment. If you need to you can always <a href="mailto:#">contact us</a>, otherwise we&rsquo;ll be back online shortly!</p>
-        <p>&mdash; The Team</p>
+        <p>Sorry for the inconvenience but we&rsquo;re performing some <b style="font-size:30pt;color:#00008B">maintenance</b> at the moment. 
+          If you need to you can always contact us</a>, 
+          otherwise we&rsquo;ll be back online shortly!</p>
+        <p>&mdash; Bagian Program Deputi Sumber Daya Alam dan Jasa</p>
     </div>
 </article>

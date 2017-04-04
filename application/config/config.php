@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = '202.169.46.214/simoniks/';
-$config['base_url'] = 'http://localhost/simoniks/';
+//$config['base_url'] = 'http://localhost/simoniks/';
 
 /*
 |--------------------------------------------------------------------------
