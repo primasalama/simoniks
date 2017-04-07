@@ -114,10 +114,10 @@ class Fprogress extends CI_Controller {
 		$this->M_progress->updateId($data,$value);
 		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
 	}
-	public function delete($value)
+	public function delete($value,$role)
 	{
 		$this->M_progress->deleteId($value);
-		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
+		redirect('Beranda/view/'.$role);
 	}
 	public function edit($value,$asdep)
 	{
