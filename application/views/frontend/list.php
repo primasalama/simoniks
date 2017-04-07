@@ -175,7 +175,7 @@
                             </td>
                             <?php 
                                 if (strlen($key->hasil) > 150) {
-                                    ?><td><?php echo substr(nl2br($key->hasil), 0,150);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 150) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
+                                    ?><td><?php echo substr(nl2br($key->hasil), 0,150);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 150) ?></span><a data-toggle="collapse" data-target="#hasil_<?php echo $i;?>"> Readmore..</a></td><?php
                                 }else{
                                     ?> <td><?php echo nl2br($key->hasil);?></td><?php 
                                 }

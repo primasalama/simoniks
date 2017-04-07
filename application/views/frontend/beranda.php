@@ -32,7 +32,7 @@
         <div class="well well-sm">
     <div class="container">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item active">Kebijakan</li>
+                    <li class="breadcrumb-item active">Progres Kebijakan Strategis</li>
 					<li class="pull-right">
                         <div class="btn-group">
                           <button type="button" class="btn btn-xs btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -87,11 +87,12 @@
 	<table id="example" class="table table-bordered">
 			   <thead>
               <tr>
-                <th>No.</th>
-                <th>Narasi</th>
-                <th>Uraian</th>
-                <th>Tindak Lanjut</th>
-                <th>Masalah</th>
+                <th style="vertical-align:middle">No.</th>
+                <th style="vertical-align:middle">Kegiatan</th>
+                <th style="vertical-align:middle">Capaian</th>
+                <th style="vertical-align:middle">Kendala</th>
+                <th style="vertical-align:middle">Tindak Lanjut</th>
+                <th style="vertical-align:middle">Arahan yang Diperlukan Menko Kemaritiman</th>
               </tr>   
          </thead>
          <tbody>
@@ -110,19 +111,20 @@
                     }
                   ?>
                   <?php 
-                    if (strlen($key[3]) > 200) {
-                      ?><td><?php echo substr(nl2br($key[3]), 0,200);?><span id="k_tdklanjut_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[3]), 200) ?></span><a data-toggle="collapse" data-target="#k_tdklanjut_<?php echo $i;?>"> Readmore..</a></td><?php
-                    }else{
-                      ?> <td><?php echo nl2br($key[3]);?></td><?php 
-                    }
-                  ?>
-                  <?php 
                     if (strlen($key[4]) > 200) {
                       ?><td><?php echo substr(nl2br($key[4]), 0,200);?><span id="k_masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[4]), 200) ?></span><a data-toggle="collapse" data-target="#k_masalah_<?php echo $i;?>"> Readmore..</a></td><?php
                     }else{
                       ?> <td><?php echo nl2br($key[4]);?></td><?php 
                     }
                   ?>
+                  <?php 
+                    if (strlen($key[3]) > 200) {
+                      ?><td><?php echo substr(nl2br($key[3]), 0,200);?><span id="k_tdklanjut_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[3]), 200) ?></span><a data-toggle="collapse" data-target="#k_tdklanjut_<?php echo $i;?>"> Readmore..</a></td><?php
+                    }else{
+                      ?> <td><?php echo nl2br($key[3]);?></td><?php 
+                    }
+                  ?>
+                  <td></td>
                 </tr>
                 <?php 
                 $i++;
@@ -131,7 +133,6 @@
          </tbody>
 				</table>
 	<br/>
-	<
 	<?php 
 	if ($this->session->userdata('session')) {
 	?>
@@ -286,7 +287,7 @@
 								}
 								?>
 							</td>
-                            <?php 
+              <?php 
 								if (strlen($key->hasil) > 200) {
 									?><td><?php echo substr(nl2br($key->hasil), 0,200);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 200) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
 								}else{
