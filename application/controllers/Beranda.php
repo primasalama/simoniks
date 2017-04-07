@@ -98,38 +98,15 @@ class Beranda extends CI_Controller {
 		$this->load->view('frontend/footerf');
 		}
 	}
-	public function ajax_list($value='')
+	public function random($length=6)
 	{
-		if ($value == 'kebijakan') {
-			$list = $this->M_kebijakan->get_datatables();
-        	$data = array();
-       		$no = $_POST['start'];
-	        foreach ($list as $key) {
-	            $no++;
-	            $row = array();
-	            $row[] = $key->name;
-	            $row[] = '<span class="more">'.nl2br($key->narasi).'</span>';
-	            $row[] = nl2br($key->status);
-	            $row[] = nl2br($key->indikator);
-	            $row[] = nl2br($key->pic);
-	            //$row[] = '<script type="text/javascript" src="'.base_url().'assets/app.js"></script>';
-	           /*
-	            if (!empty($this->session->userdata('session'))) {
-	            	$row[] = '<a class="btn btn-danger" href="'.base_url().'fkebijakan/delete/'.$key->no.'"><span class="glyphicon glyphicon-trash"></span></a> <a class="btn btn-warning" href="'.base_url().'fkebijakan/edit/'.$key->no.'"><span class="glyphicon glyphicon-pencil"></span></a>';
-	            }
-	 			*/
-	            $data[] = $row;
-	        }
-		}
-		
-        $output = array(
-                        "draw" => $_POST['draw'],
-                        "recordsTotal" => $this->M_kebijakan->count_all(),
-                        "recordsFiltered" => $this->M_kebijakan->count_filtered(),
-                        "data" => $data,
-                );
-        //output to json format
-        echo json_encode($output);
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    echo $randomString;
 	}
 	public function excels($value='',$deputi=null)
 	{
