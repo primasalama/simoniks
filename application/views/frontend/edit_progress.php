@@ -24,6 +24,13 @@ body{
     }else{
         $action = base_url()."fprogress/update/".$data[0]->no;
     }
+    if ($data[0]->tanggal1 == $data[0]->tanggal2) {
+        $tanggal2 = null;
+        $jam2 = null;
+    }else{
+        $tanggal2 = substr($data[0]->tanggal2, 5,2)."/".substr($data[0]->tanggal2, 8,2)."/".substr($data[0]->tanggal2, 0,4);
+        $jam2 = substr($data[0]->tanggal2, 11,5);
+    }
 ?>
 <div class="well well-sm">
     <div class="container">
@@ -70,10 +77,34 @@ body{
                                                 ?>
                                             </select>
                                         </div>
-                            <div class="form-group">
-                                        <label>Waktu Pelaksanaan : </label>
-                                        <textarea class="form-control" name="tanggal" required="true"><?php echo $data[0]->tanggal;?></textarea>
+                                    <div class="form-group">
+                                        <div class="form-inline">
+                                            <div class="form-group">
+                                                <label>Tanggal Awal : </label>
+                                                <input class="form-control" id="tanggal1" name="tanggal1" value="<?php echo substr($data[0]->tanggal1, 5,2)."/".substr($data[0]->tanggal1, 8,2)."/".substr($data[0]->tanggal1, 0,4);?>" required="true" placeholder="Tanggal Awal" required="true" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Tanggal Akhir : </label>
+                                                <input class="form-control" id="tanggal2" value="<?php echo $tanggal2;?>" name="tanggal2" placeholder="Tanggal Awal" />
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="form-inline">
+                                            <div class="form-group">
+                                                <label> Jam Awal : </label>
+                                                <input class="form-control" id="jam1" name="jam1" value="<?php echo substr($data[0]->tanggal1, 11,5); ?>" required="true" placeholder="Jam Awal" required="true" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Jam Akhir : </label>
+                                                <input class="form-control" id="jam2" name="jam2" value="<?php echo $jam2;?>" placeholder="Jam Awal" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label> Tempat Kegiatan : </label>
+                                            <input class="form-control" id="lokasi" name="lokasi" value="<?php echo $data[0]->lokasi; ?>" required="true" placeholder="Lokasi/ Tempat Kegiatan" />
+                                        </div>
                                     <div class="form-group">
                                         <label>Uraian : </label>
                                         <textarea class="form-control" name="uraian" required="true" rows="5"><?php echo $data[0]->uraian;?></textarea>
@@ -90,6 +121,9 @@ body{
                                         <label>Output : </label>
                                         <textarea class="form-control" name="hasil" rows="7"><?php echo $data[0]->hasil;?></textarea>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Arahan Kemenko : </label>
+                                        <textarea class="form-control" name="arahan" rows="5" placeholder="Arahan Kemenko"><?php echo $data[0]->arahan;?></textarea>
                             <div class="form-group col-sm-6">
                                 <label>Dokumentasi 1</label>
                                 <input type="file" name="foto1" class="form-control"  > 
@@ -122,8 +156,18 @@ body{
                                 <div class="panel panel-warning">
                                     <div class="panel-heading">Dokumentasi</div>
                                     <div class="panel-body">
-                                        <img style="width:140px;" class="img img-responsive" src="<?php echo base_url();?>assets/images/uploads/<?php echo $data[0]->dokumentasi1;?>"></img>
-                                        <img style="width:140px;" class="img img-responsive" src="<?php echo base_url();?>assets/images/uploads/<?php echo $data[0]->dokumentasi2;?>"></img>
+                                        <?php
+                                        if (!empty($data[0]->dokumentasi1)) {
+                                            ?>
+                                            <img style="width:140px;" class="img img-responsive" src="<?php echo base_url();?>assets/images/uploads/<?php echo $data[0]->dokumentasi1;?>"></img>
+                                            <?php
+                                        }
+                                        if (!empty($data[0]->dokumentasi2)) {
+                                            ?>
+                                            <img style="width:140px;" class="img img-responsive" src="<?php echo base_url();?>assets/images/uploads/<?php echo $data[0]->dokumentasi2;?>"></img>
+                                            <?php
+                                        }
+                                         ?>
                                     </div>
                                 </div>                               
                             </div>
@@ -136,8 +180,13 @@ body{
 </div>
 <script type="text/javascript">
     $(function() {
-        $( '#tanggal' ).datepicker();
-        $('#pukul').bootstrapMaterialDatePicker({
+        $( '#tanggal2' ).datepicker();
+        $( '#tanggal1' ).datepicker();
+        $('#jam1').bootstrapMaterialDatePicker({
+            date: false,
+            format : 'HH:mm'
+        });
+        $('#jam2').bootstrapMaterialDatePicker({
             date: false,
             format : 'HH:mm'
         });

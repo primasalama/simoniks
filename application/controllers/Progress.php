@@ -44,7 +44,14 @@ class Progress extends CI_Controller {
 		$this->load->view('backend/footer');
 	}
 	public function add()
-	{
+	{	
+		$tanggal1 = substr($this->input->post('tanggal1'), 6,4)."-".substr($this->input->post('tanggal1'), 0,2)."-".substr($this->input->post('tanggal1'), 3,2)." ".$this->input->post('jam1');
+		if (empty($this->input->post('tanggal2')) || empty($this->input->post('jam2'))) {
+			$tanggal2 = substr($this->input->post('tanggal1'), 6,4)."-".substr($this->input->post('tanggal1'), 0,2)."-".substr($this->input->post('tanggal1'), 3,2)." ".$this->input->post('jam1');
+		}else{
+			$tanggal2 = substr($this->input->post('tanggal2'), 6,4)."-".substr($this->input->post('tanggal2'), 0,2)."-".substr($this->input->post('tanggal2'), 3,2)." ".$this->input->post('jam2');
+		}
+		//die();
 		switch ($this->input->post('deputi')) {
 			case 'asdep1':
 				$created_by = 2;
@@ -69,8 +76,8 @@ class Progress extends CI_Controller {
 		$dokumentasi1 =  $this->uploadImage($_FILES['foto1'],'foto1');
 		$dokumentasi2 =  $this->uploadImage($_FILES['foto2'],'foto2');
 		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),
-			'tanggal'=>$this->input->post('tanggal'),'hasil'=>$this->input->post('hasil'),
-			'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),
+			'tanggal1'=>$tanggal1,'tanggal2'=>$tanggal2,'lokasi'=>$this->input->post('lokasi'),'hasil'=>$this->input->post('hasil'),
+			'tindak_ljt'=>$this->input->post('tindak_ljt'),'arahan'=>$this->input->post('arahan'),'masalah'=>$this->input->post('masalah'),
 			'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'created_by'=>$created_by,
 			'updated_by'=>$this->session->userdata('session')[0]->no);
 		//print_r($data);die();
@@ -115,6 +122,12 @@ class Progress extends CI_Controller {
 		$result = $this->M_progress->getId($value);
 		$doc1 = $_FILES['foto1'];
 		$doc2 = $_FILES['foto2'];
+		$tanggal1 = substr($this->input->post('tanggal1'), 6,4)."-".substr($this->input->post('tanggal1'), 0,2)."-".substr($this->input->post('tanggal1'), 3,2)." ".$this->input->post('jam1');
+		if (empty($this->input->post('tanggal2')) || empty($this->input->post('jam2'))) {
+			$tanggal2 = substr($this->input->post('tanggal1'), 6,4)."-".substr($this->input->post('tanggal1'), 0,2)."-".substr($this->input->post('tanggal1'), 3,2)." ".$this->input->post('jam1');
+		}else{
+			$tanggal2 = substr($this->input->post('tanggal2'), 6,4)."-".substr($this->input->post('tanggal2'), 0,2)."-".substr($this->input->post('tanggal2'), 3,2)." ".$this->input->post('jam2');
+		}
 		if ($doc1['size'] != 0) {
 			$dokumentasi1 = $this->uploadImage($_FILES['foto1'],'foto1');
 		}else{
@@ -125,7 +138,8 @@ class Progress extends CI_Controller {
 		}else{
 			$dokumentasi2 = $result[0]->dokumentasi2;
 		}
-		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal'=>$this->input->post('tanggal'),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
+		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal1'=>$tanggal1,'tanggal2'=>$tanggal2,'lokasi'=>$this->input->post('lokasi'),'hasil'=>$this->input->post('hasil'),'arahan'=>$this->input->post('arahan'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
+		//print_r($data);die();
 		$this->M_progress->updateId($data,$value);
 		$data = $this->M_progress->getId($value);
 		redirect('Beranda/view/'.$data[0]->role);

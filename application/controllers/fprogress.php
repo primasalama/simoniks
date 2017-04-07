@@ -37,11 +37,17 @@ class Fprogress extends CI_Controller {
 	}
 
 	public function add()
-	{
+	{	
+		$tanggal1 = substr($this->input->post('tanggal1'), 6,4)."-".substr($this->input->post('tanggal1'), 0,2)."-".substr($this->input->post('tanggal1'), 3,2)." ".$this->input->post('jam1');
+		if (empty($this->input->post('tanggal2')) || empty($this->input->post('jam2'))) {
+			$tanggal2 = substr($this->input->post('tanggal1'), 6,4)."-".substr($this->input->post('tanggal1'), 0,2)."-".substr($this->input->post('tanggal1'), 3,2)." ".$this->input->post('jam1');
+		}else{
+			$tanggal2 = substr($this->input->post('tanggal2'), 6,4)."-".substr($this->input->post('tanggal2'), 0,2)."-".substr($this->input->post('tanggal2'), 3,2)." ".$this->input->post('jam2');
+		}
 		$dokumentasi1 =  $this->uploadImage($_FILES['foto1'],'foto1');
 		$dokumentasi2 =  $this->uploadImage($_FILES['foto2'],'foto2');
-		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),
-			'tanggal'=>$this->input->post('tanggal'),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),
+		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'arahan'=>$this->input->post('arahan'),
+			'tanggal1'=>$tanggal1,'tanggal2'=>$tanggal2,'lokasi'=>$this->input->post('lokasi'),'hasil'=>$this->input->post('hasil'),'tindak_ljt'=>$this->input->post('tindak_ljt'),
 			'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,
 			'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
 		//print_r($data);die();
@@ -84,6 +90,12 @@ class Fprogress extends CI_Controller {
 		$result = $this->M_progress->getId($value);
 		$doc1 = $_FILES['foto1'];
 		$doc2 = $_FILES['foto2'];
+		$tanggal1 = substr($this->input->post('tanggal1'), 6,4)."-".substr($this->input->post('tanggal1'), 0,2)."-".substr($this->input->post('tanggal1'), 3,2)." ".$this->input->post('jam1');
+		if (empty($this->input->post('tanggal2')) || empty($this->input->post('jam2'))) {
+			$tanggal2 = substr($this->input->post('tanggal1'), 6,4)."-".substr($this->input->post('tanggal1'), 0,2)."-".substr($this->input->post('tanggal1'), 3,2)." ".$this->input->post('jam1');
+		}else{
+			$tanggal2 = substr($this->input->post('tanggal2'), 6,4)."-".substr($this->input->post('tanggal2'), 0,2)."-".substr($this->input->post('tanggal2'), 3,2)." ".$this->input->post('jam2');
+		}
 		if ($doc1['size'] != 0) {
 			$dokumentasi1 = $this->uploadImage($_FILES['foto1'],'foto1');
 		}else{
@@ -94,8 +106,8 @@ class Fprogress extends CI_Controller {
 		}else{
 			$dokumentasi2 = $result[0]->dokumentasi2;
 		}
-		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),
-			'tanggal'=>$this->input->post('tanggal'),'hasil'=>$this->input->post('hasil'),
+		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'arahan'=>$this->input->post('arahan'),
+			'tanggal1'=>$tanggal1,'tanggal2'=>$tanggal2,'lokasi'=>$this->input->post('lokasi'),'hasil'=>$this->input->post('hasil'),
 			'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),
 			'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'updated_by'=>$this->session->userdata('session')[0]->no,
 			'updated_at'=>date("Y-m-d H:i:s"));

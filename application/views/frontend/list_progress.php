@@ -30,7 +30,13 @@
 						<tr>
 							<td><?php echo $i;?></td>
 							<td><?php echo $key->kegiatan;?></td>
-							<td><?php echo $key->tanggal;?></td>
+							<td><?php 
+                            if ($key->tanggal1 == $key->tanggal2) {
+                               echo date("d-M-Y h:i:s",strtotime($key->tanggal1));
+                            }else{
+                                echo date("d-M-Y h:i:s",strtotime($key->tanggal1))." s/d ".date("d-M-Y h:i:s",strtotime($key->tanggal2));
+                            }
+                            ?></td>
 							<td><?php echo $key->hasil;?></td>
 							<td><?php echo $key->tindak_ljt;?></td>
 							<td><?php echo $key->masalah;?></td>

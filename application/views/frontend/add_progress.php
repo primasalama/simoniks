@@ -67,9 +67,33 @@ body{
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Waktu/Tanggal : </label>
-                                        <textarea class="form-control" name="tanggal" required="true" placeholder="Waktu/Tanggal"></textarea>
+                                        <div class="form-inline">
+                                            <div class="form-group">
+                                                <label>Tanggal Awal : </label>
+                                                <input class="form-control" id="tanggal1" name="tanggal1" required="true" placeholder="Tanggal Awal" required="true" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Tanggal Akhir : </label>
+                                                <input class="form-control" id="tanggal2" name="tanggal2" placeholder="Tanggal Awal" />
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="form-inline">
+                                            <div class="form-group">
+                                                <label> Jam Awal : </label>
+                                                <input class="form-control" id="jam1" name="jam1" required="true" placeholder="Jam Awal" required="true" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Jam Akhir : </label>
+                                                <input class="form-control" id="jam2" name="jam2"  placeholder="Jam Awal" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label> Tempat Kegiatan : </label>
+                                            <input class="form-control" id="lokasi" name="lokasi" required="true" placeholder="Lokasi/ Tempat Kegiatan" />
+                                        </div>
                                     <div class="form-group">
                                         <label>Uraian : </label>
                                         <textarea class="form-control" name="uraian" required="true" rows="5" placeholder="Uraian"></textarea>
@@ -85,6 +109,10 @@ body{
                                     <div class="form-group">
                                         <label>Output : </label>
                                         <textarea class="form-control" name="hasil" rows="5" placeholder="Output"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Arahan Kemenko : </label>
+                                        <textarea class="form-control" name="arahan" rows="5" placeholder="Arahan Kemenko"></textarea>
                                     </div>
                                     <?php 
                                     if ($this->session->userdata('session')[0]->role == 'admin') {
@@ -139,8 +167,13 @@ body{
 </div>
 <script type="text/javascript">
     $(function() {
-        $( '#tanggal' ).datepicker();
-        $('#pukul').bootstrapMaterialDatePicker({
+        $( '#tanggal2' ).datepicker();
+        $( '#tanggal1' ).datepicker();
+        $('#jam1').bootstrapMaterialDatePicker({
+            date: false,
+            format : 'HH:mm'
+        });
+        $('#jam2').bootstrapMaterialDatePicker({
             date: false,
             format : 'HH:mm'
         });

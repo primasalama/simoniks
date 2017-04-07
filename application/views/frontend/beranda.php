@@ -244,7 +244,13 @@
 						<tr>
 							<td><?php echo $i;?></td>
 							<td ><?php echo nl2br($key->narasi);?></td>
-							<td><?php echo nl2br($key->tanggal);?></td>
+							<td><?php 
+                            if ($key->tanggal1 == $key->tanggal2) {
+                               echo date("d-M-Y h:i:s",strtotime($key->tanggal1));
+                            }else{
+                                echo date("d-M-Y h:i:s",strtotime($key->tanggal1))." s/d ".date("d-M-Y h:i:s",strtotime($key->tanggal2));
+                            }
+                            ?></td>
 							<?php 
 								if (strlen($key->uraian) > 200) {
 									?><td><?php echo substr(nl2br($key->uraian), 0,200);?><span id="uraian_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->uraian), 200) ?></span><a data-toggle="collapse" data-target="#uraian_<?php echo $i;?>"> Readmore..</a></td><?php
