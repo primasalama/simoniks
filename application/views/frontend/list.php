@@ -115,6 +115,7 @@
 							<th width="20%">Tindak Lanjut</th>
 							<th width="20%">Masalah</th>
 							<th>Dokumentasi</th>
+                            <th>Arahan Untuk Kemenko Maritim</th>
                             <th width="10%">Output</th>
 							<?php 
 							if ($this->uri->segment(3)) {
@@ -173,6 +174,13 @@
                                 }
                                 ?>
                             </td>
+                            <?php 
+                                if (strlen($key->arahan) > 200) {
+                                    ?><td><?php echo substr(nl2br($key->arahan), 0,200);?><span id="arahan_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->arahan), 200) ?></span><a data-toggle="collapse" data-target="#arahan_<?php echo $i;?>"> Readmore..</a></td><?php
+                                }else{
+                                    ?> <td><?php echo nl2br($key->arahan);?></td><?php 
+                                }
+                            ?>
                             <?php 
                                 if (strlen($key->hasil) > 150) {
                                     ?><td><?php echo substr(nl2br($key->hasil), 0,150);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 150) ?></span><a data-toggle="collapse" data-target="#hasil_<?php echo $i;?>"> Readmore..</a></td><?php

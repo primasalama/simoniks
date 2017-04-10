@@ -145,8 +145,11 @@ body{
                             </div>
                         </form>
                             </div>
-                            <div class="col-sm-5">
-                                <div class="alert alert-success">
+                            
+                       
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="alert alert-success">
                                     <p class="heading"><h4><b>Tata Cara Pengisian</b> : </h4></p>
                                     <ol>
                                         <li>Memilih narasi kebijakan</li>
@@ -169,11 +172,12 @@ body{
                                         }
                                          ?>
                                     </div>
-                                </div>                               
-                            </div>
+                                </div> 
                         </div>
                     </div>
+                
                 </div>
+            
             </div>
         </div>
     </div>
