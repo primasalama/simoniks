@@ -133,9 +133,9 @@
                             <td ><?php echo nl2br($key->narasi);?></td>
                             <td><?php 
                             if ($key->tanggal1 == $key->tanggal2) {
-                               echo date("d-M-Y h:i:s",strtotime($key->tanggal1));
+                               echo date("d-M-Y",strtotime($key->tanggal1))." ".substr($key->tanggal1, 11,5);
                             }else{
-                                echo date("d-M-Y h:i:s",strtotime($key->tanggal1))." s/d ".date("d-M-Y h:i:s",strtotime($key->tanggal2));
+                                echo date("d-M-Y",strtotime($key->tanggal1))." ".substr($key->tanggal1, 11,5)." s/d ".date("d-M-Y",strtotime($key->tanggal2))." ".substr($key->tanggal2, 11,5);
                             }
                             ?></td>
                             <?php 
