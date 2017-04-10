@@ -213,17 +213,18 @@
 		<table id="progress" class="table table-bordered">
 					<thead>
 						<tr>
-							<th>No.</th>
-							<th width="15%">Narasi</th>
-							<th>Waktu/Tanggal</th>
-							<th width="20%">Uraian</th>
-							<th width="20%">Tindak Lanjut</th>
-							<th width="20%">Masalah</th>
-							<th>Dokumentasi</th>
-                            <th width="10%">Output</th>
+							<th style="vertical-align:middle">No.</th>
+							<th style="vertical-align:middle" width="15%">Narasi</th>
+							<th style="vertical-align:middle">Waktu/Tanggal</th>
+							<th style="vertical-align:middle" width="20%">Uraian</th>
+							<th style="vertical-align:middle" width="20%">Tindak Lanjut</th>
+							<th style="vertical-align:middle" width="20%">Masalah</th>
+							<th style="vertical-align:middle">Dokumentasi</th>
+              <th style="vertical-align:middle">Arahan Untuk Kemenko Maritim</th>
+              <th style="vertical-align:middle" width="10%">Output</th>
 							<?php 
 							if ($this->uri->segment(3)) {
-								?><th>Action</th><?php
+								?><th style="vertical-align:middle">Action</th><?php
 								switch (variable) {
 									case 'value':
 										# code...
@@ -260,15 +261,15 @@
 								}
 							?>
 							<?php 
-								if (strlen($key->tindak_ljt) > 300) {
-									?><td><?php echo substr(nl2br($key->tindak_ljt), 0,300);?><span id="tindak_ljt_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->tindak_ljt), 300) ?></span><a data-toggle="collapse" data-target="#tindak_ljt_<?php echo $i;?>"> Readmore..</a></td><?php
+								if (strlen($key->tindak_ljt) > 200) {
+									?><td><?php echo substr(nl2br($key->tindak_ljt), 0,200);?><span id="tindak_ljt_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->tindak_ljt), 300) ?></span><a data-toggle="collapse" data-target="#tindak_ljt_<?php echo $i;?>"> Readmore..</a></td><?php
 								}else{
 									?> <td><?php echo nl2br($key->tindak_ljt);?></td><?php 
 								}
 							?>
 							<?php 
-								if (strlen($key->masalah) > 300) {
-									?><td><?php echo substr(nl2br($key->masalah), 0,300);?><span id="masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->masalah), 300) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
+								if (strlen($key->masalah) > 200) {
+									?><td><?php echo substr(nl2br($key->masalah), 0,200);?><span id="masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->masalah), 300) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
 								}else{
 									?> <td><?php echo nl2br($key->masalah);?></td><?php 
 								}
@@ -287,6 +288,13 @@
 								}
 								?>
 							</td>
+              <?php 
+                if (strlen($key->arahan) > 200) {
+              ?><td><?php echo substr(nl2br($key->arahan), 0,200);?><span id="arahan_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->arahan), 200) ?></span><a data-toggle="collapse" data-target="#arahan_<?php echo $i;?>"> Readmore..</a></td><?php
+              }else{
+              ?> <td><?php echo nl2br($key->arahan);?></td><?php 
+              }
+              ?>
               <?php 
 								if (strlen($key->hasil) > 200) {
 									?><td><?php echo substr(nl2br($key->hasil), 0,200);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 200) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
@@ -319,17 +327,17 @@
                     </li>
 	</ol>
 	<table id="agenda" class="table table-bordered" >
-		<thead valign="middle" ">
+		<thead valign="middle" >
 			<tr>
-				<th>No.</th>
-				<th>Narasi</th>
-              	<th>Tanggal Pengajuan</th>
-				<th>Rencana Tanggal Pelaksanaan Kegiatan</th>
-              	<th width="20%">Kegiatan</th>
-              	<th width="13%">Anggaran (Rp)</th>
-                <th>Tanggal Pengajuan SP2D</th>
-                <th>Tanggal SP2D</th>
-                <th>Tanggal Pencairan</th>
+				<th style="vertical-align:middle">No.</th>
+				<th style="vertical-align:middle">Narasi</th>
+        <th style="vertical-align:middle">Tanggal Pengajuan</th>
+				<th style="vertical-align:middle">Rencana Tanggal Pelaksanaan Kegiatan</th>
+        <th style="vertical-align:middle" width="20%">Kegiatan</th>
+        <th style="vertical-align:middle" width="13%">Anggaran (Rp)</th>
+        <th style="vertical-align:middle">Tanggal Pengajuan SP2D</th>
+        <th style="vertical-align:middle">Tanggal SP2D</th>
+        <th style="vertical-align:middle">Tanggal Pencairan</th>
 			</tr>
 		</thead>
 		<tbody>

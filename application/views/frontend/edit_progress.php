@@ -153,7 +153,10 @@ body{
                                     <p class="heading"><h4><b>Tata Cara Pengisian</b> : </h4></p>
                                     <ol>
                                         <li>Memilih narasi kebijakan</li>
-                                    <li>Mengisi Waktu/ Tanggal dengan Benar</li>
+                                    <li>Mengisi Lokasi, Waktu kegiatan, dan Tanggal kegiatan dengan Benar</li>
+                                    <li>Mengisi Dokumentasi dengan image sebanyak 2 (dua) dokumentasi</li>
+                                    <li>Maksimum size untuk image dokumentasi 2MB</li>
+                                    <li>Kolom bertanda (*) wajib diisi</li>
                                     </ol>
                                 </div>
                                 <div class="panel panel-warning">

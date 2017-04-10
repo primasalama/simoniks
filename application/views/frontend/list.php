@@ -106,20 +106,20 @@
 		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excels/progress/<?php echo $this->uri->segment(3);?>" class="btn btn-xs btn-warning">Export</a></li>
 	</ol>
 	<table id="progress" class="table table-bordered">
-					<thead>
+					<thead style="vertical-align:middle">
 						<tr>
-							<th>No.</th>
-							<th width="15%">Narasi</th>
-							<th>Waktu/Tanggal</th>
-							<th width="20%">Uraian</th>
-							<th width="20%">Tindak Lanjut</th>
-							<th width="20%">Masalah</th>
-							<th>Dokumentasi</th>
-                            <th>Arahan Untuk Kemenko Maritim</th>
-                            <th width="10%">Output</th>
+							<th style="vertical-align:middle">No.</th>
+							<th style="vertical-align:middle" width="15%">Narasi</th>
+							<th style="vertical-align:middle">Waktu/Tanggal</th>
+							<th style="vertical-align:middle" width="20%">Uraian</th>
+							<th style="vertical-align:middle" width="20%">Tindak Lanjut</th>
+							<th style="vertical-align:middle" width="20%">Masalah</th>
+							<th style="vertical-align:middle">Dokumentasi</th>
+                            <th style="vertical-align:middle">Arahan Untuk Kemenko Maritim</th>
+                            <th style="vertical-align:middle" width="10%">Output</th>
 							<?php 
 							if ($this->uri->segment(3)) {
-								?><th width="5%">Action</th><?php
+								?><th style="vertical-align:middle" width="5%">Action</th><?php
 							}
 							?>
 						</tr>

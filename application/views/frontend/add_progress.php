@@ -55,7 +55,7 @@ body{
                             <div id="FormLogin" class="col-sm-7">
                                 <form action="<?php echo $action;?>" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label>Narasi</label>
+                                        <label>Narasi*</label>
                                         <select class="form-control" name="narasiKebijakan">
                                                 <?php 
                                                 foreach ($data as $key) {
@@ -69,11 +69,11 @@ body{
                                     <div class="form-group">
                                         <div class="form-inline">
                                             <div class="form-group">
-                                                <label>Tanggal Awal : </label>
+                                                <label>Tanggal Awal* : </label>
                                                 <input class="form-control" id="tanggal1" name="tanggal1" required="true" placeholder="Tanggal Awal" required="true" />
                                             </div>
                                             <div class="form-group">
-                                                <label>Tanggal Akhir : </label>
+                                                <label>Tanggal Akhir* : </label>
                                                 <input class="form-control" id="tanggal2" name="tanggal2" placeholder="Tanggal Awal" />
                                             </div>
                                         </div>
@@ -81,37 +81,37 @@ body{
                                     <div class="form-group">
                                         <div class="form-inline">
                                             <div class="form-group">
-                                                <label> Jam Awal : </label>
+                                                <label> Jam Awal* : </label>
                                                 <input class="form-control" id="jam1" name="jam1" required="true" placeholder="Jam Awal" required="true" />
                                             </div>
                                             <div class="form-group">
-                                                <label> Jam Akhir : </label>
+                                                <label> Jam Akhir* : </label>
                                                 <input class="form-control" id="jam2" name="jam2"  placeholder="Jam Awal" />
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                            <label> Tempat Kegiatan : </label>
+                                            <label> Tempat Kegiatan* : </label>
                                             <input class="form-control" id="lokasi" name="lokasi" required="true" placeholder="Lokasi/ Tempat Kegiatan" />
                                         </div>
                                     <div class="form-group">
-                                        <label>Uraian : </label>
+                                        <label>Uraian* : </label>
                                         <textarea class="form-control" name="uraian" required="true" rows="5" placeholder="Uraian"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Tindak Lanjut : </label>
+                                        <label>Tindak Lanjut* : </label>
                                         <textarea class="form-control" name="tindak_ljt" rows="5" placeholder="Tindak Lanjut"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Masalah : </label>
+                                        <label>Masalah* : </label>
                                         <textarea class="form-control" name="masalah" rows="7" placeholder="Masalah"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Output : </label>
+                                        <label>Output* : </label>
                                         <textarea class="form-control" name="hasil" rows="5" placeholder="Output"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Arahan Kemenko : </label>
+                                        <label>Arahan Kemenko* : </label>
                                         <textarea class="form-control" name="arahan" rows="5" placeholder="Arahan Kemenko"></textarea>
                                     </div>
                                     <?php 
@@ -130,11 +130,11 @@ body{
                                     }
                                     ?>
                                     <div class="form-group col-sm-6">
-                                        <label>Dokumentasi 1</label>
+                                        <label>Dokumentasi 1 *max. 2MB</label>
                                         <input type="file" name="foto1" class="form-control" placeholder="Unit Kerja">  
                                     </div>
                                     <div class="form-group col-sm-6">
-                                        <label>Dokumentasi 2</label>
+                                        <label>Dokumentasi 2 *max. 2MB</label>
                                         <input type="file" name="foto2" class="form-control" placeholder="Unit Kerja">  
                                     </div>
                                     
@@ -154,8 +154,10 @@ body{
                                 <p class="heading"><h4><b>Tata Cara Pengisian</b> : </h4></p>
                                 <ol>
                                     <li>Memilih narasi kebijakan</li>
-                                    <li>Mengisi Waktu/ Tanggal dengan Benar</li>
+                                    <li>Mengisi Lokasi, Waktu kegiatan, dan Tanggal kegiatan dengan Benar</li>
                                     <li>Mengisi Dokumentasi dengan image sebanyak 2 (dua) dokumentasi</li>
+                                    <li>Maksimum size untuk image dokumentasi 2MB</li>
+                                    <li>Kolom bertanda (*) wajib diisi</li>
                                 </ol>
                             </div>
                         </div>
