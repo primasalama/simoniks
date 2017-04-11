@@ -247,10 +247,16 @@
 							<td><?php echo $i;?></td>
 							<td ><?php echo nl2br($key->narasi);?></td>
 							<td><?php 
-                            if ($key->tanggal1 == $key->tanggal2) {
-                               echo date("d-M-Y h:i:s",strtotime($key->tanggal1));
+                            if ($key->lokasi == '') {
+                              $tempat = '';
                             }else{
-                                echo date("d-M-Y h:i:s",strtotime($key->tanggal1))." s/d ".date("d-M-Y h:i:s",strtotime($key->tanggal2));
+                              $tempat = " Di ".$key->lokasi;
+                            }
+
+                            if ($key->tanggal1 == $key->tanggal2) {
+                               echo date("d-M-Y h:i:s",strtotime($key->tanggal1)).$tempat;
+                            }else{
+                                echo date("d-M-Y h:i:s",strtotime($key->tanggal1))." s/d ".date("d-M-Y h:i:s",strtotime($key->tanggal2)).$tempat;
                             }
                             ?></td>
 							<?php 
@@ -297,7 +303,7 @@
               ?>
               <?php 
 								if (strlen($key->hasil) > 200) {
-									?><td><?php echo substr(nl2br($key->hasil), 0,200);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 200) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
+									?><td><?php echo substr(nl2br($key->hasil), 0,200);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 200) ?></span><a data-toggle="collapse" data-target="#hasil_<?php echo $i;?>"> Readmore..</a></td><?php
 								}else{
 									?> <td><?php echo nl2br($key->hasil);?></td><?php 
 								}
