@@ -54,6 +54,17 @@
 	$z=1;
 	$data = $kprogress->result();
 	for ($i=0; $i < $kprogress->num_rows() ; $i++) { 
+    if (!empty($data[$i]->lokasi)) {
+      $lokasi = $data[$i]->lokasi;
+    }else{
+      $lokasi = '';
+    }
+    //Tinggal tambahin lokasi kalo mau ditampilin
+    if ($data[$i]->tanggal1 == $data[$i]->tanggal2) {
+      $tanggalan = date("Y-m-d",strtotime($data[$i]->tanggal1))." ".substr($data[$i]->tanggal1, 11,5);
+    }else{
+      $tanggalan = date("Y-m-d",strtotime($data[$i]->tanggal1))." ".substr($data[$i]->tanggal1, 11,5)." s/d ".date("Y-m-d",strtotime($data[$i]->tanggal2))." ".substr($data[$i]->tanggal2, 11,5);
+    }
 		# code...
 		if ($i+1 != $kprogress->num_rows()) {
 			if ($data[$i]->narasiKebijakan != $data[$i+1]->narasiKebijakan) {
@@ -65,10 +76,14 @@
 		}else{
 			$baris[$i][0] = $z ;
 		}
+    $dua = $this->M_progress->getTindakMasalah($data[$i]->narasiKebijakan)->result();
 		$baris[$i][1] = nl2br($data[$i]->narasi);
 		$baris[$i][2] = nl2br($data[$i]->uraian);
-		$baris[$i][3] = nl2br($data[$i]->tindak_ljt);
-		$baris[$i][4] = nl2br($data[$i]->masalah);
+		$baris[$i][3] = nl2br($dua[0]->tindak_ljt);
+		$baris[$i][4] = nl2br($dua[0]->masalah);
+    $baris[$i][5] = $tanggalan;
+    $baris[$i][6] = nl2br($data[$i]->arahan);  
+    $baris[$i][7] = $data[$i]->narasiKebijakan;
 	}
 	?>
 <script type="text/javascript">
@@ -78,7 +93,7 @@
 	console.log(data);
 	 var table = $('#example').DataTable({
     rowsGroup: [
-      0,1,
+      0,1,4,5,6
     ],
     pageLength: '10',
     });
@@ -90,6 +105,7 @@
                 <th style="vertical-align:middle">No.</th>
                 <th style="vertical-align:middle">Kegiatan</th>
                 <th style="vertical-align:middle">Capaian</th>
+                <th style="vertical-align:middle;">Tanggal</th>
                 <th style="vertical-align:middle">Kendala</th>
                 <th style="vertical-align:middle">Tindak Lanjut</th>
                 <th style="vertical-align:middle">Arahan yang Diperlukan Menko Kemaritiman</th>
@@ -110,8 +126,11 @@
                       ?> <td><?php echo nl2br($key[2]);?></td><?php 
                     }
                   ?>
+                  <td><?php echo $key[5];?></td>
+                  <td><?php echo $key[4];?></td>
+                  <td><?php echo $key[3];?></td>
                   <?php 
-                    if (strlen($key[4]) > 200) {
+                  /*  if (strlen($key[4]) > 200) {
                       ?><td><?php echo substr(nl2br($key[4]), 0,200);?><span id="k_masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[4]), 200) ?></span><a data-toggle="collapse" data-target="#k_masalah_<?php echo $i;?>"> Readmore..</a></td><?php
                     }else{
                       ?> <td><?php echo nl2br($key[4]);?></td><?php 
@@ -122,9 +141,9 @@
                       ?><td><?php echo substr(nl2br($key[3]), 0,200);?><span id="k_tdklanjut_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[3]), 200) ?></span><a data-toggle="collapse" data-target="#k_tdklanjut_<?php echo $i;?>"> Readmore..</a></td><?php
                     }else{
                       ?> <td><?php echo nl2br($key[3]);?></td><?php 
-                    }
+                    }*/
                   ?>
-                  <td></td>
+                  <td><?php echo $key[6];?></td>
                 </tr>
                 <?php 
                 $i++;
@@ -242,6 +261,13 @@
 					<?php
 						$i=1;
 						foreach ($progress as $key) {
+              if ($key->tanggal1 != $key->tanggal2) {
+                  $jam1 = substr($key->tanggal1, 11,5);
+                  $jam2 = substr($key->tanggal2, 11,5);
+              }else{
+                  //$tanggal2 = substr($data[0]->tanggal2, 5,2)."/".substr($data[0]->tanggal2, 8,2)."/".substr($data[0]->tanggal2, 0,4);
+                  $jam1 = substr($key->tanggal1, 11,5);
+              }
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
@@ -254,9 +280,9 @@
                             }
 
                             if ($key->tanggal1 == $key->tanggal2) {
-                               echo date("d-M-Y h:i:s",strtotime($key->tanggal1)).$tempat;
+                               echo date("d-M-Y",strtotime($key->tanggal1))." ".$jam1.$tempat;
                             }else{
-                                echo date("d-M-Y h:i:s",strtotime($key->tanggal1))." s/d ".date("d-M-Y h:i:s",strtotime($key->tanggal2)).$tempat;
+                                echo date("d-M-Y",strtotime($key->tanggal1))." ".$jam1."s/d ".date("d-M-Y",strtotime($key->tanggal2))." ".$jam2.$tempat;
                             }
                             ?></td>
 							<?php 

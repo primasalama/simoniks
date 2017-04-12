@@ -24,7 +24,7 @@
         <script src="<?php echo base_url();?>assets/js/bootstrap.js"></script>
         <script src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>
         <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
-        <script src="//cdn.rawgit.com/ashl1/datatables-rowsgroup/v1.0.0/dataTables.rowsGroup.js"></script>
+        <script src="<?php echo base_url();?>assets/js/dataTables.rowsGroup.js"></script>
         <script src="<?php echo base_url();?>assets/js/lightbox.js"></script>
         
         <!-- Js buat datepicker -->
