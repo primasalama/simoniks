@@ -63,7 +63,7 @@
     if ($data[$i]->tanggal1 == $data[$i]->tanggal2) {
       $tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1))." ".substr($data[$i]->tanggal1, 11,5);
     }else{
-      $tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1))." ".substr($data[$i]->tanggal1, 11,5)." s/d ".date("Y-m-d",strtotime($data[$i]->tanggal2))." ".substr($data[$i]->tanggal2, 11,5);
+      $tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1))." ".substr($data[$i]->tanggal1, 11,5)." s/d ".date("d-m-Y",strtotime($data[$i]->tanggal2))." ".substr($data[$i]->tanggal2, 11,5);
     }
 		# code...
 		if ($i+1 != $kprogress->num_rows()) {
@@ -103,10 +103,10 @@
 			   <thead>
               <tr>
                 <th style="vertical-align:middle">No.</th>
-                <th style="vertical-align:middle">Kegiatan</th>
-                <th style="vertical-align:middle">Capaian</th>
-                <th style="vertical-align:middle;">Tanggal</th>
-                <th style="vertical-align:middle">Kendala</th>
+                <th style="vertical-align:middle" width="15%">Kegiatan</th>
+                <th style="vertical-align:middle" width="20%">Capaian</th>
+                <th style="vertical-align:middle"width="15%">Tanggal</th>
+                <th style="vertical-align:middle" width="20%">Kendala</th>
                 <th style="vertical-align:middle">Tindak Lanjut</th>
                 <th style="vertical-align:middle">Arahan yang Diperlukan Menko Kemaritiman</th>
               </tr>   
@@ -129,14 +129,17 @@
                   <td><?php echo $key[5];?></td>
                   <td><?php echo $key[4];?></td>
                   <td><?php echo $key[3];?></td>
-                  <?php 
-                  /*  if (strlen($key[4]) > 200) {
+                  <?php
+                  /* 
+                  if (strlen($key[4]) > 200) {
                       ?><td><?php echo substr(nl2br($key[4]), 0,200);?><span id="k_masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[4]), 200) ?></span><a data-toggle="collapse" data-target="#k_masalah_<?php echo $i;?>"> Readmore..</a></td><?php
                     }else{
                       ?> <td><?php echo nl2br($key[4]);?></td><?php 
                     }
                   ?>
-                  <?php 
+
+                  <?php
+                  /* 
                     if (strlen($key[3]) > 200) {
                       ?><td><?php echo substr(nl2br($key[3]), 0,200);?><span id="k_tdklanjut_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[3]), 200) ?></span><a data-toggle="collapse" data-target="#k_tdklanjut_<?php echo $i;?>"> Readmore..</a></td><?php
                     }else{
