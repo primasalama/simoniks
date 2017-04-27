@@ -133,6 +133,11 @@ class Beranda extends CI_Controller {
 				$result['data'] = $this->M_progress->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
 				$this->load->view('frontend/e_progress',$result);
 				break;
+			case 'kebijakanstrategis':
+			$result['data'] = $this->M_progress->getProgressKebijakan();
+				//print_r($result);die();
+				$this->load->view('frontend/e_pks', $result);
+				break;
 			default:
 				echo "a";
 				break;

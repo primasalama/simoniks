@@ -39,12 +39,7 @@
                             Export <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu">
-                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep1">Asdep1</a></li>
-                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep2">Asdep2</a></li>
-                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep3">Asdep3</a></li>
-                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan/asdep4">Asdep4</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakan">Semua Kebijakan</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/kebijakanstrategis">Semua Kebijakan Strategis</a></li>
                           </ul>
                         </div>
                     </li>
