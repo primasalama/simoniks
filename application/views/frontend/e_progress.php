@@ -65,13 +65,33 @@
 </tr>
 <?PHP
 $i=1;
+foreach ($data->result() as $key) {
+                            if ($key->tanggal1 != $key->tanggal2) {
+                              $jam1 = substr($key->tanggal1, 11,5);
+                              $jam2 = substr($key->tanggal2, 11,5);
+                          }else{
+                              //$tanggal2 = substr($data[0]->tanggal2, 5,2)."/".substr($data[0]->tanggal2, 8,2)."/".substr($data[0]->tanggal2, 0,4);
+                              $jam1 = substr($key->tanggal1, 11,5);
+                          }
 foreach($data->result() as $key)
 {
 ?>
 <tr>
 	<td style="vertical-align:top;" ><?php echo $i;?></td>
 	<td style="vertical-align:top;"><?php echo $key->narasi;?></td>
-	<td style="vertical-align:top;"><?php echo $key->tanggal;?></td>
+	<td style="vertical-align:top;"><?php 
+                            if ($key->lokasi == '') {
+                              $tempat = '';
+                            }else{
+                              $tempat = " Di ".$key->lokasi;
+                            }
+
+                            if ($key->tanggal1 == $key->tanggal2) {
+                               echo date("d-M-Y",strtotime($key->tanggal1))." ".$jam1.$tempat;
+                            }else{
+                                echo date("d-M-Y",strtotime($key->tanggal1))." ".$jam1."s/d ".date("d-M-Y",strtotime($key->tanggal2))." ".$jam2.$tempat;
+                            }
+                            ?></td>
 	<td style="vertical-align:top;"><?php echo $key->uraian;?></td>
 	<td style="vertical-align:top;"><?php echo $key->tindak_ljt;?></td>
 	<td style="vertical-align:top;"><?php echo $key->masalah;?></td>
