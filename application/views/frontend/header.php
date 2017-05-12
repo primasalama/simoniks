@@ -17,15 +17,21 @@
         <!-- Material Datetimepicker -->
         <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap-material-datetimepicker.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/lightbox.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/daterangepicker.css" />
         <style type="text/css">
-}
+
         </style>
+        <!-- Include Date Range Picker -->
+
+
         <script src="<?php echo base_url();?>assets/js/jquery.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>assets/js/moment.min.js"></script>
         <script src="<?php echo base_url();?>assets/js/bootstrap.js"></script>
         <script src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>
         <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
         <script src="<?php echo base_url();?>assets/js/dataTables.rowsGroup.js"></script>
         <script src="<?php echo base_url();?>assets/js/lightbox.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>assets/js/daterangepicker.js"></script>
         
         <!-- Js buat datepicker -->
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/material.min.js"></script>

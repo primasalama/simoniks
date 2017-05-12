@@ -138,6 +138,10 @@ class Beranda extends CI_Controller {
 				//print_r($result);die();
 				$this->load->view('frontend/e_pks', $result);
 				break;
+			case 'tanggal':
+				echo $this->input->post('datefilter');
+				
+				break;
 			default:
 				echo "a";
 				break;

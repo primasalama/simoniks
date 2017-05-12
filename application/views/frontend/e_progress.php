@@ -73,6 +73,7 @@ foreach ($data->result() as $key) {
                               //$tanggal2 = substr($data[0]->tanggal2, 5,2)."/".substr($data[0]->tanggal2, 8,2)."/".substr($data[0]->tanggal2, 0,4);
                               $jam1 = substr($key->tanggal1, 11,5);
                           }
+                    }
 foreach($data->result() as $key)
 {
 ?>
