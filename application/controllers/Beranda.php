@@ -139,8 +139,10 @@ class Beranda extends CI_Controller {
 				$this->load->view('frontend/e_pks', $result);
 				break;
 			case 'tanggal':
-				echo $this->input->post('datefilter');
-				
+				// 05/12/2017 - 05/12/2017
+				$tanggal1 = substr($this->input->post('datefilter'), 6,4)."-".substr($this->input->post('datefilter'), 0,2)."-".substr($this->input->post('datefilter'), 3,2);
+				$tanggal2 = substr($this->input->post('datefilter'), 6,4)."-".substr($this->input->post('datefilter'), 19,2)."-".substr($this->input->post('datefilter'), 16,2);
+				echo $tanggal2." -- ".$tanggal1;die();
 				break;
 			default:
 				echo "a";

@@ -209,32 +209,6 @@
      	</tbody>
      </table>
      <br/>
-     <div id="modalTanggal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title" style="text-align-last: center">Export Berdasarkan Tanggal</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                      <form class="form-horizontal" method="POST" action="<?php echo base_url();?>beranda/excels/tanggal">
-                        
-                        <div class="form-group">
-                            <label>Pilih Tanggal</label>
-                            <input type="text" name="datefilter" class="form-control" required="true" />
-                        </div>
-                        <input type="submit" value="Export" class="btn btn-warning">
-                      </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 	<ol class="breadcrumb" style="margin-top:-20px;">
         <li class="breadcrumb-item active">Progress</li>
 		<li class="pull-right">
@@ -249,7 +223,6 @@
                             <li><a href="<?php echo base_url();?>beranda/excels/progress/asdep4">Asdep4</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/progress">Semua Progress</a></li>
-                            <li><a href="#" data-toggle="modal" data-target="#modalTanggal">Berdasarkan Tanggal</a></li>
                           </ul>
                         </div>
                     </li>

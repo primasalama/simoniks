@@ -10,9 +10,9 @@ class M_progress extends CI_Model {
 	public function getAllExcel($value)
 	{
 		if ($value == null) {
-			$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan";	# code...
+			$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan ORDER BY user.role, progress.tanggal1";	# code...
 		}else{
-			$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan where user.role = '".$value."' ";
+			$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan where user.role = '".$value."' ORDER BY user.role, progress.tanggal1 ";
 		}
 		return $this->db->query($sql);
 	}
@@ -59,5 +59,10 @@ class M_progress extends CI_Model {
 	{
 		$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi  from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan where user.role = '".$value."' ";
 		return $this->db->query($sql)->result();
+	}
+	public function get_tanggal($tanggal1='',$tanggal2='')
+	{
+		# code...
+		//SELECT * FROM `progress` WHERE date(tanggal1) >= '2017-01-29'
 	}
 }
