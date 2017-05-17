@@ -65,15 +65,6 @@
 </tr>
 <?PHP
 $i=1;
-foreach ($data->result() as $key) {
-                            if ($key->tanggal1 != $key->tanggal2) {
-                              $jam1 = substr($key->tanggal1, 11,5);
-                              $jam2 = substr($key->tanggal2, 11,5);
-                          }else{
-                              //$tanggal2 = substr($data[0]->tanggal2, 5,2)."/".substr($data[0]->tanggal2, 8,2)."/".substr($data[0]->tanggal2, 0,4);
-                              $jam1 = substr($key->tanggal1, 11,5);
-                          }
-                    }
 foreach($data->result() as $key)
 {
 ?>
@@ -88,9 +79,9 @@ foreach($data->result() as $key)
                             }
 
                             if ($key->tanggal1 == $key->tanggal2) {
-                               echo date("d-M-Y",strtotime($key->tanggal1))." ".$jam1.$tempat;
+                               echo date("d-M-Y",strtotime($key->tanggal1))." ".$tempat;
                             }else{
-                                echo date("d-M-Y",strtotime($key->tanggal1))." ".$jam1."s/d ".date("d-M-Y",strtotime($key->tanggal2))." ".$jam2.$tempat;
+                                echo date("d-M-Y",strtotime($key->tanggal1))." "."s/d ".date("d-M-Y",strtotime($key->tanggal2))." ".$tempat;
                             }
                             ?></td>
 	<td style="vertical-align:top;"><?php echo $key->uraian;?></td>

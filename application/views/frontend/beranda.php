@@ -56,9 +56,9 @@
     }
     //Tinggal tambahin lokasi kalo mau ditampilin
     if ($data[$i]->tanggal1 == $data[$i]->tanggal2) {
-      $tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1))." ".substr($data[$i]->tanggal1, 11,5);
+      $tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1));
     }else{
-      $tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1))." ".substr($data[$i]->tanggal1, 11,5)." s/d ".date("d-m-Y",strtotime($data[$i]->tanggal2))." ".substr($data[$i]->tanggal2, 11,5);
+      $tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1))."  s/d ".date("d-m-Y",strtotime($data[$i]->tanggal2));
     }
 		# code...
 		if ($i+1 != $kprogress->num_rows()) {
