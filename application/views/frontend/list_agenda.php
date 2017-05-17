@@ -22,7 +22,7 @@
             <a href="<?php echo base_url();?>agenda/asdep2" class="btn btn-default navbar-btn" style="background-color:#0067b5; color: #CCCCCC;">Agenda Asdep2</a>
             <a href="<?php echo base_url();?>agenda/asdep3" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Asdep3</a>
             <a href="<?php echo base_url();?>agenda/asdep4" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Asdep4</a>
-             <a href="<?php echo base_url();?>agenda/asdep4" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">SESDEP</a>
+             <a href="<?php echo base_url();?>Sesdep" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">SESDEP</a>
         </ul>
 	</div>
 	<div class="panel panel-default">
@@ -129,8 +129,8 @@
 						<tr>
 							<td><?php echo $i;?></td>
 							<td><?php echo $key->narasi;?></td>
-              <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
-              <td><?php echo $key->tanggal;?></td>
+              <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
+              <td><?php if($key->tanggal != '0000-00-00'){echo date("d-M-Y",strtotime($key->tanggal));}else{echo "-";}?></td>
               <td><?php echo $key->uraian;?></td>
               <td><?php echo "Rp " .number_format($key->anggaran);?></td>
               <?php 
@@ -162,6 +162,7 @@
                   }
                   if ($this->session->userdata('session')[0]->role == 'sesdep') {
                     ?>
+                    
                     <a class="btn btn-warning" href="<?php echo base_url()?>Sesdep/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
                     <?php
                   }

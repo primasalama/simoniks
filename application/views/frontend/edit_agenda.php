@@ -4,6 +4,7 @@
 	}else{
 		$action = base_url()."fagenda/update/".$data[0]->no;
 	}
+     print_r($data);//die();
 ?>
 <div class="well well-sm">
     <div class="container">
@@ -48,11 +49,32 @@
 							</div>
 							<div class="form-group">
 								<label>Tanggal Pengajuan : </label>
-                                <input type="text" name="tglPengajuan" id="tglPengajuan" class="form-control" value="<?php echo substr($data[0]->tglPengajuan, 8,2)."/".substr($data[0]->tglPengajuan, 5,2)."/".substr($data[0]->tglPengajuan, 0,4);?>">
+                                 <?php 
+                                if ($data[0]->tglPengajuan != '0000-00-00') {
+                                ?>
+                                 <input type="text" name="tglPengajuan" id="tglPengajuan" class="form-control" value="<?php echo substr($data[0]->tglPengajuan, 8,2)."/".substr($data[0]->tglPengajuan, 5,2)."/".substr($data[0]->tglPengajuan, 0,4);?>">
+                                <?php
+                                }else{
+                                ?>
+                                <input type="text" name="tglPengajuan" id="tglPengajuan" class="form-control">
+                                <?php
+                                }
+                                ?>
+                               
 							</div>
                             <div class="form-group">
                                 <label>Rencana Tanggal Pelaksanaan Kegiatan : </label>
-                                <input type="text" class="form-control" id="tglPengajuan" name="tglPengajuan" value="<?php echo substr($data[0]->tglPengajuan, 8,2)."/".substr($data[0]->tglPengajuan, 5,2)."/".substr($data[0]->tglPengajuan, 0,4);?>" />
+                                <?php 
+                                if ($data[0]->tanggal != '0000-00-00') {
+                                ?>
+                                 <input type="text" name="tanggal" id="tanggal" class="form-control" value="<?php echo substr($data[0]->tanggal, 8,2)."/".substr($data[0]->tanggal, 5,2)."/".substr($data[0]->tanggal, 0,4);?>">
+                                <?php
+                                }else{
+                                ?>
+                                <input type="text" name="tanggal" id="tanggal" class="form-control">
+                                <?php
+                                }
+                                ?>
                             </div>
                             <div class="form-group">
                                 <label>Anggaran : </label>
