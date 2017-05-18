@@ -64,11 +64,14 @@
 <?php 
 	$z=1;
 	$result = $data->result();
+	//print_r($result);die();
 	foreach ($result as $key) {
 		//echo $key->narasiKebijakan."<br/>";
 		$data = $this->M_progress->getProgressKebijakan_id($key->narasiKebijakan);
+
 		$n = $data->num_rows();
 		$datas = $data->result();
+		// /print_r($datas);die();
 		if ($n > 1) {
 			// Jika Data lebih dari 1
 			?>
@@ -78,16 +81,16 @@
 				<td><?php echo $datas[0]->uraian;?></td>
 				<td>
 					<?php 
-					 if ($result[0]->lokasi == '') {
+					 if ($datas[0]->lokasi == '') {
 	                              $tempat = '';
 	                            }else{
-	                              $tempat = " Di ".$result[$i]->lokasi;
+	                              $tempat = " Di ".$datas[0]->lokasi;
 	                            }
 
-	                            if ($result[0]->tanggal1 == $result[0]->tanggal2) {
-	                               echo date("d-M-Y",strtotime($result[0]->tanggal1))." ".substr($result[0]->tanggal1, 11,5).$tempat;
+	                            if ($datas[0]->tanggal1 == $datas[0]->tanggal2) {
+	                               echo date("d-M-Y",strtotime($datas[0]->tanggal1))." ".substr($datas[0]->tanggal1, 11,5).$tempat;
 	                            }else{
-	                                echo date("d-M-Y",strtotime($result[0]->tanggal1))." ".substr($result[0]->tanggal1, 11,5)."s/d ".date("d-M-Y",strtotime($result[0]->tanggal2))." ".substr($result[0]->tanggal2, 11,5).$tempat;
+	                                echo date("d-M-Y",strtotime($datas[0]->tanggal1))." ".substr($datas[0]->tanggal1, 11,5)."s/d ".date("d-M-Y",strtotime($datas[0]->tanggal2))." ".substr($datas[0]->tanggal2, 11,5).$tempat;
 	                            }
 					?>
 				</td>
@@ -102,16 +105,16 @@
 				<td><?php echo $datas[$i]->uraian;?></td>
 				<td>
 					<?php 
-					 if ($result[0]->lokasi == '') {
+					 if ($datas[$i]->lokasi == '') {
 	                              $tempat = '';
 	                            }else{
-	                              $tempat = " Di ".$result[$i]->lokasi;
+	                              $tempat = " Di ".$datas[$i]->lokasi;
 	                            }
 
-	                            if ($result[$i]->tanggal1 == $result[$i]->tanggal2) {
-	                               echo date("d-M-Y",strtotime($result[$i]->tanggal1))." ".substr($result[$i]->tanggal1, 11,5).$tempat;
+	                            if ($datas[$i]->tanggal1 == $datas[$i]->tanggal2) {
+	                               echo date("d-M-Y",strtotime($datas[$i]->tanggal1))." ".substr($datas[$i]->tanggal1, 11,5).$tempat;
 	                            }else{
-	                                echo date("d-M-Y",strtotime($result[$i]->tanggal1))." ".substr($result[$i]->tanggal1, 11,5)."s/d ".date("d-M-Y",strtotime($result[$i]->tanggal2))." ".substr($result[$i]->tanggal2, 11,5).$tempat;
+	                                echo date("d-M-Y",strtotime($datas[$i]->tanggal1))." ".substr($datas[$i]->tanggal1, 11,5)."s/d ".date("d-M-Y",strtotime($datas[$i]->tanggal2))." ".substr($datas[$i]->tanggal2, 11,5).$tempat;
 	                            }
 					?>
 				</td>
@@ -126,9 +129,9 @@
 			foreach ($data->result() as $key1) {
 				?>
 				<tr>
-				<td><?php echo $z;?></td>
+				<td><?php echo $z?></td>
 				<td><?php echo $key1->narasi;?></td>
-				<td><?php echo $key1->uraian;?></td>
+				<td><?php echo $key1->uraian."-".$key1->no;?></td>
 				<td>
 					<?php 
 					 if ($key1->lokasi == '') {
