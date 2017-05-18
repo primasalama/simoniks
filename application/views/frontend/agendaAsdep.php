@@ -75,13 +75,13 @@ foreach($data->result() as $key)
 <tr>
 	<td style="vertical-align:top;"><?php echo $i;?></td>
 	<td style="vertical-align:top;"><?php echo $key->narasi;?></td>
-   	<td style="vertical-align:top;"><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
+   	<td style="vertical-align:top;"><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
     <td style="vertical-align:top;"><?php echo $key->tanggal;?></td>
     <td style="vertical-align:top;"><?php echo $key->uraian;?></td>
     <td style="vertical-align:top;"><?php echo "Rp " .number_format($key->anggaran);?></td>
-    <td style="vertical-align:top;"><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tglSpd != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tglPencairan != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td>
+    <td style="vertical-align:top;"><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
+    <td style="vertical-align:top;"><?php if($key->tglSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
+    <td style="vertical-align:top;"><?php if($key->tglPencairan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td>
 	
 </tr>
 <?php
