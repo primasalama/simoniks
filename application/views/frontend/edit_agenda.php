@@ -4,7 +4,7 @@
 	}else{
 		$action = base_url()."fagenda/update/".$data[0]->no;
 	}
-     print_r($data);//die();
+     //print_r($data);//die();
 ?>
 <div class="well well-sm">
     <div class="container">
