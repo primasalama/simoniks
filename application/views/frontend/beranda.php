@@ -278,9 +278,9 @@
                             }
 
                             if ($key->tanggal1 == $key->tanggal2) {
-                               echo date("d-M-Y",strtotime($key->tanggal1))." ".$jam1.$tempat;
+                               echo date("d-M-Y",strtotime($key->tanggal1))." ".$tempat;
                             }else{
-                                echo date("d-M-Y",strtotime($key->tanggal1))." ".$jam1."s/d ".date("d-M-Y",strtotime($key->tanggal2))." ".$jam2.$tempat;
+                                echo date("d-M-Y",strtotime($key->tanggal1))." "."s/d ".date("d-M-Y",strtotime($key->tanggal2))." ".$tempat;
                             }
                             ?></td>
 							<?php 
