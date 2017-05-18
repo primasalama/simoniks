@@ -378,8 +378,8 @@
 				<tr>
 					<td><?php echo $i;?></td>
 					<td><?php echo $key->narasi;?></td>
-			        <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
-              		<td><?php echo $key->tanggal;?></td>
+			        <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
+              		<td><?php echo date("d-M-Y",strtotime($key->tanggal));?></td>
 			        <td><?php echo $key->uraian;?></td>
 			        <td><?php echo "Rp " .number_format($key->anggaran);?></td>
               <?php 
