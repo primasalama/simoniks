@@ -108,10 +108,10 @@
 	                              $tempat = " Di ".$result[$i]->lokasi;
 	                            }
 
-	                            if ($result[0]->tanggal1 == $result[0]->tanggal2) {
-	                               echo date("d-M-Y",strtotime($result[0]->tanggal1))." ".substr($result[0]->tanggal1, 11,5).$tempat;
+	                            if ($result[$i]->tanggal1 == $result[$i]->tanggal2) {
+	                               echo date("d-M-Y",strtotime($result[$i]->tanggal1))." ".substr($result[$i]->tanggal1, 11,5).$tempat;
 	                            }else{
-	                                echo date("d-M-Y",strtotime($result[0]->tanggal1))." ".substr($result[0]->tanggal1, 11,5)."s/d ".date("d-M-Y",strtotime($result[0]->tanggal2))." ".substr($result[0]->tanggal2, 11,5).$tempat;
+	                                echo date("d-M-Y",strtotime($result[$i]->tanggal1))." ".substr($result[$i]->tanggal1, 11,5)."s/d ".date("d-M-Y",strtotime($result[$i]->tanggal2))." ".substr($result[$i]->tanggal2, 11,5).$tempat;
 	                            }
 					?>
 				</td>
