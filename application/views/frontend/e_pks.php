@@ -88,7 +88,7 @@
 	                            }
 
 	                            if ($datas[0]->tanggal1 == $datas[0]->tanggal2) {
-	                               echo date("d-M-Y",strtotime($datas[0]->tanggal1))." ".substr($datas[0]->tanggal1, 11,5).$tempat;
+	                               echo date("d-M-Y",strtotime($datas[0]->tanggal1));
 	                            }else{
 	                                echo date("d-M-Y",strtotime($datas[0]->tanggal1))." ".substr($datas[0]->tanggal1, 11,5)."s/d ".date("d-M-Y",strtotime($datas[0]->tanggal2))." ".substr($datas[0]->tanggal2, 11,5).$tempat;
 	                            }
@@ -112,9 +112,9 @@
 	                            }
 
 	                            if ($datas[$i]->tanggal1 == $datas[$i]->tanggal2) {
-	                               echo date("d-M-Y",strtotime($datas[$i]->tanggal1))." ".substr($datas[$i]->tanggal1, 11,5).$tempat;
+	                               echo date("d-M-Y",strtotime($datas[$i]->tanggal1));
 	                            }else{
-	                                echo date("d-M-Y",strtotime($datas[$i]->tanggal1))." ".substr($datas[$i]->tanggal1, 11,5)."s/d ".date("d-M-Y",strtotime($datas[$i]->tanggal2))." ".substr($datas[$i]->tanggal2, 11,5).$tempat;
+	                                echo date("d-M-Y",strtotime($datas[$i]->tanggal1))." ".substr($datas[$i]->tanggal1, 11,5)." s/d ".date("d-M-Y",strtotime($datas[$i]->tanggal2))." ".substr($datas[$i]->tanggal2, 11,5).$tempat;
 	                            }
 					?>
 				</td>
@@ -131,7 +131,7 @@
 				<tr>
 				<td><?php echo $z?></td>
 				<td><?php echo $key1->narasi;?></td>
-				<td><?php echo $key1->uraian."-".$key1->no;?></td>
+				<td><?php echo $key1->uraian;?></td>
 				<td>
 					<?php 
 					 if ($key1->lokasi == '') {
@@ -141,7 +141,7 @@
 	                            }
 
 	                            if ($key1->tanggal1 == $key1->tanggal2) {
-	                               echo date("d-M-Y",strtotime($key1->tanggal1))." ".substr($key1->tanggal1, 11,5).$tempat;
+	                               echo date("d-M-Y",strtotime($key1->tanggal1));
 	                            }else{
 	                                echo date("d-M-Y",strtotime($key1->tanggal1))." ".substr($key1->tanggal1, 11,5)."s/d ".date("d-M-Y",strtotime($key1->tanggal2))." ".substr($key1->tanggal2, 11,5).$tempat;
 	                            }

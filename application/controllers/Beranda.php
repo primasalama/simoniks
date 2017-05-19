@@ -134,8 +134,8 @@ class Beranda extends CI_Controller {
 				$this->load->view('frontend/e_progress',$result);
 				break;
 			case 'kebijakanstrategis':
-			$result['data'] = $this->M_progress->getProgressKebijakan();
-				//print_r($result);die();
+			$result['data'] = $this->M_progress->get_progressKebijakan();
+				//print_r($result['data']->result());die();
 				$this->load->view('frontend/e_pks', $result);
 				break;
 			case 'tanggal':
