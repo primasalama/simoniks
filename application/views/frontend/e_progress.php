@@ -59,6 +59,7 @@
 	<td align="center" style="vertical-align:top;">Tindak Lanjut</td>
 	<td align="center" style="vertical-align:top;">Masalah</td>
 	<td align="center" style="vertical-align:top;">Output</td>
+	<td align="center" style="vertical-align:top;">Arahan yang diperlukan Menko Kemaritiman</td>
 	<?php if ($filename == null) {
 		echo '<td align="center" style="vertical-align:top;">Pembuat</td>';
 	}?>
@@ -88,6 +89,7 @@ foreach($data->result() as $key)
 	<td style="vertical-align:top;"><?php echo $key->tindak_ljt;?></td>
 	<td style="vertical-align:top;"><?php echo $key->masalah;?></td>
 	<td style="vertical-align:top;"><?php echo $key->hasil;?></td>
+	<td style="vertical-align:top;"><?php echo $key->arahan;?></td>
 	<?php if ($filename == null) {
 		echo '<td style="vertical-align:top;">'.$key->role.'</td>';
 	}?>
