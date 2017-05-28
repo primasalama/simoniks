@@ -58,7 +58,8 @@
     if ($data[$i]->tanggal1 == $data[$i]->tanggal2) {
       $tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1));
     }else{
-      $tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1))."  s/d ".date("d-m-Y",strtotime($data[$i]->tanggal2));
+      //$tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1))."  s/d ".date("d-m-Y",strtotime($data[$i]->tanggal2));
+      $tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1));
     }
 		# code...
 		if ($i+1 != $kprogress->num_rows()) {
@@ -278,9 +279,10 @@
                             }
 
                             if ($key->tanggal1 == $key->tanggal2) {
-                               echo date("d-M-Y",strtotime($key->tanggal1))." ".$tempat;
+                               echo date("d-M-Y",strtotime($key->tanggal1));
                             }else{
-                                echo date("d-M-Y",strtotime($key->tanggal1))." "."s/d ".date("d-M-Y",strtotime($key->tanggal2))." ".$tempat;
+                                //echo date("d-M-Y",strtotime($key->tanggal1))." "."s/d ".date("d-M-Y",strtotime($key->tanggal2))." ".$tempat;
+                              echo date("d-M-Y",strtotime($key->tanggal1));
                             }
                             ?></td>
 							<?php 

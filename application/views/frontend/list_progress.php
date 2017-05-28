@@ -34,7 +34,8 @@
                             if ($key->tanggal1 == $key->tanggal2) {
                                echo date("d-M-Y h:i:s",strtotime($key->tanggal1));
                             }else{
-                                echo date("d-M-Y h:i:s",strtotime($key->tanggal1))." s/d ".date("d-M-Y h:i:s",strtotime($key->tanggal2));
+                                //echo date("d-M-Y h:i:s",strtotime($key->tanggal1))." s/d ".date("d-M-Y h:i:s",strtotime($key->tanggal2));
+                                echo date("d-M-Y h:i:s",strtotime($key->tanggal1));
                             }
                             ?></td>
 							<td><?php echo $key->hasil;?></td>

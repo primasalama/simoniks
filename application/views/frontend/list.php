@@ -147,9 +147,10 @@
                             }
 
                             if ($key->tanggal1 == $key->tanggal2) {
-                               echo date("d-M-Y",strtotime($key->tanggal1))." ".$tempat;
+                               echo date("d-M-Y",strtotime($key->tanggal1));
                             }else{
-                                echo date("d-M-Y",strtotime($key->tanggal1))." "."s/d ".date("d-M-Y",strtotime($key->tanggal2))." ".$tempat;
+                                //echo date("d-M-Y",strtotime($key->tanggal1))." "."s/d ".date("d-M-Y",strtotime($key->tanggal2))." ".$tempat;
+                                echo date("d-M-Y",strtotime($key->tanggal1));
                             }
                             ?></td>
                             <?php 
