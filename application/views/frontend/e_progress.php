@@ -1,9 +1,9 @@
 <?php
 	$nama_file = "Progress_".$filename."_".date("Ymd").".xls";
 	if ($filename == null) {
-		$span = 8;
+		$span = 11;
 	}else{
-		$span = 7;
+		$span = 10;
 	}
 	header("Pragma: public");
 	header("Expires: 0");
@@ -54,12 +54,15 @@
 <tr>
 	<td align="center" style="vertical-align:top;">NO</td>
 	<td align="center" style="vertical-align:top;">Narasi</td>
-	<td align="center" style="vertical-align:top;">Waktu/Tanggal</td>
+	<td align="center" style="vertical-align:top;">Tanggal</td>
+	<td align="center" style="vertical-align:top;">Tanggal Akhir</td>
+	<td align="center" style="vertical-align:top;">Tempat</td>
 	<td align="center" style="vertical-align:top;">Uraian</td>
 	<td align="center" style="vertical-align:top;">Tindak Lanjut</td>
 	<td align="center" style="vertical-align:top;">Masalah</td>
 	<td align="center" style="vertical-align:top;">Output</td>
 	<td align="center" style="vertical-align:top;">Arahan yang diperlukan Menko Kemaritiman</td>
+	<td align="center" style="vertical-align:top;">Tanggal Dibuat</td>
 	<?php if ($filename == null) {
 		echo '<td align="center" style="vertical-align:top;">Pembuat</td>';
 	}?>
@@ -72,24 +75,15 @@ foreach($data->result() as $key)
 <tr>
 	<td style="vertical-align:top;" ><?php echo $i;?></td>
 	<td style="vertical-align:top;"><?php echo $key->narasi;?></td>
-	<td style="vertical-align:top;"><?php 
-                            if ($key->lokasi == '') {
-                              $tempat = '';
-                            }else{
-                              $tempat = " Di ".$key->lokasi;
-                            }
-
-                            if ($key->tanggal1 == $key->tanggal2) {
-                               echo date("d-M-Y",strtotime($key->tanggal1))." ".$tempat;
-                            }else{
-                                echo date("d-M-Y",strtotime($key->tanggal1))." "."s/d ".date("d-M-Y",strtotime($key->tanggal2))." ".$tempat;
-                            }
-                            ?></td>
+	<td style="vertical-align:top;"><?php  echo date("d-M-Y",strtotime($key->tanggal1));?></td>
+	<td style="vertical-align:top;"><?php echo date("d-M-Y",strtotime($key->tanggal2));?></td>
+	<td style="vertical-align:top;"><?php echo $key->lokasi;?></td>
 	<td style="vertical-align:top;"><?php echo $key->uraian;?></td>
 	<td style="vertical-align:top;"><?php echo $key->tindak_ljt;?></td>
 	<td style="vertical-align:top;"><?php echo $key->masalah;?></td>
 	<td style="vertical-align:top;"><?php echo $key->hasil;?></td>
 	<td style="vertical-align:top;"><?php echo $key->arahan;?></td>
+	<td style="vertical-align:top;"><?php echo $key->created_at;?></td>
 	<?php if ($filename == null) {
 		echo '<td style="vertical-align:top;">'.$key->role.'</td>';
 	}?>

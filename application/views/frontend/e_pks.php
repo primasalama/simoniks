@@ -56,6 +56,8 @@
 	<td align="center" style="vertical-align:top;">Kegiatan</td>
 	<td align="center" style="vertical-align:top;">Capaian</td>
 	<td align="center" style="vertical-align:top;">Tanggal</td>
+	<td align="center" style="vertical-align:top;">Tanggal Akhir</td>
+	<td align="center" style="vertical-align:top;">Tempat</td>
 	<td align="center" style="vertical-align:top;" >Kendala</td>
 	<td align="center" style="vertical-align:top;">Tindak Lanjut</td>
 	<td align="center" style="vertical-align:top;">Arahan yang diperlukan Menko Kemaritiman</td>
@@ -79,21 +81,9 @@
 				<td rowspan="<?php echo $n;?>"><?php echo $z;?></td>
 				<td rowspan="<?php echo $n;?>"><?php echo $datas[$n-1]->narasi;?></td>
 				<td><?php echo $datas[0]->uraian;?></td>
-				<td>
-					<?php 
-					 if ($datas[0]->lokasi == '') {
-	                              $tempat = '';
-	                            }else{
-	                              $tempat = " Di ".$datas[0]->lokasi;
-	                            }
-
-	                            if ($datas[0]->tanggal1 == $datas[0]->tanggal2) {
-	                               echo date("d-M-Y",strtotime($datas[0]->tanggal1));
-	                            }else{
-	                                echo date("d-M-Y",strtotime($datas[0]->tanggal1))." ".substr($datas[0]->tanggal1, 11,5)."s/d ".date("d-M-Y",strtotime($datas[0]->tanggal2))." ".substr($datas[0]->tanggal2, 11,5).$tempat;
-	                            }
-					?>
-				</td>
+				<td><?php echo date("d-M-Y",strtotime($datas[0]->tanggal1));?></td>
+				<td><?php echo date("d-M-Y",strtotime($datas[0]->tanggal2));?></td>
+				<td><?php echo $datas[0]->lokasi;?></td>
 				<td rowspan="<?php echo $n;?>"><?php echo $datas[$n-1]->masalah;?></td>
 				<td rowspan="<?php echo $n;?>"><?php echo $datas[$n-1]->tindak_ljt;?></td>
 				<td rowspan="<?php echo $n;?>"><?php echo $datas[$n-1]->arahan;?></td>
@@ -103,21 +93,9 @@
 			?>
 			<tr>
 				<td><?php echo $datas[$i]->uraian;?></td>
-				<td>
-					<?php 
-					 if ($datas[$i]->lokasi == '') {
-	                              $tempat = '';
-	                            }else{
-	                              $tempat = " Di ".$datas[$i]->lokasi;
-	                            }
-
-	                            if ($datas[$i]->tanggal1 == $datas[$i]->tanggal2) {
-	                               echo date("d-M-Y",strtotime($datas[$i]->tanggal1));
-	                            }else{
-	                                echo date("d-M-Y",strtotime($datas[$i]->tanggal1))." ".substr($datas[$i]->tanggal1, 11,5)." s/d ".date("d-M-Y",strtotime($datas[$i]->tanggal2))." ".substr($datas[$i]->tanggal2, 11,5).$tempat;
-	                            }
-					?>
-				</td>
+				<td><?php echo  date("d-M-Y",strtotime($datas[$i]->tanggal1));?></td>
+				<td><?php echo  date("d-M-Y",strtotime($datas[$i]->tanggal2));?></td>
+				<td><?php echo $datas[$i]->lokasi;?></td>
 			</tr>
 			<?php
 			}
@@ -132,21 +110,9 @@
 				<td><?php echo $z?></td>
 				<td><?php echo $key1->narasi;?></td>
 				<td><?php echo $key1->uraian;?></td>
-				<td>
-					<?php 
-					 if ($key1->lokasi == '') {
-	                              $tempat = '';
-	                            }else{
-	                              $tempat = " Di ".$key1->lokasi;
-	                            }
-
-	                            if ($key1->tanggal1 == $key1->tanggal2) {
-	                               echo date("d-M-Y",strtotime($key1->tanggal1));
-	                            }else{
-	                                echo date("d-M-Y",strtotime($key1->tanggal1))." ".substr($key1->tanggal1, 11,5)."s/d ".date("d-M-Y",strtotime($key1->tanggal2))." ".substr($key1->tanggal2, 11,5).$tempat;
-	                            }
-					?>
-				</td>
+				<td><?php echo  date("d-M-Y",strtotime($key1->tanggal1));?></td>
+				<td><?php echo  date("d-M-Y",strtotime($key1->tanggal2));?></td>
+				<td><?php echo $key1->lokasi;?></td>
 				<td><?php echo $key1->masalah;?></td>
 				<td><?php echo $key1->tindak_ljt;?></td>
 				<td><?php echo $key1->arahan;?></td>
