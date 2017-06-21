@@ -123,8 +123,20 @@
                     }
                   ?>
                   <td><?php echo $key[5];?></td>
-                  <td><?php echo $key[4];?></td>
-                  <td><?php echo $key[3];?></td>
+                  <?php 
+                    if (strlen($key[4]) > 200) {
+                      ?><td><?php echo substr(nl2br($key[4]), 0,200);?><span id="k_kendala_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[4]), 200) ?></span><a data-toggle="collapse" data-target="#k_kendala_<?php echo $i;?>"> Readmore..</a></td><?php
+                    }else{
+                      ?> <td><?php echo nl2br($key[4]);?></td><?php 
+                    }
+                  ?>
+                  <?php 
+                    if (strlen($key[3]) > 200) {
+                      ?><td><?php echo substr(nl2br($key[3]), 0,200);?><span id="k_lanjut_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[3]), 200) ?></span><a data-toggle="collapse" data-target="#k_lanjut_<?php echo $i;?>"> Readmore..</a></td><?php
+                    }else{
+                      ?> <td><?php echo nl2br($key[4]);?></td><?php 
+                    }
+                  ?>
                   <?php
                   /* 
                   if (strlen($key[4]) > 200) {
