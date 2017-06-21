@@ -78,6 +78,7 @@ body{
                                             </div>
                                         </div>
                                     </div>
+                                    <!--
                                     <div class="form-group">
                                         <div class="form-inline">
                                             <div class="form-group">
@@ -90,6 +91,7 @@ body{
                                             </div>
                                         </div>
                                     </div>
+                                    -->
                                     <div class="form-group">
                                             <label> Tempat Kegiatan* : </label>
                                             <input class="form-control" id="lokasi" name="lokasi" required="true" placeholder="Lokasi/ Tempat Kegiatan" />

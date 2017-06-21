@@ -89,6 +89,7 @@ body{
                                             </div>
                                         </div>
                                     </div>
+                                    <!--
                                     <div class="form-group">
                                         <div class="form-inline">
                                             <div class="form-group">
@@ -100,7 +101,7 @@ body{
                                                 <input class="form-control" id="jam2" name="jam2" value="<?php echo $jam2;?>" placeholder="Jam Awal" />
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="form-group">
                                             <label> Tempat Kegiatan : </label>
                                             <input class="form-control" id="lokasi" name="lokasi" value="<?php echo $data[0]->lokasi; ?>" required="true" placeholder="Lokasi/ Tempat Kegiatan" />
