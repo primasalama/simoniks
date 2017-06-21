@@ -33,7 +33,7 @@ class M_progress extends CI_Model {
 	}
 	public function getProgressKebijakan_id($value='')
 	{
-		$sql = "SELECT progress.no, narasiKebijakan, narasi,tanggal1,lokasi,tanggal2,uraian,tindak_ljt,masalah,arahan FROM `progress` INNER JOIN `kebijakan` on kebijakan.no = progress.narasiKebijakan WHERE progress.narasiKebijakan = '".$value."' ORDER BY narasiKebijakan ";
+		$sql = "SELECT progress.no, progress.created_at, narasiKebijakan, narasi,tanggal1,lokasi,tanggal2,uraian,tindak_ljt,masalah,arahan FROM `progress` INNER JOIN `kebijakan` on kebijakan.no = progress.narasiKebijakan WHERE progress.narasiKebijakan = '".$value."' ORDER BY narasiKebijakan ";
 		return $this->db->query($sql);
 	}
 	public function getTindakMasalah($value='')

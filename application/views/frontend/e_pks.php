@@ -1,9 +1,9 @@
 <?php
 	$nama_file = "KebijakanStrategis_".$filename."_".date("Ymd").".xls";
 	if ($filename == null) {
-		$span = 8;
+		$span = 10;
 	}else{
-		$span = 7;
+		$span = 9;
 	}
 	header("Pragma: public");
 	header("Expires: 0");
@@ -61,7 +61,7 @@
 	<td align="center" style="vertical-align:top;" >Kendala</td>
 	<td align="center" style="vertical-align:top;">Tindak Lanjut</td>
 	<td align="center" style="vertical-align:top;">Arahan yang diperlukan Menko Kemaritiman</td>
-	
+	<td align="center" style="vertical-align:top;">Tanggal Input</td>
 </tr>
 <?php 
 	$z=1;
@@ -73,7 +73,7 @@
 
 		$n = $data->num_rows();
 		$datas = $data->result();
-		// /print_r($datas);die();
+		//print_r($datas);die();
 		if ($n > 1) {
 			// Jika Data lebih dari 1
 			?>
@@ -87,6 +87,7 @@
 				<td rowspan="<?php echo $n;?>"><?php echo $datas[$n-1]->masalah;?></td>
 				<td rowspan="<?php echo $n;?>"><?php echo $datas[$n-1]->tindak_ljt;?></td>
 				<td rowspan="<?php echo $n;?>"><?php echo $datas[$n-1]->arahan;?></td>
+				<td rowspan="<?php echo $n;?>"><?php echo $datas[$n-1]->created_at;?></td>
 			</tr>
 			<?php 
 			for ($i=1; $i < $n; $i++) { 
@@ -116,6 +117,7 @@
 				<td><?php echo $key1->masalah;?></td>
 				<td><?php echo $key1->tindak_ljt;?></td>
 				<td><?php echo $key1->arahan;?></td>
+				<td><?php echo $key1->created_at;?></td>
 			</tr>
 				<?php 
 			}
