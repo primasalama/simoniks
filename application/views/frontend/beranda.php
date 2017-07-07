@@ -56,10 +56,10 @@
     }
     //Tinggal tambahin lokasi kalo mau ditampilin
     if ($data[$i]->tanggal1 == $data[$i]->tanggal2) {
-      $tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1));
+      $tanggalan = date("d-M-Y",strtotime($data[$i]->tanggal1));
     }else{
       //$tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1))."  s/d ".date("d-m-Y",strtotime($data[$i]->tanggal2));
-      $tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1));
+      $tanggalan = date("d-M-Y",strtotime($data[$i]->tanggal1));
     }
 		# code...
 		if ($i+1 != $kprogress->num_rows()) {
@@ -116,8 +116,8 @@
                   <td><?php echo $key[0];?></td>
                   <td><?php echo $key[1];?></td>
                   <?php 
-                    if (strlen($key[2]) > 200) {
-                      ?><td><?php echo substr(nl2br($key[2]), 0,200);?><span id="k_uraian_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[2]), 200) ?></span><a data-toggle="collapse" data-target="#k_uraian_<?php echo $i;?>"> Readmore..</a></td><?php
+                    if (strlen($key[2]) > 100) {
+                      ?><td><?php echo substr(nl2br($key[2]), 0,100);?><span id="k_uraian_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[2]), 200) ?></span><a data-toggle="collapse" data-target="#k_uraian_<?php echo $i;?>"> Readmore..</a></td><?php
                     }else{
                       ?> <td><?php echo nl2br($key[2]);?></td><?php 
                     }
@@ -286,22 +286,22 @@
                             }
                             ?></td>
 							<?php 
-								if (strlen($key->uraian) > 200) {
-									?><td><?php echo substr(nl2br($key->uraian), 0,200);?><span id="uraian_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->uraian), 200) ?></span><a data-toggle="collapse" data-target="#uraian_<?php echo $i;?>"> Readmore..</a></td><?php
+								if (strlen($key->uraian) > 100) {
+									?><td><?php echo substr(nl2br($key->uraian), 0,100);?><span id="uraian_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->uraian), 200) ?></span><a data-toggle="collapse" data-target="#uraian_<?php echo $i;?>"> Readmore..</a></td><?php
 								}else{
 									?> <td><?php echo nl2br($key->uraian);?></td><?php 
 								}
 							?>
 							<?php 
-								if (strlen($key->tindak_ljt) > 200) {
-									?><td><?php echo substr(nl2br($key->tindak_ljt), 0,200);?><span id="tindak_ljt_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->tindak_ljt), 300) ?></span><a data-toggle="collapse" data-target="#tindak_ljt_<?php echo $i;?>"> Readmore..</a></td><?php
+								if (strlen($key->tindak_ljt) > 100) {
+									?><td><?php echo substr(nl2br($key->tindak_ljt), 0,100);?><span id="tindak_ljt_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->tindak_ljt), 300) ?></span><a data-toggle="collapse" data-target="#tindak_ljt_<?php echo $i;?>"> Readmore..</a></td><?php
 								}else{
 									?> <td><?php echo nl2br($key->tindak_ljt);?></td><?php 
 								}
 							?>
 							<?php 
-								if (strlen($key->masalah) > 200) {
-									?><td><?php echo substr(nl2br($key->masalah), 0,200);?><span id="masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->masalah), 300) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
+								if (strlen($key->masalah) > 100) {
+									?><td><?php echo substr(nl2br($key->masalah), 0,100);?><span id="masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->masalah), 300) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
 								}else{
 									?> <td><?php echo nl2br($key->masalah);?></td><?php 
 								}
@@ -328,8 +328,8 @@
               }
               ?>
               <?php 
-								if (strlen($key->hasil) > 200) {
-									?><td><?php echo substr(nl2br($key->hasil), 0,200);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 200) ?></span><a data-toggle="collapse" data-target="#hasil_<?php echo $i;?>"> Readmore..</a></td><?php
+								if (strlen($key->hasil) > 100) {
+									?><td><?php echo substr(nl2br($key->hasil), 0,100);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 200) ?></span><a data-toggle="collapse" data-target="#hasil_<?php echo $i;?>"> Readmore..</a></td><?php
 								}else{
 									?> <td><?php echo nl2br($key->hasil);?></td><?php 
 								}
