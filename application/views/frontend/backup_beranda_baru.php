@@ -45,54 +45,48 @@
                     </li>
                 </ol>
                 <?php 
-    //             $array = ['1','2','3','6'];
-    //            //array_push($array,'5');
-                
-    //             print_r($array);die();
-    //             for ($i=0; $i <=6; $i++) { 
-    //               if (in_array($i, $array)) {
-    //                 echo "ada<br/>";
-    //               }else{
-    //                 echo "kosong<br/>";
-    //               }
-    //             }
-    // die();
-                $array = [];
 	//print_r($kprogress->num_rows());die();
 	$z=1;
-  $j=0;
 	$data = $kprogress->result();
   //print_r($data);
 	for ($i=0; $i < $kprogress->num_rows() ; $i++) { 
-    if (in_array($data[$i]->narasiKebijakan, $array)) {
-      //echo "string";die();
+    if (!empty($data[$i]->lokasi)) {
+      $lokasi = $data[$i]->lokasi;
+    }else{
+      $lokasi = '';
     }
-    else{
-      //echo "kosong";die();
-      # code...
-      // echo $data[$i]->narasiKebijakan." <br/>";
-      // print_r($array);echo "<br/>";
-      array_push($array, $data[$i]->narasiKebijakan);
-      $hsl = $this->M_progress->getProgressKebijakan_id($data[$i]->narasiKebijakan)->result();
-      $dua = $this->M_progress->getTindakMasalah($data[$i]->narasiKebijakan)->result();
-      foreach ($hsl as $z) {
-        $baris[$j][0] = $i+1;
-        $baris[$j][1] = nl2br($z->narasi);
-        $baris[$j][2] = nl2br($z->uraian);
-        $baris[$j][3] = nl2br($dua[0]->tindak_ljt);
-        $baris[$j][4] = nl2br($dua[0]->masalah);
-        $baris[$j][5] = date("d-M-Y",strtotime($z->tanggal1));
-        $baris[$j][6] = nl2br($z->arahan);  
-        $baris[$j][7] = $z->narasiKebijakan;
-        //print_r($baris);
-        $j++;
-      }
+    //Tinggal tambahin lokasi kalo mau ditampilin
+    if ($data[$i]->tanggal1 == $data[$i]->tanggal2) {
+      $tanggalan = date("d-M-Y",strtotime($data[$i]->tanggal1));
+    }else{
+      //$tanggalan = date("d-m-Y",strtotime($data[$i]->tanggal1))."  s/d ".date("d-m-Y",strtotime($data[$i]->tanggal2));
+      $tanggalan = date("d-M-Y",strtotime($data[$i]->tanggal1));
     }
+		# code...
+		if ($i+1 != $kprogress->num_rows()) {
+			if ($data[$i]->narasiKebijakan != $data[$i+1]->narasiKebijakan) {
+				# code...
+				$baris[$i][0] = $z ;$z++;
+			}else{
+				$baris[$i][0] = $z ;
+			}
+		}else{
+			$baris[$i][0] = $z ;
+		}
+    $dua = $this->M_progress->getTindakMasalah($data[$i]->narasiKebijakan)->result();
+		$baris[$i][1] = nl2br($data[$i]->narasi);
+		$baris[$i][2] = nl2br($data[$i]->uraian);
+		$baris[$i][3] = nl2br($dua[0]->tindak_ljt);
+		$baris[$i][4] = nl2br($dua[0]->masalah);
+    $baris[$i][5] = $tanggalan;
+    $baris[$i][6] = nl2br($data[$i]->arahan);  
+    $baris[$i][7] = $data[$i]->narasiKebijakan;
 	}
-  //print_r($baris);
 	?>
 <script type="text/javascript">
 	$(document).ready( function () {
+  
+	//var data = <?php echo json_encode($baris);?>;
 	//console.log(data);
 	 var table = $('#example').DataTable({
     rowsGroup: [

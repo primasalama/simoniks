@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_progress extends CI_Model {
 	public function getAll()
 	{
-		$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan ";
+		$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan ORDER BY tanggal1";
 		return $this->db->query($sql)->result();
 	}
 	public function getAllExcel($value)
@@ -22,7 +22,7 @@ class M_progress extends CI_Model {
 	}
 	public function getProgressKebijakan($value='')
 	{
-		$sql = "SELECT distinct narasiKebijakan, narasi,tanggal1,tanggal2,lokasi,uraian,tindak_ljt,masalah,arahan FROM `progress` INNER JOIN `kebijakan` on kebijakan.no = progress.narasiKebijakan ORDER BY narasiKebijakan";
+		$sql = "SELECT distinct narasiKebijakan, narasi,tanggal1,tanggal2,lokasi,uraian,tindak_ljt,masalah,arahan FROM `progress` INNER JOIN `kebijakan` on kebijakan.no = progress.narasiKebijakan ORDER BY tanggal1 DESC";
 		return $this->db->query($sql);
 	}
 	public function get_progressKebijakan($value='')
@@ -33,7 +33,7 @@ class M_progress extends CI_Model {
 	}
 	public function getProgressKebijakan_id($value='')
 	{
-		$sql = "SELECT progress.no, progress.created_at, narasiKebijakan, narasi,tanggal1,lokasi,tanggal2,uraian,tindak_ljt,masalah,arahan FROM `progress` INNER JOIN `kebijakan` on kebijakan.no = progress.narasiKebijakan WHERE progress.narasiKebijakan = '".$value."' ORDER BY narasiKebijakan ";
+		$sql = "SELECT progress.no, progress.created_at, narasiKebijakan, narasi,tanggal1,lokasi,tanggal2,uraian,tindak_ljt,masalah,arahan FROM `progress` INNER JOIN `kebijakan` on kebijakan.no = progress.narasiKebijakan WHERE progress.narasiKebijakan = '".$value."' ORDER BY tanggal1 ASC ";
 		return $this->db->query($sql);
 	}
 	public function getTindakMasalah($value='')
@@ -58,12 +58,12 @@ class M_progress extends CI_Model {
 	}
 	public function getId($value='')
 	{
-		$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan where progress.no = '".$value."' ";
+		$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan where progress.no = '".$value."' ORDER BY tanggal1";
 		return $this->db->query($sql)->result();
 	}
 	public function getByAsdep($value='')
 	{
-		$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi  from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan where user.role = '".$value."' ";
+		$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi  from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan where user.role = '".$value."' order BY tanggal1 ";
 		return $this->db->query($sql)->result();
 	}
 	public function get_tanggal($tanggal1='',$tanggal2='')
