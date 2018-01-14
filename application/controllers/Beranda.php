@@ -31,7 +31,6 @@ class Beranda extends CI_Controller {
 	{	
 		$result['kebijakan'] = $this->M_kebijakan->getAll();
 		$result['kprogress'] = $this->M_progress->getProgressKebijakan();
-		//print_r($k)
 		$result['agenda'] = $this->M_agenda->getAll();
 		$result['progress'] = $this->M_progress->getAll();
 		$this->load->view('frontend/header');

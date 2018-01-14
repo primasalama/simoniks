@@ -1,9 +1,9 @@
 <?php
 	$nama_file = "Progress_".$filename."_".date("Ymd").".xls";
 	if ($filename == null) {
-		$span = 11;
+		$span = 12;
 	}else{
-		$span = 10;
+		$span = 11;
 	}
 	header("Pragma: public");
 	header("Expires: 0");

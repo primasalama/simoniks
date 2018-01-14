@@ -137,9 +137,9 @@
               //if ($this->session->userdata('session')) {
                 //if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
                       ?>
-                      <td><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
-                      <td><?php if($key->tglSpd != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
-                      <td><?php if($key->tglPencairan != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td>
+                      <td><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
+                      <td><?php if($key->tglSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
+                      <td><?php if($key->tglPencairan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td>
                       <?php
                     //}
               //}

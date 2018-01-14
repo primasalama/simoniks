@@ -32,7 +32,7 @@
                      <?php 
                     if ($this->session->userdata('session')[0]->role == 'admin') {
                        ?>
-                       <li class="pull-right"><a href="<?php echo base_url();?>fkebijakan" class="btn btn-info btn-xs">Tambah</a></li>
+                       <li class="pull-right"><a href="<?php echo base_url();?>Fkebijakan/index/" class="btn btn-info btn-xs">Tambah</a></li>
                        <?php
                     }
                     ?>
@@ -189,15 +189,15 @@
                                 ?>
                             </td>
                             <?php 
-                                if (strlen($key->arahan) > 200) {
-                                    ?><td><?php echo substr(nl2br($key->arahan), 0,200);?><span id="arahan_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->arahan), 200) ?></span><a data-toggle="collapse" data-target="#arahan_<?php echo $i;?>"> Readmore..</a></td><?php
+                                if (strlen($key->arahan) > 100) {
+                                    ?><td><?php echo substr(nl2br($key->arahan), 0,100);?><span id="arahan_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->arahan), 200) ?></span><a data-toggle="collapse" data-target="#arahan_<?php echo $i;?>"> Readmore..</a></td><?php
                                 }else{
                                     ?> <td><?php echo nl2br($key->arahan);?></td><?php 
                                 }
                             ?>
                             <?php 
-                                if (strlen($key->hasil) > 150) {
-                                    ?><td><?php echo substr(nl2br($key->hasil), 0,150);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 150) ?></span><a data-toggle="collapse" data-target="#hasil_<?php echo $i;?>"> Readmore..</a></td><?php
+                                if (strlen($key->hasil) > 100) {
+                                    ?><td><?php echo substr(nl2br($key->hasil), 0,100);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 150) ?></span><a data-toggle="collapse" data-target="#hasil_<?php echo $i;?>"> Readmore..</a></td><?php
                                 }else{
                                     ?> <td><?php echo nl2br($key->hasil);?></td><?php 
                                 }
