@@ -18,7 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = '202.169.46.214/simoniks/';
-$config['base_url'] = 'http://localhost/simoniks/';
+// $config['base_url'] = 'http://localhost/simoniks/';
+$config['base_url'] = 'http://'.$_SERVER['HTTP_HOST'].'/simoniks/';
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ $config['base_url'] = 'http://localhost/simoniks/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = '';#index.php
+$config['index_page'] = 'index.php';#index.php
 
 /*
 |--------------------------------------------------------------------------

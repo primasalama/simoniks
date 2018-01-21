@@ -9,7 +9,7 @@ class M_kebijakan extends CI_Model {
  
 	public function getAll()
 	{
-		$sql = "SELECT kebijakan.*,user.role,user.name from kebijakan inner join user on user.no = kebijakan.created_by ORDER BY role asc ";
+		$sql = "SELECT kebijakan.*,user.role,user.name from kebijakan inner join user on user.no = kebijakan.created_by WHERE kebijakan.tahun = ".date('Y')." ORDER BY role asc  ";
 		return $this->db->query($sql)->result();
 	}
 	public function getAllDetail($value='')
@@ -49,7 +49,7 @@ class M_kebijakan extends CI_Model {
 	}
 	public function getByAsdep($value='')
 	{
-		$sql = "SELECT kebijakan.*,user.role from kebijakan inner join user on user.no = kebijakan.created_by where user.role = '".$value."' ";
+		$sql = "SELECT kebijakan.*,user.role from kebijakan inner join user on user.no = kebijakan.created_by where user.role = '".$value."' AND kebijakan.tahun = ".date('Y')." ";
 		return $this->db->query($sql)->result();
 	}
 	// Datatable
