@@ -52,7 +52,7 @@
                                  <?php 
                                 if ($data[0]->tglPengajuan != '0000-00-00') {
                                 ?>
-                                 <input type="text" name="tglPengajuan" id="tglPengajuan" class="form-control" value="<?php echo substr($data[0]->tglPengajuan, 8,2)."/".substr($data[0]->tglPengajuan, 5,2)."/".substr($data[0]->tglPengajuan, 0,4);?>">
+                                 <input type="text" name="tglPengajuan" id="tglPengajuan" class="form-control" value="<?php echo substr($data[0]->tglPengajuan, 5,2)."/".substr($data[0]->tglPengajuan, 8,2)."/".substr($data[0]->tglPengajuan, 0,4);?>">
                                 <?php
                                 }else{
                                 ?>
@@ -67,7 +67,7 @@
                                 <?php 
                                 if ($data[0]->tanggal != '0000-00-00') {
                                 ?>
-                                 <input type="text" name="tanggal" id="tanggal" class="form-control" value="<?php echo substr($data[0]->tanggal, 8,2)."/".substr($data[0]->tanggal, 5,2)."/".substr($data[0]->tanggal, 0,4);?>">
+                                 <input type="text" name="tanggal" id="tanggal" class="form-control" value="<?php echo substr($data[0]->tanggal, 5,2)."/".substr($data[0]->tanggal, 8,2)."/".substr($data[0]->tanggal, 0,4);?>">
                                 <?php
                                 }else{
                                 ?>
@@ -78,11 +78,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Anggaran : </label>
-                                <input type="text" class="form-control" name="tglPengajuan" value="<?php echo $data[0]->anggaran;?>" />
+                                <input type="text" class="form-control" name="anggaran" value="<?php echo $data[0]->anggaran;?>" />
                             </div>
 							<div class="form-group">
 								<label>Uraian : </label>
-                                <textarea class="form-control" name="uraian" rows="5"><?php echo $data[0]->uraian;?></textarea>
+                                <textarea class="form-control" name="uraian" rows="5"><?php echo $data[0]->kegiatan;?></textarea>
 							</div>
 							<div class="form-group">
 								<label>Output : </label>

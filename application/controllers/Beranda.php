@@ -72,7 +72,7 @@ class Beranda extends CI_Controller {
 
 	public function agenda($value='')
 	{
-		
+		// print_r($this->session->userdata('session'));die();
 		if ($value != '') {
 			if ($this->session->userdata('session')) {
 				if ($this->session->userdata('session')[0]->role == $value OR $this->session->userdata('session')[0]->role == 'admin'){
@@ -92,7 +92,7 @@ class Beranda extends CI_Controller {
 			}
 		}else{
 			$result['data'] = $this->M_agenda->getAll();
-		//print_r($result['data']);die();
+		// print_r($result['data']);die();
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/list_agenda',$result);
 		$this->load->view('frontend/footerf');

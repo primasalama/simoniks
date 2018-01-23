@@ -43,12 +43,37 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label>Tanggal Penyelengaaraan : </label>
+                                        <input type="text" name="tanggal" id="tanggal" class="form-control" placeholder="Tanggal Penyelengaaraan" required="true">
+                                    </div>
+                                    <div class="form-group">
                                         <label>Tanggal Pengajuan : </label>
-                                        <input type="text" name="tanggal" id="tanggal" class="form-control" placeholder="Tanggal Pengajuan" required="true">
+                                        <input type="text" name="tglPengajuan" id="tglPengajuan" class="form-control" placeholder="Tanggal Pengajuan" required="true">
                                     </div>
                                     <div class="form-group">
                                         <label>Rencana Tanggal Pelaksanaan Kegiatan : </label>
-                                        <input type="text" class="form-control" id="tglPengajuan" name="tglPengajuan" placeholder="Rencana Tanggal Pelaksanaan Kegiatan" required="true"/>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label>Jam </label>
+                                                <select name="jam" class="form-control">
+                                                <?php
+                                                for ($i=0; $i <= 23; $i++) { 
+                                                    echo "<option>".$i."</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Menit </label>
+                                                <select name="menit" class="form-control">
+                                                <?php
+                                                for ($i=0; $i <= 59; $i++) { 
+                                                    echo "<option>".$i."</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Anggaran (Rp) : </label>
@@ -57,6 +82,18 @@
                                             <input type="number" class="form-control" name="anggaran" required="true"/>
                                         </div>
                                         
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Penyelenggara Kegiatan : </label>
+                                        <input type="text" name="dari" class="form-control" placeholder="Peserta Kegiatan" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tempat Kegiatan : </label>
+                                        <input type="text" name="tempat" class="form-control" placeholder="Tempat Kegiatan" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Peserta Kegiatan : </label>
+                                        <input type="text" name="yg_menghadiri" class="form-control" placeholder="Peserta Kegiatan" required="true">
                                     </div>
                                     <div class="form-group">
                                         <label>Uraian : </label>

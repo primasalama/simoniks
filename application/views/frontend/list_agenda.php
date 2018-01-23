@@ -96,19 +96,21 @@
 					<thead>
 						<tr>
 							<th>No.</th>
-							<th>Narasi</th>
-              <th>Tanggal Pengajuan</th>
-							<th>Rencana Tanggal Pelaksanaan Kegiatan</th>
+							<!-- <th>Narasi</th> -->
+              <!-- <th>Tanggal Pengajuan</th> -->
+							<th>Tanggal Kegiatan</th>
+              <th>Pukul</th>
               <th width="20%">Kegiatan</th>
-              <th width="15%">Anggaran (Rp)</th>
+              <th width="15%">Dari</th>
+              <th>Peserta Kegiatan</th>
               <?php 
               //if ($this->session->userdata('session'))
               //{
                 //if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
                 //?>
-                <th>Tanggal Pengajuan SP2D</th>
+                <!-- <th>Tanggal Pengajuan SP2D</th>
                 <th>Tanggal SP2D</th>
-                <th>Tanggal Pencairan</th>
+                <th>Tanggal Pencairan</th> -->
                   <?php
                 //}
                 ?>
@@ -128,18 +130,20 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<td><?php echo $key->narasi;?></td>
-              <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
-              <td><?php echo $key->tanggal;?></td>
-              <td><?php echo $key->uraian;?></td>
-              <td><?php echo "Rp " .number_format($key->anggaran);?></td>
+							<!-- <td><?php echo $key->narasi;?></td> -->
+              <!-- <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td> -->
+              <td><?php echo date("d-M-YYYY",strtotime($key->tanggal));?></td>
+              <td><?php echo date("h:i",strtotime(substr($key->tanggal, 10)));?></td>
+              <td><?php echo $key->kegiatan;?></td>
+              <td><?php echo $key->dari;?></td>
+              <td><?php echo $key->yg_menghadiri;?></td>
               <?php 
               //if ($this->session->userdata('session')) {
                 //if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
                       ?>
-                      <td><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
+                      <!-- <td><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
                       <td><?php if($key->tglSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
-                      <td><?php if($key->tglPencairan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td>
+                      <td><?php if($key->tglPencairan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td> -->
                       <?php
                     //}
               //}
