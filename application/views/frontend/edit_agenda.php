@@ -31,7 +31,7 @@
                 <div class="panel-body">
                     <div id="FormLogin" class="col-sm-7">
                         <form action="<?php echo  $action;?>" method="post">
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label>Narasi Kebijakan </label>
                                             <select class="form-control" name="narasiKebijakan">
                                                 <?php 
@@ -46,7 +46,7 @@
                                                 }
                                                 ?>
                                             </select>
-							</div>
+							</div> -->
 							<div class="form-group">
 								<label>Tanggal Pengajuan : </label>
                                  <?php 

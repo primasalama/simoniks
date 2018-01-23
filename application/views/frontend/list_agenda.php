@@ -96,7 +96,7 @@
 					<thead>
 						<tr>
 							<th>No.</th>
-							<!-- <th>Narasi</th> -->
+							<!-- <th>kegiatan</th> -->
               <!-- <th>Tanggal Pengajuan</th> -->
 							<th>Tanggal Kegiatan</th>
               <th>Pukul</th>
@@ -130,9 +130,9 @@
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
-							<!-- <td><?php echo $key->narasi;?></td> -->
+							<!-- <td><?php echo $key->kegiatan;?></td> -->
               <!-- <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td> -->
-              <td><?php echo date("d-M-YYYY",strtotime($key->tanggal));?></td>
+              <td><?php echo date("d-M-Y",strtotime($key->tanggal));?></td>
               <td><?php echo date("h:i",strtotime(substr($key->tanggal, 10)));?></td>
               <td><?php echo $key->kegiatan;?></td>
               <td><?php echo $key->dari;?></td>
@@ -157,11 +157,11 @@
 									<?php 
                   if ($this->session->userdata('session')[0]->role == 'admin') {
                     ?>
-                    <a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>Agenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->narasi;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
+                    <a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>Agenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
                     <?php
                   }else{
                     ?>
-                    <a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fagenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->narasi;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
+                    <a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fagenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
                     <?php
                   }
                   if ($this->session->userdata('session')[0]->role == 'sesdep') {

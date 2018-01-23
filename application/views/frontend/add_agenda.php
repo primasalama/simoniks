@@ -30,7 +30,7 @@
                 <div class="panel-body">
                     <div id="FormLogin" class="col-sm-7">
                         <form action="<?php echo $action;?>" method="post" enctype="multipart/form-data">
-                                    <div class="form-group">
+                                   <!--  <div class="form-group">
                                         <label>Narasi</label>
                                         <select class="form-control" name="narasiKebijakan">
                                                 <?php 
@@ -41,7 +41,7 @@
                                                 }
                                                 ?>
                                         </select>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <label>Tanggal Penyelengaaraan : </label>
                                         <input type="text" name="tanggal" id="tanggal" class="form-control" placeholder="Tanggal Penyelengaaraan" required="true">

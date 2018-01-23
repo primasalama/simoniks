@@ -5,15 +5,15 @@ class M_agenda extends CI_Model {
 
 	public function getAll()
 	{
-		$sql = "SELECT agenda.*,user.role,user.name,kebijakan.narasi from agenda inner join user on user.no = agenda.created_by inner join kebijakan on kebijakan.no = agenda.narasiKebijakan ";
+		$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by ";
 		return $this->db->query($sql)->result();
 	}
 	public function getAllExcel($value)
 	{
 		if ($value == null) {
-			$sql = "SELECT agenda.*,user.role,user.name,kebijakan.narasi from agenda inner join user on user.no = agenda.created_by inner join kebijakan on kebijakan.no = agenda.narasiKebijakan";	# code...
+			$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by ";	# code...
 		}else{
-			$sql = "SELECT agenda.*,user.role,user.name,kebijakan.narasi from agenda inner join user on user.no = agenda.created_by inner join kebijakan on kebijakan.no = agenda.narasiKebijakan where user.role = '".$value."' ";
+			$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by  where user.role = '".$value."' ";
 		}
 		return $this->db->query($sql);
 	}
@@ -34,12 +34,12 @@ class M_agenda extends CI_Model {
 	}
 	public function getId($value='')
 	{
-		$sql = "SELECT agenda.*,user.role,user.name,kebijakan.narasi from agenda inner join user on user.no = agenda.created_by inner join kebijakan on kebijakan.no = agenda.narasiKebijakan where agenda.no = '".$value."' ";
+		$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by  where agenda.no = '".$value."' ";
 		return $this->db->query($sql)->result();
 	}
 	public function getByAsdep($value='')
 	{
-		$sql = "SELECT agenda.*,user.role,user.name,kebijakan.narasi from agenda inner join user on user.no = agenda.created_by inner join kebijakan on kebijakan.no = agenda.narasiKebijakan where user.role = '".$value."' ";
+		$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by  where user.role = '".$value."' ";
 		return $this->db->query($sql)->result();
 	}
 } 	
