@@ -80,7 +80,7 @@
                     </li>
     <?php
   }
-  if ($this->uri->segment(2) != null) {
+  if ($this->session->userdata('session')) {
     if ($this->session->userdata('session')[0]->role == 'admin' or $this->session->userdata('session')[0]->role == 'sesdep') {
       echo '<li class="pull-right"><a href="'.base_url().'fagenda/index/'.$this->uri->segment(2).'" class="btn btn-xs btn-info">Tambah</a></li>';
     }
@@ -117,8 +117,11 @@
                 <?php 
                 
               //}
-              if ($this->session->userdata('session') or $this->uri->segment(2)) {
-								?><th>Action</th><?php
+              if ($this->session->userdata('session') ) {
+                if ($this->session->userdata('session')[0]->role == 'admin' or $this->session->userdata('session')[0]->role == 'sesdep') {
+                 ?><th>Action</th><?php
+                }
+								
 							}
 							?>
 						</tr>
@@ -156,10 +159,11 @@
               ?>
               
               <?php 
-							if ($this->session->userdata('session') or $this->uri->segment(2)) {
-								?>
-								<td>
-									<?php 
+              if ($this->session->userdata('session')) {
+               if ($this->session->userdata('session')[0]->role == 'admin' or $this->session->userdata('session')[0]->role == 'sesdep') {
+                ?>
+                <td>
+                  <?php 
                   if ($this->session->userdata('session')[0]->role == 'admin') {
                     ?>
                     <a href="#" id="hapus" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>Agenda/delete/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
@@ -181,10 +185,12 @@
                     <?php
                   }
                   ?>
-									
-								</td>
-								<?php
-							}
+                  
+                </td>
+                <?php
+              }
+              }
+							
 							?>
 						</tr>
 						<?php
