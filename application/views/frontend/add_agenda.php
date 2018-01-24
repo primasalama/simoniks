@@ -8,7 +8,7 @@
 <div class="well well-sm">
     <div class="container">
         <div class="row">
-        	<div class="col-md-12">
+        	<div class="col-md-8">
                 <ol class="breadcrumb" style="margin-bottom: 0;">
                     <li class="active">
                     <a href="index.php">
@@ -43,18 +43,14 @@
                                         </select>
                                     </div> -->
                                     <div class="form-group">
-                                        <label>Tanggal Penyelengaaraan : </label>
+                                        <label>Tanggal Kegiatan : </label>
                                         <input type="text" name="tanggal" id="tanggal" class="form-control" placeholder="Tanggal Penyelengaaraan" required="true">
                                     </div>
                                     <div class="form-group">
-                                        <label>Tanggal Pengajuan : </label>
-                                        <input type="text" name="tglPengajuan" id="tglPengajuan" class="form-control" placeholder="Tanggal Pengajuan" required="true">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Rencana Tanggal Pelaksanaan Kegiatan : </label>
+                                        <label>Waktu Kegiatan (pukul) : </label>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <label>Jam </label>
+                                                <label>Jam</label>
                                                 <select name="jam" class="form-control">
                                                 <?php
                                                 for ($i=0; $i <= 23; $i++) { 
@@ -76,56 +72,22 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Anggaran (Rp) : </label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon" id="basic-addon3">Rp. </span>
-                                            <input type="number" class="form-control" name="anggaran" required="true"/>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Penyelenggara Kegiatan : </label>
-                                        <input type="text" name="dari" class="form-control" placeholder="Peserta Kegiatan" required="true">
-                                    </div>
-                                    <div class="form-group">
                                         <label>Tempat Kegiatan : </label>
                                         <input type="text" name="tempat" class="form-control" placeholder="Tempat Kegiatan" required="true">
                                     </div>
                                     <div class="form-group">
-                                        <label>Peserta Kegiatan : </label>
-                                        <input type="text" name="yg_menghadiri" class="form-control" placeholder="Peserta Kegiatan" required="true">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Uraian : </label>
+                                        <label>Kegiatan : </label>
                                         <textarea class="form-control" name="uraian" rows="5" placeholder="Uraian" required="true"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Output : </label>
-                                        <textarea class="form-control" name="hasil" rows="5" placeholder="Output" required="true"></textarea>
+                                        <label>Penyelenggara Kegiatan (dari): </label>
+                                        <textarea class="form-control" name="dari" rows="2" placeholder="Dari" required="true"></textarea>
                                     </div>
                                     
-
-                                    <?php 
-                                    if ($this->session->userdata('session')[0]->role == 'admin') {
-                                        ?>
-                                         <div class="form-group">
-                                            <label>Asisten Deputi</label>
-                                            <select class="form-control" name="deputi">
-                                                <option value="asdep1">Asisten Deputi 1</option>
-                                                <option value="asdep2">Asisten Deputi 2</option>
-                                                <option value="asdep3">Asisten Deputi 3</option>
-                                                <option value="asdep4">Asisten Deputi 4</option>
-                                            </select>
-                                        </div>
-                                        <?php 
-                                    }
-                                    ?>                                    
-                                    <!--
                                     <div class="form-group">
-                                        <label>Status : </label>
-                                        <input type="text" name="status" class="form-control" placeholder="Status" required="true">
+                                        <label>Peserta Kegiatan (yang menghadiri): </label>
+                                        <textarea class="form-control" name="yg_menghadiri" rows="2" placeholder="yang menghadiri" required="true"></textarea>
                                     </div>
-                                    -->
                                     <div class="form-group">
                                         <input type="submit" value="Submit" class="btn btn-primary">
                                         <input type="reset" value="Reset" class="btn btn-warning">
