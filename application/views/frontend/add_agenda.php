@@ -86,8 +86,39 @@
                                     
                                     <div class="form-group">
                                         <label>Peserta Kegiatan (yang menghadiri): </label>
-                                        <textarea class="form-control" name="yg_menghadiri" rows="2" placeholder="yang menghadiri" required="true"></textarea>
+                                        <!-- <textarea class="form-control" name="yg_menghadiri" rows="2" placeholder="yang menghadiri" required="true"></textarea> -->
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="asdep1" value="1">
+                                                Asdep 1
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="asdep2" value="1">
+                                                Asdep 2
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="asdep3" value="1">
+                                                Asdep 3
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="asdep4" value="1">
+                                                Asdep 4
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="sesdep" value="1">
+                                                Sesdep
+                                            </label>
+                                        </div>
                                     </div>
+                                    
                                     <div class="form-group">
                                         <input type="submit" value="Submit" class="btn btn-primary">
                                         <input type="reset" value="Reset" class="btn btn-warning">

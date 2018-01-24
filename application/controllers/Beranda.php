@@ -74,22 +74,22 @@ class Beranda extends CI_Controller {
 	{
 		// print_r($this->session->userdata('session'));die();
 		if ($value != '') {
-			if ($this->session->userdata('session')) {
-				if ($this->session->userdata('session')[0]->role == $value OR $this->session->userdata('session')[0]->role == 'admin'){
+			// if ($this->session->userdata('session')) {
+				// if ($this->session->userdata('session')[0]->role == $value OR $this->session->userdata('session')[0]->role == 'admin'){
 					$result['data'] = $this->M_agenda->getByAsdep($value);
 					$this->load->view('frontend/header');
 					$this->load->view('frontend/list_agenda',$result);
 					$this->load->view('frontend/footerf');
-				}else{
-					$data = array('url' => 'agenda','value'=>$value);// nyimpen ke array, url kemana diakan balik setelah login nanti.
-					$this->session->set_userdata('url',$data);
-					redirect('Auth/logout');
-				}
-			}else{
-				$data = array('url' => 'agenda','value'=>$value);// nyimpen ke array, url kemana diakan balik setelah login nanti.
-				$this->session->set_userdata('url',$data);
-				redirect('Auth/logout');
-			}
+			// 	}else{
+			// 		$data = array('url' => 'agenda','value'=>$value);// nyimpen ke array, url kemana diakan balik setelah login nanti.
+			// 		$this->session->set_userdata('url',$data);
+			// 		redirect('Auth/logout');
+			// 	}
+			// }else{
+			// 	$data = array('url' => 'agenda','value'=>$value);// nyimpen ke array, url kemana diakan balik setelah login nanti.
+			// 	$this->session->set_userdata('url',$data);
+			// 	redirect('Auth/logout');
+			// }
 		}else{
 			$result['data'] = $this->M_agenda->getAll();
 		// print_r($result['data']);die();

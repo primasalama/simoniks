@@ -112,10 +112,39 @@
                                         <label>Penyelenggara Kegiatan (dari): </label>
                                         <textarea class="form-control"  name="dari" rows="2" placeholder="Dari" required="true"><?php echo $data[0]->dari;?></textarea>
                                     </div>
-                                    
-                                    <div class="form-group">
+                                   <div class="form-group">
                                         <label>Peserta Kegiatan (yang menghadiri): </label>
-                                        <textarea class="form-control" name="yg_menghadiri" rows="2" placeholder="yang menghadiri" required="true"><?php echo $data[0]->yg_menghadiri;?></textarea>
+                                        <!-- <textarea class="form-control" name="yg_menghadiri" rows="2" placeholder="yang menghadiri" required="true"></textarea> -->
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="asdep1" value="1" <?php if ($data[0]->asdep1 == 1) {echo "checked";}?>>
+                                                Asdep 1
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="asdep2" value="1" <?php if ($data[0]->asdep2 == 1) {echo "checked";}?>>
+                                                Asdep 2
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="asdep3" value="1" <?php if ($data[0]->asdep3 == 1) {echo "checked";}?>>
+                                                Asdep 3
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="asdep4" value="1"<?php if ($data[0]->asdep4 == 1) {echo "checked";}?>>
+                                                Asdep 4
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="sesdep" value="1" <?php if ($data[0]->sesdep == 1) {echo "checked";}?>>
+                                                Sesdep
+                                            </label>
+                                        </div>
                                     </div>
 							
 							

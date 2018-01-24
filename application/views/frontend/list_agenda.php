@@ -81,7 +81,7 @@
     <?php
   }
   if ($this->uri->segment(2) != null) {
-    if ($this->session->userdata('session')[0]->role == 'admin' or $this->session->userdata('session')[0]->role != 'admin') {
+    if ($this->session->userdata('session')[0]->role == 'admin' or $this->session->userdata('session')[0]->role == 'sesdep') {
       echo '<li class="pull-right"><a href="'.base_url().'fagenda/index/'.$this->uri->segment(2).'" class="btn btn-xs btn-info">Tambah</a></li>';
     }
   }
@@ -133,10 +133,15 @@
 							<!-- <td><?php echo $key->kegiatan;?></td> -->
               <!-- <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td> -->
               <td><?php echo date("d-M-Y",strtotime($key->tanggal));?></td>
-              <td><?php echo date("h:i",strtotime(substr($key->tanggal, 10)));?></td>
+              <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
               <td><?php echo $key->kegiatan;?></td>
               <td><?php echo $key->dari;?></td>
-              <td><?php echo $key->yg_menghadiri;?></td>
+              <td><?php 
+              if ($key->asdep1 == 1) { echo "ASDEP 1<br/>";}
+              if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
+              if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
+              if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
+              if ($key->sesdep == 1) { echo "SESDEP<br/>";}?></td>
               <?php 
               //if ($this->session->userdata('session')) {
                 //if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
