@@ -47,7 +47,7 @@
                                                 ?>
                                             </select>
 							</div> -->
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label>Tanggal Pengajuan : </label>
                                  <?php 
                                 if ($data[0]->tglPengajuan != '0000-00-00') {
@@ -61,34 +61,62 @@
                                 }
                                 ?>
                                
-							</div>
-                            <div class="form-group">
-                                <label>Rencana Tanggal Pelaksanaan Kegiatan : </label>
-                                <?php 
-                                if ($data[0]->tanggal != '0000-00-00') {
-                                ?>
-                                 <input type="text" name="tanggal" id="tanggal" class="form-control" value="<?php echo substr($data[0]->tanggal, 5,2)."/".substr($data[0]->tanggal, 8,2)."/".substr($data[0]->tanggal, 0,4);?>">
-                                <?php
-                                }else{
-                                ?>
-                                <input type="text" name="tanggal" id="tanggal" class="form-control">
-                                <?php
-                                }
-                                ?>
-                            </div>
-                            <div class="form-group">
-                                <label>Anggaran : </label>
-                                <input type="text" class="form-control" name="anggaran" value="<?php echo $data[0]->anggaran;?>" />
-                            </div>
-							<div class="form-group">
-								<label>Uraian : </label>
-                                <textarea class="form-control" name="uraian" rows="5"><?php echo $data[0]->kegiatan;?></textarea>
-							</div>
-							<div class="form-group">
-								<label>Output : </label>
-                                <textarea class="form-control" name="hasil" rows="5"><?php echo $data[0]->hasil;?></textarea>
-							</div>
-                            
+							</div> -->
+                           <div class="form-group">
+                                        <label>Tanggal Kegiatan : </label>
+                                        <input type="text" name="tanggal" value="<?php echo date("m/d/Y",strtotime($data[0]->tanggal)); ?>" id="tanggal" class="form-control" placeholder="Tanggal Penyelengaaraan" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Waktu Kegiatan (pukul) : </label>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label>Jam</label>
+                                                <select name="jam" class="form-control">
+                                                <?php
+                                                for ($i=0; $i <= 23; $i++) { 
+                                                    if (substr($data[0]->tanggal,12,2) == $i) {
+                                                        echo "<option selected='true'>".$i."</option>";
+                                                    }else{
+                                                        echo "<option>".$i."</option>";
+                                                    }
+                                                    
+                                                }
+                                                ?>
+                                            </select>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Menit </label>
+                                                <select name="menit" class="form-control">
+                                                <?php
+                                                for ($i=0; $i <= 59; $i++) { 
+                                                    if (substr($data[0]->tanggal,15,2) == $i) {
+                                                        echo "<option selected='true'>".$i."</option>";
+                                                    }else{
+                                                        echo "<option>".$i."</option>";
+                                                    }
+                                                }
+                                                ?>
+                                            </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tempat Kegiatan : </label>
+                                        <input type="text" name="tempat" value="<?php echo $data[0]->tempat;?>" class="form-control" placeholder="Tempat Kegiatan" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Kegiatan : </label>
+                                        <textarea class="form-control" name="uraian" rows="5" placeholder="Uraian" required="true"><?php echo $data[0]->kegiatan;?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Penyelenggara Kegiatan (dari): </label>
+                                        <textarea class="form-control"  name="dari" rows="2" placeholder="Dari" required="true"><?php echo $data[0]->dari;?></textarea>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Peserta Kegiatan (yang menghadiri): </label>
+                                        <textarea class="form-control" name="yg_menghadiri" rows="2" placeholder="yang menghadiri" required="true"><?php echo $data[0]->yg_menghadiri;?></textarea>
+                                    </div>
 							
 							
 							<!--

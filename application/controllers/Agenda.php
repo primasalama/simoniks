@@ -69,7 +69,8 @@ class Agenda extends CI_Controller {
 				break;
 		}
 		//$tgl = substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2);
-		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),
+		$data = array(
+			// 'narasiKebijakan'=>$this->input->post('narasiKebijakan'),
 			'tempat' => $this->input->post('tempat'),
 			'dari' => $this->input->post('dari'),
 			'yg_menghadiri' => $this->input->post('yg_menghadiri'),
@@ -77,7 +78,12 @@ class Agenda extends CI_Controller {
 			// 'tglSpd' => '0000-00-00',
 			// 'tglPencairan' => '0000-00-00',
 			'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2)." ".$this->input->post('jam').":".$this->input->post('menit'),
-			'kegiatan'=>$this->input->post('uraian'),'tglPengajuan'=>substr($this->input->post('tglPengajuan'), 6,4)."-".substr($this->input->post('tglPengajuan'), 0,2)."-".substr($this->input->post('tglPengajuan'), 3,2),'anggaran'=>$this->input->post('anggaran'),'hasil'=>$this->input->post('hasil'),'created_by'=>$created_by,'updated_by'=>$this->session->userdata('session')[0]->no);
+			'kegiatan'=>$this->input->post('uraian'),
+			// 'tglPengajuan'=>substr($this->input->post('tglPengajuan'), 6,4)."-".substr($this->input->post('tglPengajuan'), 0,2)."-".substr($this->input->post('tglPengajuan'), 3,2),
+			// 'anggaran'=>$this->input->post('anggaran'),
+			// 'hasil'=>$this->input->post('hasil'),
+			'created_by'=>$this->session->userdata('session')[0]->no,
+			'updated_by'=>$this->session->userdata('session')[0]->no);
 		// print_r($data);die();
 		$this->M_agenda->insert($data);
 		redirect('agenda/'.$url_back);
@@ -93,8 +99,22 @@ class Agenda extends CI_Controller {
 	}
 	public function update($value)
 	{
-		echo $this->input->post('tglPengajuan');
-		$data = array('narasiKebijakan' => $this->input->post('narasiKebijakan'),'kegiatan'=>$this->input->post('uraian'),'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2),'tglPengajuan'=>substr($this->input->post('tglPengajuan'), 6,4)."-".substr($this->input->post('tglPengajuan'), 0,2)."-".substr($this->input->post('tglPengajuan'), 3,2),'anggaran'=>$this->input->post('anggaran'),'hasil'=>$this->input->post('hasil'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
+		// echo $this->input->post('tglPengajuan');
+		$data = array(
+			// 'narasiKebijakan'=>$this->input->post('narasiKebijakan'),
+			'tempat' => $this->input->post('tempat'),
+			'dari' => $this->input->post('dari'),
+			'yg_menghadiri' => $this->input->post('yg_menghadiri'),
+			// 'tglPengajuanSpd' => '0000-00-00',
+			// 'tglSpd' => '0000-00-00',
+			// 'tglPencairan' => '0000-00-00',
+			'tanggal'=>substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2)." ".$this->input->post('jam').":".$this->input->post('menit'),
+			'kegiatan'=>$this->input->post('uraian'),
+			// 'tglPengajuan'=>substr($this->input->post('tglPengajuan'), 6,4)."-".substr($this->input->post('tglPengajuan'), 0,2)."-".substr($this->input->post('tglPengajuan'), 3,2),
+			// 'anggaran'=>$this->input->post('anggaran'),
+			// 'hasil'=>$this->input->post('hasil'),
+			// 'created_by'=>$this->session->userdata('session')[0]->no,
+			'updated_by'=>$this->session->userdata('session')[0]->no);
 		$this->M_agenda->updateId($data,$value);
 		$data = $this->M_agenda->getId($value);
 		///print_r($data);die();
