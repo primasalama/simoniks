@@ -131,12 +131,19 @@
 					<?php
 						$i=1;
 						foreach ($data as $key) {
+              if (date('N',strtotime($key->tanggal)) == 1) {$hari = 'Senin';}
+              if (date('N',strtotime($key->tanggal)) == 2) {$hari = 'Selasa';}
+              if (date('N',strtotime($key->tanggal)) == 3) {$hari = 'Rabu';}
+              if (date('N',strtotime($key->tanggal)) == 4) {$hari = 'Kamis';}
+              if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
+              if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
 						?>
 						<tr>
 							<td><?php echo $i;?></td>
 							<!-- <td><?php echo $key->kegiatan;?></td> -->
               <!-- <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td> -->
-              <td><?php echo date("d-M-Y",strtotime($key->tanggal));?></td>
+              <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
               <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
               <td><?php echo $key->kegiatan;?></td>
               <td><?php echo $key->dari;?></td>
