@@ -22,7 +22,8 @@
             <a href="<?php echo base_url();?>agenda/asdep2" class="btn btn-default navbar-btn" style="background-color:#0067b5; color: #CCCCCC;">Agenda Asdep2</a>
             <a href="<?php echo base_url();?>agenda/asdep3" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Asdep3</a>
             <a href="<?php echo base_url();?>agenda/asdep4" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Asdep4</a>
-             <a href="<?php echo base_url();?>Sesdep" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">SESDEP</a>
+            <a href="<?php echo base_url();?>Sesdep" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">SESDEP</a>
+            <a href="<?php echo base_url();?>Sesdep" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Login Agenda</a>
         </ul>
 	</div>
 	<div class="panel panel-default">
