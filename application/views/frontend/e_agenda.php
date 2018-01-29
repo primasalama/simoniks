@@ -1,9 +1,9 @@
 <?php
 	$nama_file = "Agenda_".$filename."_".date("Ymd").".xls";
 	if ($filename == null) {
-		$span = 9;
+		$span = 6;
 	}else{
-		$span = 9;
+		$span = 6;
 	}
 	header("Pragma: public");
 	header("Expires: 0");
@@ -17,7 +17,8 @@
 ?>
 <table width="100%" border="1" cellpadding="5" cellspacing="0">
 <tr>
-	<td colspan="<?php echo $span;?>" align="center"><h2><strong>AGENDA RENCANA KEGIATAN KEBIJAKAN STRATEGIS TAHUN 2017</strong></h2></td>
+	<td colspan="<?php echo $span;?>" align="center"><h2><strong>AGENDA RENCANA KEGIATAN KEBIJAKAN STRATEGIS
+	DEPUTI BIDANG KOORDINASI SUMBER DAYA ALAM DAN JASA</strong></h2></td>
 </tr>
 <tr>
 <?php 
