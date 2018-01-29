@@ -52,15 +52,12 @@
 <tr height="20">
 </tr>
 <tr>
-	<td align="center" style="vertical-align:top;">NO</td>
-	<td align="center" style="vertical-align:top;">Narasi</td>
-	<td align="center" style="vertical-align:top;">Tanggal pengajuan</td>
-	<td align="center" style="vertical-align:top;">Waktu/Tanggal</td>
-	<td align="center" style="vertical-align:top;">Kegiatan</td>
-	<td align="center" style="vertical-align:top;">Anggaran</td>
-	<td align="center" style="vertical-align:top;">Tanggal Pengajuan SP2D</td>
-	<td align="center" style="vertical-align:top;">Tanggal SP2D </td>
-	<td align="center" style="vertical-align:top;">Tanggal Pencairan</td>
+	<th align="center" style="vertical-align:top;">NO</th>
+	<th align="center" style="vertical-align:top;">Tanggal Kegiatan</th>
+    <th align="center" style="vertical-align:top;">Pukul</th>
+    <th align="center" style="vertical-align:top;">Kegiatan</th>
+    <th align="center" style="vertical-align:top;">Dari</th>
+    <th align="center" style="vertical-align:top;">Peserta Kegiatan</th>
 	
 </tr>
 <tr>
@@ -69,20 +66,28 @@
 <?PHP
 $data = $this->M_agenda->getAllExcel('asdep1');
 $i=1;
-foreach($data->result() as $key)
-{
+foreach($data->result() as $key){
+	if (date('N',strtotime($key->tanggal)) == 1) {$hari = 'Senin';}
+              if (date('N',strtotime($key->tanggal)) == 2) {$hari = 'Selasa';}
+              if (date('N',strtotime($key->tanggal)) == 3) {$hari = 'Rabu';}
+              if (date('N',strtotime($key->tanggal)) == 4) {$hari = 'Kamis';}
+              if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
+              if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
+
 ?>
 <tr>
-	<td style="vertical-align:top;"><?php echo $i;?></td>
-	<td style="vertical-align:top;"><?php echo $key->narasi;?></td>
-   	<td style="vertical-align:top;"><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tanggal != '0000-00-00'){echo date("d-M-Y",strtotime($key->tanggal));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php echo $key->uraian;?></td>
-    <td style="vertical-align:top;"><?php echo "Rp " .number_format($key->anggaran);?></td>
-    <td style="vertical-align:top;"><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tglSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tglPencairan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td>
-	
+	<td><?php echo $i;?></td>
+    <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
+    <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
+    <td><?php echo $key->kegiatan;?></td>
+    <td><?php echo $key->dari;?></td>
+    <td><?php 
+              if ($key->asdep1 == 1) { echo "ASDEP 1<br/>";}
+              if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
+              if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
+              if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
+              if ($key->sesdep == 1) { echo "SESDEP<br/>";}?></td>
 </tr>
 <?php
 $i++;
@@ -94,19 +99,28 @@ $i++;
 <?PHP
 $data = $this->M_agenda->getAllExcel('asdep2');
 $i=1;
-foreach($data->result() as $key)
-{
+foreach($data->result() as $key){
+
+	if (date('N',strtotime($key->tanggal)) == 1) {$hari = 'Senin';}
+              if (date('N',strtotime($key->tanggal)) == 2) {$hari = 'Selasa';}
+              if (date('N',strtotime($key->tanggal)) == 3) {$hari = 'Rabu';}
+              if (date('N',strtotime($key->tanggal)) == 4) {$hari = 'Kamis';}
+              if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
+              if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
 ?>
 <tr>
-	<td style="vertical-align:top;"><?php echo $i;?></td>
-	<td style="vertical-align:top;"><?php echo $key->narasi;?></td>
-   	<td style="vertical-align:top;"><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tanggal != '0000-00-00'){echo date("d-M-Y",strtotime($key->tanggal));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php echo $key->uraian;?></td>
-    <td style="vertical-align:top;"><?php echo "Rp " .number_format($key->anggaran);?></td>
-    <td style="vertical-align:top;"><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tglSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tglPencairan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td>
+	<td><?php echo $i;?></td>
+    <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
+    <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
+    <td><?php echo $key->kegiatan;?></td>
+    <td><?php echo $key->dari;?></td>
+    <td><?php 
+              if ($key->asdep1 == 1) { echo "ASDEP 1<br/>";}
+              if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
+              if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
+              if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
+              if ($key->sesdep == 1) { echo "SESDEP<br/>";}?></td>
 </tr>
 <?php
 $i++;
@@ -118,19 +132,28 @@ $i++;
 <?PHP
 $data = $this->M_agenda->getAllExcel('asdep3');
 $i=1;
-foreach($data->result() as $key)
-{
+foreach($data->result() as $key){
+	if (date('N',strtotime($key->tanggal)) == 1) {$hari = 'Senin';}
+              if (date('N',strtotime($key->tanggal)) == 2) {$hari = 'Selasa';}
+              if (date('N',strtotime($key->tanggal)) == 3) {$hari = 'Rabu';}
+              if (date('N',strtotime($key->tanggal)) == 4) {$hari = 'Kamis';}
+              if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
+              if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
+
 ?>
 <tr>
-	<td style="vertical-align:top;"><?php echo $i;?></td>
-	<td style="vertical-align:top;"><?php echo $key->narasi;?></td>
-   	<td style="vertical-align:top;"><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tanggal != '0000-00-00'){echo date("d-M-Y",strtotime($key->tanggal));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php echo $key->uraian;?></td>
-    <td style="vertical-align:top;"><?php echo "Rp " .number_format($key->anggaran);?></td>
-    <td style="vertical-align:top;"><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tglSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tglPencairan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td>
+	<td><?php echo $i;?></td>
+    <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
+    <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
+    <td><?php echo $key->kegiatan;?></td>
+    <td><?php echo $key->dari;?></td>
+    <td><?php 
+              if ($key->asdep1 == 1) { echo "ASDEP 1<br/>";}
+              if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
+              if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
+              if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
+              if ($key->sesdep == 1) { echo "SESDEP<br/>";}?></td>
 </tr>
 <?php
 $i++;
@@ -142,19 +165,28 @@ $i++;
 <?PHP
 $data = $this->M_agenda->getAllExcel('asdep4');
 $i=1;
-foreach($data->result() as $key)
-{
+foreach($data->result() as $key){
+	if (date('N',strtotime($key->tanggal)) == 1) {$hari = 'Senin';}
+              if (date('N',strtotime($key->tanggal)) == 2) {$hari = 'Selasa';}
+              if (date('N',strtotime($key->tanggal)) == 3) {$hari = 'Rabu';}
+              if (date('N',strtotime($key->tanggal)) == 4) {$hari = 'Kamis';}
+              if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
+              if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
+
 ?>
 <tr>
-	<td style="vertical-align:top;"><?php echo $i;?></td>
-	<td style="vertical-align:top;"><?php echo $key->narasi;?></td>
-   	<td style="vertical-align:top;"><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tanggal != '0000-00-00'){echo date("d-M-Y",strtotime($key->tanggal));}else{echo "-";}?>
-    <td style="vertical-align:top;"><?php echo $key->uraian;?></td>
-    <td style="vertical-align:top;"><?php echo "Rp " .number_format($key->anggaran);?></td>
-    <td style="vertical-align:top;"><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tglSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
-    <td style="vertical-align:top;"><?php if($key->tglPencairan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td>
+	<td><?php echo $i;?></td>
+    <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
+    <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
+    <td><?php echo $key->kegiatan;?></td>
+    <td><?php echo $key->dari;?></td>
+    <td><?php 
+              if ($key->asdep1 == 1) { echo "ASDEP 1<br/>";}
+              if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
+              if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
+              if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
+              if ($key->sesdep == 1) { echo "SESDEP<br/>";}?></td>
 </tr>
 <?php
 $i++;

@@ -57,6 +57,7 @@
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep2">Asdep2</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep3">Asdep3</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep4">Asdep4</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/sesdep">Sesdep</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda">Semua</a></li>
                           </ul>
@@ -74,6 +75,7 @@
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep2">Asdep2</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep3">Asdep3</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep4">Asdep4</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/sesdep">Sesdep</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda">Semua</a></li>
                           </ul>

@@ -122,6 +122,7 @@ class Beranda extends CI_Controller {
 				break;
 			case 'agenda':
 				$result['data'] = $this->M_agenda->getAllExcel($deputi); //Ngambil data dari tabel, disimpen ke $data
+				// print_r($result['data']->result());die();
 				if ($deputi != null) {
 					$this->load->view('frontend/agendaAsdep',$result);
 				}else{

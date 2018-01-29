@@ -11,10 +11,11 @@ class M_agenda extends CI_Model {
 	public function getAllExcel($value)
 	{
 		if ($value == null) {
-			$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by ";	# code...
+			$sql = "SELECT agenda.* from agenda";	# code...
 		}else{
-			$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by  where user.role = '".$value."' ";
+			$sql = "SELECT agenda.*from agenda where agenda.".$value." = 1 ";
 		}
+		// echo $sql;die();
 		return $this->db->query($sql);
 	}
 	public function insert($data)
