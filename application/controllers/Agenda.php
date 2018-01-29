@@ -135,7 +135,7 @@ class Agenda extends CI_Controller {
 	{
 		$data = $this->M_agenda->getId($value);
 		$this->M_agenda->deleteId($value);
-		redirect('agenda/'.$data[0]->role);
+		redirect('agenda');
 	}
 	public function edit($value)
 	{
