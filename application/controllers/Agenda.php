@@ -47,27 +47,7 @@ class Agenda extends CI_Controller {
 	}
 	public function add()
 	{
-		switch ($this->input->post('deputi')) {
-			case 'asdep1':
-				$created_by = 2;
-				$url_back ='asdep1';
-				break;
-			case 'asdep2':
-				$created_by = 3;
-				$url_back ='asdep2';
-				break;
-			case 'asdep3':
-				$created_by = 4;
-				$url_back ='asdep3';
-				break;
-			case 'asdep4':
-				$created_by = 5;
-				$url_back ='asdep4';
-				break;
-			default:
-				# code...
-				break;
-		}
+		
 		//$tgl = substr($this->input->post('tanggal'), 6,4)."-".substr($this->input->post('tanggal'), 0,2)."-".substr($this->input->post('tanggal'), 3,2);
 		$data = array(
 			// 'narasiKebijakan'=>$this->input->post('narasiKebijakan'),
@@ -92,7 +72,7 @@ class Agenda extends CI_Controller {
 			'updated_by'=>$this->session->userdata('session')[0]->no);
 		// print_r($data);die();
 		$this->M_agenda->insert($data);
-		redirect('agenda/'.$url_back);
+		redirect('agenda');
 	}
 	public function config()
 	{
