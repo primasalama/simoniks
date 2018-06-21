@@ -43,8 +43,12 @@
                                         </select>
                                     </div> -->
                                     <div class="form-group">
-                                        <label>Tanggal Kegiatan : </label>
-                                        <input type="text" name="tanggal" id="tanggal" class="form-control" placeholder="Tanggal Penyelengaaraan" required="true">
+                                        <label>Tanggal Awal Kegiatan : </label>
+                                        <input type="text" name="tanggal" id="tanggal" class="form-control" placeholder="Tanggal Awal Penyelengaaraan" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tanggal Akhir Kegiatan : </label>
+                                        <input type="text" name="tanggal1" id="tanggal1" class="form-control" placeholder="Tanggal Akhir Penyelengaaraan" >
                                     </div>
                                     <div class="form-group">
                                         <label>Waktu Kegiatan (pukul) : </label>
@@ -85,7 +89,7 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label>Peserta Kegiatan (yang menghadiri): </label>
+                                        <label>Yang menghadiri kegiatan: </label>
                                         <!-- <textarea class="form-control" name="yg_menghadiri" rows="2" placeholder="yang menghadiri" required="true"></textarea> -->
                                         <div class="checkbox">
                                             <label>
@@ -117,6 +121,12 @@
                                                 Sesdep
                                             </label>
                                         </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="deputi" value="1">
+                                                Deputi
+                                            </label>
+                                        </div>
                                     </div>
                                     
                                     <div class="form-group">
@@ -142,6 +152,7 @@
 <script>
       $(function() {
         $( '#tanggal' ).datepicker();
+        $( '#tanggal1' ).datepicker();
         $( '#tglPengajuan' ).datepicker();
         $('#pukul').bootstrapMaterialDatePicker({
         	date: false,
