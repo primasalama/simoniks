@@ -90,6 +90,7 @@
                                       }
                                       ?>
                                     <a class="btn btn-warning" href="<?php echo base_url();?>fkebijakan/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
+
 								</td><?php
 							}?>
 						</tr>
@@ -207,7 +208,7 @@
 								?><td>
 									<a href="#" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fprogress/delete/<?php echo $key->no;?>/<?php echo $this->uri->segment(3);?>" data-book="<?php echo $key->uraian;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
 									<a class="btn btn-warning" href="<?php echo base_url();?>fprogress/edit/<?php echo $key->no."/".$this->uri->segment(3);?>"><span class="glyphicon glyphicon-edit"></span></a>
-									
+									<a class="btn btn-info" href="<?php echo base_url();?>fprogress/word/<?php echo $key->no."/".$this->uri->segment(3);?>"><span class="glyphicon glyphicon-align-justify"></span></a>
 								</td><?php
 							}
 							?>

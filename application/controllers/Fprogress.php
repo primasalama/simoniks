@@ -127,4 +127,13 @@ class Fprogress extends CI_Controller {
 		$this->load->view('frontend/edit_progress',$result);
 		$this->load->view('frontend/footerf');
 	}
+	public function word($value,$asdep)
+	{
+		$result['data1'] = $this->M_kebijakan->getByAsdep($asdep);
+		$result['data'] = $this->M_progress->getId($value);
+		// $this->load->view('frontend/header');
+		$this->load->view('frontend/word_progress',$result);
+		// $this->load->view('frontend/footerf');
+	}
+
 }
