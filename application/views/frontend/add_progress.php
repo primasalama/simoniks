@@ -55,7 +55,7 @@ body{
                             <div id="FormLogin" class="col-sm-7">
                                 <form action="<?php echo $action;?>" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label>Narasi*</label>
+                                        <label>Kegiatan*</label>
                                         <select class="form-control" name="narasiKebijakan">
                                                 <?php 
                                                 foreach ($data as $key) {
@@ -97,12 +97,8 @@ body{
                                             <input class="form-control" id="lokasi" name="lokasi" required="true" placeholder="Lokasi/ Tempat Kegiatan" />
                                         </div>
                                     <div class="form-group">
-                                        <label>Uraian* : </label>
-                                        <textarea class="form-control" name="uraian" required="true" rows="5" placeholder="Uraian"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Tindak Lanjut* : </label>
-                                        <textarea class="form-control" name="tindak_ljt" rows="5" placeholder="Tindak Lanjut"></textarea>
+                                        <label>Komponen Kegiatan* : </label>
+                                        <textarea class="form-control" name="uraian" required="true" rows="5" placeholder="Deskripsi Kegiatan"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Masalah* : </label>
@@ -111,6 +107,10 @@ body{
                                     <div class="form-group">
                                         <label>Output* : </label>
                                         <textarea class="form-control" name="hasil" rows="5" placeholder="Output"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tindak Lanjut* : </label>
+                                        <textarea class="form-control" name="tindak_ljt" rows="5" placeholder="Tindak Lanjut"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Arahan Kemenko* : </label>

@@ -62,7 +62,7 @@ body{
                             <div id="FormLogin" class="col-sm-7">
                                 <form action="<?php echo $action;?>" method="post" enctype="multipart/form-data">
                                  <div class="form-group">
-                                            <label>Narasi Kebijakan </label>
+                                            <label>Kegiatan </label>
                                             <select class="form-control" name="narasiKebijakan">
                                                 <?php 
                                                 foreach ($data1 as $key) {
@@ -107,12 +107,8 @@ body{
                                             <input class="form-control" id="lokasi" name="lokasi" value="<?php echo $data[0]->lokasi; ?>" required="true" placeholder="Lokasi/ Tempat Kegiatan" />
                                         </div>
                                     <div class="form-group">
-                                        <label>Uraian : </label>
+                                        <label>Komponen Kegia : </label>
                                         <textarea class="form-control" name="uraian" required="true" rows="5"><?php echo $data[0]->uraian;?></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Tindak Lanjut : </label>
-                                        <textarea class="form-control" name="tindak_ljt" rows="7"><?php echo $data[0]->tindak_ljt;?></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Masalah : </label>
@@ -121,6 +117,10 @@ body{
                                     <div class="form-group">
                                         <label>Output : </label>
                                         <textarea class="form-control" name="hasil" rows="7"><?php echo $data[0]->hasil;?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tindak Lanjut : </label>
+                                        <textarea class="form-control" name="tindak_ljt" rows="7"><?php echo $data[0]->tindak_ljt;?></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Arahan Kemenko : </label>
