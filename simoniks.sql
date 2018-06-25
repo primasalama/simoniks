@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 25, 2018 at 12:09 PM
+-- Generation Time: Jun 25, 2018 at 01:13 PM
 -- Server version: 5.7.22-0ubuntu18.04.1
 -- PHP Version: 7.0.30-1+ubuntu18.04.1+deb.sury.org+1
 
@@ -29,7 +29,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `agenda` (
   `no` int(11) NOT NULL,
   `tanggal` datetime NOT NULL,
-  `tanggal1` datetime DEFAULT NULL,
   `pukul` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `tempat` text NOT NULL,
   `kegiatan` text NOT NULL,
@@ -39,7 +38,6 @@ CREATE TABLE `agenda` (
   `asdep2` int(11) DEFAULT NULL,
   `asdep3` int(11) DEFAULT NULL,
   `asdep4` int(11) DEFAULT NULL,
-  `sesdep` int(11) DEFAULT NULL,
   `deputi` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -51,11 +49,9 @@ CREATE TABLE `agenda` (
 -- Dumping data for table `agenda`
 --
 
-INSERT INTO `agenda` (`no`, `tanggal`, `tanggal1`, `pukul`, `tempat`, `kegiatan`, `dari`, `yg_menghadiri`, `asdep1`, `asdep2`, `asdep3`, `asdep4`, `sesdep`, `deputi`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(1, '2018-01-24 10:00:00', NULL, '2018-01-24 10:08:31', 'Ruang Rapat lt. 8', 'Rapat persiapan kinerja th. 2018', 'Deputi Bidang Koordinasi SDA dan Jasa', 'Seluruh unit Deputi SDA dan Jasa', 1, NULL, NULL, NULL, 1, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, 6),
-(3, '2018-01-31 02:05:00', '2018-02-15 02:05:00', '2018-01-30 01:53:53', 'Depok', 'dsadasdsa', 'dsadasdsadas', NULL, 1, NULL, NULL, NULL, 1, 1, '2018-01-30 01:53:53', '2018-01-30 01:53:53', 7, 6),
-(5, '2018-02-06 02:00:00', NULL, '2018-02-06 04:22:58', 'sarbini', 'sadvghas', 'dsahdi', NULL, 1, NULL, 1, NULL, 1, NULL, '2018-02-06 04:22:58', '2018-02-06 04:22:58', 6, 6),
-(6, '2018-02-05 15:00:00', NULL, '2018-02-26 05:00:28', 'asddad', 'fsdfsdfsf', 'fdsfdsfs', NULL, 1, 1, 1, 1, NULL, NULL, '2018-02-26 05:00:28', '2018-02-26 05:00:28', 6, 6);
+INSERT INTO `agenda` (`no`, `tanggal`, `pukul`, `tempat`, `kegiatan`, `dari`, `yg_menghadiri`, `asdep1`, `asdep2`, `asdep3`, `asdep4`, `deputi`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, '2018-01-24 10:00:00', '2018-01-24 10:08:31', 'Ruang Rapat lt. 8', 'Rapat persiapan kinerja th. 2018', 'Deputi Bidang Koordinasi SDA dan Jasa', 'Seluruh unit Deputi SDA dan Jasa', NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, 6),
+(2, '2018-01-31 09:00:00', '2018-01-30 01:34:01', 'Ruang Rapat lt. 8', 'Rapat garam dan energi', 'Asdep 2', NULL, NULL, 1, NULL, NULL, NULL, '2018-01-30 01:34:01', '2018-01-30 01:34:01', 7, 7);
 
 -- --------------------------------------------------------
 
@@ -172,8 +168,7 @@ INSERT INTO `kebijakan` (`no`, `narasi`, `status`, `indikator`, `pic`, `tahun`, 
 (63, 'Koordinasi dan Sinkronisasi Kebijakan Konservasi Keanekaragaman Hayati Laut', '-. Potensi keanekaragaman hayati seperti tuna, udang, lobster, ikan karang, berbagai jenis ikan hias, kekerangan banyak yang dalam kondisi terancam kepunahan.\r\n-. Upaya pelestarian /konservasi keanekaragaman sesuai dengan RKP Tahun 2017', '0', '0', 2017, '2018-01-14 06:03:23', '2017-03-22 04:48:41', 2, 6),
 (64, 'Koordinasi dan Sinkronisasi Kebijakan Komisi Nasional Terumbu Karang Indonesia (CTI-CFF)', '0', '0', '0', 2017, '2018-01-14 06:03:23', '2017-02-03 06:26:13', 2, 6),
 (65, 'Koordinasi dan Sinkronisasi Implementasi Roadmap Konservasi dan Pengelolaan Taman Nasional Laut', '0', '0', '0', 2017, '2018-01-14 06:03:23', '2017-01-11 02:38:47', 2, 6),
-(66, 'Koordinasi dukungan kebijakan Komnas CTI', '0', '0', '0', 2017, '2018-01-14 06:03:23', '2017-01-11 02:39:03', 2, 6),
-(67, 'Narasi kebijakan sesuai PK', 'Status dari kebijakan', 'Indikator', 'asas', 2018, '2018-01-22 02:18:50', '2018-01-22 02:18:50', 2, 6);
+(66, 'Koordinasi dukungan kebijakan Komnas CTI', '0', '0', '0', 2017, '2018-01-14 06:03:23', '2017-01-11 02:39:03', 2, 6);
 
 -- --------------------------------------------------------
 
@@ -184,7 +179,7 @@ INSERT INTO `kebijakan` (`no`, `narasi`, `status`, `indikator`, `pic`, `tahun`, 
 CREATE TABLE `progress` (
   `no` int(11) NOT NULL,
   `uraian` text NOT NULL,
-  `tanggal` text,
+  `tanggal` text NOT NULL,
   `tanggal1` datetime NOT NULL,
   `tanggal2` datetime NOT NULL,
   `lokasi` text NOT NULL,
@@ -196,7 +191,7 @@ CREATE TABLE `progress` (
   `dokumentasi2` text NOT NULL,
   `arahan` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -544,9 +539,7 @@ INSERT INTO `progress` (`no`, `uraian`, `tanggal`, `tanggal1`, `tanggal2`, `loka
 (345, 'Laporan menghadiri rapat persiapan kegiatan Dewan Sumber Daya Air Nasional TA 2018', '', '2017-12-19 00:00:00', '2017-12-19 00:00:00', 'Hotel Santika Premier Bintaro', 'Sekretariat Dewan SDA NAsional akan berupaya agar beberapa rencana kerja yang perlu penyelesaian cepat dapat segera dilaksanakan\r\n', 'Menteri PUPR harus mempercepat penetapan tentang draft Keputusan Presiden tentang Anggota Dewan SDA Nasional oleh Presiden ', 'Penajaman isu strategis lintas sektor terkait SDA dan persiapan pembahasannya, serta penyusunan rencana kerja Dewan SDA Nasional TA 2018', 20, 'file_1514344280.png', 'file_15143442801.png', '', '2017-12-27 03:11:20', '0000-00-00 00:00:00', 3, 3);
 INSERT INTO `progress` (`no`, `uraian`, `tanggal`, `tanggal1`, `tanggal2`, `lokasi`, `hasil`, `tindak_ljt`, `masalah`, `narasiKebijakan`, `dokumentasi1`, `dokumentasi2`, `arahan`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
 (346, 'Rapat dibuka oleh Deputi Bidang Koordinasi SDA dan Jasa, Kemenko Maritim,  dengan dihadiri oleh perwakilan dari KLHK, Syahbandar Priok, Tanjung Perak, Belawan dan Makassar, beserta perwakilan Pelindo I, II, III dan IV serta SKK Migas.  ', '', '2017-12-15 00:00:00', '2017-12-15 00:00:00', 'Ruang Rapat Kemenko Maritim Lantai 2 ', '-', 'Rekomendasi Rapat serta Tindaklanjut:\r\n\r\n1.	Pencanangan capaian ISO 14001 pada Tahun 2019 dan Green Port Tahun 2020.\r\n2.	Penyusunan Kriteria Green Port  mengacu kepada Green Port Award System Indicators yang dikeluarkan APEC Port Services Network.  Contoh implementasi Green Port  dapat mengacu kepada praktek di Taiwan dan Australia.\r\n3.	Perlu rapat persiapan bagi penyelenggaraan Rakor di Tahun 2018\r\n4.	Rencana Tindak Lanjut di Tahun 2018 \r\n4.1 Rakor dengan seluruh K/L, Pelabuhan dan Stakeholder di seluruh Indonesia dan Lembaga Penelitian serta Universitas. \r\na.	Pencanangan Program ISO 14001 dan Green Port\r\nb.	Mempersiapkan roadmap pelaksanaan Green Port\r\n4.2 Monev pada beberapa pelabuhan sebagai uji-coba pelaksanaan Green Port\r\n', '-', 45, 'file_1515046644.jpeg', 'file_15150466441.jpeg', '', '2018-01-04 06:17:24', '0000-00-00 00:00:00', 5, 5),
-(347, 'Pertemuan koordinasi Komite Nasional CTI-CFF Indonesia dilaksanakan pada tanggal 10 Januari 2018 di Ruang Rapat Lt.2 Utara Kemenko Bidang Kemaritiman. Agenda pertemuan adalah:\r\na)	Penyusunan Laporan Tahunan CTI-CFF Indonesia 2017,\r\nb)	Revisi SK Keangotaan Sekretariat dan Pokja CTI-CFF Indonesia;\r\nc)	Proses pengesahan NPOA CTI-CFF Indonesia.\r\n', '', '2018-01-10 00:00:00', '2018-01-10 00:00:00', 'Ruang Rapat Lt.2 Utara Kemenko Bidang Kemaritiman', 'Berita Acara KesepakatanK/L dan instansi terkit terhadap Penyusunan Rencana Aksi Nasional (National Plan of Action) CTI-CFF Indonesia 2017-2020. ', 'Rencana Tindak lanjut\r\n1.	Akan diadakan rapat lanjutan untuk membahas Laporan Tahunan CTI-CFF Indonesia yang direncanakan akan dilaksanakan pada Minggu ke-4 Januari 2017.\r\n2.	Akan dilakukan proses Revisi Keanggotaan Pokja, baik pada level Permenko maupun SK Dirjen PRL.\r\n3.	Diusulkan untuk mengadakan Rapat Komnas CTI CFF Indonesia yang dipimpin oleh Menko Maritim dengan mengundang Menteri terkait sebagai anggota Pokja. \r\n4.	Proses pengesahan NPOA CTI-CFF Indonesia 2017-2020;\r\n5.	Koordinasi dengan KLHK selaku NFP CBD untuk persiapan regional meeting CTI.\r\n', '-', 64, 'file_1515730063.jpeg', 'file_15157300631.jpeg', '-', '2018-01-12 04:07:43', '0000-00-00 00:00:00', 2, 2),
-(348, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat aliquam urna nec bibendum. Donec eu urna purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat. Etiam pulvinar euismod magna. Fusce sollicitudin, neque sit amet condimentum condimentum, lacus purus feugiat neque, vitae lobortis est nunc', NULL, '2018-02-09 00:00:00', '2018-02-09 00:00:00', 'Sukasari', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat aliquam urna nec bibendum. Donec eu urna purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat. Etiam pulvinar euismod magna. Fusce sollicitudin, neque sit amet condimentum condimentum, lacus purus feugiat neque, vitae lobortis est nunc', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat aliquam urna nec bibendum. Donec eu urna purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat. Etiam pulvinar euismod magna. Fusce sollicitudin, neque sit amet condimentum condimentum, lacus purus feugiat neque, vitae lobortis est nunc', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat aliquam urna nec bibendum. Donec eu urna purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat. Etiam pulvinar euismod magna. Fusce sollicitudin, neque sit amet condimentum condimentum, lacus purus feugiat neque, vitae lobortis est nunc', 67, 'file_1518163073.png', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat aliquam urna nec bibendum. Donec eu urna purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat. Etiam pulvinar euismod magna. Fusce sollicitudin, neque sit amet condimentum condimentum, lacus purus feugiat neque, vitae lobortis est nunc', '2018-02-09 07:41:03', '2018-02-09 07:57:53', 2, 6),
-(349, 'DSIAHDI', NULL, '2018-02-24 00:00:00', '2018-02-24 00:00:00', 'SADA', 'SADAS', 'SHIDHAS', 'SADSAD', 67, 'file_1518163038.jpg', 'file_15181630381.jpg', 'SDSA', '2018-02-09 07:57:18', NULL, 2, 6);
+(347, 'Pertemuan koordinasi Komite Nasional CTI-CFF Indonesia dilaksanakan pada tanggal 10 Januari 2018 di Ruang Rapat Lt.2 Utara Kemenko Bidang Kemaritiman. Agenda pertemuan adalah:\r\na)	Penyusunan Laporan Tahunan CTI-CFF Indonesia 2017,\r\nb)	Revisi SK Keangotaan Sekretariat dan Pokja CTI-CFF Indonesia;\r\nc)	Proses pengesahan NPOA CTI-CFF Indonesia.\r\n', '', '2018-01-10 00:00:00', '2018-01-10 00:00:00', 'Ruang Rapat Lt.2 Utara Kemenko Bidang Kemaritiman', 'Berita Acara KesepakatanK/L dan instansi terkit terhadap Penyusunan Rencana Aksi Nasional (National Plan of Action) CTI-CFF Indonesia 2017-2020. ', 'Rencana Tindak lanjut\r\n1.	Akan diadakan rapat lanjutan untuk membahas Laporan Tahunan CTI-CFF Indonesia yang direncanakan akan dilaksanakan pada Minggu ke-4 Januari 2017.\r\n2.	Akan dilakukan proses Revisi Keanggotaan Pokja, baik pada level Permenko maupun SK Dirjen PRL.\r\n3.	Diusulkan untuk mengadakan Rapat Komnas CTI CFF Indonesia yang dipimpin oleh Menko Maritim dengan mengundang Menteri terkait sebagai anggota Pokja. \r\n4.	Proses pengesahan NPOA CTI-CFF Indonesia 2017-2020;\r\n5.	Koordinasi dengan KLHK selaku NFP CBD untuk persiapan regional meeting CTI.\r\n', '-', 64, 'file_1515730063.jpeg', 'file_15157300631.jpeg', '-', '2018-01-12 04:07:43', '0000-00-00 00:00:00', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -570,12 +563,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`no`, `name`, `password`, `label`, `created_at`, `created_by`, `updated_by`, `role`) VALUES
-(2, 'asdep1', '827ccb0eea8a706c4c34a16891f84e7b', 'Asisten Deputi Sumberdaya Hayati', '2018-06-25 05:08:35', 1, 1, 'asdep1'),
-(3, 'asdep2', '6775c235072e30e28284acfb592e1b82', 'Asisten Deputi Sumber Daya Mineral, Energi dan Non Konvensional', '2018-06-25 05:08:44', 1, 1, 'asdep2'),
-(4, 'asdep3', '7fc9c571ce956079fd7ff981dd71c66a', 'Asisten Deputi Jasa Kemaritiman', '2018-06-25 05:08:57', 1, 1, 'asdep3'),
-(5, 'asdep4', '44fd96b884db26fd03a22ce9fb91d2f3', 'Asisten Deputi Lingkungan dan Kebencanaan Maritim', '2018-06-25 05:09:07', 1, 1, 'asdep4'),
-(6, 'admin', '827ccb0eea8a706c4c34a16891f84e7b', '', '2018-01-14 06:02:24', 0, 0, 'admin'),
-(7, 'sesdep', '827ccb0eea8a706c4c34a16891f84e7b', '', '2018-01-25 04:10:35', 0, 0, 'sesdep');
+(2, 'asdep1', '078979c4c45d5f47f3dbb5e789568db4', 'Asisten Deputi Sumberdaya Hayati', '2018-06-25 06:13:19', 1, 1, 'asdep1'),
+(3, 'asdep2', '6775c235072e30e28284acfb592e1b82', 'Asisten Deputi Sumber Daya Mineral, Energi dan Non Konvensional', '2018-06-25 06:13:30', 1, 1, 'asdep2'),
+(4, 'asdep3', '7fc9c571ce956079fd7ff981dd71c66a', 'Asisten Deputi Jasa Kemaritiman', '2018-06-25 06:13:36', 1, 1, 'asdep3'),
+(5, 'asdep4', '44fd96b884db26fd03a22ce9fb91d2f3', 'Asisten Deputi Lingkungan dan Kebencanaan Maritim', '2018-06-25 06:13:44', 1, 1, 'asdep4'),
+(6, 'admin', '15478385d6c513db1981510ed3eea6b0', '0', '2018-01-29 01:43:56', 0, 0, 'admin'),
+(7, 'sesdep', 'b268e3dd916fc8abc72b7394dfa43501', '0', '2017-04-10 08:21:02', 0, 0, 'sesdep');
 
 --
 -- Indexes for dumped tables
@@ -619,7 +612,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `agenda`
 --
 ALTER TABLE `agenda`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `agenda2`
 --
@@ -629,12 +622,12 @@ ALTER TABLE `agenda2`
 -- AUTO_INCREMENT for table `kebijakan`
 --
 ALTER TABLE `kebijakan`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT for table `progress`
 --
 ALTER TABLE `progress`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=350;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=348;
 --
 -- AUTO_INCREMENT for table `user`
 --
