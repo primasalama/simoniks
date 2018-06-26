@@ -9,6 +9,20 @@ header("Content-type: application/msword");
 header("Content-disposition: inline; filename=laporan.doc");
 header("Content-Transfer-Encoding: binary ");
 
+
+		if ($data[0]->lokasi == '') {
+                              $tempat = '';
+                            }else{
+                              $tempat = " Di ".$data[0]->lokasi;
+                            }
+
+                            if ($data[0]->tanggal1 == $data[0]->tanggal2) {
+                               $keterangan =  date("d-M-Y",strtotime($data[0]->tanggal1))." ".$tempat;
+                            }else{
+                                //echo date("d-M-Y",strtotime($data[0]->tanggal1))." "."s/d ".date("d-M-Y",strtotime($data[0]->tanggal2))." ".$tempat;
+                                $keterangan = date("d-M-Y",strtotime($data[0]->tanggal1))." ".$tempat;
+                            }	
+
 ?>
 
 <html>
@@ -39,7 +53,7 @@ header("Content-Transfer-Encoding: binary ");
 			<table>
 				<tr>
 					<td id="cell1">Unit Kerja</td>
-					<td> : Asdep/Deputi</td>
+					<td> : <?php echo $data[0]->label;?></td>
 				</tr>
 				<tr>
 					<td id="cell1">Tipe Laporan</td>
@@ -56,17 +70,18 @@ header("Content-Transfer-Encoding: binary ");
 		<ul>
 			<li>
 				<span>Progress</span>
-				<p>Program</p>
-				<p>Capaian</p>
-				<p>Keterangan</p>
+				<p>Program : <?php echo $data[0]->narasi;?></p>
+				<p>Komponen Kegiatan<?php echo $data[0]->uraian;?></p>
+				<p><?php echo $keterangan;?></p>
 			</li>
 			<li>
 				<span>Kendala</span>
-				<p>Kendala</p>
+				<p><?php echo $data[0]->masalah;?></p>
 			</li>
 			<li>
 				<span>Hasil & Tindak Lanjut</span>
-				<p>Kendala</p>
+				<p><?php echo $data[0]->tindak_ljt;?></p>
+				<p>Arahan MENKO :  <?php if($data[0]->arahan != ""){echo $data[0]->arahan;}else{echo "-";}?></p>
 			</li>
 		</ul>
 	</div>

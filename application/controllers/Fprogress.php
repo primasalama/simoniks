@@ -132,6 +132,8 @@ class Fprogress extends CI_Controller {
 		$result['data1'] = $this->M_kebijakan->getByAsdep($asdep);
 		$result['data'] = $this->M_progress->getId($value);
 		// $this->load->view('frontend/header');
+		// echo $asdep;
+		// print_r($result['data']);die();
 		$this->load->view('frontend/word_progress',$result);
 		// $this->load->view('frontend/footerf');
 	}
