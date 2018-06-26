@@ -110,14 +110,14 @@
 					<thead style="vertical-align:middle">
 						<tr>
 							<th style="vertical-align:middle">No.</th>
-							<th style="vertical-align:middle" width="15%">Narasi</th>
+							<th style="vertical-align:middle" width="15%">Kegiatan</th>
 							<th style="vertical-align:middle">Waktu/Tanggal</th>
-							<th style="vertical-align:middle" width="20%">Uraian</th>
-							<th style="vertical-align:middle" width="20%">Tindak Lanjut</th>
-							<th style="vertical-align:middle" width="20%">Masalah</th>
-							<th style="vertical-align:middle">Dokumentasi</th>
-                            <th style="vertical-align:middle">Arahan Untuk Kemenko Maritim</th>
+							<th style="vertical-align:middle" width="20%">Komponen Kegiatan</th>
+                            <th style="vertical-align:middle" width="20%">Masalah</th>
                             <th style="vertical-align:middle" width="10%">Output</th>
+							<th style="vertical-align:middle" width="20%">Tindak Lanjut</th>
+                            <th style="vertical-align:middle">Arahan Untuk Kemenko Maritim</th>
+							<th style="vertical-align:middle">Dokumentasi</th>
 							<?php 
 							if ($this->uri->segment(3)) {
 								?><th style="vertical-align:middle" width="5%">Action</th><?php
@@ -162,6 +162,20 @@
                                 }
                             ?>
                             <?php 
+                                if (strlen($key->masalah) > 100) {
+                                    ?><td><?php echo substr(nl2br($key->masalah), 0,100);?><span id="masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->masalah), 300) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
+                                }else{
+                                    ?> <td><?php echo nl2br($key->masalah);?></td><?php 
+                                }
+                            ?>
+                            <?php 
+                                if (strlen($key->hasil) > 100) {
+                                    ?><td><?php echo substr(nl2br($key->hasil), 0,100);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 150) ?></span><a data-toggle="collapse" data-target="#hasil_<?php echo $i;?>"> Readmore..</a></td><?php
+                                }else{
+                                    ?> <td><?php echo nl2br($key->hasil);?></td><?php 
+                                }
+                            ?>
+                            <?php 
                                 if (strlen($key->tindak_ljt) > 100) {
                                     ?><td><?php echo substr(nl2br($key->tindak_ljt), 0,100);?><span id="tindak_ljt_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->tindak_ljt), 300) ?></span><a data-toggle="collapse" data-target="#tindak_ljt_<?php echo $i;?>"> Readmore..</a></td><?php
                                 }else{
@@ -169,10 +183,10 @@
                                 }
                             ?>
                             <?php 
-                                if (strlen($key->masalah) > 100) {
-                                    ?><td><?php echo substr(nl2br($key->masalah), 0,100);?><span id="masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->masalah), 300) ?></span><a data-toggle="collapse" data-target="#masalah_<?php echo $i;?>"> Readmore..</a></td><?php
+                                if (strlen($key->arahan) > 100) {
+                                    ?><td><?php echo substr(nl2br($key->arahan), 0,100);?><span id="arahan_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->arahan), 200) ?></span><a data-toggle="collapse" data-target="#arahan_<?php echo $i;?>"> Readmore..</a></td><?php
                                 }else{
-                                    ?> <td><?php echo nl2br($key->masalah);?></td><?php 
+                                    ?> <td><?php echo nl2br($key->arahan);?></td><?php 
                                 }
                             ?>
                            <td>
@@ -189,20 +203,6 @@
                                 }
                                 ?>
                             </td>
-                            <?php 
-                                if (strlen($key->arahan) > 100) {
-                                    ?><td><?php echo substr(nl2br($key->arahan), 0,100);?><span id="arahan_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->arahan), 200) ?></span><a data-toggle="collapse" data-target="#arahan_<?php echo $i;?>"> Readmore..</a></td><?php
-                                }else{
-                                    ?> <td><?php echo nl2br($key->arahan);?></td><?php 
-                                }
-                            ?>
-                            <?php 
-                                if (strlen($key->hasil) > 100) {
-                                    ?><td><?php echo substr(nl2br($key->hasil), 0,100);?><span id="hasil_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->hasil), 150) ?></span><a data-toggle="collapse" data-target="#hasil_<?php echo $i;?>"> Readmore..</a></td><?php
-                                }else{
-                                    ?> <td><?php echo nl2br($key->hasil);?></td><?php 
-                                }
-                            ?>
 							<?php 
 							if ($this->uri->segment(3) == $this->session->userdata('session')[0]->role or $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>

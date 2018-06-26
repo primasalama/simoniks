@@ -46,11 +46,11 @@ header("Content-Transfer-Encoding: binary ");
 </head>
 <body>
 	<h1>
-		<center>Laporan Mingguan</center>
+		<center>Laporan Kegiatan</center>
 	</h1>
 	<div class="bagian1">
 		<p>
-			<table>
+			<table style="align:"center">
 				<tr>
 					<td id="cell1">Unit Kerja</td>
 					<td> : <?php echo $data[0]->label;?></td>
@@ -61,7 +61,7 @@ header("Content-Transfer-Encoding: binary ");
 				</tr>
 				<tr>
 					<td id="cell1">Judul Laporan</td>
-					<td> : Kebijakan Deputi/Asdep</td>
+					<td> : <?php echo $data[0]->narasi?></td>
 				</tr>
 			</table>
 		</p>
@@ -71,8 +71,8 @@ header("Content-Transfer-Encoding: binary ");
 			<li>
 				<span>Progress</span>
 				<p>Program : <?php echo $data[0]->narasi;?></p>
-				<p>Komponen Kegiatan<?php echo $data[0]->uraian;?></p>
 				<p><?php echo $keterangan;?></p>
+				<p>Komponen Kegiatan<?php echo $data[0]->uraian;?></p>
 			</li>
 			<li>
 				<span>Kendala</span>
