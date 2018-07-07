@@ -79,6 +79,14 @@ body{
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            <label>Kepala Bidang</label>
+                                            <input type="text" name="kabid" class="form-control" placeholder="Nama Kabid" required="true">
+                                        </div>
+                                         <!-- <div class="form-group">
+                                            <label>NIP Kabid</label>
+                                            <input type="text" name="nip_kabid" class="form-control" placeholder="Nomor Induk Pegawai Kabid" required="true">
+                                        </div> -->
+                                        <div class="form-group">
                                             <input type="submit" value="Submit" class="btn btn-primary">
                                             <input type="reset" value="Reset" class="btn btn-warning">
                                         </div>

@@ -32,6 +32,14 @@
                                 <label>PIC : </label>
                                 <textarea class="form-control" name="pic" required="true" rows="5"><?php echo $data[0]->pic;?></textarea>
                             </div>
+                             <div class="form-group">
+                                <label>Nama Kepala Bidang : </label>
+                                <input class="form-control" name="kabid" required="true" rows="5" value="<?php echo $data[0]->kabid;?>">
+                            </div>
+                            <!--  <div class="form-group">
+                                <label>NIP Kepala Bidang : </label>
+                                <input class="form-control" name="nip_kabid" required="true" rows="5" value="<?php echo $data[0]->nip_kabid;?>">
+                            </div> -->
                             <!--
                             <div class="form-group">
                                 <label>Status : </label>

@@ -107,7 +107,7 @@ body{
                                             <input class="form-control" id="lokasi" name="lokasi" value="<?php echo $data[0]->lokasi; ?>" required="true" placeholder="Lokasi/ Tempat Kegiatan" />
                                         </div>
                                     <div class="form-group">
-                                        <label>Komponen Kegia : </label>
+                                        <label>Komponen Kegiatan : </label>
                                         <textarea class="form-control" name="uraian" required="true" rows="5"><?php echo $data[0]->uraian;?></textarea>
                                     </div>
                                     <div class="form-group">
