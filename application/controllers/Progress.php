@@ -37,6 +37,7 @@ class Progress extends CI_Controller {
 	}
 	public function tambah()
 	{
+
 		$this->load->view('backend/header');
 		$this->load->view('backend/navbar');
 		$this->load->view('backend/sidenav');
@@ -46,10 +47,12 @@ class Progress extends CI_Controller {
 	public function add()
 	{	
 		$tanggal1 = substr($this->input->post('tanggal1'), 6,4)."-".substr($this->input->post('tanggal1'), 0,2)."-".substr($this->input->post('tanggal1'), 3,2);
-		if (empty($this->input->post('tanggal2')) || empty($this->input->post('jam2'))) {
+		if (empty($this->input->post('tanggal2'))) {
 			$tanggal2 = substr($this->input->post('tanggal1'), 6,4)."-".substr($this->input->post('tanggal1'), 0,2)."-".substr($this->input->post('tanggal1'), 3,2);
+			echo "a";
 		}else{
 			$tanggal2 = substr($this->input->post('tanggal2'), 6,4)."-".substr($this->input->post('tanggal2'), 0,2)."-".substr($this->input->post('tanggal2'), 3,2);
+			echo "b";
 		}
 		//die();
 		switch ($this->input->post('deputi')) {
@@ -79,7 +82,7 @@ class Progress extends CI_Controller {
 		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),
 			'tanggal1'=>$tanggal1,'tanggal2'=>$tanggal2,'lokasi'=>$this->input->post('lokasi'),'hasil'=>$this->input->post('hasil'),
 			'tindak_ljt'=>$this->input->post('tindak_ljt'),'arahan'=>$this->input->post('arahan'),'masalah'=>$this->input->post('masalah'),
-			'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'created_by'=>$created_by,
+			'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'created_by'=>$created_by,'kegiatan'=>$this->input->post('kegiatan'),'sub_komponen'=>$this->input->post('sub_komponen'),
 			'updated_by'=>$this->session->userdata('session')[0]->no);
 		// print_r($data);die();
 
@@ -141,7 +144,7 @@ class Progress extends CI_Controller {
 		}else{
 			$dokumentasi2 = $result[0]->dokumentasi2;
 		}
-		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal1'=>$tanggal1,'tanggal2'=>$tanggal2,'lokasi'=>$this->input->post('lokasi'),'hasil'=>$this->input->post('hasil'),'arahan'=>$this->input->post('arahan'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
+		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),'tanggal1'=>$tanggal1,'tanggal2'=>$tanggal2,'lokasi'=>$this->input->post('lokasi'),'hasil'=>$this->input->post('hasil'),'arahan'=>$this->input->post('arahan'),'tindak_ljt'=>$this->input->post('tindak_ljt'),'masalah'=>$this->input->post('masalah'),'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'kegiatan'=>$this->input->post('kegiatan'),'sub_komponen'=>$this->input->post('sub_komponen'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"));
 		//print_r($data);die();
 		$this->M_progress->updateId($data,$value);
 		$data = $this->M_progress->getId($value);

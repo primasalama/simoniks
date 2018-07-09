@@ -125,6 +125,26 @@ body{
                                     <div class="form-group">
                                         <label>Arahan Kemenko : </label>
                                         <textarea class="form-control" name="arahan" rows="5" placeholder="Arahan Kemenko"><?php echo $data[0]->arahan;?></textarea>
+                                    <div class="form-group">
+                                        <label>Jenis Kegiatan : </label>
+                                        <select class="form-control" name="kegiatan">
+                                        <?php 
+                                        foreach ($kegiatan_enum as $key) {
+                                            ?><option value="<?php echo $key;?>" <?php if($key == $data[0]->kegiatan){echo "selected";}?>><?php echo $key;?></option><?php
+                                        }
+                                        ?>        
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sub Komponen : </label>
+                                        <select class="form-control" name="sub_komponen">
+                                        <?php 
+                                        foreach ($subkomponen_enum as $x) {
+                                            ?><option value="<?php echo $x;?>" <?php if($x == $data[0]->sub_komponen){echo "selected";}?>><?php echo $x;?></option><?php
+                                        }
+                                        ?>        
+                                        </select>
+                                    </div>
                             <div class="form-group col-sm-6">
                                 <label>Dokumentasi 1</label>
                                 <input type="file" name="foto1" class="form-control"  > 

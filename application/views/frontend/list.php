@@ -117,6 +117,8 @@
                             <th style="vertical-align:middle" width="10%">Output</th>
 							<th style="vertical-align:middle" width="20%">Tindak Lanjut</th>
                             <th style="vertical-align:middle">Arahan Untuk Kemenko Maritim</th>
+                            <th style="vertical-align:middle">Kegiatan</th>
+                            <th style="vertical-align:middle">Sub Komponen</th>
 							<th style="vertical-align:middle">Dokumentasi</th>
 							<?php 
 							if ($this->uri->segment(3)) {
@@ -189,6 +191,8 @@
                                     ?> <td><?php echo nl2br($key->arahan);?></td><?php 
                                 }
                             ?>
+                            <td><?php echo $key->kegiatan;?></td>
+                            <td><?php echo $key->sub_komponen;?></td>
                            <td>
                                 <?php if ($key->dokumentasi1 != "") {
                                     ?><a href="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>" data-lightbox="<?php echo $key->dokumentasi1?>" data-title="<?php echo $key->dokumentasi2;?>">

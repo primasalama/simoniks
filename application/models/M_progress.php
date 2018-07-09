@@ -71,4 +71,12 @@ class M_progress extends CI_Model {
 		# code...
 		//SELECT * FROM `progress` WHERE date(tanggal1) >= '2017-01-29'
 	}
+	public function get_enum($table_name,$field_name)
+	{
+		$query = $this->db->query("SHOW COLUMNS FROM `{$table_name}` LIKE '{$field_name}'");
+	    if(!$query->num_rows()) return array();
+	    preg_match_all('~\'([^\']*)\'~', $query->row('Type'), $matches);
+
+	    return $matches[1];
+	}
 }

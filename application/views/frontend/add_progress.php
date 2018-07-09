@@ -116,6 +116,26 @@ body{
                                         <label>Arahan Kemenko* : </label>
                                         <textarea class="form-control" name="arahan" rows="5" placeholder="Arahan Kemenko"></textarea>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Jenis Kegiatan : </label>
+                                        <select class="form-control" name="kegiatan">
+                                        <?php 
+                                        foreach ($kegiatan_enum as $key) {
+                                            ?><option value="<?php echo $key;?>"><?php echo $key;?></option><?php
+                                        }
+                                        ?>        
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sub Komponen : </label>
+                                        <select class="form-control" name="sub_komponen">
+                                        <?php 
+                                        foreach ($subkomponen_enum as $x) {
+                                            ?><option value="<?php echo $x;?>"><?php echo $x;?></option><?php
+                                        }
+                                        ?>        
+                                        </select>
+                                    </div>
                                     <?php 
                                     if ($this->session->userdata('session')[0]->role == 'admin') {
                                         ?>
