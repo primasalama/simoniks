@@ -83,6 +83,8 @@ foreach($data->result() as $key)
 	<td style="vertical-align:top;"><?php echo $key->uraian;?></td>
 	<td style="vertical-align:top;"><?php echo $key->tindak_ljt;?></td>
 	<td style="vertical-align:top;"><?php echo $key->masalah;?></td>
+	<td style="vertical-align:top;"><?php echo $key->kegiatan;?></td>
+	<td style="vertical-align:top;"><?php echo $key->sub_komponen;?></td>
 	<td style="vertical-align:top;"><?php echo $key->hasil;?></td>
 	<td style="vertical-align:top;"><?php echo $key->arahan;?></td>
 	<td style="vertical-align:top;"><?php echo $key->created_at;?></td>
