@@ -53,6 +53,18 @@
 			width: 250px;
 			font-family: "Times New Roman", Times, serif;
 		}
+		.column {
+		    float: left;
+		    width: 50%;
+		    text-align: center;
+		    /*padding: 10px;*/
+		    height: 100px; /* Should be removed. Only for demonstration */
+		}
+		.column_isi {
+		    float: left;
+		    width: 50%;
+		    text-align: center;
+		}
 	</style>
 </head>
 <body>
@@ -97,31 +109,7 @@
 			</li>
 		</ul>
 	</div>
-	<style type="text/css">
-		table { table-layout: fixed; }
-	td { width: 33%; }
-	</style>
-	<table>
-		<tr>
-			<td>Kepala Bidang</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>Asisten Deputi</td>
-		</tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr>
-			<td>Kepala Bidang</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>Asisten Deputi</td>
-		</tr>
-	</table>
+	<div class="column">Kepala Bidang<br><br><br><br><br>hdashdiahs</div>
+	<div class="column">Asisten Deputi<br><br><br><br><br>shidhasid</div>
 </body>
 </html>
