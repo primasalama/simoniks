@@ -109,7 +109,16 @@
 			</li>
 		</ul>
 	</div>
-	<div class="column">Kepala Bidang<br><br><br><br><br>hdashdiahs</div>
-	<div class="column">Asisten Deputi<br><br><br><br><br>shidhasid</div>
+	<div>
+		<table align="center">
+			<tr>
+					<td style="width: 500px">Kepala Bidang<br><br><br><br><br>hdashdiahs</td>
+					<td  style="width: 500px">Asisten Deputi<br><br><br><br><br>shidhasid</td>
+				</tr>
+				
+		</table>
+	</div>
+	<!-- <div class="column">Kepala Bidang<br><br><br><br><br>hdashdiahs</div>
+	<div class="column">Asisten Deputi<br><br><br><br><br>shidhasid</div> -->
 </body>
 </html>
