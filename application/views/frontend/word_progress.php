@@ -22,7 +22,11 @@
                                 //echo date("d-M-Y",strtotime($data[0]->tanggal1))." "."s/d ".date("d-M-Y",strtotime($data[0]->tanggal2))." ".$tempat;
                                 $keterangan = date("d-M-Y",strtotime($data[0]->tanggal1))." ".$tempat;
                             }	
-
+         foreach ($data1 as $key) {
+         	if ($key->no == $data[0]->narasiKebijakan) {
+         		$datas = $key;
+         	}
+         }
 ?>
 
 <html>
@@ -112,8 +116,8 @@
 	<div>
 		<table align="center">
 			<tr>
-					<td style="width: 500px">Kepala Bidang<br><br><br><br><br>hdashdiahs</td>
-					<td  style="width: 500px">Asisten Deputi<br><br><br><br><br>shidhasid</td>
+					<td style="width: 500px">Kepala Bidang<br><br><br><br><br><?php echo $datas->kabid;?></td>
+					<td  style="width: 500px">Asisten Deputi<br><br><br><br><br><?php echo $data[0]->asdep;?></td>
 				</tr>
 				
 		</table>
