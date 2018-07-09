@@ -60,6 +60,8 @@
 	<td align="center" style="vertical-align:top;">Uraian</td>
 	<td align="center" style="vertical-align:top;">Tindak Lanjut</td>
 	<td align="center" style="vertical-align:top;">Masalah</td>
+	<td align="center" style="vertical-align:top;">Kegiatan</td>
+	<td align="center" style="vertical-align:top;">Sub Komponen</td>
 	<td align="center" style="vertical-align:top;">Output</td>
 	<td align="center" style="vertical-align:top;">Arahan yang diperlukan Menko Kemaritiman</td>
 	<td align="center" style="vertical-align:top;">Tanggal Dibuat</td>
