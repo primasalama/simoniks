@@ -43,7 +43,7 @@
 					<thead>
 						<tr>
 							<th width="2%">No.</th>
-							<th width="27%">Narasi</th>
+							<th width="20%">Narasi</th>
 							<th width="20%">Status</th>
 							<th width="20%">Indikator</th>
 							<th width="20%">PIC</th>
@@ -117,13 +117,13 @@
 							<th style="vertical-align:middle">No.</th>
 							<th style="vertical-align:middle" width="15%">Kegiatan</th>
 							<th style="vertical-align:middle">Waktu/Tanggal</th>
+                            <th style="vertical-align:middle">Sub Komponen</th>
+                            <th style="vertical-align:middle">Kegiatan</th>
 							<th style="vertical-align:middle" width="20%">Komponen Kegiatan</th>
                             <th style="vertical-align:middle" width="20%">Masalah</th>
                             <th style="vertical-align:middle" width="10%">Output</th>
 							<th style="vertical-align:middle" width="20%">Tindak Lanjut</th>
                             <th style="vertical-align:middle">Arahan Untuk Kemenko Maritim</th>
-                            <th style="vertical-align:middle">Kegiatan</th>
-                            <th style="vertical-align:middle">Sub Komponen</th>
 							<th style="vertical-align:middle">Dokumentasi</th>
 							<?php 
 							if ($this->uri->segment(3)) {
@@ -161,6 +161,8 @@
                                 echo date("d-M-Y",strtotime($key->tanggal1));
                             }
                             ?></td>
+                            <td><?php echo $key->sub_komponen;?></td>
+                            <td><?php echo $key->kegiatan;?></td>
                             <?php 
                                 if (strlen($key->uraian) > 100) {
                                     ?><td><?php echo substr(nl2br($key->uraian), 0,100);?><span id="uraian_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key->uraian), 200) ?></span><a data-toggle="collapse" data-target="#uraian_<?php echo $i;?>"> Readmore..</a></td><?php
@@ -196,8 +198,6 @@
                                     ?> <td><?php echo nl2br($key->arahan);?></td><?php 
                                 }
                             ?>
-                            <td><?php echo $key->kegiatan;?></td>
-                            <td><?php echo $key->sub_komponen;?></td>
                            <td>
                                 <?php if ($key->dokumentasi1 != "") {
                                     ?><a href="<?php echo base_url();?>assets/images/uploads/<?php echo $key->dokumentasi1;?>" data-lightbox="<?php echo $key->dokumentasi1?>" data-title="<?php echo $key->dokumentasi2;?>">
@@ -217,7 +217,7 @@
 								?><td>
 									<a href="#" class="btn btn-md btn-danger"  data-href="<?php echo base_url();?>fprogress/delete/<?php echo $key->no;?>/<?php echo $this->uri->segment(3);?>" data-book="<?php echo $key->uraian;?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus"></span></a>
 									<a class="btn btn-warning" href="<?php echo base_url();?>fprogress/edit/<?php echo $key->no."/".$this->uri->segment(3);?>"><span class="glyphicon glyphicon-edit"></span></a>
-									<a class="btn btn-info" href="<?php echo base_url();?>fprogress/word/<?php echo $key->no."/".$this->uri->segment(3);?>"><span class="glyphicon glyphicon-align-justify"></span></a>
+									<a class="btn btn-info" href="<?php echo base_url();?>fprogress/word/<?php echo $key->no."/".$this->uri->segment(3);?>"><span class="glyphicon glyphicon glyphicon-download"></span></a>
 								</td><?php
 							}
 							?>
