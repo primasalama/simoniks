@@ -57,6 +57,7 @@
 	<td align="center" style="vertical-align:top;">Status Saat Ini</td>
 	<td align="center" style="vertical-align:top;">Indikator Keberhasilan</td>
 	<td align="center" style="vertical-align:top;">PIC</td>
+	<td align="center" style="vertical-align: top">Keterangan</td>
 	<?php if ($filename == null) {
 		echo '<td align="center"style="vertical-align:top;">Pembuat</td>';
 	}?>
@@ -72,6 +73,7 @@ foreach($data->result() as $key)
 	<td style="vertical-align:top;"><?php echo $key->status;?></td>
 	<td style="vertical-align:top;"><?php echo $key->indikator;?></td>
 	<td style="vertical-align:top;"><?php echo $key->pic;?></td>
+	 <td style="vertical-align:top;"> <?php echo $key->kabid."<br/><b>".$key->label_kabid."</b><br/>".$key->nip_kabid;?></td>
 	<?php if ($filename == null) {
 		echo '<td style="vertical-align:top;">'.$key->role.'</td>';
 	}?>
