@@ -32,6 +32,31 @@ class Fkebijakan extends CI_Controller {
 		$this->load->view('frontend/add_kebijakan');
 		$this->load->view('frontend/footerf');
 	}
+	public function kabid($value='',$id='')
+	{
+		if ($value == 'insert') {
+				$data['kabid'] = $this->input->post('kabid');
+				$data['label_kabid'] = $this->input->post('label_kabid');
+				$data['nip_kabid'] = $this->input->post('nip_kabid');
+				$data['asdep'] = $this->input->post('asdep');
+			if ($this->input->post('id_kabid') == '') {
+				$this->M_kebijakan->add_kabid($data);
+				redirect('Fkebijakan/kabid','refresh');
+			}else{
+				$this->M_kebijakan->update_kabid($this->input->post('id_kabid'),$data);
+				redirect('Fkebijakan/kabid','refresh');
+			}
+		}elseif ($value == 'delete') {
+			$this->M_kebijakan->delete_kabid($id);
+			redirect('Fkebijakan/kabid','refresh');
+		}
+		else{
+			$result['data_kabid'] = $this->M_kebijakan->get_kabid_all();
+			$this->load->view('frontend/header');
+			$this->load->view('frontend/add_kabid',$result);
+			$this->load->view('frontend/footerf');
+		}
+	}
 	public function add()
 	{
 		if ($this->input->post('nip_kabid') != NULL) {

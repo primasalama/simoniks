@@ -32,7 +32,9 @@
                      <?php 
                     if ($this->session->userdata('session')[0]->role == 'admin') {
                        ?>
-                       <li class="pull-right"><a href="<?php echo base_url();?>Fkebijakan/index/" class="btn btn-info btn-xs">Tambah</a></li>
+                        <li class="pull-right"><a href="<?php echo base_url();?>Fkebijakan/index/" class="btn btn-info btn-xs">Tambah</a></li>
+                        <li class="pull-right"><a href="<?php echo base_url();?>Fkebijakan/kabid/" class="btn btn-default btn-xs">Data Kabid</a></li>
+                        
                        <?php
                     }
                     ?>

@@ -26,7 +26,24 @@ class M_kebijakan extends CI_Model {
 		}
 		return $this->db->query($sql);
 	}
-
+	public function get_kabid_all($value='')
+	{
+		return $this->db->get('kabid')->result();
+	}
+	public function add_kabid($value)
+	{
+		$this->db->insert('kabid',$value);
+	}
+	public function update_kabid($id,$value)
+	{
+		$this->db->where('id',$id);
+		$this->db->update('kabid',$value);
+	}
+	public function delete_kabid($id)
+	{
+		$this->db->where('id',$id);
+		$this->db->delete('kabid');
+	}
 	public function insert($data)
 	{
 		$this->db->insert('kebijakan',$data);
