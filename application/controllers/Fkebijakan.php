@@ -26,10 +26,12 @@ class Fkebijakan extends CI_Controller {
 			redirect('login');
 		}
 	}
-	public function index()
+	public function index($asdep='')
 	{
+		// echo $asdep;die();
+		$result['data_kabid'] = $this->M_kebijakan->get_kabid_asdep($asdep);
 		$this->load->view('frontend/header');
-		$this->load->view('frontend/add_kebijakan');
+		$this->load->view('frontend/add_kebijakan',$result);
 		$this->load->view('frontend/footerf');
 	}
 	public function kabid($value='',$id='')
@@ -59,11 +61,8 @@ class Fkebijakan extends CI_Controller {
 	}
 	public function add()
 	{
-		if ($this->input->post('nip_kabid') != NULL) {
-			# code...
-			$kabid = $this->input->post('nip_kabid');
-		}else{$kabid = '';}
-		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'kabid'=>$this->input->post('kabid'),'nip_kabid'=>$kabid,'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
+
+		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'id_kabid'=>$this->input->post('id_kabid'),'created_by'=>$this->session->userdata('session')[0]->no,'updated_by'=>$this->session->userdata('session')[0]->no);
 		$this->M_kebijakan->insert($data);
 		redirect('Beranda/view/'.$this->session->userdata('session')[0]->role);
 	}
@@ -78,11 +77,8 @@ class Fkebijakan extends CI_Controller {
 	}
 	public function update($value)
 	{
-		if ($this->input->post('nip_kabid') != NULL) {
-			# code...
-			$kabid = $this->input->post('nip_kabid');
-		}else{$kabid = '';}
-		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"),'kabid'=>$this->input->post('kabid'),'nip_kabid'=>$kabid);
+		
+		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"),'id_kabid'=>$this->input->post('id_kabid'));
 		$this->M_kebijakan->updateId($data,$value);
 		redirect('kebijakan/'.$this->session->userdata('session')[0]->role);
 	}
@@ -91,8 +87,9 @@ class Fkebijakan extends CI_Controller {
 		$this->M_kebijakan->deleteId($value);
 		redirect('kebijakan/'.$this->session->userdata('session')[0]->role);
 	}
-	public function edit($value)
+	public function edit($value,$asdep='')
 	{
+		$result['data_kabid'] = $this->M_kebijakan->get_kabid_asdep($asdep);
 		$result['data'] = $this->M_kebijakan->getId($value);
 		$this->load->view('frontend/header');
 		$this->load->view('frontend/edit_kebijakan',$result);

@@ -34,7 +34,17 @@
                             </div>
                              <div class="form-group">
                                 <label>Nama Kepala Bidang : </label>
-                                <input class="form-control" name="kabid" required="true" rows="5" value="<?php echo $data[0]->kabid;?>">
+                                <!-- <input class="form-control" name="kabid" required="true" rows="5" value="<?php echo $data[0]->kabid;?>"> -->
+                                <select name="id_kabid" class="form-control">
+                                    <?php 
+                                    foreach ($data_kabid as $key) {
+                                        if ($key->id == $data[0]->id_kabid) {
+                                            $s = "selected";
+                                        }else{$s='';}
+                                        echo "<option value='".$key->id."' ".$s.">".$key->label_kabid."</option>";
+                                    }
+                                    ?>
+                                </select>
                             </div>
                             <!--  <div class="form-group">
                                 <label>NIP Kepala Bidang : </label>

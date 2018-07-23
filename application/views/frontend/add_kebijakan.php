@@ -80,7 +80,13 @@ body{
                                         </div>
                                         <div class="form-group">
                                             <label>Kepala Bidang</label>
-                                            <input type="text" name="kabid" class="form-control" placeholder="Nama Kabid" required="true">
+                                            <select name="id_kabid" class="form-control">
+                                                <?php 
+                                                foreach ($data_kabid as $key) {
+                                                    echo "<option value='".$key->id."'>".$key->label_kabid."</option>";
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
                                          <!-- <div class="form-group">
                                             <label>NIP Kabid</label>

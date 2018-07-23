@@ -9,7 +9,7 @@ class M_kebijakan extends CI_Model {
  
 	public function getAll()
 	{
-		$sql = "SELECT kebijakan.*,user.role,user.name from kebijakan inner join user on user.no = kebijakan.created_by WHERE kebijakan.tahun = ".date('Y')." ORDER BY role asc  ";
+		$sql = "SELECT kebijakan.*,user.role,user.name,kabid.* from kebijakan inner join user on user.no = kebijakan.created_by left join kabid on kabid.id = kebijakan.id_kabid WHERE kebijakan.tahun = ".date('Y')." ORDER BY role asc  ";
 		return $this->db->query($sql)->result();
 	}
 	public function getAllDetail($value='')
@@ -28,6 +28,12 @@ class M_kebijakan extends CI_Model {
 	}
 	public function get_kabid_all($value='')
 	{
+		return $this->db->get('kabid')->result();
+	}
+	public function get_kabid_asdep($asdep)
+	{
+		// echo $asdep;die();
+		$this->db->where('asdep',$asdep);
 		return $this->db->get('kabid')->result();
 	}
 	public function add_kabid($value)
@@ -61,12 +67,12 @@ class M_kebijakan extends CI_Model {
 	}
 	public function getId($value='')
 	{
-		$sql = "SELECT kebijakan.*,user.role,user.name from kebijakan inner join user on user.no = kebijakan.created_by where kebijakan.no = '".$value."' ";
+		$sql = "SELECT kebijakan.*,user.role,user.name,kabid.* from kebijakan inner join user on user.no = kebijakan.created_by left join kabid on kabid.id = kebijakan.id_kabid where kebijakan.no = '".$value."' ";
 		return $this->db->query($sql)->result();
 	}
 	public function getByAsdep($value='')
 	{
-		$sql = "SELECT kebijakan.*,user.role from kebijakan inner join user on user.no = kebijakan.created_by where user.role = '".$value."' AND kebijakan.tahun = ".date('Y')." ";
+		$sql = "SELECT kebijakan.*,user.role,kabid.* from kebijakan inner join user on user.no = kebijakan.created_by left join kabid on kabid.id = kebijakan.id_kabid where user.role = '".$value."' AND kebijakan.tahun = ".date('Y')." ";
 		// echo $sql;die();
 		return $this->db->query($sql)->result();
 	}

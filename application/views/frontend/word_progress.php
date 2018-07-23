@@ -116,8 +116,8 @@
 	<div>
 		<table align="center">
 			<tr>
-					<td style="width: 500px">Kepala Bidang<br><br><br><br><br><?php echo $datas->kabid;?></td>
-					<td  style="width: 500px">Asisten Deputi<br><br><br><br><br><?php echo $data[0]->asdep;?></td>
+					<td style="width: 500px">Kepala <?php echo $datas->label_kabid;?><br><br><br><br><br><?php echo $datas->kabid;?></td>
+					<td  style="width: 500px">Asisten Deputi <?php echo $data[0]->label;?><br><br><br><br><br><?php echo $data[0]->asdep;?></td>
 				</tr>
 				
 		</table>

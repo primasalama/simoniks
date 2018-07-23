@@ -67,11 +67,7 @@ class Kebijakan extends CI_Controller {
 				# code...
 				break;
 		}
-		if ($this->input->post('nip_kabid') != NULL) {
-			# code...
-			$kabid = $this->input->post('nip_kabid');
-		}else{$kabid = '';}
-		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>$created_by,'updated_by'=>$this->session->userdata('session')[0]->no,'tahun'=>date("Y"),'kabid'=>$this->input->post('kabid'),'nip_kabid'=>$kabid);
+		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'created_by'=>$created_by,'updated_by'=>$this->session->userdata('session')[0]->no,'tahun'=>date("Y"),'id_kabid'=>$this->input->post('id_kabid'));
 		// print_r($data);die();
 		$this->M_kebijakan->insert($data);
 		redirect('Beranda/view/'.$url_back);
@@ -91,7 +87,7 @@ class Kebijakan extends CI_Controller {
 			# code...
 			$kabid = $this->input->post('nip_kabid');
 		}else{$kabid = '';}
-		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"),'kabid'=>$this->input->post('kabid'),'nip_kabid'=>$kabid);
+		$data = array('narasi' => $this->input->post('narasi'),'status'=>$this->input->post('status'),'indikator'=>$this->input->post('indikator'),'pic'=>$this->input->post('pic'),'updated_by'=>$this->session->userdata('session')[0]->no,'updated_at'=>date("Y-m-d H:i:s"),'id_kabid'=>$this->input->post('id_kabid'));
 		$this->M_kebijakan->updateId($data,$value);
 		$data = $this->M_kebijakan->getId($value);
 		redirect('Beranda/view/'.$data[0]->role);

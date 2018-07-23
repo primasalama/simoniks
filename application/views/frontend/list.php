@@ -32,7 +32,7 @@
                      <?php 
                     if ($this->session->userdata('session')[0]->role == 'admin') {
                        ?>
-                        <li class="pull-right"><a href="<?php echo base_url();?>Fkebijakan/index/" class="btn btn-info btn-xs">Tambah</a></li>
+                        <li class="pull-right"><a href="<?php echo base_url();?>Fkebijakan/index/<?php echo $this->uri->segment(3);?>" class="btn btn-info btn-xs">Tambah</a></li>
                         <li class="pull-right"><a href="<?php echo base_url();?>Fkebijakan/kabid/" class="btn btn-default btn-xs">Data Kabid</a></li>
                         
                        <?php
@@ -47,6 +47,8 @@
 							<th width="20%">Status</th>
 							<th width="20%">Indikator</th>
 							<th width="20%">PIC</th>
+                            <th width="20%">Keterangan</th>
+                            
 							<?php 
 							if ($this->uri->segment(2) == 'view' and $this->session->userdata('session')[0]->role == 'admin' ) {
 								?><th width="15%">Action</th><?php
@@ -77,6 +79,7 @@
                                 }
                                 ?>
                                 <td><?php echo nl2br($key->pic);?></td>
+                                <td><?php echo $key->kabid."<br/><b>".$key->label_kabid."</b><br/>".$key->nip_kabid;?></td>
 							<?php 
 							if ($this->uri->segment(2) == 'view' and $this->session->userdata('session')[0]->role == 'admin') {
 								?><td>
@@ -91,7 +94,7 @@
                                         <?php
                                       }
                                       ?>
-                                    <a class="btn btn-warning" href="<?php echo base_url();?>fkebijakan/edit/<?php echo $key->no;?>"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-warning" href="<?php echo base_url();?>fkebijakan/edit/<?php echo $key->no;?>/<?php echo $this->uri->segment(3);?>"><span class="glyphicon glyphicon-edit"></span></a>
 
 								</td><?php
 							}?>
