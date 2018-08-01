@@ -1,7 +1,7 @@
 <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 <style>
     .datepicker {
-      z-index: 1600 !important; /* has to be larger than 1050 */
+      z-index: 1600 !important;
     }
 </style>
 <div class="well well-sm">
@@ -110,6 +110,7 @@
 		<li class="breadcrumb-item active"><?php echo $this->session->userdata('session')[0]->role;?></li>
 		<li class="pull-right"><a href="<?php echo base_url();?>fprogress/index/<?php echo $this->uri->segment(3);?>" class="btn btn-info btn-xs">Tambah</a></li>
 		<li class="pull-right"><a href="<?php echo base_url();?>beranda/excels/progress/<?php echo $this->uri->segment(3);?>" class="btn btn-xs btn-warning">Export</a></li>
+        <li class="pull-right"><a  data-toggle="modal" data-target="#advance" class="btn btn-xs btn-default">Advance</a></li>
 	</ol>
 	<table id="progress" class="table table-bordered">
 					<thead style="vertical-align:middle">
@@ -329,7 +330,7 @@
                 </script>
 
  <!-- Delete -->
-<div class="modal fade" id="modal-update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="modal-update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -388,4 +389,79 @@
                         $(this).find('#tanggal1').val($(e.relatedTarget).data('tanggal'));
                         //$('').html($(e.relatedTarget).data('book'));
                     });
-                </script>
+                </script> -->
+        <!-- Modal -->
+  <div class="modal fade" id="advance" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Export with Advance Option</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-inline" action="" method="POST">
+                <div class="form-group">
+                    <label>Opsi Export : </label>
+                    <select class="form-control" name="opsi" id="opsi">
+                        <option value="1">Export Berdasarkan Kebijakan</option>
+                        <option value="2">Export Mingguan</option>
+                    </select>
+                </div>
+                <div id="div_kebijakan" class="form-group">
+                    <label>Kebijakan : </label>
+                    <select class="form-control" name="export_kebijakan" id="export_kebijakan">
+                        <?php 
+                        foreach ($data_kabid as $key) {
+                           echo "<option value='".$key->id."'>".$key->label_kabid."</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div id="div_waktu" class="form-group">
+                    <label>Tanggal : </label>
+                    <input class="form-control" id="export_tanggal1" name="export_tanggal1" placeholder="Tanggal Awal" /> Sampai
+                    <input class="form-control" id="export_tanggal2" name="export_tanggal2" placeholder="Tanggal Akhir" />
+                </div>
+               <br/><br/><br/>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Export">
+                </div>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('#div_kebijakan').show();
+        $('#div_waktu').hide();
+        $('#opsi').on('change', function(e) {
+            if($('#opsi').val() == 1){
+                $('#div_kebijakan').show();
+                $('#div_waktu').hide();
+            }else{
+                $('#div_kebijakan').hide();
+                $('#div_waktu').show();
+            }
+        });
+        $('#export_tanggal1').datepicker({
+        })
+            .on('changeDate', function(e) {
+                var new_date = moment(e.date, "MM/DD/YYYY");
+                new_date.add(7, 'days');
+                $('#export_tanggal2').val(moment(new_date).format('MM/DD/YYYY'));
+                // alert(new_date);
+            });
+         $('#export_tanggal2').datepicker({
+        })
+            .on('changeDate', function(e) {
+                var new_date = moment(e.date, "MM/DD/YYYY");
+                new_date.subtract(7, 'days');
+                $('#export_tanggal1').val(moment(new_date).format('MM/DD/YYYY'));
+                // alert(new_date);
+            });
+    });
+  </script>

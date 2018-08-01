@@ -51,6 +51,7 @@ class Beranda extends CI_Controller {
 				if ($this->session->userdata('session')[0]->role == $value OR $this->session->userdata('session')[0]->role == 'admin'){
 					$result['kebijakan'] = $this->M_kebijakan->getByAsdep($value);
 					$result['progress'] = $this->M_progress->getByAsdep($value);
+					$result['data_kabid'] = $this->M_kebijakan->get_kabid_asdep($value);
 					$this->load->view('frontend/header');
 					$this->load->view('frontend/list',$result);
 					$this->load->view('frontend/footerf');

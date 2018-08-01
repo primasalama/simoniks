@@ -31,7 +31,8 @@
         <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
         <script src="<?php echo base_url();?>assets/js/dataTables.rowsGroup.js"></script>
         <script src="<?php echo base_url();?>assets/js/lightbox.js"></script>
-        <script type="text/javascript" src="<?php echo base_url();?>assets/js/daterangepicker.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>assets/js/Datepair.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.datepair.js"></script>
         
         <!-- Js buat datepicker -->
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/material.min.js"></script>
