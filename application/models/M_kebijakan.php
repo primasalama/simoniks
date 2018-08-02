@@ -76,6 +76,11 @@ class M_kebijakan extends CI_Model {
 		// echo $sql;die();
 		return $this->db->query($sql)->result();
 	}
+	public function get_id_kabid($value='')
+	{
+		$sql = "SELECT kebijakan.*,user.role,user.name,kabid.* from kebijakan inner join user on user.no = kebijakan.created_by left join kabid on kabid.id = kebijakan.id_kabid where kebijakan.id_kabid = '".$value."' ";
+		return $this->db->query($sql)->result();
+	}
 	// Datatable
 	private function _get_datatables_query()
 	    {

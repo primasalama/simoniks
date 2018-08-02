@@ -401,7 +401,7 @@
           <h4 class="modal-title">Export with Advance Option</h4>
         </div>
         <div class="modal-body">
-          <form class="form-inline" action="" method="POST">
+          <form class="form-inline" action="<?php echo base_url();?>fprogress/word_advance/" method="POST">
                 <div class="form-group">
                     <label>Opsi Export : </label>
                     <select class="form-control" name="opsi" id="opsi">
