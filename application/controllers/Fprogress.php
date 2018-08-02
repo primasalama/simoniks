@@ -144,20 +144,38 @@ class Fprogress extends CI_Controller {
 	public function word_advance()
 	{
 		if ($this->input->post('opsi') == 1) {
-			$id_kabid = [];$id='';
-			$kabid = $this->M_kebijakan->get_id_kabid($this->input->post('export_kebijakan'));
-			foreach ($kabid as $key) {
-				$id = $id.$key->no.",";
-			}
-			$id = rtrim($id,",");
-			$result['data1'] = $kabid;
-			$result['data'] = $this->M_progress->getData_narasi($id);
-			// echo json_encode($data);
-			$this->load->view('frontend/loop_word_progress',$result);
-		}else{
+			$result['data'] = $this->M_progress->getData_narasi($this->input->post('export_kebijakan'));
 			
+		}else{
+			$result['data'] = $this->M_progress->getData_narasi_date($this->input->post('export_tanggal1'),$this->input->post('export_tanggal2'));
 		}
+		if (count($result['data']) > 0) {
+			$res = array('status' => 1,'data' => $result['data']);
+			// $this->export_advance($result['data']);
+			// redirect('Fprogress/export_advance/'.implode(', ', $result['data'])."/" ,'refresh');
+		}else{
+			$res = array('status' => 0,'data'=> $result['data']);
+
+		}
+		echo json_encode($res);
+		// $this->load->view('frontend/loop_word_progress',$result);
 		// $this->load->view('frontend/word_progress',$result);
 		// $this->load->view('frontend/footerf');
+	}
+	public function export_advance($opsi,$v1='',$v2='')
+	{
+		// echo $v1;die();
+		if ($opsi == 1) {
+			$result['data'] = $this->M_progress->getData_narasi($v1);
+			
+		}else{
+			$result['data'] = $this->M_progress->getData_narasi_date($v1,$v2);
+		}
+		// echo json_encode($result['data']);die();
+		// print_r($result['data']);
+		// $this->load->view('frontend/loop_word_progress',$result);
+		// $this->load->view('frontend/word_progress',$result);
+		// $this->load->view('frontend/footerf');
+		$this->load->view('frontend/loop_word_progress',$result);
 	}
 }

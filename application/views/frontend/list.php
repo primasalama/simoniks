@@ -401,7 +401,7 @@
           <h4 class="modal-title">Export with Advance Option</h4>
         </div>
         <div class="modal-body">
-          <form class="form-inline" action="<?php echo base_url();?>fprogress/word_advance/" method="POST">
+          <form class="form-inline" id="foo">
                 <div class="form-group">
                     <label>Opsi Export : </label>
                     <select class="form-control" name="opsi" id="opsi">
@@ -413,8 +413,8 @@
                     <label>Kebijakan : </label>
                     <select class="form-control" name="export_kebijakan" id="export_kebijakan">
                         <?php 
-                        foreach ($data_kabid as $key) {
-                           echo "<option value='".$key->id."'>".$key->label_kabid."</option>";
+                        foreach ($kebijakan as $key) {
+                           echo "<option value='".$key->id."'>".$key->narasi."</option>";
                         }
                         ?>
                     </select>
@@ -426,8 +426,9 @@
                 </div>
                <br/><br/><br/>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Export">
+                    <input type="submit" class="btn btn-primary" value="Export" id="export_advance">
                 </div>
+                <p id="export_keterangan"></p>
           </form>
         </div>
       </div>
@@ -448,20 +449,91 @@
             }
         });
         $('#export_tanggal1').datepicker({
+            format: 'dd-mm-yyyy'
         })
             .on('changeDate', function(e) {
-                var new_date = moment(e.date, "MM/DD/YYYY");
+                var new_date = moment(e.date, "DD-MM-YYYY");
                 new_date.add(7, 'days');
-                $('#export_tanggal2').val(moment(new_date).format('MM/DD/YYYY'));
+                $('#export_tanggal2').val(moment(new_date).format('DD-MM-YYYY'));
                 // alert(new_date);
             });
          $('#export_tanggal2').datepicker({
+            format: 'dd-mm-yyyy'
         })
             .on('changeDate', function(e) {
-                var new_date = moment(e.date, "MM/DD/YYYY");
+                var new_date = moment(e.date, "DD-MM-YYYY");
                 new_date.subtract(7, 'days');
-                $('#export_tanggal1').val(moment(new_date).format('MM/DD/YYYY'));
+                $('#export_tanggal1').val(moment(new_date).format('DD-MM-YYYY'));
                 // alert(new_date);
             });
+        var request;
+        // Bind to the submit event of our form
+        $("#foo").submit(function(event){
+
+            // Prevent default posting of form - put here to work in case of errors
+            event.preventDefault();
+
+            // Abort any pending request
+            if (request) {
+                request.abort();
+            }
+            // setup some local variables
+            var $form = $(this);
+
+            // Let's select and cache all the fields
+            var $inputs = $form.find("input, select, button, textarea");
+
+            // Serialize the data in the form
+            var serializedData = $form.serialize();
+
+            // Let's disable the inputs for the duration of the Ajax request.
+            // Note: we disable elements AFTER the form data has been serialized.
+            // Disabled form elements will not be serialized.
+            $inputs.prop("disabled", true);
+            console.log('data',serializedData);
+            // Fire off the request to /form.php
+            request = $.ajax({
+                url: "<?php echo base_url();?>fprogress/word_advance/",
+                type: "post",
+                dataType:"json",
+                data: serializedData
+            });
+
+            // Callback handler that will be called on success
+            request.done(function (response, textStatus, jqXHR){
+                // Log a message to the console
+                JSON.stringify(response.data)
+                console.log(response);
+                console.log("Hooray, it worked!");
+                if (response.status == 0) {
+                    var err = '<div class="alert alert-warning"><strong>Maaf!</strong> Tidak ada data yang sesuai.</div>'
+                    $('#export_keterangan').html(err);
+                }else{
+                    if ($('#opsi').val()==1) {
+                        var sss = '<div class="alert alert-success"><strong>Success!</strong> Silahkan Klik <a href="<?php echo base_url();?>fprogress/export_advance/'+$('#opsi').val()+'/'+$('#export_kebijakan').val()+'/">Download</a>.</div>';
+                    }else{
+                        var sss = '<div class="alert alert-warning"><strong>Success!</strong> Silahkan Klik <a href="<?php echo base_url();?>fprogress/export_advance/'+$('#opsi').val()+'/'+$('#export_tanggal1').val()+'/'+$('#export_tanggal2').val()+'">Download</a>.</div>';
+                    }
+                    $('#export_keterangan').html(sss);
+                }
+            });
+
+            // Callback handler that will be called on failure
+            request.fail(function (jqXHR, textStatus, errorThrown){
+                // Log the error to the console
+                console.error(
+                    "The following error occurred: "+
+                    textStatus, errorThrown
+                );
+            });
+
+            // Callback handler that will be called regardless
+            // if the request failed or succeeded
+            request.always(function () {
+                // Reenable the inputs
+                $inputs.prop("disabled", false);
+            });
+
+        });
     });
   </script>
