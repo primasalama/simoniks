@@ -414,7 +414,7 @@
                     <select class="form-control" name="export_kebijakan" id="export_kebijakan">
                         <?php 
                         foreach ($kebijakan as $key) {
-                           echo "<option value='".$key->id."'>".$key->narasi."</option>";
+                           echo "<option value='".$key->no."'>".$key->narasi."</option>";
                         }
                         ?>
                     </select>

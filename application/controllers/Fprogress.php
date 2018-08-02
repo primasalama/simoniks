@@ -143,6 +143,7 @@ class Fprogress extends CI_Controller {
 	}
 	public function word_advance()
 	{
+		// echo $this->input->post('export_kebijakan');die();
 		if ($this->input->post('opsi') == 1) {
 			$result['data'] = $this->M_progress->getData_narasi($this->input->post('export_kebijakan'));
 			
