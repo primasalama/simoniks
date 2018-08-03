@@ -44,6 +44,7 @@
           } );
 </script>
 </script>
+
         
     </head>
     <body>
@@ -61,30 +62,39 @@
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" >
-                    <ul class="nav navbar-nav" style="margin-left:50px;">
+                    <ul class="nav navbar-nav" style="margin-left: -40px;margin-right: -40px;">
                         <li>
-                            <a href="<?php echo base_url();?>" class="btn btn-danger navbar-btn">BERANDA</a>
+                            <a href="<?php echo base_url();?>" class="btn btn-danger btn-sm">BERANDA</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url();?>Beranda/view/asdep1" class="btn btn-danger navbar-btn">ASDEP 1</a>
+                            <a href="<?php echo base_url();?>Beranda/view/asdep1" class="btn btn-sm btn-danger ">ASDEP 1</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url();?>Beranda/view/asdep2" class="btn btn-danger navbar-btn">ASDEP 2</a>
+                            <a href="<?php echo base_url();?>Beranda/view/asdep2" class="btn btn-danger btn-sm">ASDEP 2</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url();?>Beranda/view/asdep3" class="btn btn-danger navbar-btn">ASDEP 3</a>
+                            <a href="<?php echo base_url();?>Beranda/view/asdep3" class="btn btn-danger btn-sm">ASDEP 3</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url();?>Beranda/view/asdep4" class="btn btn-danger navbar-btn">ASDEP 4</a>
+                            <a href="<?php echo base_url();?>Beranda/view/asdep4" class="btn btn-danger btn-sm">ASDEP 4</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url();?>agenda" class="btn btn-danger navbar-btn">AGENDA</a>
+                            <a href="<?php echo base_url();?>agenda" class="btn btn-danger btn-sm">AGENDA</a>
+                        </li>
+                        <li>
+                            <a href="http://bit.ly/GeoMaritim2" target="new" class="btn btn-danger btn-sm">WEBGIS D2</a>
+                        </li>
+                        <li>
+                            <a href="http://sik-maritim.id" target="new"  class="btn btn-danger btn-sm">SIK-M</a>
+                        </li>
+                        <li>
+                            <a href="https://mariteam.maritim.go.id" target="new"  class="btn btn-danger btn-sm">MARITEAM</a>
                         </li>
                         <?php 
                         if ($this->session->userdata('session')) {
                         ?>
                             <li>
-                                <a href="<?php echo base_url();?>Auth/logout" class="btn btn-danger navbar-btn">LOGOUT</a>
+                                <a href="<?php echo base_url();?>Auth/logout" class="btn btn-danger btn-sm">LOGOUT</a>
                             </li>
                         <?php
                         }
