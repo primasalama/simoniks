@@ -126,7 +126,7 @@ class Beranda extends CI_Controller {
 				// print_r($result['data']->result());die();
 				// echo $deputi;die();
 				if ($deputi != null) {
-					echo "string";die();
+					// echo "string";die();
 					$this->load->view('frontend/agendaAsdep',$result);
 				}else{
 					// echo "sa";die();
