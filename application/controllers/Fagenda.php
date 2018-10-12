@@ -72,10 +72,10 @@ class Fagenda extends CI_Controller {
 		$this->load->view('backend/list_agenda',$result);
 		$this->load->view('backend/footer');
 	}
-	public function migrate($value='')
+	public function migrate($value)
 	{
 		$res = $this->M_agenda->getJustId($value)->result_array();
-		print_r($res);
+		// print_r($res);die();	
 		$data = array(
 			'uraian' => $res[0]['kegiatan'],
 			'tanggal1'=>$res[0]['tanggal'],
@@ -87,11 +87,12 @@ class Fagenda extends CI_Controller {
 			'dokumentasi1'=>'',
 			'dokumentasi2'=>'',
 			'arahan'=>'',
-			'created_by'=>$this->session->userdata('session')[0]->no,
-			'updated_by'=>$this->session->userdata('session')[0]->no,
+			'created_by'=>$res[0]['created_by'],
+			'updated_by'=>$res[0]['updated_by'],
 			'lokasi' => $res[0]['tempat'],
 			);
 		$this->M_progress->insert($data);
+		$this->M_agenda->deleteId($value);
 		redirect(base_url().'agenda','refresh');
 	}
 	public function update($value)

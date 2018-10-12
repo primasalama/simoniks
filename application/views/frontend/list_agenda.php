@@ -91,7 +91,7 @@
       echo '<li class="pull-right"><a href="'.base_url().'fagenda/index/'.$this->uri->segment(2).'" class="btn btn-xs btn-info">Tambah</a></li>';
     }
   }
-
+// echo 'uri : '.$this->uri->segment(2);die();
   ?>
   
  
@@ -206,6 +206,7 @@
                     <a href="#" id="hapus" class="btn btn-md btn-default"  data-href="<?php echo base_url();?>fagenda/migrate/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-progress"><span class="glyphicon glyphicon-export" data-toggle="tooltip" title="Hapus"></span>Sinkron</a>
                     <?php
                   // }
+
                   ?>
                   
                 </td>
