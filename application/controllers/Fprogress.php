@@ -126,6 +126,7 @@ class Fprogress extends CI_Controller {
 	{
 		$result['data1'] = $this->M_kebijakan->getByAsdep($asdep);
 		$result['data'] = $this->M_progress->getId($value);
+		// print_r($result['data']);die();
 		$result['kegiatan_enum'] = $this->M_progress->get_enum('progress','kegiatan');
 		$result['subkomponen_enum'] = $this->M_progress->get_enum('progress','sub_komponen');
 		// print_r($result['s']);die();

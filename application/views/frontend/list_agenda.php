@@ -202,6 +202,8 @@
                   }
                     ?>
                     <a class="btn btn-warning" href="<?php echo base_url()."f".$this->uri->segment(1);?>/edit/<?php echo $key->no."/".$this->session->userdata('session')[0]->role;?>"><span class="glyphicon glyphicon-edit"></span></a>
+                   
+                    <a href="#" id="hapus" class="btn btn-md btn-default"  data-href="<?php echo base_url();?>fagenda/migrate/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-progress"><span class="glyphicon glyphicon-export" data-toggle="tooltip" title="Hapus"></span>Sinkron</a>
                     <?php
                   // }
                   ?>
@@ -267,6 +269,32 @@
                 </div>
                 <script>
                     $('#confirm-delete').on('show.bs.modal', function(e) {
+                        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+                        $('.debug-url').html($(e.relatedTarget).data('book'));
+                    });
+                </script>
+                <div class="modal fade" id="confirm-progress" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Konfirmasi Pindah Agenda ke Progress</h4>
+                            </div>
+                        
+                            <div class="modal-body">
+                                <p>Anda ingin menghapus?</p>
+                                Agenda Kegiatan :  <strong><span class="debug-url"></span></strong>
+                            </div>
+                            
+                            <div class="modal-footer">
+                                <a class="btn btn-danger btn-ok">Hapus</a>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Gagal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $('#confirm-progress').on('show.bs.modal', function(e) {
                         $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
                         $('.debug-url').html($(e.relatedTarget).data('book'));
                     });

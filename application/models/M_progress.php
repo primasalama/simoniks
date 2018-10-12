@@ -58,24 +58,24 @@ class M_progress extends CI_Model {
 	}
 	public function getId($value='')
 	{
-		$sql = "SELECT progress.*,user.role,user.name,user.label,user.asdep ,kebijakan.narasi from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan where progress.no = '".$value."' ORDER BY tanggal1 DESC";
+		$sql = "SELECT progress.*,user.role,user.name,user.label,user.asdep ,kebijakan.narasi from progress inner join user on user.no = progress.created_by left join kebijakan on kebijakan.no = progress.narasiKebijakan where progress.no = '".$value."' ORDER BY tanggal1 DESC";
 		return $this->db->query($sql)->result();
 	}
 	public function getByAsdep($value='')
 	{
-		$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi  from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan where user.role = '".$value."' order BY tanggal1 DESC  ";
+		$sql = "SELECT progress.*,user.role,user.name,kebijakan.narasi  from progress inner join user on user.no = progress.created_by left join kebijakan on kebijakan.no = progress.narasiKebijakan where user.role = '".$value."' order BY tanggal1 DESC  ";
 		return $this->db->query($sql)->result();
 	}
 	public function getData_narasi($value='')
 	{
-		$sql = "SELECT progress.*,user.role,user.name,user.label,user.asdep ,kebijakan.narasi from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan where progress.narasiKebijakan = '".$value."' ORDER BY tanggal1 DESC";
+		$sql = "SELECT progress.*,user.role,user.name,user.label,user.asdep ,kebijakan.narasi from progress inner join user on user.no = progress.created_by left join kebijakan on kebijakan.no = progress.narasiKebijakan where progress.narasiKebijakan = '".$value."' ORDER BY tanggal1 DESC";
 		return $this->db->query($sql)->result();
 	}
 	public function getData_narasi_date($tanggal1='',$tanggal2='')
 	{
 		$tanggal1= date("Y-m-d", strtotime($tanggal1));
 		$tanggal2= date("Y-m-d", strtotime($tanggal2));
-		$sql = "SELECT progress.*,user.role,user.name,user.label,user.asdep ,kebijakan.narasi from progress inner join user on user.no = progress.created_by inner join kebijakan on kebijakan.no = progress.narasiKebijakan where (tanggal1 >= '".$tanggal1."' AND tanggal2 <= '".$tanggal2."') OR (tanggal1 <= '".$tanggal2."' AND tanggal2 >= '".$tanggal1."') ORDER BY tanggal1 DESC";
+		$sql = "SELECT progress.*,user.role,user.name,user.label,user.asdep ,kebijakan.narasi from progress inner join user on user.no = progress.created_by left join kebijakan on kebijakan.no = progress.narasiKebijakan where (tanggal1 >= '".$tanggal1."' AND tanggal2 <= '".$tanggal2."') OR (tanggal1 <= '".$tanggal2."' AND tanggal2 >= '".$tanggal1."') ORDER BY tanggal1 DESC";
 		// echo $sql;die();
 		return $this->db->query($sql)->result();
 	}

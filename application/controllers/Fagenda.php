@@ -23,6 +23,7 @@ class Fagenda extends CI_Controller {
 		date_default_timezone_set("Asia/Jakarta");
 		$this->load->model('M_agenda');
 		$this->load->model('M_kebijakan');
+		$this->load->model('M_progress');
 		if (empty($this->session->userdata('session'))) {
 			redirect('login');
 		}
@@ -70,6 +71,28 @@ class Fagenda extends CI_Controller {
 		$this->load->view('backend/sidenav');
 		$this->load->view('backend/list_agenda',$result);
 		$this->load->view('backend/footer');
+	}
+	public function migrate($value='')
+	{
+		$res = $this->M_agenda->getJustId($value)->result_array();
+		print_r($res);
+		$data = array(
+			'uraian' => $res[0]['kegiatan'],
+			'tanggal1'=>$res[0]['tanggal'],
+			'tanggal2'=>$res[0]['tanggal'],
+			'hasil'=>'',
+			'tindak_ljt'=>'',
+			'masalah'=>'',
+			'narasiKebijakan'=>0,
+			'dokumentasi1'=>'',
+			'dokumentasi2'=>'',
+			'arahan'=>'',
+			'created_by'=>$this->session->userdata('session')[0]->no,
+			'updated_by'=>$this->session->userdata('session')[0]->no,
+			'lokasi' => $res[0]['tempat'],
+			);
+		$this->M_progress->insert($data);
+		redirect(base_url().'agenda','refresh');
 	}
 	public function update($value)
 	{
