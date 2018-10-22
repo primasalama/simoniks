@@ -125,7 +125,7 @@
                 
               //}
               if ($this->session->userdata('session') ) {
-                if ($this->session->userdata('session')[0]->role == 'admin' or $this->session->userdata('session')[0]->role == 'sesdep') {
+                if ($this->session->userdata('session')[0]->role != 'admin' or $this->session->userdata('session')[0]->role == 'sesdep') {
                  ?><th>Action</th><?php
                 }
 								
@@ -176,9 +176,9 @@
               //if ($this->session->userdata('session')) {
                 //if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
                       ?>
-                      <!-- <td><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
-                      <td><?php if($key->tglSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
-                      <td><?php if($key->tglPencairan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td> -->
+                      <!-- <td><?php //if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
+                      <td><?php //if($key->tglSpd != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
+                      <td><?php //if($key->tglPencairan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td> -->
                       <?php
                     //}
               //}
@@ -187,7 +187,7 @@
               
               <?php 
               if ($this->session->userdata('session')) {
-               if ($this->session->userdata('session')[0]->role == 'admin' or $this->session->userdata('session')[0]->role == 'sesdep') {
+               if ($this->session->userdata('session')[0]->role != 'admin' or $this->session->userdata('session')[0]->role == 'sesdep') {
                 ?>
                 <td>
                   <?php 
@@ -203,9 +203,15 @@
                     ?>
                     <a class="btn btn-warning" href="<?php echo base_url()."f".$this->uri->segment(1);?>/edit/<?php echo $key->no."/".$this->session->userdata('session')[0]->role;?>"><span class="glyphicon glyphicon-edit"></span></a>
                    
-                    <a href="#" id="hapus" class="btn btn-md btn-default"  data-href="<?php echo base_url();?>fagenda/migrate/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-progress"><span class="glyphicon glyphicon-export" data-toggle="tooltip" title="Hapus"></span>Sinkron</a>
+                   
                     <?php
                   // }
+                    // print_r($this->session->userdata('session'));die();
+                    if ($this->uri->segment(2) != '' && $this->session->userdata('session')[0]->role != 'admin') {
+                      ?>
+                         <a href="#" id="hapus" class="btn btn-md btn-default"  data-href="<?php echo base_url();?>fagenda/migrate/<?php echo $key->no;?>" data-book="<?php echo $key->kegiatan;?>" data-toggle="modal" data-target="#confirm-progress"><span class="glyphicon glyphicon-export" data-toggle="tooltip" title="Hapus"></span>Sinkron</a>
+                      <?php
+                    }
 
                   ?>
                   
@@ -283,12 +289,12 @@
                             </div>
                         
                             <div class="modal-body">
-                                <p>Anda ingin menghapus?</p>
+                                <p>Anda ingin memindahkan agenda menjadi Progress?</p>
                                 Agenda Kegiatan :  <strong><span class="debug-url"></span></strong>
                             </div>
                             
                             <div class="modal-footer">
-                                <a class="btn btn-danger btn-ok">Hapus</a>
+                                <a class="btn btn-danger btn-ok">Pindah</a>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Gagal</button>
                             </div>
                         </div>
